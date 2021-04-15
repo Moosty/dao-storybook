@@ -13,10 +13,17 @@
     --color-surface-outline: var(--color-deep-10);
 
     --color-theme-button-bg: var(--color-theme-9);
+    --color-theme-button-bg-secondary: var(--color-deep-0);
+    --color-theme-button-text-primary: var(--color-deep-0);
+
     --color-theme-hover: var(--color-theme-10);
     --color-theme-pressed: var(--color-theme-11);
     --color-theme-dark: var(--color-theme-13);
     --color-theme-light: var(--color-theme-2);
+
+    --color-button-primary: var(--color-theme-9);
+
+
 
     --color-forms-border: var(--color-deep-50);
     --color-forms-hover-border: var(--color-deep-70);

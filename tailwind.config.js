@@ -29,6 +29,15 @@ module.exports = {
         'body': ['Roboto'],
         'caption': ['Roboto'],
       },
+      spacing: {
+        '12px': '12px',
+        '9px': '9px',
+        '16px': '16px',
+        '24px': '24px',
+        '32px': '32px',
+        '6px': '6px',
+      },
+
       width: {
         '1/7': '14.2857143%',
         '2/7': '28.5714286%',
@@ -52,6 +61,8 @@ module.exports = {
         surfaceOutline: 'var(--color-surface-outline)',
 
         themeButtonBg: 'var(--color-theme-button-bg)',
+        themeButtonBgSecondary: 'var(--color-theme-button-bg-secondary)',
+        themeButtonTextPrimary: 'var(--color-deep-0)',
         themeHover: 'var(--color-theme-hover)',
         themePressed: 'var(--color-theme-pressed)',
         themeDark: 'var(--color-theme-dark)',
