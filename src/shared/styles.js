@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import {css} from 'styled-components';
 
 // New styles
 const headerFontBase = ["font-heading", "not-italic", "font-bold", "text-textHeadings"].join(" ")
@@ -7,8 +7,31 @@ export const fontStyles = {
   h2: [headerFontBase, 'text-24px', 'leading-36px'].join(" "),
   h3: [headerFontBase, 'text-20px', 'leading-30px'].join(" "),
   h4: [headerFontBase, 'text-18px', 'leading-28px'].join(" "),
-  buttonL: ['font-button', 'not-italic', 'font-medium', 'text-textHeadings', 'text-20px', 'leading-24px'].join(" "),
-  buttonM: ['font-button', 'not-italic', 'font-medium', 'text-textHeadings', 'text-18px', 'leading-22px'].join(" "),
+  buttonL: [
+    'font-button',
+    'not-italic',
+    'font-medium',
+    'text-textHeadings',
+    'text-20px',
+    'leading-24px',
+    'pt-12px',
+    'pl-32px',
+    'pb-12px',
+    'pr-32px',
+
+
+  ].join(" "),
+  buttonM: [
+    'font-button',
+    'not-italic',
+    'font-medium',
+    'text-textHeadings',
+    'text-18px',
+    'leading-22px',
+    'pt-9px',
+    'pl-24px',
+    'pb-9px',
+    'pr-24px',].join(" "),
   buttonS: ['font-button', 'not-italic', 'font-medium', 'text-textHeadings', 'text-16px', 'leading-20px'].join(" "),
   body: ['font-body', 'font-normal', 'text-textBody', 'text-15px', 'leading-24px'].join(" "),
   bodyLarge: ['font-body', 'font-normal', 'text-textBody', 'text-18px', 'leading-28px'].join(" "),

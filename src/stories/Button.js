@@ -1,21 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './button.css';
+import {Typography} from "./Typography";
+import {fontStyles} from "../shared/styles";
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'bg-themeButtonBg' : 'bg-textError';
-  return (
+
+const fontSizes = {
+  large: "buttonL",
+  medium: "buttonM",
+  small: "buttonS",
+}
+
+const buttonSizes = {
+  large: [fontStyles.buttonL ].join(" "),
+  medium:  [fontStyles.buttonM].join(" "),
+  small: [fontStyles.buttonS].join(" "),
+}
+
+export const Button = ({secondary, size, type, state, iconBefore, iconAfter, label, disabled, ...props}) => {
+  const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed', 'text-themeButtonTextPrimary'].join(" ");
+  const secondaryClass = ['bg-themeButtonBgSecondary', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textLink'].join(" ");
+  const disabledClass = [secondary ? 'bg-surfaceBg' :'bg-formDisabled', 'text-textDisabled'].join(" ");
+
+  const buttonSize = buttonSizes[size || "medium"]
+
+ return (
+
     <button
-      type="button"
-      className={['bg-primary', `storybook-button--${size}`, `font-body`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
+      disabled={disabled}
+      className={[
+        buttonSize,
+        disabled ? disabledClass : secondary ? secondaryClass : primaryClass ,
+        "rounded-md",
+      ].join(" ")}
       {...props}
     >
       {label}
     </button>
+
+
   );
 };
 
@@ -23,7 +49,8 @@ Button.propTypes = {
   /**
    * Is this the principal call to action on the page?
    */
-  primary: PropTypes.bool,
+  secondary: PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * What icon to use
    */
@@ -49,7 +76,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
   icon: null,
-  primary: false,
+  secondary: false,
+  disabled: false,
   size: 'medium',
   onClick: undefined,
   type: 'strandard'
