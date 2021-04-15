@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './button.css';
+
 import {Typography} from "./Typography";
 import {fontStyles} from "../shared/styles";
 
@@ -20,7 +21,7 @@ const buttonSizes = {
   small: [fontStyles.buttonS].join(" "),
 }
 
-export const Button = ({secondary, size, type, state, iconBefore, iconAfter, label, disabled, ...props}) => {
+export const Button = ({secondary, size, type, state, iconBefore,icon, iconAfter, label, disabled, ...props}) => {
   const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed', 'text-themeButtonTextPrimary'].join(" ");
   const secondaryClass = ['bg-themeButtonBgSecondary', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textLink'].join(" ");
   const disabledClass = [secondary ? 'bg-surfaceBg' :'bg-formDisabled', 'text-textDisabled'].join(" ");
@@ -38,7 +39,10 @@ export const Button = ({secondary, size, type, state, iconBefore, iconAfter, lab
       ].join(" ")}
       {...props}
     >
+      { !iconAfter && icon}
+
       {label}
+      {iconAfter && icon}
     </button>
 
 
@@ -80,5 +84,5 @@ Button.defaultProps = {
   disabled: false,
   size: 'medium',
   onClick: undefined,
-  type: 'strandard'
+  type: 'strandard',
 };
