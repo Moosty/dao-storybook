@@ -1,0 +1,51 @@
+.dao-light {
+    --color-text-headings: var(--color-deep-100);
+    --color-text-body: var(--color-deep-75);
+    --color-text-caption: var(--color-deep-60);
+    --color-text-disabled: var(--color-deep-55);
+    --color-text-placeHolder: var(--color-deep-50);
+    --color-text-link: var(--color-theme-9-text);
+    --color-text-hover: var(--color-theme-10);
+    --color-text-error: var(--color-red-9);
+
+    --color-surface-bg: var(--color-deep-2);
+    --color-surface-icon-bg: var(--color-deep-5);
+    --color-surface-outline: var(--color-deep-10);
+
+    --color-theme-button-bg: var(--color-theme-9);
+    --color-theme-hover: var(--color-theme-10);
+    --color-theme-pressed: var(--color-theme-11);
+    --color-theme-dark: var(--color-theme-13);
+    --color-theme-light: var(--color-theme-2);
+
+    --color-forms-border: var(--color-deep-50);
+    --color-forms-hover-border: var(--color-deep-70);
+    --color-forms-read-only: var(--color-deep-5);
+    --color-forms-disabled: var(--color-deep-10);
+    --color-forms-active: var(--color-theme-8);
+    --color-forms-error: var(--color-red-8);
+
+    --color-danger-background: var(--color-red-1);
+    --color-danger-light: var(--color-red-3);
+    --color-danger-outline: var(--color-red-3);
+    --color-danger-icon: var(--color-red-9);
+    --color-danger-dark: var(--color-red-13);
+
+    --color-success-background: var(--color-green-1);
+    --color-success-light: var(--color-green-3);
+    --color-success-outline: var(--color-green-3);
+    --color-success-icon: var(--color-green-9);
+    --color-success-dark: var(--color-green-13);
+
+    --color-info-background: var(--color-blue-1);
+    --color-info-light: var(--color-blue-3);
+    --color-info-outline: var(--color-blue-3);
+    --color-info-icon: var(--color-blue-9);
+    --color-info-dark: var(--color-blue-13);
+
+    --color-warning-background: var(--color-yellow-1);
+    --color-warning-light: var(--color-yellow-4);
+    --color-warning-outline: var(--color-yellow-4);
+    --color-warning-icon: var(--color-yellow-9);
+    --color-warning-dark: var(--color-yellow-13);
+}
