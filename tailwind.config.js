@@ -11,6 +11,13 @@ module.exports = {
       '15px': '15px',
       '13px': '13px',
     },
+    boxShadow: {
+      defaultPrimary: '0 3px 14px rgba(64, 112, 244, 0.5)',
+      cardYes: '0 3px 14px rgba(43, 214, 123, 0.7)',
+      cardNo:'-4px 2px 36px -10px rgba(64, 112, 244, 0.5)',
+
+    },
+
     extend: {
       lineHeight: {
         '46px': '46px',
@@ -45,7 +52,9 @@ module.exports = {
         '4/7': '57.1428571%',
         '5/7': '71.4285714%',
         '6/7': '85.7142857%',
+        'app': '85%',
       },
+
       colors: {
         textHeadings: 'var(--color-text-headings)',
         textBody: 'var(--color-text-body)',
@@ -55,6 +64,8 @@ module.exports = {
         textLink: 'var(--color-text-link)',
         textHover: 'var(--color-text-hover)',
         textError: 'var(--color-text-error)',
+
+        cardBg: 'var(--color-deep-0)',
 
         surfaceBg: 'var(--color-surface-bg)',
         surfaceIconBg: 'var(--color-surface-icon-bg)',

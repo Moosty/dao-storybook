@@ -3,8 +3,40 @@ import PropTypes from 'prop-types';
 
 import { Header } from './Header';
 import './page.css';
+import { NavBar } from "./NavBar";
+import {appWidth} from "../shared/styles";
+import {Container} from "./Container";
+import {Button} from "./Button";
+import {Card} from "./Card";
 
 export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (
+  <div>
+    <NavBar />
+    <div className ={[appWidth].join(" ")}>
+      <Container>
+        <div className="flex flex-row flex-wrap">
+          <Card
+            cardNo
+          className="sm:w-1/2 md:w-1/3 lg:w-1/4"/>
+          <Card
+            cardYes
+            className=" sm:w-1/2 md:w-1/3 lg:w-1/4"/>
+          <Card
+            className=" sm:w-1/2 md:w-1/3 lg:w-1/4"/>
+          <Card
+            className="sm:w-1/2 md:w-1/3 lg:w-1/4"/>
+          <Card
+            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"/>
+          <Card
+            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"/>
+
+
+        </div>
+
+
+        <Button label="test" />
+
+      </Container>
   <article>
     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />
 
@@ -58,6 +90,9 @@ export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (
       </div>
     </section>
   </article>
+    </div>
+  </div>
+
 );
 Page.propTypes = {
   user: PropTypes.shape({}),
