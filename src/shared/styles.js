@@ -1,11 +1,12 @@
 import { css } from 'styled-components';
 
 // New styles
+const headerFontBase = ["font-heading", "not-italic", "font-bold", "text-textHeadings"].join(" ")
 export const fontStyles = {
-  h1: ['font-h', 'not-italic', 'font-bold', 'text-textHeadings', 'text-32px', 'leading-46px'].join(" "),
-  h2: ['font-h', 'not-italic', 'font-bold', 'text-textHeadings', 'text-24px', 'leading-36px'].join(" "),
-  h3: ['font-h', 'not-italic', 'font-bold', 'text-textHeadings', 'text-20px', 'leading-30px'].join(" "),
-  h4: ['font-h', 'not-italic', 'font-bold', 'text-textHeadings', 'text-18px', 'leading-28px'].join(" "),
+  h1: [headerFontBase, 'text-32px', 'leading-46px'].join(" "),
+  h2: [headerFontBase, 'text-24px', 'leading-36px'].join(" "),
+  h3: [headerFontBase, 'text-20px', 'leading-30px'].join(" "),
+  h4: [headerFontBase, 'text-18px', 'leading-28px'].join(" "),
   buttonL: ['font-button', 'not-italic', 'font-medium', 'text-textHeadings', 'text-20px', 'leading-24px'].join(" "),
   buttonM: ['font-button', 'not-italic', 'font-medium', 'text-textHeadings', 'text-18px', 'leading-22px'].join(" "),
   buttonS: ['font-button', 'not-italic', 'font-medium', 'text-textHeadings', 'text-16px', 'leading-20px'].join(" "),

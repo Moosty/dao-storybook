@@ -22,7 +22,6 @@ module.exports = {
         '20px': '20px',
         '18px': '18px',
         '16px': '16px',
-
       },
       fontFamily: {
         'heading': ['Poppins'],
