@@ -35,7 +35,7 @@ export const Button = ({secondary, size, type, state, iconBefore,icon, iconAfter
       className={[
         buttonSize,
         disabled ? disabledClass : secondary ? secondaryClass : primaryClass ,
-        "rounded-md",
+        "rounded-default",
       ].join(" ")}
       {...props}
     >

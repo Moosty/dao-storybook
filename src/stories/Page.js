@@ -16,12 +16,16 @@ export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (
       <Container>
         <div className="flex flex-row flex-wrap">
           <Card
-            cardNo
+           cardNo
+           buttonLabel="DontVote!"
+           footerNotice="voting closed"
           className="sm:w-1/2 md:w-1/3 lg:w-1/4"/>
           <Card
             cardYes
+            footerNotice="3 days left"
             className=" sm:w-1/2 md:w-1/3 lg:w-1/4"/>
           <Card
+            buttonLabel="Blabla"
             className=" sm:w-1/2 md:w-1/3 lg:w-1/4"/>
           <Card
             className="sm:w-1/2 md:w-1/3 lg:w-1/4"/>

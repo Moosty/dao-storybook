@@ -4,7 +4,7 @@ import {Typography} from "./Typography";
 
 export const CardHeader = () => {
   return (
-    <div className="bg-white flex flex-col px-4 py-2  sm:px-6">
+    <div className="bg-cardBg flex flex-col px-4 py-2  sm:px-6">
       <Typography type="body" Element="body">Lambo buying group</Typography>
       <Typography type="bodyStrong" Element="bodyStrong">Should we buy a red lambo or rather a green lambo?</Typography>
 
