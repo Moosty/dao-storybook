@@ -1,6 +1,7 @@
 import React from "react";
 import {CardHeader} from "./CardHeader";
-import {Button} from "./Button";
+import {CardFooter} from "./CardFooter";
+import {CardContent} from "./CardContent";
 
 
 export const Card = ({className, cardNo, cardYes}) => {
@@ -31,17 +32,11 @@ export const Card = ({className, cardNo, cardYes}) => {
       </div>
       <div className={[
         "divide-gray-200",
+        "w-full",
       ].join(" ")}>
         <CardHeader/>
-        <div className="px-4 py-5 sm:p-6">test2</div>
-        <div className="flex w-full flex-row h-10 bg-surfaceBg">
-          <div className="px-4 py-4 sm:px-6 w/full">
-            Votes
-          </div>
-          <div className="  flex-end">
-            <Button label="Vote"/>
-          </div>
-        </div>
+        <CardContent />
+      <CardFooter />
       </div>
     </div>
   )
