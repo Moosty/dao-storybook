@@ -2,9 +2,11 @@ import React from "react";
 import {CardHeader} from "./CardHeader";
 import {CardFooter} from "./CardFooter";
 import {CardContent} from "./CardContent";
+import PropTypes from "prop-types";
+import {Button} from "./Button";
 
 
-export const Card = ({className, cardNo, cardYes, cardLeftShadow, footerNotice, buttonLabel}) => {
+export const Card = ({className, cardLeftShadow, footerNotice, buttonLabel, votingResult, isOpen, userState}) => {
   return (
     <div className={[
       className,
@@ -18,17 +20,16 @@ export const Card = ({className, cardNo, cardYes, cardLeftShadow, footerNotice, 
       "divide-y",
       "w-full",
     ].join(" ")}>
-      {(cardNo || cardYes) &&
       <div className={[
-        cardNo && "bg-dangerIcon shadow-cardNo",
-        cardYes && "shadow-cardYes bg-successIcon ",
+        votingResult === "yes" && "bg-dangerIcon shadow-cardNo",
+        votingResult === "no" && "shadow-cardYes bg-successIcon ",
         "bg-formBorder",
         "w-1",
         "h-full",
       ].join(" ")}
       >
       </div>
-      }
+
       <div className={[
         "divide-gray-200",
         "w-full",
@@ -37,12 +38,33 @@ export const Card = ({className, cardNo, cardYes, cardLeftShadow, footerNotice, 
         <CardContent>
           CONTENT
         </CardContent>
+
         <CardFooter
-        footerNotice={footerNotice}
-        buttonLabel={buttonLabel}/>
+          footerNotice={footerNotice}
+          buttonLabel={buttonLabel}
+          isOpen={isOpen}/>
       </div>
     </div>
   )
 }
+
+
+Card.propTypes = {
+  /**
+   * Is this the principal call to action on the page?
+   */
+  votingResult: PropTypes.oneOf(["yes", "no", "inconclusive"]),
+  isOpen: PropTypes.bool,
+  userState: PropTypes.oneOf(["yes", "no", "closed", "open"]),
+
+
+};
+
+Card.defaultProps = {
+  votingResult: "yes",
+  isOpen: true,
+  userState: "open",
+
+};
 
 

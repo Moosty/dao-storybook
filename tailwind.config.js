@@ -44,6 +44,9 @@ module.exports = {
         '32px': '32px',
         '6px': '6px',
       },
+      borderRadius: {
+        'default': '12px',
+      },
 
       width: {
         '1/7': '14.2857143%',
@@ -53,6 +56,7 @@ module.exports = {
         '5/7': '71.4285714%',
         '6/7': '85.7142857%',
         'app': '85%',
+        'card' : '366px',
       },
 
       colors: {
