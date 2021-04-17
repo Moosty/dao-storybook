@@ -22,8 +22,8 @@ const buttonSizes = {
 }
 
 export const Button = ({secondary, size, type, state, iconBefore,icon, iconAfter, label, disabled, ...props}) => {
-  const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed', 'text-themeButtonTextPrimary'].join(" ");
-  const secondaryClass = ['shadow-defaultPrimary','bg-themeButtonBgSecondary','border-surfaceOutline','border-2', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textLink'].join(" ");
+  const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed','shadow-defaultPrimary', 'text-themeButtonTextPrimary'].join(" ");
+  const secondaryClass = ['','bg-themeButtonBgSecondary','border-surfaceOutline','border-2', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textLink'].join(" ");
   const disabledClass = [secondary ? 'bg-surfaceBg' :'bg-formDisabled', 'text-textDisabled'].join(" ");
 
   const buttonSize = buttonSizes[size || "medium"]
