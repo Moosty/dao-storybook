@@ -10,12 +10,8 @@ export default {
 
 const Template = (args) => <CreateVoting {...args} />;
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
+export const CreateVote = Template.bind({});
+CreateVote.args = {
     ...HeaderStories.LoggedIn.args,
 };
 
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {
-    ...HeaderStories.LoggedOut.args,
-};
