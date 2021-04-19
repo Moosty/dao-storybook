@@ -11,7 +11,6 @@ import {SwitchButton} from "./SwitchButton";
 import {SimpleInput} from "./forms/SimpleInput";
 import {InputAvatar} from "./forms/InputAvatar";
 import {InputDropdown} from "./forms/InputDropdown";
-import {ConceptButton} from "./forms/ConceptButton";
 import {CheckIcon} from "@heroicons/react/solid";
 
 export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
@@ -23,7 +22,6 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
                     <Typography type="h2" Element='h2'>
                         Create a voting
                     </Typography>
-                    <ConceptButton/>
 
                 </div>
                 <div className="grid grid-cols-2 my-2 justify-center divide-x-2 divide-gray-200">
