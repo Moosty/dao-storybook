@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './button.css';
 
+
 import {Typography} from "./Typography";
 import {fontStyles} from "../shared/styles";
 
@@ -21,7 +22,7 @@ const buttonSizes = {
   small: [fontStyles.buttonS].join(" "),
 }
 
-export const Button = ({secondary, size, type, state, iconBefore,icon, iconAfter, label, disabled, ...props}) => {
+export const Button = ({secondary, size, type, state, iconBefore,icon, iconAfter, label,buttonGroup, disabled, ...props}) => {
   const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed','shadow-defaultPrimary', 'text-themeButtonTextPrimary'].join(" ");
   const secondaryClass = ['','bg-themeButtonBgSecondary','border-surfaceOutline','border-2', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textLink'].join(" ");
   const disabledClass = [secondary ? 'bg-surfaceBg' :'bg-formDisabled', 'text-textDisabled'].join(" ");
@@ -29,12 +30,13 @@ export const Button = ({secondary, size, type, state, iconBefore,icon, iconAfter
   const buttonSize = buttonSizes[size || "medium"]
 
  return (
-
     <button
       disabled={disabled}
+
       className={[
         buttonSize,
         disabled ? disabledClass : secondary ? secondaryClass : primaryClass ,
+        buttonGroup && "rounded-r-none",
         "rounded-default",
       ].join(" ")}
       {...props}
@@ -43,7 +45,9 @@ export const Button = ({secondary, size, type, state, iconBefore,icon, iconAfter
 
       {label}
       {iconAfter && icon}
+
     </button>
+
 
 
   );

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import {Button} from "./Button";
 
 
-export const Card = ({className, cardLeftShadow, footerNotice, buttonLabel, votingResult, isOpen, userState}) => {
+export const Card = ({className, cardLeftShadow,icon, footerNotice, buttonLabel, votingResult,buttonGroup, isOpen, userState}) => {
   return (
     <div className={[
       className,
@@ -41,7 +41,9 @@ export const Card = ({className, cardLeftShadow, footerNotice, buttonLabel, voti
 
         <CardFooter
           footerNotice={footerNotice}
+          buttonGroup={buttonGroup}
           buttonLabel={buttonLabel}
+          icon={icon}
           isOpen={isOpen}/>
       </div>
     </div>
