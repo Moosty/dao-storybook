@@ -94,6 +94,7 @@ module.exports = {
         formDisabled: 'var(--color-forms-disabled)',
         formActive: 'var(--color-forms-active)',
         formError: 'var(--color-forms-error)',
+        formDivider: 'var(--color-forms-divider)',
 
         dangerBackground: 'var(--color-danger-background)',
         dangerLight: 'var(--color-danger-light)',
@@ -124,5 +125,9 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+
+
 }

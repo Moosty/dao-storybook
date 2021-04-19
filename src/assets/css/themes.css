@@ -31,6 +31,7 @@
     --color-forms-disabled: var(--color-deep-10);
     --color-forms-active: var(--color-theme-8);
     --color-forms-error: var(--color-red-8);
+    --color-forms-divider: var( --color-deep-15);
 
     --color-danger-background: var(--color-red-1);
     --color-danger-light: var(--color-red-3);
