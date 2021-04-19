@@ -6,7 +6,8 @@ import PropTypes from "prop-types";
 import {Button} from "./Button";
 
 
-export const Card = ({className, cardLeftShadow,icon, footerNotice, buttonLabel, votingResult,buttonGroup, isOpen, userState}) => {
+export const Card = ({className, footer, cardLeftShadow,icon, footerNotice, buttonLabel,userVote, votingResult, header,buttonGroup, isOpen, userState}) => {
+  console.log(votingResult)
   return (
     <div className={[
       className,
@@ -21,8 +22,8 @@ export const Card = ({className, cardLeftShadow,icon, footerNotice, buttonLabel,
       "w-full",
     ].join(" ")}>
       <div className={[
-        votingResult === "yes" && "bg-dangerIcon shadow-cardNo",
-        votingResult === "no" && "shadow-cardYes bg-successIcon ",
+        votingResult === "no" && "bg-dangerIcon shadow-cardNo",
+        votingResult === "yes" && "shadow-cardYes bg-successIcon ",
         "bg-formBorder",
         "w-1",
         "h-full",
@@ -32,19 +33,17 @@ export const Card = ({className, cardLeftShadow,icon, footerNotice, buttonLabel,
 
       <div className={[
         "divide-gray-200",
+        "flex",
+        "flex-col",
         "w-full",
       ].join(" ")}>
-        <CardHeader/>
+        <CardHeader {...header}/>
         <CardContent>
           CONTENT
         </CardContent>
 
-        <CardFooter
-          footerNotice={footerNotice}
-          buttonGroup={buttonGroup}
-          buttonLabel={buttonLabel}
-          icon={icon}
-          isOpen={isOpen}/>
+        <CardFooter {...footer} />
+
       </div>
     </div>
   )
@@ -63,7 +62,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  votingResult: "yes",
+  votingResult: "inconclusive",
   isOpen: true,
   userState: "open",
 

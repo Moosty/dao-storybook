@@ -1,50 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Header } from './Header';
+import {Header} from './Header';
 import './page.css';
-import { NavBar } from "./NavBar";
+import {NavBar} from "./NavBar";
 import {appWidth} from "../shared/styles";
 import {Container} from "./Container";
 import {Button} from "./Button";
 import {Card} from "./Card";
+import {PlusIcon, ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
+import {ButtonGroup} from "./ButtonGroup";
+import {VotingFooterRight} from "./VotingFooterRight";
+import {VotingFooterLeft} from "./VotingFooterLeft";
 
-export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (
+export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
-    <NavBar />
-    <div className ={[appWidth].join(" ")}>
+    <NavBar/>
+    <div className={[appWidth].join(" ")}>
       <Container>
         <div className="flex flex-row flex-wrap space-between">
-          <Card
-            isOpen
-            className="w-card"/>
-          <Card
-           votingResult="yes"
-           footerNotice="voting closed"
-          className="w-card"/>
-          <Card
-            isOpen
-            votingResult="no"
-            footerNotice="3 days left"
-            className="w-card"/>
 
-          <Card
-            className="w-card"/>
-          <Card
-            buttonGroup
-            icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path
-                d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-            </svg>}
-            className="w-card"/>
-          <Card
-            className="w-card"/>
+
+          {cards.map(card => <Card {...card} />)}
+
 
 
         </div>
 
 
-        <Button label="test" />
 
       </Container>
 
@@ -62,3 +45,209 @@ Page.propTypes = {
 Page.defaultProps = {
   user: null,
 };
+
+
+const cards = [
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+
+    header:{
+      dao: "open, inconclusive",
+      title:"You have not voted",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+    header:{
+      dao: "open, inconclusive",
+      title:"You have voted yes",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight
+        userVote= "yes"
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+
+    header:{
+      dao: "open, inconclusive",
+      title:"You have voted no",
+    },
+    footer: {
+
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight
+        userVote= "no"/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+
+    header:{
+      dao: "open, inconclusive",
+      title:"the voting isnt for you",
+    },
+    footer: {
+      notAllowed: true,
+      bgColor: "surfaceIconBg",
+      left: <VotingFooterLeft
+        notAllowed/>,
+      right: <VotingFooterRight
+        notAllowed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header:{
+      dao: "open, Yes",
+      title:"You have not voted",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header:{
+      dao: "open, Yes",
+      title:"You have voted yes",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight
+        userVote= "yes"
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header:{
+      dao: "open, Yes",
+      title:"You have voted no",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight
+        userVote= "no"
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header:{
+      dao: "open, Yes",
+      title:"This voting isnt for you",
+    },
+    footer: {
+      notAllowed: true,
+      left: <VotingFooterLeft
+        notAllowed/>,
+      right: <VotingFooterRight
+        notAllowed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+
+    header:{
+      dao: "open, No",
+      title:"You have not voted",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+
+    header:{
+      dao: "open, No",
+      title:"You have voted yes",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight
+        userVote= "yes"
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+
+    header:{
+      dao: "open, No",
+      title:"You have voted no",
+    },
+    footer: {
+      left: <VotingFooterLeft />,
+      right: <VotingFooterRight
+        userVote= "no"
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+
+    header:{
+      dao: "open, No",
+      title:"This voting isnt for you",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        notAllowed/>,
+      right: <VotingFooterRight
+        notAllowed />,
+
+    }
+  },
+
+
+]
+

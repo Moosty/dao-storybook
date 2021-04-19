@@ -30,7 +30,7 @@ function classNames(...classes) {
 
 export const NavBar = () => {
   return (
-    <Disclosure as="nav" className="bg-surfaceBg">
+    <Disclosure as="nav" className="bg-navBarBg">
       {({ open }) => (
         <>
         <div className ={[appWidth, "px-4", "sm:px-6", "lg:px-8" ].join(" ")}>
@@ -79,19 +79,16 @@ export const NavBar = () => {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <Button
-                    label="Add Dao"
-                    secondary
-                    size="small"
+                    label="Create new Dao"
+                    iconBefore={<PlusIcon />}
+                    size=""
                   >
                     <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
                     <span>New Job</span>
                   </Button>
                 </div>
                 <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
-                  <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
+
 
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
@@ -167,10 +164,7 @@ export const NavBar = () => {
                   <div className="text-base font-medium text-white">{user.name}</div>
                   <div className="text-sm font-medium text-gray-400">{user.email}</div>
                 </div>
-                <button className="ml-auto flex-shrink-0 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+
               </div>
               <div className="mt-3 px-2 space-y-1 sm:px-3">
                 {userNavigation.map((item) => (

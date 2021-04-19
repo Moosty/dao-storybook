@@ -47,6 +47,9 @@ module.exports = {
       borderRadius: {
         'default': '12px',
       },
+      borderWidth: {
+        '3': '3px',
+      },
 
       width: {
         '1/7': '14.2857143%',
@@ -70,6 +73,8 @@ module.exports = {
         textError: 'var(--color-text-error)',
 
         cardBg: 'var(--color-deep-0)',
+
+        navBarBg: 'var(--color-deep-100)',
 
         surfaceBg: 'var(--color-surface-bg)',
         surfaceIconBg: 'var(--color-surface-icon-bg)',
