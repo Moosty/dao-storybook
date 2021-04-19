@@ -24,9 +24,7 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
           {cards.map(card => <Card {...card} />)}
 
 
-
         </div>
-
 
 
       </Container>
@@ -52,13 +50,13 @@ const cards = [
     className: "w-card",
     votingResult: "inconclusive",
 
-    header:{
+    header: {
       dao: "open, inconclusive",
-      title:"You have not voted",
+      title: "You have not voted",
     },
     footer: {
-      left: <VotingFooterLeft />,
-      right: <VotingFooterRight />,
+      left: <VotingFooterLeft/>,
+      right: <VotingFooterRight/>,
 
 
     }
@@ -66,14 +64,14 @@ const cards = [
   {
     className: "w-card",
     votingResult: "inconclusive",
-    header:{
+    header: {
       dao: "open, inconclusive",
-      title:"You have voted yes",
+      title: "You have voted yes",
     },
     footer: {
-      left: <VotingFooterLeft />,
+      left: <VotingFooterLeft/>,
       right: <VotingFooterRight
-        userVote= "yes"
+        userVote="yes"
       />,
 
 
@@ -83,15 +81,15 @@ const cards = [
     className: "w-card",
     votingResult: "inconclusive",
 
-    header:{
+    header: {
       dao: "open, inconclusive",
-      title:"You have voted no",
+      title: "You have voted no",
     },
     footer: {
 
-      left: <VotingFooterLeft />,
+      left: <VotingFooterLeft/>,
       right: <VotingFooterRight
-        userVote= "no"/>,
+        userVote="no"/>,
 
 
     }
@@ -100,9 +98,9 @@ const cards = [
     className: "w-card",
     votingResult: "inconclusive",
 
-    header:{
+    header: {
       dao: "open, inconclusive",
-      title:"the voting isnt for you",
+      title: "the voting isnt for you",
     },
     footer: {
       notAllowed: true,
@@ -119,13 +117,13 @@ const cards = [
     className: "w-card",
     votingResult: "yes",
 
-    header:{
+    header: {
       dao: "open, Yes",
-      title:"You have not voted",
+      title: "You have not voted",
     },
     footer: {
-      left: <VotingFooterLeft />,
-      right: <VotingFooterRight />,
+      left: <VotingFooterLeft/>,
+      right: <VotingFooterRight/>,
 
 
     }
@@ -134,14 +132,14 @@ const cards = [
     className: "w-card",
     votingResult: "yes",
 
-    header:{
+    header: {
       dao: "open, Yes",
-      title:"You have voted yes",
+      title: "You have voted yes",
     },
     footer: {
-      left: <VotingFooterLeft />,
+      left: <VotingFooterLeft/>,
       right: <VotingFooterRight
-        userVote= "yes"
+        userVote="yes"
       />,
 
 
@@ -151,14 +149,14 @@ const cards = [
     className: "w-card",
     votingResult: "yes",
 
-    header:{
+    header: {
       dao: "open, Yes",
-      title:"You have voted no",
+      title: "You have voted no",
     },
     footer: {
-      left: <VotingFooterLeft />,
+      left: <VotingFooterLeft/>,
       right: <VotingFooterRight
-        userVote= "no"
+        userVote="no"
       />,
 
 
@@ -168,9 +166,9 @@ const cards = [
     className: "w-card",
     votingResult: "yes",
 
-    header:{
+    header: {
       dao: "open, Yes",
-      title:"This voting isnt for you",
+      title: "This voting isnt for you",
     },
     footer: {
       notAllowed: true,
@@ -186,13 +184,13 @@ const cards = [
     className: "w-card",
     votingResult: "no",
 
-    header:{
+    header: {
       dao: "open, No",
-      title:"You have not voted",
+      title: "You have not voted",
     },
     footer: {
-      left: <VotingFooterLeft />,
-      right: <VotingFooterRight />,
+      left: <VotingFooterLeft/>,
+      right: <VotingFooterRight/>,
 
 
     }
@@ -201,14 +199,14 @@ const cards = [
     className: "w-card",
     votingResult: "no",
 
-    header:{
+    header: {
       dao: "open, No",
-      title:"You have voted yes",
+      title: "You have voted yes",
     },
     footer: {
-      left: <VotingFooterLeft />,
+      left: <VotingFooterLeft/>,
       right: <VotingFooterRight
-        userVote= "yes"
+        userVote="yes"
       />,
 
 
@@ -218,14 +216,14 @@ const cards = [
     className: "w-card",
     votingResult: "no",
 
-    header:{
+    header: {
       dao: "open, No",
-      title:"You have voted no",
+      title: "You have voted no",
     },
     footer: {
-      left: <VotingFooterLeft />,
+      left: <VotingFooterLeft/>,
       right: <VotingFooterRight
-        userVote= "no"
+        userVote="no"
       />,
 
 
@@ -235,15 +233,265 @@ const cards = [
     className: "w-card",
     votingResult: "no",
 
-    header:{
+    header: {
       dao: "open, No",
-      title:"This voting isnt for you",
+      title: "This voting isnt for you",
     },
     footer: {
       left: <VotingFooterLeft
         notAllowed/>,
       right: <VotingFooterRight
-        notAllowed />,
+        notAllowed/>,
+
+    }
+  },
+
+  // CLOSED
+
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+
+    header: {
+      dao: "closed, inconclusive",
+      title: "You have not voted",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="inconclusive"
+        votingClosed/>,
+      right: <VotingFooterRight
+        votingResult="inconclusive"
+        votingClosed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+    header: {
+      dao: "closed, inconclusive",
+      title: "You have voted yes",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="inconclusive"
+
+        votingClosed
+        userVote="yes"
+      />,
+      right: <VotingFooterRight
+        userVote="yes"
+        votingClosed
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+
+    header: {
+      dao: "closed, inconclusive",
+      title: "You have voted no",
+    },
+    footer: {
+
+      left: <VotingFooterLeft
+        votingResult="inconclusive"
+        userVote="no"
+        votingClosed/>,
+      right: <VotingFooterRight
+        userVote="no"
+        votingClosed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "inconclusive",
+
+    header: {
+      dao: "closed, inconclusive",
+      title: "the voting isnt for you",
+    },
+    footer: {
+      notAllowed: true,
+      bgColor: "surfaceIconBg",
+      left: <VotingFooterLeft
+        votingResult="inconclusive"
+        notAllowed
+        votingClosed/>,
+      right: <VotingFooterRight
+        notAllowed
+        votingClosed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header: {
+      dao: "closed, Yes",
+      title: "You have not voted",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="yes"
+        votingClosed/>,
+      right: <VotingFooterRight
+        votingClosed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header: {
+      dao: "closed, Yes",
+      title: "You have voted yes",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="yes"
+        userVote="yes"
+        votingClosed/>,
+      right: <VotingFooterRight
+        userVote="yes"
+        votingClosed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header: {
+      dao: "closed, Yes",
+      title: "You have voted no",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="yes"
+        userVote="no"
+        votingClosed/>,
+      right: <VotingFooterRight
+        userVote="no"
+        votingClosed
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "yes",
+
+    header: {
+      dao: "closed, Yes",
+      title: "This voting isnt for you",
+    },
+    footer: {
+      notAllowed: true,
+      left: <VotingFooterLeft
+        votingResult="yes"
+        votingClosed
+        notAllowed/>,
+      right: <VotingFooterRight
+        votingClosed
+        notAllowed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+
+    header: {
+      dao: "closed, No",
+      title: "You have not voted",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="no"
+        userVote="no"
+        votingClosed/>,
+      right: <VotingFooterRight
+        userVote="no"
+        votingClosed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+
+    header: {
+      dao: "closed, No",
+      title: "You have voted yes",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="no"
+        userVote="yes"
+        votingClosed/>,
+      right: <VotingFooterRight
+        userVote="yes"
+        votingClosed/>,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+
+    header: {
+      dao: "closed, No",
+      title: "You have voted no",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="no"
+        userVote="no"
+        votingClosed/>,
+      right: <VotingFooterRight
+        userVote="no"
+        votingClosed
+      />,
+
+
+    }
+  },
+  {
+    className: "w-card",
+    votingResult: "no",
+    votingClosed: true,
+
+    header: {
+      dao: "closed, No",
+      title: "This voting isnt for you",
+    },
+    footer: {
+      left: <VotingFooterLeft
+        votingResult="no"
+        notAllowed
+        votingClosed
+      />,
+      right: <VotingFooterRight
+        notAllowed
+        votingClosed
+        votingResult="inconclusive"/>,
 
     }
   },

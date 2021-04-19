@@ -4,6 +4,7 @@ export const CardFooter = ({
                              left,
                              notAllowed,
                              className,
+                             votingClosed,
                              right,
                              userVote,
                              bgColor = "surfaceBg",
@@ -12,7 +13,7 @@ export const CardFooter = ({
     <div className={[
       "flex",
       "h-10",
-      "justify-end",
+      "justify-between",
       "rounded-default",
       "items-center",
       className,
@@ -23,12 +24,12 @@ export const CardFooter = ({
     ].join(" ")
     }>
       {left &&
-      <div className="pl-4 items-center  sm:pl-6 w-full">
+      <div className="pl-4 items-center  sm:pl-6 w-auto">
         {left}
       </div>
       }
       {right &&
-      <div className="flex-end justify-end">
+      <div className="flex-end justify-end w-auto">
         {right}
       </div>
         }
