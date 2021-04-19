@@ -7,7 +7,7 @@ export const CardFooter = ({
                              votingClosed,
                              right,
                              userVote,
-                             bgColor = "",
+                             bgColor = "surfaceBg",
                            }) => {
   return (
     <div className={[

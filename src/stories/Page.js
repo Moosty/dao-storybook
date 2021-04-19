@@ -12,13 +12,17 @@ import {PlusIcon, ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
 import {ButtonGroup} from "./ButtonGroup";
 import {VotingFooterRight} from "./VotingFooterRight";
 import {VotingFooterLeft} from "./VotingFooterLeft";
+import {FilterWrapper} from "./FilterWrapper";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
     <NavBar/>
     <div className={[appWidth].join(" ")}>
       <Container>
-        <div className="flex flex-row flex-wrap space-between">
+        <FilterWrapper />
+      </Container>
+      <Container>
+        <div className="flex flex-row flex-wrap space-between py-4">
 
 
           {cards.map(card => <Card {...card} />)}
@@ -55,6 +59,7 @@ const cards = [
       title: "You have not voted",
     },
     footer: {
+
       left: <VotingFooterLeft/>,
       right: <VotingFooterRight/>,
 
