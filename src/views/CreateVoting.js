@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Header} from './Header';
-import './page.css';
-import {NavBar} from "./NavBar";
+import {Header} from '../stories/Header';
+import '../stories/page.css';
+import {NavBar} from "../stories/NavBar";
 import {appWidth} from "../shared/styles";
-import {Container} from "./Container";
-import {Typography} from "./Typography";
-import {SwitchButton} from "./SwitchButton";
-import {SimpleInput} from "./forms/SimpleInput";
-import {InputAvatar} from "./forms/InputAvatar";
-import {InputDropdown} from "./forms/InputDropdown";
+import {Container} from "../stories/Container";
+import {Typography} from "../stories/Typography";
+import {SwitchButton} from "../stories/SwitchButton";
+import {SimpleInput} from "../stories/forms/SimpleInput";
+import {InputAvatar} from "../stories/forms/InputAvatar";
+import {InputDropdown} from "../stories/forms/InputDropdown";
 import {CheckIcon} from "@heroicons/react/solid";
 
 export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
@@ -60,26 +60,26 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
 
                         <SimpleInput label="End date" errorMessage="Your password must be less than 4 characters."/>
                         <div className="flex flex-row">
-                            <div className="flex flex-col">
+                            <div className="flex flex-col w-3/4">
 
-                                <div className="flex flex-row">
-                                    <Typography type="bodyStrong">
+                                <div className="flex flex-row items-center ">
+                                    <Typography type="bodyStrong" Element="body">
                                         Hide results before voting
                                     </Typography>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-2" fill="none"
                                          viewBox="0 0 24 24"
                                          stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                     </svg>
                                 </div>
-                                <Typography type="body">
+                                <Typography type="body" Element="body">
                                     The result is ONLY visible after the voting is closed.
                                 </Typography>
                             </div>
 
-                            <div className="flex flex-row">
-                                <Typography type="bodyStrong">
+                            <div className="flex flex-row items-center justify-end w-1/4">
+                                <Typography type="body" Element="body" className="mr-2">
                                     Off
                                 </Typography>
                                 <SwitchButton/>
