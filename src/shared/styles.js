@@ -7,6 +7,9 @@ export const fontStyles = {
   h2: [headerFontBase, 'text-24px', 'leading-36px'].join(" "),
   h3: [headerFontBase, 'text-20px', 'leading-30px'].join(" "),
   h4: [headerFontBase, 'text-18px', 'leading-28px'].join(" "),
+
+  cardTitle: [headerFontBase, 'text-14px', 'leading-16px'].join(" "),
+
   buttonL: [
     'font-button',
     'not-italic',
@@ -32,13 +35,22 @@ export const fontStyles = {
     'pl-24px',
     'pb-9px',
     'pr-24px',].join(" "),
-  buttonS: ['font-button', 'not-italic', 'font-medium', 'text-textHeadings', 'text-16px', 'leading-20px'].join(" "),
+  buttonS: ['font-button',
+    'not-italic',
+    'font-medium',
+    'text-textHeadings',
+    'text-16px',
+    'leading-20px',
+    'px-24px',
+    'py-6px'].join(" "),
   body: ['font-body', 'font-normal', 'text-textBody', 'text-15px', 'leading-24px'].join(" "),
   bodyLarge: ['font-body', 'font-normal', 'text-textBody', 'text-18px', 'leading-28px'].join(" "),
   bodyStrong: ['font-body', 'font-medium', 'text-textHeadings', 'text-15px', 'leading-20px'].join(" "),
   bodyLargeStrong: ['font-body', 'font-medium', 'text-textHeadings', 'text-18px', 'leading-24px'].join(" "),
   caption: ['font-caption', 'font-normal', 'text-textCaption', 'text-13px', 'leading-16px'].join(" "),
 }
+
+export const appWidth = "w-full md:w-app mx-auto"
 
 // Global style variables
 export const background = {
@@ -89,7 +101,7 @@ export const spacing = {
   },
   borderRadius: {
     small: 5,
-    default: 10,
+    default: 12,
   },
 };
 
@@ -117,6 +129,7 @@ export const typography = {
     code: '90',
   },
 };
+
 
 export const breakpoint = 600;
 export const pageMargin = '5.55555';
