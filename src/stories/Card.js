@@ -7,7 +7,6 @@ import {Button} from "./Button";
 
 
 export const Card = ({className, footer, cardLeftShadow,icon, footerNotice, buttonLabel,userVote, votingResult, header,buttonGroup, isOpen, userState}) => {
-  console.log(votingResult)
   return (
     <div className={[
       className,
