@@ -22,13 +22,13 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
                         Create a voting
                     </Typography>
                 </div>
-                <div className="grid grid-cols-2 my-2 justify-center">
+                <div className="grid grid-cols-2 my-2 justify-center divide-x-2 divide-gray-200">
 
                     <div>
 
                         <div className="my-4 mx-4">
 
-                        <InputAvatar label="Select the DAO"/>
+                            <InputAvatar label="Select the DAO"/>
                         </div>
                         <div className="my-4 mx-4">
                             <InputDropdown label="Select the DAO"/>
@@ -54,25 +54,26 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
                     </div>
 
                     {/*COLUMN RIGHT*/}
-                    <div className="my-4 mx-4">
+                    <div className="my-4 pl-4">
 
                         <SimpleInput label="End date" errorMessage="Your password must be less than 4 characters."/>
                         <div className="flex flex-row">
                             <div className="flex flex-col">
 
-                            <div className="flex flex-row">
-                                <Typography type="bodyStrong">
-                                    Hide results before voting
+                                <div className="flex flex-row">
+                                    <Typography type="bodyStrong">
+                                        Hide results before voting
+                                    </Typography>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <Typography type="body">
+                                    The result is ONLY visible after the voting is closed.
                                 </Typography>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <Typography type="body">
-                                The result is ONLY visible after the voting is closed.
-                            </Typography>
                             </div>
 
                             <div className="flex flex-row">
