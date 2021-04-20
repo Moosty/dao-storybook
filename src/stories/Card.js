@@ -37,9 +37,10 @@ export const Card = ({className, footer, cardLeftShadow,icon, footerNotice, butt
         "w-full",
       ].join(" ")}>
         <CardHeader {...header}/>
-        <CardContent>
-          CONTENT
-        </CardContent>
+        <CardContent />
+
+
+
 
         <CardFooter {...footer} />
 
