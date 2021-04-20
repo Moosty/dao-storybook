@@ -1,4 +1,5 @@
 import React from "react";
+import {ProgressCircle} from "./ProgressCircle";
 
 
 export const CardContent = ({children, className}) => {
@@ -12,7 +13,22 @@ export const CardContent = ({children, className}) => {
       "py-10",
       "sm:p-20",
       ].join(" ")}>
-      {children}
+
+      <ProgressCircle
+        type="votingCount"
+        valueYes={24}
+        totalVotes={567}
+        valueNo={60}
+      quorum={40}/>
+      <ProgressCircle
+        type="votingYesNo"
+        valueYes={24}
+        totalVotes={567}
+        valueNo={60}
+        quorum={40}/>
+
+
+
       </div>
 
       )
