@@ -42,6 +42,7 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum, backgrou
       <CircularProgressbarWithChildren
         value={quorumReached ? (valueNo / (valueYes + valueNo)) * 100 : (valueNo / quorum) * 100}
         className="transform -rotate-90"
+
         counterClockwise={true}
         circleRatio={0.75}
         strokeWidth={4}
