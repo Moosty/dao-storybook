@@ -2,6 +2,7 @@
 import React, {Fragment, useState} from 'react'
 import {Listbox, Transition} from '@headlessui/react'
 import {CheckIcon, ExclamationCircleIcon, SelectorIcon} from '@heroicons/react/solid'
+import {Typography} from "../Typography";
 
 const people = [
     {
@@ -85,8 +86,11 @@ export const InputAvatar = ({disabled, shadow, primary, error, ...props}) => {
         <Listbox value={selected} onChange={setSelected}>
             {({open}) => (
                 <>
-                    <Listbox.Label className="block text-sm font-medium text-textBody">{props.label}</Listbox.Label>
-                    <div className="mt-1 relative">
+                    <Listbox.Label className="block">
+                        <Typography type="bodyStrong" label="span">
+                            {props.label}                        </Typography>
+                        </Listbox.Label>
+                    <div className="relative">
                         <Listbox.Button
                             className={["relative w-full rounded-md pr-10 pl-3   py-2 text-left cursor-default sm:text-sm ",
                             "bg-white  focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500",

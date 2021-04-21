@@ -57,7 +57,7 @@ export const SimpleInput = ({
                 </label>
                 {/*Information Icon*/}
                 {infoIcon &&
-                <InformationCircleIcon className="text-textPlaceHolder hover:text-textBody mt-2 ml-1 h-5 w-5"/>}
+                <InformationCircleIcon className="text-textPlaceHolder hover:text-textBody mt-2.5 ml-3 h-4 w-4"/>}
             </div>
             <div className=" relative rounded-md shadow-sm">
                 <input

@@ -25,7 +25,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
                     </Typography>
 
                 </div>
-                <div className="md:grid md:grid-cols-2 my-2 justify-center md:divide-x-2 md:divide-formDivider">
+                <div className="md:grid md:grid-cols-2 my-2 justify-center md:divide-x-2 md:divide-formDivider h-screen">
 
                     <div>
 
@@ -56,8 +56,26 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
 
                     {/*COLUMN RIGHT*/}
                     <div className="my-4 pl-4">
+                        <div className="flex flex-row justify-between">
+                            <div className="w-2/5">
+                            <SimpleInput
+                                default
+                                placeholder="24/04/2021"
+                                description
+                                descriptionMessage="The voting will close in 1 week."
+                                datePicker
+                                label={"Start date"}/></div>
+                            <div className="w-2/5">
 
-                        <SimpleInput label="End date" errorMessage="Your password must be less than 4 characters."/>
+                            <SimpleInput
+                                default
+                                placeholder="24/04/2021"
+                                description
+                                descriptionMessage="The voting will close in 1 week."
+                                datePicker
+                                label={"End date"}/></div>
+                        </div>
+
                         <div className="flex flex-row">
                             <div className="flex flex-col w-3/4">
 
@@ -65,7 +83,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
                                     <Typography type="bodyStrong" Element="body">
                                         Hide results before voting
                                     </Typography>
-                                    <InformationCircleIcon className="text-textPlaceHolder hover:text-textBody  ml-1 h-5 w-5"/>
+                                    <InformationCircleIcon className="text-textPlaceHolder hover:text-textBody  ml-3 h-4 w-4"/>
                                 </div>
                                 <Typography type="body" Element="body">
                                     The result is ONLY visible after the voting is closed.

@@ -15,6 +15,7 @@ import {CheckIcon} from "@heroicons/react/solid";
 import {TextFieldInput} from "../stories/forms/TextFieldInput";
 import {UploadField} from "../stories/forms/UploadField";
 import {ButtonTwo} from "../stories/ButtonTwo";
+import {InformationCircleIcon} from "@heroicons/react/outline";
 
 export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) => (
     <div className="bg-surfaceBg">
@@ -27,7 +28,8 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                     </Typography>
 
                 </div>
-                <div className="md:grid md:grid-cols-2 my-2 justify-center md:divide-x-2 md:divide-formDivider h-screen">
+                <div
+                    className="md:grid md:grid-cols-2 my-2 justify-center md:divide-x-2 md:divide-formDivider h-screen">
                     <div className="mx-4 pb-4">
                         <div className="my-4 ">
 
@@ -59,7 +61,7 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                             placeholder="Any information you'd like to share with your team."
                             description
                         />
-                        <UploadField />
+                        <UploadField/>
 
 
                     </div>
@@ -67,20 +69,36 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                     {/*COLUMN RIGHT*/}
                     <div className="my-4 pl-4">
 
-                        <SimpleInput label="End date" errorMessage="Your password must be less than 4 characters."/>
-                        <div className="flex flex-row">
+                        <div className="flex flex-row justify-between">
+                            <div className="w-2/5">
+                                <SimpleInput
+                                    default
+                                    placeholder="24/04/2021"
+                                    description
+                                    descriptionMessage="The voting will close in 1 week."
+                                    datePicker
+                                    label={"Start date"}/></div>
+                            <div className="w-2/5">
+
+                                <SimpleInput
+                                    default
+                                    placeholder="24/04/2021"
+                                    description
+                                    descriptionMessage="The voting will close in 1 week."
+                                    datePicker
+                                    label={"End date"}/></div>
+                        </div>
+                        {/*TEXT ELEMENT*/}
+                        <div className="flex flex-row mt-4">
                             <div className="flex flex-col w-3/4">
 
-                                <div className="flex flex-row items-center ">
-                                    <Typography type="bodyStrong" Element="body">
+                                <div className="flex flex-row items-center mb-1">
+                                    <Typography type="bodyStrong" Element="h3">
                                         Hide results before voting
                                     </Typography>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-2" fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
+                                    <InformationCircleIcon
+                                        className="text-textPlaceHolder hover:text-textBody  ml-3 h-4 w-4"/>
+
                                 </div>
                                 <Typography type="body" Element="body">
                                     The result is ONLY visible after the voting is closed.
@@ -94,7 +112,33 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                                 <SwitchButton/>
                             </div>
                         </div>
+                        <div className="mt-4 flex flex-row justify-between">
+                            <div className="w-2/5">
+                                <SimpleInput
+                                    default
+                                    placeholder="10%"
+                                    description
+                                    descriptionMessage="8 out of 16"
+                                    infoIcon
+                                    selector
+                                    label={"min. req. votes"}
+                                /></div>
+                            <div className="w-2/5">
 
+                                <SimpleInput
+                                    default
+                                    placeholder="10%"
+                                    description
+                                    descriptionMessage="50% of the votes"
+                                    infoIcon
+                                    selector
+                                    label={"Min. YES votes"}
+                                /></div>
+                        </div>
+
+                        <Typography type="caption">For a Yes/No voting to pass, it must fullfil two conditions: 1) The number of votes
+                            reaches or exceeds the minimum required votes, AND 2) The number of YES votes reaches or
+                            exceeds the minimum required YES votes.</Typography>
                         <div className="pt-5">
                             <div className="flex justify-end">
                                 <button
@@ -107,7 +151,7 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
 
 
                                 </div>
-                                <ButtonTwo />
+                                <ButtonTwo/>
 
                             </div>
                         </div>

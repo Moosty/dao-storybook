@@ -7,7 +7,7 @@ import {Meta} from "@storybook/addon-docs/blocks";
 <Meta title="Forms/SimpleInput" component={SimpleInput}/>
 
 export default {
-    title: 'Forms/SimpleInput',
+    title: 'Forms/SimpleInput (standaard)',
     component: SimpleInput,
     argTypes: {
         backgroundColor: {control: 'color'},
