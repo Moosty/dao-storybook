@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Page } from '../stories/Page';
+import { Page } from './Page';
 import * as HeaderStories from '../stories/Header.stories';
 import {Meta} from "@storybook/addon-docs/blocks";
 import {MembersPage} from "./MembersPage";
@@ -11,7 +11,7 @@ import {CreateVoting} from "./CreateVoting";
 
 
 export default {
-  title: 'MembersPage',
+  title: 'Pages/MembersPage',
   component: MembersPage,
 };
 
@@ -21,4 +21,12 @@ export const Member = Template.bind({});
 MembersPage.args = {
   ...HeaderStories.LoggedIn.args,
 };
+
+export const All = () => {
+  return (
+    <div>
+      <MembersPage />
+    </div>
+  )
+}
 

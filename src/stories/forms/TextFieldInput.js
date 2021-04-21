@@ -37,7 +37,7 @@ export const TextFieldInput = ({placeholder, description, disabled,error,readOnl
                         name="about"
                         placeholder={placeholder}
                         rows={3}
-                        className={["block w-full sm:text-sm  rounded-md",
+                        className={["block w-full sm:text-sm  rounded-default",
                             disabled ? disabledClass : readOnly ? readOnlyClass : error ? errorClass : defaultClass,
                         ].join(" ")}
                         defaultValue={''}

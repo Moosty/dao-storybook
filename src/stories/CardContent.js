@@ -13,7 +13,7 @@ export const CardContent = ({children, className}) => {
       "py-10",
     ].join(" ")}>
 
-
+      {children}
     </div>
 
   )

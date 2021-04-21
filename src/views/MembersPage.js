@@ -13,6 +13,10 @@ import {ButtonGroup} from "../stories/ButtonGroup";
 import {VotingFooterRight} from "../stories/VotingFooterRight";
 import {VotingFooterLeft} from "../stories/VotingFooterLeft";
 import {FilterWrapper} from "../stories/FilterWrapper";
+import {Paper} from "../stories/Paper";
+import {CardHeader} from "../stories/CardHeader";
+import {CardContent} from "../stories/CardContent";
+import {Typography} from "../stories/Typography";
 
 export const MembersPage = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
@@ -23,7 +27,18 @@ export const MembersPage = ({user, onLogin, onLogout, onCreateAccount}) => (
       </Container>
       <Container>
         <div className="flex flex-row flex-wrap space-between py-4">
+<Paper className="w-1/3 flex-col mr-8">
+<CardHeader dao="" user="Raphael Cornelis" title="" address="LSK2dj83e774hfjk93902020220jj" />
+  <CardContent>
+    <div className="">
+      <Typography type="bodyStrong" Element="body">
+        Member of: </Typography>
+    </div>
+  </CardContent>
 
+</Paper>
+          <Card >
+          </Card>
 
           {/*{cards.map(card => <Card {...card} />)}*/}
 
