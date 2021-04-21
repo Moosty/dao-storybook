@@ -3,11 +3,11 @@ import React from 'react';
 import { ExampleForm } from './ExampleForm';
 import {Meta} from "@storybook/addon-docs/blocks";
 
-<Meta title="Forms/ExampleForm" component={ExampleForm}/>
+<Meta title="Examples/ExampleForm" component={ExampleForm}/>
 
 
 export default {
-    title: 'Forms/ExampleForm',
+    title: 'Examples/ExampleForm',
     component: ExampleForm,
 };
 
