@@ -2,7 +2,7 @@ import React from "react";
 import {ButtonTwo} from "./ButtonTwo";
 
 export default {
-    title: "Elements/ButtonTwo",
+    title: "Buttons/ButtonTwo",
     component: ButtonTwo,
     argTypes: { backgroundColor: 'control'}
 }

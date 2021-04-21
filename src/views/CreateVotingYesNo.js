@@ -27,8 +27,8 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                     </Typography>
 
                 </div>
-                <div className="md:grid md:grid-cols-2 my-2 justify-center md:divide-x-2 md:divide-formDivider">
-                    <div className="mx-4">
+                <div className="md:grid md:grid-cols-2 my-2 justify-center md:divide-x-2 md:divide-formDivider h-screen">
+                    <div className="mx-4 pb-4">
                         <div className="my-4 ">
 
                             <InputAvatar label="Select the DAO"/>
@@ -59,22 +59,6 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                             placeholder="Any information you'd like to share with your team."
                             description
                         />
-                        <div className=" ">
-                            <label htmlFor="about" className="block  ">
-                                Description (optional)
-                            </label>
-                            <div className="mt-1">
-                            <textarea
-                                id="about"
-                                name="about"
-                                placeholder="Any information you'd like to share with your team."
-                                rows={3}
-                                className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                defaultValue={''}
-                            />
-                            </div>
-                            <p className="mt-2 text-sm text-textPlaceHolder">Any information you'd like to share with your team.</p>
-                        </div>
                         <UploadField />
 
 
