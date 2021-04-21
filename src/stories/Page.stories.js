@@ -2,9 +2,13 @@ import React from 'react';
 
 import { Page } from './Page';
 import * as HeaderStories from './Header.stories';
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Forms/Page" component={Page}/>
+
 
 export default {
-  title: 'Example/Page',
+  title: 'Pages/Page',
   component: Page,
 };
 

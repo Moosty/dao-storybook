@@ -3,9 +3,12 @@ import React from 'react';
 import {FormElements} from './FormElements';
 import {Typography} from "../Typography";
 import {SimpleInput} from "./SimpleInput";
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Forms/FormElements" component={FormElements}/>
 
 export default {
-    title: 'Example/FormElements',
+    title: 'Forms/FormElements',
     component: FormElements,
     argTypes: {
         backgroundColor: {control: 'color'},
