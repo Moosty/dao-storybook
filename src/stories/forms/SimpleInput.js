@@ -1,29 +1,99 @@
-import { ExclamationCircleIcon } from '@heroicons/react/solid'
+import {ExclamationCircleIcon, SelectorIcon} from '@heroicons/react/solid'
+import React from "react";
+import {CalendarIcon, InformationCircleIcon} from "@heroicons/react/outline";
 
-export const SimpleInput = (props) => {
+export const SimpleInput = ({
+                                disabled,
+                                defaultValue,
+                                placeholder,
+                                secondary,
+                                id,
+                                name,
+                                error,
+                                infoIcon,
+                                readOnly,
+                                hover,
+                                focused,
+                                shadow,
+                                datePicker,
+                                description,
+                                selector,
+                                ...props
+                            }) => {
+    const defaultClass = [
+        'border-formDivider',
+        'hover:border-formHoverBorder',
+        'text-textPlaceholder'].join(" ");
+    const hoverClass = [
+        'border-formHoverBorder',
+        'text-textHover'].join(" ");
+    const focusedClass = [
+        'border-formActive',
+        'text-textHover'].join(" ");
+    const errorClass = [
+        'border-formError',
+        'text-red-900',
+        'placeholder-red-300',
+        'focus:outline-none',
+        'text-textError'].join(" ");
+    const readOnlyClass = [
+        'bg-formReadOnly',
+        'border-formReadOnly',
+        'text-textDisabled'].join(" ");
+    const disabledClass = [
+        'bg-formDisabled',
+        'border-formDisabled',
+        'focus:border-formDisabled',
+        'text-textDisabled'].join(" ");
+    const shadowClass = [
+        'shadow-defaultPrimary',
+    ].join(" ");
+
     return (
         <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                {props.label}
-            </label>
-            <div className="mt-1 relative rounded-md shadow-sm">
+            <div className="flex flex-row">
+                <label htmlFor="email" className="block text-sm font-medium text-textBody mt-2 mb-2">
+                    {props.label}
+                </label>
+                {/*Information Icon*/}
+                {infoIcon &&
+                <InformationCircleIcon className="text-textPlaceHolder hover:text-textBody mt-2 ml-1 h-5 w-5"/>}
+            </div>
+            <div className=" relative rounded-md shadow-sm">
                 <input
                     type="text"
-                    name="email"
-                    id="email"
-                    className="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md"
-                    placeholder="you@example.com"
-                    defaultValue="adamwathan"
-                    aria-invalid="true"
-                    aria-describedby="email-error"
+                    name={name}
+                    id={id}
+                    placeholder={placeholder}
+                    defaultValue={defaultValue}
+                    className={[
+                        "block w-full pr-10 mb-0   sm:text-sm rounded-md bg-white",
+                        disabled ? disabledClass : readOnly ? readOnlyClass : error ? errorClass : focused ? focusedClass : hover ? hoverClass : defaultClass,
+                        shadow ? shadowClass : " ",
+                    ].join(" ")}
+                    {...props}
                 />
-                <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+                {datePicker && <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                    <CalendarIcon className="h-5 w-5 text-textPlaceHolder hover:text-textBody"/>
                 </div>
+                }
+                {error && <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <ExclamationCircleIcon className="h-5 w-5 text-formError" aria-hidden="true"/>
+                </div>}
+                {selector && <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <SelectorIcon className="h-5 w-5 text-textPlaceHolder hover:text-formError" aria-hidden="true"/>
+                </div>}
+
             </div>
-            <p className="mt-2 text-sm text-red-600" id="email-error">
-                {props.errorMessage}
-            </p>
+            {error && <div className="flex flex-row mt-0">
+                <ExclamationCircleIcon className="mt-2 mr-1 ml-1 h-5 w-5 text-formError" aria-hidden="true"/>
+                <p className="mt-2 text-sm text-formError" id={`${id}-error`}>
+                    {props.errorMessage}
+                </p></div>}
+            {description && <div className="flex flex-row">
+                <p className="text-sm text-textPlaceHolder">
+                    {props.descriptionMessage}
+                </p></div>}
         </div>
     )
 }
