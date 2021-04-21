@@ -22,6 +22,7 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum, backgrou
         quorumReached ? (valueYes / (valueYes + valueNo)) * 100 : (valueYes / quorum) * 100}
       circleRatio={0.75}
       background={background}
+      className="z-10"
       strokeWidth={4}
       styles={{
         ...buildStyles({
@@ -30,37 +31,37 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum, backgrou
           pathColor: pathColors[type],
         }),
         background: {
-          fill: "white",
+          fill: "",
         }
       }}>
       {type === 'votingCount' &&
       <div className="flex flex-col align-center text-center">
-        <span className="text-lg font-black text-blue-400">{totalVotes}</span>
-        <span className="text-xs text-gray-300">votes</span>
+        <span className="text-lg font-black text-textPlaceHolder">{totalVotes}</span>
+        <span className=" text-textPlaceHolder">votes</span>
       </div>}
       {type === 'votingYesNo' &&
       <CircularProgressbarWithChildren
         value={quorumReached ? (valueNo / (valueYes + valueNo)) * 100 : (valueNo / quorum) * 100}
-        className="transform -rotate-90"
+        className="transform -rotate-90 z-50 "
 
         counterClockwise={true}
         circleRatio={0.75}
-        strokeWidth={4}
+        strokeWidth={20}
         styles={buildStyles({
           rotation: 1 / 2 + 1 / 8,
-          trailColor: "transparent",
           strokeLinecap: "",
-          pathColor: "#FF3D00",
+          trailColor: "#eee",
+          pathColor: pathColors[type],
         })}
       >
         <div className="flex flex-row">
           <div className="flex flex-col align-center text-center">
-            <span className="text-lg font-black" style={{color: "#2dec00"}}>{valueYes}</span>
-            <span className="text-xs text-gray-300">votes</span>
+            <span className="text-lg text-successIcon">{valueYes}</span>
+            <span className="text-xs text-textBody">Yes</span>
           </div>
           <div className="flex flex-col align-center text-center">
-            <span className="text-lg font-black" style={{color: "#FF3D00"}}>{valueNo}</span>
-            <span className="text-xs text-gray-300">votes</span>
+            <span className="text-lg text-dangerIcon">{valueNo}</span>
+            <span className="text-xs text-textBody">no</span>
           </div>
         </div>
       </CircularProgressbarWithChildren>}

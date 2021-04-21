@@ -30,10 +30,11 @@ export const CardContent = ({children, className}) => {
         <div className="w-1/2 p-2">
           <ProgressCircle
             type="votingYesNo"
-            valueYes={24}
-            totalVotes={567}
-            valueNo={60}
-            quorum={40}/>
+            valueYes={20}
+            totalVotes={50}
+            valueNo={30}
+            quorum={80}
+            />
         </div>
 
       </div>
@@ -41,8 +42,9 @@ export const CardContent = ({children, className}) => {
         type="votingYesNo"
         valueYes={24}
         totalVotes={567}
-        valueNo={60}
-        quorum={40}/>
+        valueNo={20}
+        quorum={100}
+        />
 
     </div>
 
