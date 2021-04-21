@@ -2,9 +2,13 @@ import React from 'react';
 
 import { CreateVotingYesNo } from './CreateVotingYesNo';
 import * as HeaderStories from '../stories/Header.stories';
+import {Meta} from "@storybook/addon-docs/blocks";
+
+<Meta title="Pages/CreateVotingYesNo" component={CreateVotingYesNo}/>
+
 
 export default {
-    title: 'Example/CreateVotingYesNo',
+    title: 'Pages/CreateVotingYesNo',
     component: CreateVotingYesNo,
 };
 
