@@ -4,22 +4,12 @@ import {CardFooter} from "./CardFooter";
 import {CardContent} from "./CardContent";
 import PropTypes from "prop-types";
 import {Button} from "./Button";
+import {Paper} from "./Paper";
 
 
 export const Card = ({className, footer, cardLeftShadow,icon, footerNotice, buttonLabel,userVote, votingResult, header,buttonGroup, isOpen, userState}) => {
   return (
-    <div className={[
-      className,
-      "m-4",
-      "flex",
-      "flex-row",
-      "bg-cardBg",
-      "shadow-defaultPrimary",
-      "overflow-hidden",
-      "rounded-default",
-      "divide-y",
-      "w-full",
-    ].join(" ")}>
+  <Paper className="w-card ">
       <div className={[
         votingResult === "no" && "bg-dangerIcon shadow-cardNo",
         votingResult === "yes" && "shadow-cardYes bg-successIcon ",
@@ -45,7 +35,7 @@ export const Card = ({className, footer, cardLeftShadow,icon, footerNotice, butt
         <CardFooter {...footer} />
 
       </div>
-    </div>
+    </Paper>
   )
 }
 
