@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontSize: {
       '32px': '32px',
+      '28px': '28px',
       '24px': '24px',
       '20px': '20px',
       '18px': '18px',
@@ -21,6 +22,7 @@ module.exports = {
     extend: {
       lineHeight: {
         '46px': '46px',
+        '41px': '41px',
         '36px': '36px',
         '30px': '30px',
         '28px': '28px',

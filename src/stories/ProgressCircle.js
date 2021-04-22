@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import { buildStyles, CircularProgressbarWithChildren } from "react-circular-progressbar";
+import {Typography} from "./Typography";
+import {CheckCircleIcon} from "@heroicons/react/outline";
 
 
 const pathColors = {
@@ -35,8 +37,9 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum, backgrou
       }}>
       {type === 'votingCount' &&
       <div className="flex flex-col align-center text-center">
-        <span className="text-lg font-black text-blue-400">{totalVotes}</span>
-        <span className="text-xs text-gray-300">votes</span>
+        <Typography type="ProgressNumber" Element="span" className="text-textPlaceHolder">{totalVotes}</Typography>
+        <Typography type="body" className="text-textPlaceHolder uppercase">votes</Typography>
+        <CheckCircleIcon className="w-10 h-10 mx-auto -mb-4 text-textPlaceHolder"/>
       </div>}
       {type === 'votingYesNo' &&
       <CircularProgressbarWithChildren

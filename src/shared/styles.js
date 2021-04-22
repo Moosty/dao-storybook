@@ -45,6 +45,8 @@ export const fontStyles = {
     'py-6px'].join(" "),
   body: ['font-body', 'font-normal', 'text-textBody', 'text-15px', 'leading-24px'].join(" "),
   bodyLarge: ['font-body', 'font-normal', 'text-textBody', 'text-18px', 'leading-28px'].join(" "),
+  ProgressNumber: ['font-body', 'font-normal', 'text-textBody', 'text-28px', 'leading-41px'].join(" "),
+
   bodyStrong: ['font-body', 'font-medium', 'text-textHeadings', 'text-15px', 'leading-20px'].join(" "),
   bodyLargeStrong: ['font-body', 'font-medium', 'text-textHeadings', 'text-18px', 'leading-24px'].join(" "),
   caption: ['font-caption', 'font-normal', 'text-textCaption', 'text-13px', 'leading-20px'].join(" "),
