@@ -1,6 +1,7 @@
 import React from "react";
 import {InputAvatar} from "../forms/InputAvatar";
 import {AdjustmentsIcon} from "@heroicons/react/solid";
+import {IconButton} from "../IconButton";
 
 export const Filter = () => {
 
@@ -9,7 +10,8 @@ export const Filter = () => {
             <InputAvatar className="mr-2"/>
             <InputAvatar className="mr-2"/>
             <InputAvatar className="mr-2"/>
-            <AdjustmentsIcon className="mt-2 mr-1 ml-2 h-5 w-5 text-textBody"/>
+            <IconButton>
+                <AdjustmentsIcon className="mx-auto  h-5 w-5 "/></IconButton>
         </div>
     )
 }

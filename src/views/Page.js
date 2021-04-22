@@ -12,7 +12,7 @@ import {PlusIcon, ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
 import {ButtonGroup} from "../stories/ButtonGroup";
 import {VotingFooterRight} from "../stories/VotingFooterRight";
 import {VotingFooterLeft} from "../stories/VotingFooterLeft";
-import {FilterWrapper} from "../stories/FilterWrapper";
+import {FilterWrapper} from "../stories/filters/FilterWrapper";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>

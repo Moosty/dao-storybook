@@ -12,7 +12,7 @@ import {PlusIcon, ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
 import {ButtonGroup} from "../stories/ButtonGroup";
 import {VotingFooterRight} from "../stories/VotingFooterRight";
 import {VotingFooterLeft} from "../stories/VotingFooterLeft";
-import {FilterWrapper} from "../stories/FilterWrapper";
+import {FilterWrapper} from "../stories/filters/FilterWrapper";
 import {Paper} from "../stories/Paper";
 import {CardHeader} from "../stories/CardHeader";
 import {CardContent} from "../stories/CardContent";
