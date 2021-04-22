@@ -31,7 +31,7 @@ export const All = () => <div>
             Default fields </Typography>
         <SimpleInput default label={"default"}/>
         <div className="w-1/2">
-            <SimpleInput default placeholder="10%" description descriptionMessage="description" selector
+            <SimpleInput default placeholder="10%" description descriptionMessage="description" selector number
                          label={"datepicker mockup"}/>
             <SimpleInput default placeholder="02/02/1988" description descriptionMessage="description" datePicker
                          label={"datepicker mockup"}/>

@@ -38,23 +38,7 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                         <div className="my-4 ">
                             <InputDropdown label="Select the DAO"/>
                         </div>
-                        <div className="sm:col-span-3 my-4 ">
-                            <label htmlFor="country" className="block text-sm font-medium text-gray-700">
-                                Type of Voting
-                            </label>
-                            <div className="mt-1">
-                                <select
-                                    id="country"
-                                    name="country"
-                                    autoComplete="country"
-                                    className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                >
-                                    <option>One man One vote</option>
-                                    <option>Quadratic Voting</option>
-                                    <option>New Member Voting</option>
-                                </select>
-                            </div>
-                        </div>
+
 
                         {/*Description area*/}
                         <TextFieldInput
@@ -100,13 +84,13 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                                         className="text-textPlaceHolder hover:text-textBody  ml-3 h-4 w-4"/>
 
                                 </div>
-                                <Typography type="body" Element="body">
+                                <Typography type="caption" Element="span">
                                     The result is ONLY visible after the voting is closed.
                                 </Typography>
                             </div>
 
                             <div className="flex flex-row items-center justify-end w-1/4">
-                                <Typography type="body" Element="body" className="mr-2">
+                                <Typography type="body" Element="span" className="mr-2">
                                     Off
                                 </Typography>
                                 <SwitchButton/>

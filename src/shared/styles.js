@@ -47,10 +47,38 @@ export const fontStyles = {
   bodyLarge: ['font-body', 'font-normal', 'text-textBody', 'text-18px', 'leading-28px'].join(" "),
   bodyStrong: ['font-body', 'font-medium', 'text-textHeadings', 'text-15px', 'leading-20px'].join(" "),
   bodyLargeStrong: ['font-body', 'font-medium', 'text-textHeadings', 'text-18px', 'leading-24px'].join(" "),
-  caption: ['font-caption', 'font-normal', 'text-textCaption', 'text-13px', 'leading-16px'].join(" "),
-}
+  caption: ['font-caption', 'font-normal', 'text-textCaption', 'text-13px', 'leading-20px'].join(" "),
+};
 
-export const appWidth = "w-full md:w-app mx-auto"
+export const appWidth = "w-full md:w-app mx-auto";
+
+export const formStyles = {
+  default: [
+    'border',
+    'border-formDivider',
+    'text-textPlaceholder',
+    'hover:border-formHoverBorder',
+  ].join(" "),
+  error: [
+    'border',
+    'border-formError',
+    'text-formError',
+    'placeholder-formError',
+  ].join(" "),
+  disabled: [
+    'bg-formDisabled',
+    'border-formDisabled',
+    'text-textDisabled'
+  ].join(" "),
+  readOnly: [
+    'bg-formReadOnly',
+    'border-formReadOnly',
+    'text-textDisabled',
+  ].join(" "),
+};
+
+
+// HIERONDER IS TROEP
 
 // Global style variables
 export const background = {
