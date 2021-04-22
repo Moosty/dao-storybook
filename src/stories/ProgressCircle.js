@@ -10,7 +10,7 @@ const pathColors = {
   "votingCount": "#3b81f6",
 
 }
-export const ProgressCircle = ({type, value, valueYes, valueNo, quorum, background, totalVotes}) => {
+export const ProgressCircle = ({type, value, valueYes, valueNo, quorum,  background, totalVotes}) => {
 
   const [quorumReached, setQuorumReached] = useState(false);
 
@@ -44,7 +44,7 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum, backgrou
       {type === 'votingYesNo' &&
       <CircularProgressbarWithChildren
         value={quorumReached ? (valueNo / (valueYes + valueNo)) * 100 : (valueNo / quorum) * 100}
-        className="transform -rotate-90"
+        className="transform -rotate-90 w-full "
 
         counterClockwise={true}
         circleRatio={0.75}
@@ -56,16 +56,19 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum, backgrou
           pathColor: "#FF3D00",
         })}
       >
-        <div className="flex flex-row">
+        <div className="flex flex-row space-x-4">
           <div className="flex flex-col align-center text-center">
-            <span className="text-lg font-black" style={{color: "#2dec00"}}>{valueYes}</span>
-            <span className="text-xs text-gray-300">votes</span>
+            <Typography type="ProgressNumber" Element="span" className="text-successIcon">{valueYes}</Typography>
+            <Typography type="body" className="text-textPlaceHolder uppercase">Yes</Typography>
           </div>
           <div className="flex flex-col align-center text-center">
-            <span className="text-lg font-black" style={{color: "#FF3D00"}}>{valueNo}</span>
-            <span className="text-xs text-gray-300">votes</span>
+            <Typography type="ProgressNumber" Element="span" className="text-dangerIcon">{valueNo}</Typography>
+            <Typography type="body" className="text-textPlaceHolder uppercase">No</Typography>
           </div>
+
         </div>
+        <CheckCircleIcon className="w-10 h-10 mx-auto -mb-4 text-successIcon"/>
+
       </CircularProgressbarWithChildren>}
     </CircularProgressbarWithChildren>
   );
