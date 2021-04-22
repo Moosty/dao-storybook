@@ -13,6 +13,7 @@ import {InputAvatar} from "../stories/forms/InputAvatar";
 import {InputDropdown} from "../stories/forms/InputDropdown";
 import {CheckIcon} from "@heroicons/react/solid";
 import {InformationCircleIcon} from "@heroicons/react/outline";
+import {DropDown} from "../stories/forms/DropDown";
 
 export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
     <div className="bg-surfaceBg">
@@ -33,7 +34,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => (
 
                             <InputAvatar label="Select the DAO"/>
                         </div>
-
+                        <DropDown   />
                         <div className="sm:col-span-3 my-4 mx-4">
                             <label htmlFor="country" className="block text-sm font-medium text-gray-700">
                                 Type of Voting

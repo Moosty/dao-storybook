@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Page } from './Page';
-import * as HeaderStories from './Header.stories';
+import * as HeaderStories from '../stories/Header.stories';
 import {Meta} from "@storybook/addon-docs/blocks";
 
 <Meta title="Forms/Page" component={Page}/>

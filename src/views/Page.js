@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Header} from './Header';
-import './page.css';
-import {NavBar} from "./NavBar";
+import {Header} from '../stories/Header';
+import '../stories/page.css';
+import {NavBar} from "../stories/NavBar";
 import {appWidth} from "../shared/styles";
-import {Container} from "./Container";
-import {Button} from "./Button";
-import {Card} from "./Card";
+import {Container} from "../stories/Container";
+import {Button} from "../stories/Button";
+import {Card} from "../stories/Card";
 import {PlusIcon, ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
-import {ButtonGroup} from "./ButtonGroup";
-import {VotingFooterRight} from "./VotingFooterRight";
-import {VotingFooterLeft} from "./VotingFooterLeft";
-import {FilterWrapper} from "./FilterWrapper";
+import {ButtonGroup} from "../stories/ButtonGroup";
+import {VotingFooterRight} from "../stories/VotingFooterRight";
+import {VotingFooterLeft} from "../stories/VotingFooterLeft";
+import {FilterWrapper} from "../stories/FilterWrapper";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
@@ -22,10 +22,10 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
         <FilterWrapper />
       </Container>
       <Container>
-        <div className="flex flex-row flex-wrap space-between py-4">
+        <div className="flex flex-row flex-wrap justify-between space-y-8 ">
 
 
-          {cards.map(card => <Card {...card} />)}
+          {cards.map(card => <Card className="" {...card} />)}
 
 
         </div>
@@ -57,6 +57,7 @@ const cards = [
     header: {
       dao: "open, inconclusive",
       title: "You have not voted",
+      user: "Raphael",
     },
     footer: {
 
