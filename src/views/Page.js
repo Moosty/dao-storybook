@@ -61,6 +61,9 @@ const cards = [
       title: "You have not voted",
       user: "Raphael",
     },
+    content: {
+      closed: true,
+    },
     footer: {
 
       left: <VotingFooterLeft/>,
@@ -75,6 +78,8 @@ const cards = [
     header: {
       dao: "open, inconclusive",
       title: "You have voted yes",
+      user: "Sander",
+
     },
     footer: {
       left: <VotingFooterLeft/>,
@@ -92,6 +97,8 @@ const cards = [
     header: {
       dao: "open, inconclusive",
       title: "You have voted no",
+      user: "Corbifex",
+
     },
     footer: {
 
@@ -109,6 +116,8 @@ const cards = [
     header: {
       dao: "open, inconclusive",
       title: "the voting isnt for you",
+      user: "Jurre",
+
     },
     footer: {
       notAllowed: true,
@@ -128,6 +137,8 @@ const cards = [
     header: {
       dao: "open, Yes",
       title: "You have not voted",
+      user: "JurreM",
+
     },
     footer: {
       left: <VotingFooterLeft/>,

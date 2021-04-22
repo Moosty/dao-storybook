@@ -1,15 +1,15 @@
 import React from "react";
 import {LockClosedIcon} from "@heroicons/react/solid";
+import {Typography} from "./Typography";
+import {InfoIcon} from "./forms/InfoIcon";
 
 export const VotingFooterLeft = ({notAllowed, votingClosed,votingResult,userVote, inconclusive}) => {
   return (<>
     {notAllowed && !votingClosed &&
-    < div>
-      <LockClosedIcon className="h-5 w-4 text-textDisabled"/>
-      This
-      Voting
-      isnt
-      for you
+    < div className="flex flex-row items-center">
+
+      <Typography type="body" Element="span">Read Only</Typography>
+      <InfoIcon className="h-4 w-4 text-textCaption"/>
     < /div>
     }
       {(votingClosed && votingResult=== "inconclusive") &&

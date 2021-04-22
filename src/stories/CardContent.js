@@ -10,7 +10,7 @@ export const CardContent = ({children, className}) => {
       "flex-grow",
       "bg-cardBg",
       "w-full",
-      "py-10",
+      "py-2",
     ].join(" ")}>
 
       {children}

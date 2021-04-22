@@ -5,9 +5,11 @@ import {CardContent} from "./CardContent";
 import PropTypes from "prop-types";
 import {Button} from "./Button";
 import {Paper} from "./Paper";
+import {ProgressCircle} from "./ProgressCircle";
+import {VotingCardContent} from "./VotingCardContent";
 
 
-export const Card = ({className, footer, cardLeftShadow,icon, footerNotice, buttonLabel,userVote, votingResult, header,buttonGroup, isOpen, userState}) => {
+export const Card = ({className, content,footer, open,closed, footerNotice, buttonLabel,userVote, votingResult, header,buttonGroup, isOpen, userState}) => {
   return (
   <Paper className="w-card ">
       <div className={[
@@ -27,7 +29,12 @@ export const Card = ({className, footer, cardLeftShadow,icon, footerNotice, butt
         "w-full",
       ].join(" ")}>
         <CardHeader {...header}/>
-        <CardContent />
+        <CardContent {...content}>
+
+          <VotingCardContent />
+
+        </CardContent>
+
 
 
 
