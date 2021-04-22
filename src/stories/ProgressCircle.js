@@ -2,25 +2,27 @@ import React, { useEffect, useState } from "react";
 
 import { buildStyles, CircularProgressbarWithChildren } from "react-circular-progressbar";
 import {Typography} from "./Typography";
-import {CheckCircleIcon} from "@heroicons/react/outline";
+import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/outline";
 
 
 const pathColors = {
   "votingYesNo": "#2dec00",
-  "votingCount": "#3b81f6",
+  "votingCount": "#8A92A5",
+  "quorumReached": "#3b81f6",
+
 
 }
-export const ProgressCircle = ({type, value, valueYes, valueNo, quorum,  background, totalVotes}) => {
+export const ProgressCircle = ({type, valueYes, valueNo, quorum,  background, eligibleVotes}) => {
 
   const [quorumReached, setQuorumReached] = useState(false);
 
   useEffect(() => {
-    setQuorumReached(valueYes + valueNo >= quorum)
+    setQuorumReached(valueYes + valueNo > eligibleVotes * (quorum / 100))
   }, [valueYes, valueNo, quorum])
 
   return (
     <CircularProgressbarWithChildren
-      value={type === "votingCount" ? (totalVotes / quorum) * 100 :
+      value={type === "votingCount" ? ( (valueYes + valueNo) / eligibleVotes) * 100 :
         quorumReached ? (valueYes / (valueYes + valueNo)) * 100 : (valueYes / quorum) * 100}
       circleRatio={0.75}
       background={background}
@@ -29,7 +31,7 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum,  backgro
         ...buildStyles({
           rotation: 1 / 2 + 1 / 8,
           trailColor: "#eee",
-          pathColor: pathColors[type],
+          pathColor: pathColors[quorumReached && type === "votingCount" ?  "quorumReached" : type],
         }),
         background: {
           fill: "white",
@@ -37,9 +39,18 @@ export const ProgressCircle = ({type, value, valueYes, valueNo, quorum,  backgro
       }}>
       {type === 'votingCount' &&
       <div className="flex flex-col align-center text-center">
-        <Typography type="ProgressNumber" Element="span" className="text-textPlaceHolder">{totalVotes}</Typography>
+        <Typography type="ProgressNumber" Element="span"
+                    className={[
+                      quorumReached? "text-themeButtonBg" : "text-textPlaceHolder" ,
+
+                      ].join(" ")}
+                    >{valueYes + valueNo}</Typography>
         <Typography type="body" className="text-textPlaceHolder uppercase">votes</Typography>
-        <CheckCircleIcon className="w-10 h-10 mx-auto -mb-4 text-textPlaceHolder"/>
+        {quorumReached ? <CheckCircleIcon className="w-10 h-10 mx-auto -mb-4 text-themeButtonBg"/> :
+          <XCircleIcon className="w-10 h-10 mx-auto -mb-4 text-textPlaceHolder"/>
+
+
+        }
       </div>}
       {type === 'votingYesNo' &&
       <CircularProgressbarWithChildren

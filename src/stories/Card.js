@@ -29,16 +29,7 @@ export const Card = ({className, content,footer, open,closed, footerNotice, butt
         "w-full",
       ].join(" ")}>
         <CardHeader {...header}/>
-        <CardContent {...content}>
-
-          <VotingCardContent />
-
-        </CardContent>
-
-
-
-
-
+        <CardContent {...content} />
         <CardFooter {...footer} />
 
       </div>
