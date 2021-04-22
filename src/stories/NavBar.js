@@ -10,7 +10,7 @@ const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',
   imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    'https://avatar.moosty.com/adddddreeessssssss',
 }
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -78,14 +78,14 @@ export const NavBar = () => {
               </div>
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <Button
-                    label="Create new Dao"
-                    iconBefore={<PlusIcon />}
-                    size=""
-                  >
-                    <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-                    <span>New Job</span>
-                  </Button>
+                  {/*<Button*/}
+                  {/*  label="Create new Dao"*/}
+                  {/*  iconBefore={<PlusIcon />}*/}
+                  {/*  size=""*/}
+                  {/*>*/}
+                  {/*  <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />*/}
+                  {/*  <span>New Job</span>*/}
+                  {/*</Button>*/}
                 </div>
                 <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
 
