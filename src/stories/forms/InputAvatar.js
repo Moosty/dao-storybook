@@ -71,7 +71,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export const InputAvatar = ({disabled, shadow, primary, error, ...props}) => {
+export const InputAvatar = ({disabled, shadow, primary, error, className, ...props}) => {
     const [selected, setSelected] = useState(people[3]);
     const shadowClass = [
         'shadow-sm',
@@ -83,14 +83,14 @@ export const InputAvatar = ({disabled, shadow, primary, error, ...props}) => {
     const errorClass = ['border border-formError'].join(" ");
 
     return (
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox value={selected} onChange={setSelected} >
             {({open}) => (
                 <>
                     <Listbox.Label className="block">
                         <Typography type="bodyStrong" label="span">
                             {props.label}                        </Typography>
                         </Listbox.Label>
-                    <div className="relative">
+                    <div className={["relative", className,].join(" ")}>
                         <Listbox.Button
                             className={["relative w-full rounded-md pr-10 pl-3   py-2 text-left cursor-default sm:text-sm ",
                             "bg-white  focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500",
