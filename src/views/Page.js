@@ -22,10 +22,10 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
         <FilterWrapper />
       </Container>
       <Container>
-        <div className="flex flex-row flex-wrap space-between py-4">
-<Card />
+        <div className="flex flex-row flex-wrap justify-between space-y-8 ">
 
-          {cards.map(card => <Card {...card} />)}
+
+          {cards.map(card => <Card className="" {...card} />)}
 
 
         </div>
