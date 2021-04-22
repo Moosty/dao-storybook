@@ -4,9 +4,9 @@ import {InputAvatar} from "../forms/InputAvatar";
 import {AdjustmentsIcon} from "@heroicons/react/solid";
 import {IconButton} from "../IconButton";
 
-export const FilterWrapper = ({}) => {
+export const FilterWrapper = ({className}) => {
   return (
-<div className="flex flex-row my-4 justify-end w-full">
+<div className={[className].join(" ")} >
 
   <InputAvatar />
   <IconButton>

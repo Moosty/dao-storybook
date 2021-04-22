@@ -7,16 +7,15 @@ import {appWidth} from "../shared/styles";
 import { Button } from "./Button";
 
 const user = {
-  name: 'Tom Cook',
+  name: 'Raphael Cornelis',
   email: 'tom@example.com',
   imageUrl:
     'https://avatar.moosty.com/adddddreeessssssss',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Overview', href: '#', current: true },
+  { name: 'Members', href: '#', current: false },
+  { name: 'Votings', href: '#', current: false },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
