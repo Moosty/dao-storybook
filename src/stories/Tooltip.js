@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 
 export const Tooltip = ({dark, light, children, description, ...props}) => {
     const [visibility, setVisibility] = useState(false);
-    const darkClass =[ "bg-textHeadings", "text-white" ].join(" ");
+    const darkClass =[ "bg-textBody", "text-white" ].join(" ");
     const lightClass =["bg-surfaceBg", ].join(" ");
 
         return (
@@ -16,12 +16,12 @@ export const Tooltip = ({dark, light, children, description, ...props}) => {
             {children}
             <div className={[
                 visibility ? "block" : "hidden",
-                "w-max text-small text-center rounded-md shadow-defaultPrimary absolute",
+                "w-max max-w-sm p-2 px-4 text-small text-center rounded-md shadow-defaultPrimary absolute",
                 dark ? darkClass : lightClass,
                 "",
             ].join(" ")}>
                 {/*TEKST VAN DE TOOLTIP*/}
-                {description}            </div>
+                {description}</div>
         </div>
     )
 }
