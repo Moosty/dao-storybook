@@ -21,7 +21,7 @@ export const InputAvatar = ({
                               ...props
                             }) => {
   const [selected, setSelected] = useState(selectedItem);
-  const {formClass} = useForms({disabled, error, readOnly});
+  const {formClass} = useForms({disabled, error, readOnly });
 
   return (
     <Listbox
@@ -40,7 +40,7 @@ export const InputAvatar = ({
           <div className={["relative", className,].join(" ")}>
             <Listbox.Button
 
-              className={["relative w-full rounded-md pr-10 pl-3   py-2 text-left cursor-default sm:text-sm ",
+              className={["relative w-full rounded-default pr-10 pl-3   py-2 text-left cursor-default sm:text-sm ",
                 "bg-white  focus:outline-none ",
                 formClass,
               ].join(" ")}

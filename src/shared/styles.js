@@ -77,6 +77,9 @@ export const formStyles = {
     'border-formReadOnly',
     'text-textDisabled',
   ].join(" "),
+  borders: [
+    'rounded-default',
+  ].join(" "),
 };
 
 

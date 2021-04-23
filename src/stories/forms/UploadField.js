@@ -2,14 +2,14 @@ import React from "react";
 import {Typography} from "../Typography";
 import {Button} from "../Button";
 
-export const UploadField = () => {
+export const UploadField = ({typesOfDocuments}) => {
 
     return (
         <div>
             {/*UPLOAD FIELD*/}
             <div className="sm:col-span-6 ">
                 <div
-                    className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                    className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-default">
                     <div className="space-y-1 text-center">
                         <svg
                             className="mx-auto h-12 w-12 text-gray-400"
@@ -25,17 +25,16 @@ export const UploadField = () => {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        <div className="flex">
+                        <div className="flex flex-col">
+                            <Typography className="pl-1 text-textPlaceHolder mb-2" type="caption" >Drag a file here, or</Typography>
                             <label
                                 htmlFor="file-upload"
                                 className="relative cursor-pointer  rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                             ><input id="file-upload" name="file-upload" type="file" className="sr-only"/>
-                              <span>Browse</span>
-
+                              <Button label="Browse" size="small" secondary/>
                             </label>
-                            <p className="pl-1 text-textPlaceHolder">or drag and drop</p>
                         </div>
-                        <p className="text-textPlaceHolder">PNG, JPG, GIF up to 10MB</p>
+                        <p className="text-textPlaceHolder">{typesOfDocuments}</p>
                     </div>
                 </div>
             </div>

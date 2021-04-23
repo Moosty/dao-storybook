@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "./Form";
-import {FormSection} from "./FormSection";
+import {FormColumn} from "./FormColumn";
 
 export default {
   title: "Forms/Form",
@@ -14,7 +14,12 @@ export const All = () => {
   return (
     <div>
       <Form>
-        <FormSection></FormSection>
+        <FormColumn>
+          x
+        </FormColumn>
+        <FormColumn>
+          Y
+        </FormColumn>
       </Form>
     </div>
   )
