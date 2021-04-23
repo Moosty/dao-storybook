@@ -31,7 +31,7 @@ export const UploadField = ({typesOfDocuments}) => {
                                 htmlFor="file-upload"
                                 className="relative cursor-pointer  rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                             ><input id="file-upload" name="file-upload" type="file" className="sr-only"/>
-                              <Button label="Browse" size="small" secondary/>
+                              <Button label="Browse" size="small" secondary shadow/>
                             </label>
                         </div>
                         <p className="text-textPlaceHolder">{typesOfDocuments}</p>

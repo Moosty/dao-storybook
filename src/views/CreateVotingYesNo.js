@@ -17,6 +17,9 @@ import {FormRow} from "../stories/forms/FormRow";
 import {FormElement} from "../stories/forms/FormElement";
 import {allDaoData} from "../fixtures/daos";
 import {allVotingTypes} from "../fixtures/votingTypes";
+import {Card} from "../stories/Card";
+import {Button} from "../stories/Button";
+import {SubmitIcon} from "../stories/forms/SubmitIcon";
 
 export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div className="bg-surfaceBg">
@@ -56,10 +59,10 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
           <FormColumn className="">
             <div className="md:ml-10 ">
               <FormRow className="flex-col md:flex-row">
-                <FormElement label="Start Date">
+                <FormElement label="Start Date" >
                   <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
                 </FormElement>
-                <FormElement label="End Date" descriptionBottom="Close in 1 week">
+                <FormElement label="End Date" descriptionBottom="Close in 1 week" >
                   <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
                 </FormElement>
               </FormRow>
@@ -76,73 +79,48 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                   </div>
                 </FormElement>
               </FormRow>
-              {/*TEXT ELEMENT*/}
-              <div className="flex flex-row mt-4">
-                <div className="flex flex-col w-3/4">
+              <FormRow>
+                <FormElement label="Min. required votes" descriptionBottom="8 out of 16" infoIcon tooltipText={<Card />}>
+                  <SimpleInput default placeholder="e.g. 6" number />
+                </FormElement>
+                <FormElement label="Min. required YES votes" descriptionBottom="50% of voters" infoIcon tooltipText={<Card />}>
+                  <SimpleInput default placeholder="depends on amount of votes" number />
+                </FormElement>
+              </FormRow>
 
-                  <div className="flex flex-row items-center mb-1">
-                    <Typography type="bodyStrong" Element="h3">
-                      Hide results before voting
-                    </Typography>
-                    <InformationCircleIcon
-                      className="text-textPlaceHolder hover:text-textBody  ml-3 h-4 w-4"/>
-                  </div>
-                  <Typography type="caption" Element="span">
-                    The result is ONLY visible after the voting is closed.
-                  </Typography>
-                </div>
+              {/*<div className="mt-4 flex flex-row justify-between">*/}
+              {/*  <div className="w-2/5">*/}
+              {/*    <SimpleInput*/}
+              {/*      default*/}
+              {/*      placeholder="10%"*/}
+              {/*      description*/}
+              {/*      descriptionMessage="8 out of 16"*/}
+              {/*      infoIcon*/}
+              {/*      selector*/}
+              {/*      label={"min. req. votes"}*/}
+              {/*    /></div>*/}
+              {/*  <div className="w-2/5">*/}
 
-                <div className="flex flex-row items-center justify-end w-1/4">
-                  <Typography type="body" Element="span" className="mr-2">
-                    Off
-                  </Typography>
-                  <SwitchButton/>
-                </div>
-              </div>
-              <div className="mt-4 flex flex-row justify-between">
-                <div className="w-2/5">
-                  <SimpleInput
-                    default
-                    placeholder="10%"
-                    description
-                    descriptionMessage="8 out of 16"
-                    infoIcon
-                    selector
-                    label={"min. req. votes"}
-                  /></div>
-                <div className="w-2/5">
+              {/*    <SimpleInput*/}
+              {/*      default*/}
+              {/*      placeholder="10%"*/}
+              {/*      description*/}
+              {/*      descriptionMessage="50% of the votes"*/}
+              {/*      infoIcon*/}
+              {/*      selector*/}
+              {/*      label={"Min. YES votes"}*/}
+              {/*    /></div>*/}
+              {/*</div>*/}
 
-                  <SimpleInput
-                    default
-                    placeholder="10%"
-                    description
-                    descriptionMessage="50% of the votes"
-                    infoIcon
-                    selector
-                    label={"Min. YES votes"}
-                  /></div>
-              </div>
-
-              <Typography type="caption">For a Yes/No voting to pass, it must fullfil two conditions: 1) The number of
-                votes
+              <Typography type="caption">
+                For a Yes/No voting to pass, it must fullfil two conditions: 1) The number of votes
                 reaches or exceeds the minimum required votes, AND 2) The number of YES votes reaches or
                 exceeds the minimum required YES votes.</Typography>
               <div className="pt-5">
                 <div className="flex justify-end">
-
-                  <button
-                    type="button"
-                    className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Cancel
-                  </button>
-                  <div>
-
-
-                  </div>
-                  <ButtonTwo/>
-
-                </div>
+                  <Button label="Cancel" secondary shadow />
+                  <Button icon={<SubmitIcon />} iconBefore label="Submit" className="ml-2" shadow/>
+              </div>
               </div>
             </div>
           </FormColumn>

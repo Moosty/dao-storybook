@@ -35,10 +35,12 @@ export const Button = ({
                          buttonGroup,
                          containerSide,
                          disabled,
+                         className,
+                         shadow,
                          ...props
                        }) => {
   const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed', 'shadow-defaultPrimary', 'text-themeButtonTextPrimary'].join(" ");
-  const secondaryClass = ['', 'bg-themeButtonBgSecondary', 'border-surfaceOutline', 'border-2', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textLink'].join(" ");
+  const secondaryClass = ['', 'bg-themeButtonBgSecondary', 'border-surfaceOutline', 'border', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textBody'].join(" ");
   const disabledClass = [secondary ? 'bg-surfaceBg' : 'bg-formDisabled', 'text-textDisabled'].join(" ");
 
 
@@ -48,15 +50,16 @@ export const Button = ({
       disabled={disabled}
 
       className={[
-        "m-0",
+        "m-0 flex flex-row",
         buttonSize,
         disabled ? disabledClass : secondary ? secondaryClass : primaryClass,
 
         rounded && !containerSide && "rounded-default",
         containerSide === "left" && "rounded-l-default",
         containerSide === "right" && "rounded-r-default ",
-        containerSide && containerSide !== "right" && "border-r-3 border-white"
-
+        containerSide && containerSide !== "right" && "border-r-3 border-white",
+        shadow ? 'shadow-defaultPrimary' : " ",
+        className,
       ].join(" ")}
       {...props}
     >
