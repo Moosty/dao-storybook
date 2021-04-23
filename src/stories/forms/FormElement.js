@@ -14,11 +14,12 @@ export const FormElement = ({
                               id,
                               infoIcon,
                               tooltipText,
+                              className,
                               ...props
                             }) => {
 
   return (
-    <div className="mb-4">
+    <div className={["mb-4", className].join(" ")}>
       <div className="flex flex-row">
         <Typography type="bodyStrong">{label}</Typography>
         {infoIcon &&
