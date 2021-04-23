@@ -10,7 +10,6 @@ import {Typography} from "../stories/Typography";
 import {SwitchButton} from "../stories/SwitchButton";
 import {SimpleInput} from "../stories/forms/SimpleInput";
 import {InputAvatar} from "../stories/forms/InputAvatar";
-import {InputDropdown} from "../stories/forms/InputDropdown";
 import {CheckIcon} from "@heroicons/react/solid";
 import {TextFieldInput} from "../stories/forms/TextFieldInput";
 import {UploadField} from "../stories/forms/UploadField";
@@ -35,9 +34,7 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
 
                             <InputAvatar label="Select the DAO"/>
                         </div>
-                        <div className="my-4 ">
-                            <InputDropdown label="Select the DAO"/>
-                        </div>
+
 
 
                         {/*Description area*/}

@@ -36,12 +36,10 @@ export const All = () => <div className="my-4 mx-auto w-11/12 ">
     <div className="my-4">
         <TextFieldInput
             title="Description (optional)"
-
             placeholder="read only"
             description
             descriptionText="Any information you'd like to share with your team."
             readOnly
-            disabled
         />
     </div>
     <div className="my-4">

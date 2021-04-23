@@ -10,7 +10,6 @@ import {Typography} from "../stories/Typography";
 import {SwitchButton} from "../stories/SwitchButton";
 import {SimpleInput} from "../stories/forms/SimpleInput";
 import {InputAvatar} from "../stories/forms/InputAvatar";
-import {InputDropdown} from "../stories/forms/InputDropdown";
 import {CheckIcon} from "@heroicons/react/solid";
 import {InformationCircleIcon} from "@heroicons/react/outline";
 import {DropDown} from "../stories/forms/DropDown";
