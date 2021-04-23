@@ -1,21 +1,21 @@
 import React from "react";
-import { FormSection } from "./FormSection";
+import { FormColumn } from "./FormColumn";
 import {FormRow} from "./FormRow";
 import {FormElement} from "./FormElement";
 import {TextFieldInput} from "./TextFieldInput";
 
 export default {
-  title: "Forms/FormSection",
-  component: FormSection,
+  title: "Forms/FormColumn",
+  component: FormColumn,
   argTypes: {backgroundColor: 'color'}
 }
 
-export const Template = (args) => <FormSection {...args} />
+export const Template = (args) => <FormColumn {...args} />
 
 export const All = () => {
   return (
     <div>
-      <FormSection>
+      <FormColumn>
         <FormRow columnsTwo className="mx-5">
           <FormElement
             label="Description (optional)"
@@ -26,7 +26,7 @@ export const All = () => {
           </FormElement>
 
         </FormRow>
-      </FormSection>
+      </FormColumn>
 
     </div>
   )

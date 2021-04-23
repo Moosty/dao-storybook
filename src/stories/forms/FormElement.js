@@ -20,7 +20,7 @@ export const FormElement = ({
 
   return (
     <div className={["mb-4 w-full", className].join(" ")}>
-      <div className="flex flex-row">
+      <div className="flex flex-row mb-2">
         <Typography type="bodyStrong">{label}</Typography>
         {infoIcon &&
         <Tooltip description={tooltipText} dark>

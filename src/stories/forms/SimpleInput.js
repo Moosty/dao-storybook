@@ -30,7 +30,7 @@ export const SimpleInput = ({
 
   return (
     <div>
-      <div className=" relative rounded-md shadow-sm">
+      <div className=" relative rounded-default shadow-sm">
         <input
           disabled={disabled || readOnly}
           type={datePicker ? "date" : number ? "number" : "text"}
@@ -39,7 +39,7 @@ export const SimpleInput = ({
           placeholder={placeholder}
           defaultValue={defaultValue}
           className={[
-            "block w-full pr-10 mb-0   sm:text-sm rounded-md bg-white",
+            "block w-full pr-10 mb-0   sm:text-sm rounded-default bg-white",
             formClass,
             shadow ? shadowClass : " ",
           ].join(" ")}
