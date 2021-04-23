@@ -1,14 +1,14 @@
 .dao-light {
-    --color-text-headings: var(--color-deep-100);
+    --color-text-headings: var(--color-deep-90);
     --color-text-body: var(--color-deep-75);
     --color-text-caption: var(--color-deep-60);
-    --color-text-disabled: var(--color-deep-55);
-    --color-text-placeHolder: var(--color-deep-50);
+    --color-text-disabled: var(--color-deep-50);
+    --color-text-placeHolder: var(--color-deep-40);
     --color-text-link: var(--color-theme-9-text);
-    --color-text-hover: var(--color-theme-10);
+    --color-text-hover: var(--color-theme-11);
     --color-text-error: var(--color-red-9);
 
-    --color-surface-bg: var(--color-deep-2);
+    --color-surface-bg: var(--color-deep-1);
     --color-surface-icon-bg: var(--color-deep-5);
     --color-surface-outline: var(--color-deep-10);
 
@@ -25,10 +25,10 @@
 
 
 
-    --color-forms-border: var(--color-deep-50);
+    --color-forms-border: var(--color-deep-30);
     --color-forms-hover-border: var(--color-deep-70);
-    --color-forms-read-only: var(--color-deep-5);
-    --color-forms-disabled: var(--color-deep-10);
+    --color-forms-read-only: var(--color-deep-2);
+    --color-forms-disabled: var(--color-deep-5);
     --color-forms-active: var(--color-theme-8);
     --color-forms-error: var(--color-red-8);
     --color-forms-divider: var( --color-deep-15);
