@@ -8,8 +8,8 @@ export default {
     argTypes: { backgroundColor: 'control'},
 }
 
-export const Template = (args) => <NavBar {...args}/>
+export const Template = (args) => <NavBar invited {...args}/>
 
-export const all = () => <div>
-    <NavBar />
+export const Invited = () => <div>
+    <NavBar  />
 </div>
