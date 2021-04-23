@@ -8,10 +8,6 @@ export const UploadField = () => {
         <div>
             {/*UPLOAD FIELD*/}
             <div className="sm:col-span-6 ">
-                <Typography type="bodyStrong" htmlFor="cover_photo" Element='label'>
-                    Share files to help others make decision (Optional)
-                </Typography>
-
                 <div
                     className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                     <div className="space-y-1 text-center">

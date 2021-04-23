@@ -35,8 +35,6 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                             <InputAvatar label="Select the DAO"/>
                         </div>
 
-
-
                         {/*Description area*/}
                         <TextFieldInput
                             placeholder="Any information you'd like to share with your team."

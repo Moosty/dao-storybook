@@ -3,6 +3,7 @@ import React from 'react';
 import {SimpleInput} from './SimpleInput';
 import {Typography} from "../Typography";
 import {Meta} from "@storybook/addon-docs/blocks";
+import {FormElement} from "./FormElement";
 
 <Meta title="Forms/SimpleInput" component={SimpleInput}/>
 
@@ -28,7 +29,12 @@ export const All = () => <div>
     <div className="mt-4"></div>
     <Typography type="h2" Element='h2'>
       Default fields </Typography>
-    <SimpleInput default label={"default"}/>
+    <FormElement
+      label="Description (optional)" descriptionTop="description Top" descriptionBottom="descriptionBottom"
+      infoIcon
+      tooltipText="Select on which cloud platform you want to deploy your app. You can always switch to a different platform at a later time."
+    >
+      <SimpleInput default label={"default"}/></FormElement>
     <div className="w-1/2">
       <SimpleInput default placeholder="10%" description descriptionMessage="description" selector number
                    label={"datepicker mockup"}/>

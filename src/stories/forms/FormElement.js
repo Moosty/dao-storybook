@@ -19,7 +19,7 @@ export const FormElement = ({
                             }) => {
 
   return (
-    <div className={["mb-4", className].join(" ")}>
+    <div className={["mb-4 w-full", className].join(" ")}>
       <div className="flex flex-row">
         <Typography type="bodyStrong">{label}</Typography>
         {infoIcon &&

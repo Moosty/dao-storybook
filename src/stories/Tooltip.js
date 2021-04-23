@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from "react";
-
-// TODO Hoe verander ik de kleur van de tekst? Het lijkt alsof de typography ze overrulted.
+import React, {useState} from "react";
 
 export const Tooltip = ({dark, light, children, description, ...props}) => {
     const [visibility, setVisibility] = useState(false);
@@ -12,7 +10,6 @@ export const Tooltip = ({dark, light, children, description, ...props}) => {
             onMouseEnter={() => setVisibility(true)}
             onMouseLeave={() => setVisibility(false)}
             >
-            {/*//het element waar je de tooltip van de tooltip*/}
             {children}
             <div className={[
                 visibility ? "block" : "hidden",
@@ -20,7 +17,6 @@ export const Tooltip = ({dark, light, children, description, ...props}) => {
                 dark ? darkClass : lightClass,
                 "",
             ].join(" ")}>
-                {/*TEKST VAN DE TOOLTIP*/}
                 {description}</div>
         </div>
     )

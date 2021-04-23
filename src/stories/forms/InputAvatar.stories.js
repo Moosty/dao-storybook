@@ -38,8 +38,7 @@ export const All = () => <div>
 
     <InputAvatar label={"disabled"} disabled items={allDaoData} selectedItem={allDaoData[3]}/>
     <InputAvatar label={"read only"} readOnly items={allDaoData} selectedItem={allDaoData[2]}/>
-    <InputAvatar label={"error"} error errorMessage="error message here"/>
-
+    <InputAvatar label={"error"} error  errorMessage="error message here" items={allDaoData} selectedItem={allDaoData[2]}/>
   </div>
 </div>
 
