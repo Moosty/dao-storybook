@@ -13,6 +13,7 @@ export const FormElement = ({
                               errorMessage,
                               id,
                               infoIcon,
+                              tooltipText,
                               ...props
                             }) => {
 
@@ -21,7 +22,7 @@ export const FormElement = ({
       <div className="flex flex-row">
         <Typography type="bodyStrong">{label}</Typography>
         {infoIcon &&
-        <Tooltip description="dit is een tooltip" dark>
+        <Tooltip description={tooltipText} dark>
           <InformationCircleIcon className="text-textPlaceHolder hover:text-textBody   ml-2 h-4 w-4"/></Tooltip>
         }
       </div>

@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 
 export const Tooltip = ({dark, light, children, description, ...props}) => {
     const [visibility, setVisibility] = useState(false);
-    const darkClass =[ "bg-textBody", "text-white" ].join(" ");
+    const darkClass =[ "bg-textHeadings", "text-white" ].join(" ");
     const lightClass =["bg-surfaceBg", ].join(" ");
 
         return (
