@@ -6,7 +6,7 @@ import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/outline";
 
 
 const pathColors = {
-  "votingYesNo": "#2dec00",
+  "votingYesNo": "#2BD67B",
   "votingCount": "#8A92A5",
   "quorumReached": "#3b81f6",
 
