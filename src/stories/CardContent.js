@@ -8,6 +8,7 @@ export const CardContent = ({children, className}) => {
       className,
       "px-4",
       "flex-grow",
+
       "bg-cardBg",
       "w-full",
       "py-2",

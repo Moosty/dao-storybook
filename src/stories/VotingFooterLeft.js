@@ -13,13 +13,14 @@ export const VotingFooterLeft = ({notAllowed, votingClosed,votingResult,userVote
     < /div>
     }
       {(votingClosed && votingResult=== "inconclusive") &&
-      <span>not enough votes</span>
+      <Typography type="bodyStrong" Element="span">not enough votes</Typography>
       }
       {(votingClosed && votingResult === "yes") &&
       <span className="w-1/2 text-successIcon  font-medium">Approved!</span>
       }
       {(votingClosed && votingResult === "no") &&
-      <span className="w-1/2 text-dangerIcon  font-medium">Not Approved!</span>
+      <Typography className="text-dangerIcon" type="bodyStrong" Element="span">Not Approved!</Typography>
+
       }
     </>
   )

@@ -24,23 +24,7 @@ export const VotingCardContent = ({closed, openLabel, valueYes, valueNo, quorum,
       </div>
     </div>
 
-      <div className="flex flex-row items-center">
-        {closed ? <>
-        <LockClosedIcon className="h-5 w-5 text-textPlaceHolder mr-1"/>
-          <Typography type="caption" Element="span">
-          Closed
-          </Typography>
-        </>
-          :
-     <>
-        <LockOpenIcon className="h-5 w-5 text-textPlaceHolder mr-1"/>
-          <Typography type="caption" Element="span">
-            {openLabel}
-          </Typography>
-        </>
 
-        }
-      </div>
 
 
     </div>
