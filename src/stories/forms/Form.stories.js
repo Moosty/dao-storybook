@@ -15,7 +15,7 @@ export const All = () => {
     <div>
       <Form>
         <FormColumn>
-          x
+          xx
         </FormColumn>
         <FormColumn>
           Y

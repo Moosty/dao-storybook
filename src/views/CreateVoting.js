@@ -31,7 +31,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount, voteType
     <NavBar/>
     <div className={[appWidth].join(" ")}>
       <Container>
-        <div className="ml-4 my-4 ">
+        <div className="md:ml-4 my-4 ">
           <Typography type="h2" Element='h2'>
             Create a voting
           </Typography>
@@ -39,7 +39,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount, voteType
         {/*Form*/}
         <Form>
           {/*COLUMN LEFT */}
-          <FormColumn className="mx-4 mr-10">
+          <FormColumn className="md:mx-4 md:mr-10">
             <FormRow>
               <FormElement label="Select DAO">
                 <InputAvatar label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[4]}/>
@@ -72,13 +72,12 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount, voteType
               </FormRow>
             </div>
             }
-
           </FormColumn>
 
           {/*COLUMN RIGHT*/}
           <FormColumn className="">
             <div className="md:ml-10 ">
-              <FormRow className="flex-col md:flex-row space-x-2">
+              <FormRow className="flex-col md:flex-row md:space-x-2">
                 <FormElement label="Start Date">
                   <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
                 </FormElement>

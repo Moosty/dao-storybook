@@ -39,17 +39,17 @@ export const SimpleInput = ({
           placeholder={placeholder}
           defaultValue={defaultValue}
           className={[
-            "block w-full pr-10 mb-0   sm:text-sm rounded-default bg-white",
+            "block w-full mb-0   sm:text-sm rounded-default bg-white",
             formClass,
             shadow ? shadowClass : " ",
           ].join(" ")}
           {...props}
         />
 
-        {datePicker && <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-          <CalendarIcon className="h-5 w-5 text-textPlaceHolder hover:text-textBody"/>
-        </div>
-        }
+        {/*{datePicker && <div className="absolute inset-y-0 right-0 pr-3 flex items-center">*/}
+        {/*  <CalendarIcon className="h-5 w-5 text-textPlaceHolder hover:text-textBody"/>*/}
+        {/*</div>*/}
+        {/*}*/}
         {error && <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
           <ExclamationCircleIcon className="h-5 w-5 text-formError" aria-hidden="true"/>
         </div>}

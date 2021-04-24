@@ -5,7 +5,7 @@ import {FormElement} from "./FormElement";
 import {TextFieldInput} from "./TextFieldInput";
 
 export default {
-  title: "Forms/DropDown (niet dynamisch)",
+  title: "Forms/DropDown",
   component: DropDown,
   argTypes: {backgroundColor: 'control'}
 }
