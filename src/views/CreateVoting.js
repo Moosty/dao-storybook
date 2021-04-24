@@ -70,7 +70,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
               {votingType.id === 2 && <div>
                 <FormRow>
                   <FormElement label="Options">
-                    <MultipleChoice/>
+                    <MultipleChoice defaultOptions={[{id: 1, value:"value1", error: false, placeholder:"optie 1"}, {id: 2, value:"value2", error: false, placeholder:"optie 2"}]} />
                   </FormElement>
                 </FormRow>
               </div>

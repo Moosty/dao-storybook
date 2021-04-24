@@ -5,6 +5,7 @@ import {Tooltip} from "../Tooltip";
 import {SimpleInput} from "./SimpleInput";
 import {InputAvatar} from "./InputAvatar";
 import {allDaoData} from "../../fixtures/daos";
+import {MultipleChoice} from "./MultipleChoice";
 
 export default {
   title: "Forms/FormElement",
@@ -89,5 +90,15 @@ export const Error = () => <div className="m-4">
     errorMessage="test"
     tooltipText="The result is ONLY visible after the voting is closed."
   > <SimpleInput default  infoIcon placeholder="your name here"/>
+  </FormElement>
+</div>
+
+
+export const MultipleChoiceStory = () => <div className="m-4">
+  <FormElement
+    label="Options"
+    infoIcon
+    tooltipText="The result is ONLY visible after the voting is closed."
+  > <MultipleChoice defaultOptions={[{id: 1, value:"value1", error: false, placeholder:"optie 1"}, {id: 2, value:"value2", error: false, placeholder:"optie 2"}]} />
   </FormElement>
 </div>
