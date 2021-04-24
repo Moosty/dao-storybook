@@ -50,7 +50,7 @@ export const Button = ({
       disabled={disabled}
 
       className={[
-        "m-0 flex flex-row",
+        "m-0 flex flex-row justify-around",
         buttonSize,
         disabled ? disabledClass : secondary ? secondaryClass : primaryClass,
 

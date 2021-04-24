@@ -7,6 +7,7 @@ import {appWidth} from "../shared/styles";
 import {Button} from "./Button";
 import {Typography} from "./Typography";
 import {DaoInvitation} from "./DaoInvitation";
+import {Modal} from "./modals/Modal";
 
 const user = {
   name: 'Raphael Cornelis',
