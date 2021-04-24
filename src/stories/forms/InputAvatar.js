@@ -1,17 +1,27 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, {Fragment, useState} from 'react'
 import {Listbox, Transition} from '@headlessui/react'
-import {CheckIcon, ExclamationCircleIcon, SelectorIcon} from '@heroicons/react/solid'
-import {Typography} from "../Typography";
+import {CheckIcon, SelectorIcon} from '@heroicons/react/solid'
 import {useForms} from "../../hooks/forms";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const InputAvatar = ({items, selectedItem, disabled, shadow, primary, error, className, onChange, readOnly, ...props}) => {
+export const InputAvatar = ({
+                              items,
+                              selectedItem,
+                              disabled,
+                              shadow,
+                              primary,
+                              error,
+                              className,
+                              onChange,
+                              readOnly,
+                              ...props
+                            }) => {
   const [selected, setSelected] = useState(selectedItem);
-  const {formClass} = useForms({disabled, error, readOnly});
+  const {formClass} = useForms({disabled, error, readOnly });
 
   return (
     <Listbox
@@ -23,20 +33,20 @@ export const InputAvatar = ({items, selectedItem, disabled, shadow, primary, err
       }}>
       {({open}) => (
         <>
-          <Listbox.Label className="block">
-            <Typography type="bodyStrong" label="span">
-              {props.label}                        </Typography>
-          </Listbox.Label>
+          {/*<Listbox.Label className="block">*/}
+          {/*  <Typography type="bodyStrong" label="span">*/}
+          {/*    {props.label}                        </Typography>*/}
+          {/*</Listbox.Label>*/}
           <div className={["relative", className,].join(" ")}>
             <Listbox.Button
 
-              className={["relative w-full rounded-md pr-10 pl-3   py-2 text-left cursor-default sm:text-sm ",
+              className={["relative w-full rounded-default pr-10 pl-3   py-2 text-left cursor-default sm:text-sm ",
                 "bg-white  focus:outline-none ",
                 formClass,
               ].join(" ")}
             >
                           <span className="flex items-center">
-                            <img src={selected?.avatar} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>
+                            <img src={selected?.icon} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>
                             <span className="ml-3 block truncate">{selected?.name}</span>
                           </span>
               <span
@@ -54,7 +64,7 @@ export const InputAvatar = ({items, selectedItem, disabled, shadow, primary, err
             >
               <Listbox.Options
                 static
-                className=" absolute mt-1 w-full bg-white shadow-lg max-h-100` rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm z-50"
+                className=" absolute mt-1 w-full bg-white shadow-lg max-h-100` rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm z-40"
               >
                 {items && items.map((item) => (
                   <Listbox.Option
@@ -70,7 +80,7 @@ export const InputAvatar = ({items, selectedItem, disabled, shadow, primary, err
                     {({selected, active}) => (
                       <>
                         <div className="flex items-center">
-                          <img src={item?.avatar} alt=""
+                          <img src={item?.icon} alt=""
                                className="flex-shrink-0 h-6 w-6 rounded-full"/>
                           <span
                             className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
@@ -93,12 +103,6 @@ export const InputAvatar = ({items, selectedItem, disabled, shadow, primary, err
               </Listbox.Options>
             </Transition>
           </div>
-          {error && <div className="flex flex-row">
-            <ExclamationCircleIcon className="mt-2 mr-1 ml-1 h-5 w-5 text-formError" aria-hidden="true"/>
-
-            <p className="mt-2 text-sm text-red-600" id={`-error`}>
-              {props.errorMessage}
-            </p></div>}
         </>
       )}
     </Listbox>

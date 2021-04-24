@@ -35,28 +35,34 @@ export const Button = ({
                          buttonGroup,
                          containerSide,
                          disabled,
+                         className,
+                         shadow,
+                         tertiary,
+                         onClick,
                          ...props
                        }) => {
   const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed', 'shadow-defaultPrimary', 'text-themeButtonTextPrimary'].join(" ");
-  const secondaryClass = ['', 'bg-themeButtonBgSecondary', 'border-surfaceOutline', 'border-2', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textLink'].join(" ");
+  const secondaryClass = ['', 'bg-themeButtonBgSecondary', 'border-surfaceOutline', 'border', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textBody'].join(" ");
   const disabledClass = [secondary ? 'bg-surfaceBg' : 'bg-formDisabled', 'text-textDisabled'].join(" ");
+  const tertiaryClass = ['', 'hover:text-themeHover', "hover:underline", 'focus:text-themePressed', 'text-textBody'].join(" ");
 
 
   const buttonSize = buttonSizes[size || "medium"]
   return (
     <button
       disabled={disabled}
-
+      onClick={onClick}
       className={[
-        "m-0",
+        "m-0 flex flex-row justify-around",
         buttonSize,
-        disabled ? disabledClass : secondary ? secondaryClass : primaryClass,
+        disabled ? disabledClass : tertiary ? tertiaryClass : secondary ? secondaryClass : primaryClass,
 
         rounded && !containerSide && "rounded-default",
         containerSide === "left" && "rounded-l-default",
         containerSide === "right" && "rounded-r-default ",
-        containerSide && containerSide !== "right" && "border-r-3 border-white"
-
+        containerSide && containerSide !== "right" && "border-r-3 border-white",
+        shadow ? 'shadow-defaultPrimary' : " ",
+        className,
       ].join(" ")}
       {...props}
     >
@@ -105,6 +111,6 @@ Button.defaultProps = {
   secondary: false,
   disabled: false,
   size: 'medium',
-  onClick: undefined,
+  onClick: () => null,
   type: 'strandard',
 };

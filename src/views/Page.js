@@ -61,6 +61,8 @@ const cards = [
       dao: "open, inconclusive",
       title: "You have not voted",
       user: "Raphael",
+      openLabel: "2 days left to close",
+
     },
     content: {
       children: <VotingCardContent
@@ -68,7 +70,7 @@ const cards = [
         valueYes={77}
         valueNo={40}
         eligibleVotes={999}
-        closed
+
       />,
     },
     footer: {
@@ -85,8 +87,10 @@ const cards = [
     votingResult: "inconclusive",
     header: {
       dao: "open, inconclusive",
-      title: "You have voted yes",
+      title: "You have voted yes, but whas that the question?",
       user: "Sander",
+      openLabel: "12 days left to close",
+
 
     },
     content: {
@@ -115,6 +119,8 @@ const cards = [
       dao: "open, inconclusive",
       title: "You have voted no",
       user: "Corbifex",
+      openLabel: "43 days left to close",
+
 
     },
     content: {
@@ -122,7 +128,9 @@ const cards = [
         quorum={51}
         valueYes={50}
         valueNo={50}
-        openLabel="78 days left to close"/>,
+        eligibleVotes={100}
+
+        />,
     },
     footer: {
 
@@ -141,6 +149,8 @@ const cards = [
       dao: "open, inconclusive",
       title: "the voting isnt for you",
       user: "Jurre",
+      openLabel: "88 days left to close",
+
 
     },
     content: {
@@ -171,6 +181,8 @@ const cards = [
       dao: "open, Yes",
       title: "You have not voted",
       user: "JurreM",
+      openLabel: "18 days left to close",
+
 
     },
 
@@ -197,6 +209,8 @@ const cards = [
     header: {
       dao: "open, Yes",
       title: "You have voted yes",
+      openLabel: "9 days left to close",
+
     },
     content: {
       children: <VotingCardContent
@@ -223,6 +237,8 @@ const cards = [
     header: {
       dao: "open, Yes",
       title: "You have voted no",
+      openLabel: "8 days left to close",
+
     },
     content: {
       children: <VotingCardContent
@@ -249,6 +265,8 @@ const cards = [
     header: {
       dao: "open, Yes",
       title: "This voting isnt for you",
+      openLabel: "100 days left to close",
+
     },
     content: {
       children: <VotingCardContent
@@ -276,6 +294,8 @@ const cards = [
     header: {
       dao: "open, No",
       title: "You have not voted",
+      openLabel: "1 days left to close",
+
     },
     content: {
       children: <VotingCardContent
@@ -300,6 +320,8 @@ const cards = [
     header: {
       dao: "open, No",
       title: "You have voted yes",
+      openLabel: "1 days left to close",
+
     },
     content: {
       children: <VotingCardContent
@@ -326,6 +348,8 @@ const cards = [
     header: {
       dao: "open, No",
       title: "You have voted no",
+      openLabel: "17 days left to close",
+
     },
     content: {
       children: <VotingCardContent
@@ -352,6 +376,7 @@ const cards = [
     header: {
       dao: "open, No",
       title: "This voting isnt for you",
+      openLabel: "1 days left to close",
     },
     content: {
       children: <VotingCardContent
@@ -360,7 +385,7 @@ const cards = [
         valueNo={5}
         eligibleVotes={100}
 
-        openLabel="1 days left to close"/>,
+       />,
     },
     footer: {
       left: <VotingFooterLeft
@@ -380,6 +405,8 @@ const cards = [
     header: {
       dao: "closed, inconclusive",
       title: "You have not voted",
+      closed: true,
+
     },
     content: {
       children: <VotingCardContent
@@ -406,6 +433,8 @@ const cards = [
     header: {
       dao: "closed, inconclusive",
       title: "You have voted yes",
+      closed: true,
+
     },
 
     content: {
@@ -438,6 +467,8 @@ const cards = [
     header: {
       dao: "closed, inconclusive",
       title: "You have voted no",
+      closed: true,
+
     },
 
     content: {
@@ -468,6 +499,8 @@ const cards = [
     header: {
       dao: "closed, inconclusive",
       title: "the voting isnt for you",
+      closed: true,
+
     },
 
     content: {
@@ -499,6 +532,8 @@ const cards = [
     header: {
       dao: "closed, Yes",
       title: "You have not voted",
+      closed: true,
+
     },
 
     content: {
@@ -527,6 +562,8 @@ const cards = [
       dao: "closed, Yes",
       title: "You have voted yes",
     },
+    closed: true,
+
 
     content: {
       children: <VotingCardContent
@@ -555,6 +592,8 @@ const cards = [
     header: {
       dao: "closed, Yes",
       title: "You have voted no",
+      closed: true,
+
     },
 
     content: {
@@ -585,6 +624,8 @@ const cards = [
     header: {
       dao: "closed, Yes",
       title: "This voting isnt for you",
+      closed: true,
+
     },
 
     content: {
@@ -615,6 +656,8 @@ const cards = [
     header: {
       dao: "closed, No",
       title: "You have not voted",
+      closed: true,
+
     },
 
     content: {
@@ -644,6 +687,8 @@ const cards = [
     header: {
       dao: "closed, No",
       title: "You have voted yes",
+      closed: true,
+
     },
 
     content: {
@@ -673,6 +718,8 @@ const cards = [
     header: {
       dao: "closed, No",
       title: "You have voted no",
+      closed: true,
+
     },
 
     content: {
@@ -704,6 +751,7 @@ const cards = [
     header: {
       dao: "closed, No",
       title: "This voting isnt for you",
+      closed: true,
     },
 
     content: {
@@ -712,7 +760,7 @@ const cards = [
         valueYes={90}
         valueNo={5}
         eligibleVotes={100}
-        closed/>,
+        />,
     },
     footer: {
       left: <VotingFooterLeft

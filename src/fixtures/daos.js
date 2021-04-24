@@ -1,62 +1,68 @@
 export const allDaoData = [
   {
+    id: 0,
+    name: 'Select a DAO',
+    icon:
+      'https://avatar.moosty.com/12',
+  },
+  {
     id: 1,
     name: 'The One DAO',
-    avatar:
+    icon:
       'https://avatar.moosty.com/1',
   },
   {
     id: 2,
     name: 'Arlene Mccoy',
-    avatar:
+    icon:
       'https://avatar.moosty.com/2',
   },
   {
     id: 3,
     name: 'Lisk Propject',
-    avatar:
+    icon:
       'https://avatar.moosty.com/3',
   },
   {
     id: 4,
     name: 'LCU DAO',
-    avatar:
+    icon:
       'https://avatar.moosty.com/4',
   },
   {
     id: 5,
     name: 'Tanya Fox',
-    avatar:
+    icon:
       'https://avatar.moosty.com/5',
   },
   {
     id: 6,
     name: 'Hellen Schmidt',
-    avatar:
+    icon:
       'https://avatar.moosty.com/6',
   },
   {
     id: 7,
     name: 'Caroline Schultz',
-    avatar:
+    icon:
       'https://avatar.moosty.com/7',
   },
   {
     id: 8,
     name: 'Mason Heaney',
-    avatar:
+    icon:
       'https://avatar.moosty.com/8',
   },
   {
     id: 9,
     name: 'Claudie Smitham',
-    avatar:
+    icon:
       'https://avatar.moosty.com/9',
   },
   {
     id: 10,
     name: 'Emil Schaefer',
-    avatar:
+    icon:
       'https://avatar.moosty.com/10',
   },
 ]

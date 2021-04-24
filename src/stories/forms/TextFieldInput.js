@@ -1,5 +1,4 @@
 import React from "react";
-import {ExclamationCircleIcon} from "@heroicons/react/solid";
 import {useForms} from "../../hooks/forms";
 
 export const TextFieldInput = ({placeholder, description, disabled, error, readOnly, ...props}) => {
@@ -22,7 +21,6 @@ export const TextFieldInput = ({placeholder, description, disabled, error, readO
                       disabled={disabled || readOnly}
                     />
         </div>
-
       </div>
   )
 }

@@ -2,6 +2,8 @@ import React from "react";
 import {ButtonGroup} from "./ButtonGroup";
 import {ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
 import {VotingFooterLeft} from "./VotingFooterLeft";
+import {Typography} from "./Typography";
+import {InfoIcon} from "./forms/InfoIcon";
 
 export const VotingFooterRight = ({userVote, notAllowed, votingResult, votingClosed}) => {
   return (
@@ -28,16 +30,23 @@ export const VotingFooterRight = ({userVote, notAllowed, votingResult, votingClo
         }
       </div>
       {votingClosed && !notAllowed && !userVote &&
-      <span className="w-full">You didn't vote</span>
+      <Typography className="" type="body" Element="span">You didn't vote</Typography>
+
       }
       {(votingClosed && !notAllowed && userVote === "yes") &&
-      <span className="w-full text-textDisabled  font-medium">Your vote <ThumbUpIcon className="h-5 w-5 text-successIcon mr-2"/></span>
+      <Typography className="" type="body" Element="span">Your vote <ThumbUpIcon className="h-5 w-5 text-successIcon mr-2"/></Typography>
       }
       {(votingClosed && !notAllowed && userVote === "no") &&
-      <span className="w-full text-textDisabled font-medium">Your vote  <ThumbDownIcon className="h-5 w-5 text-dangerIcon mr-2"/></span>
+      <Typography className="" type="body" Element="span">Your vote <ThumbDownIcon className="h-5 w-5 text-dangerIcon mr-2"/></Typography>
+
+
       }
       {(votingClosed && notAllowed) &&
-      <span className="w-full font-medium">Read only</span>
+      < div className="flex flex-row items-center">
+
+        <Typography type="body" Element="span">Read Only</Typography>
+        <InfoIcon className="h-4 w-4 text-textCaption"/>
+      < /div>
       }
 
 
