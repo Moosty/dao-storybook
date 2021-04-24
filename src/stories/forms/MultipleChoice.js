@@ -11,13 +11,13 @@ export const MultipleChoice = ({minItems, maxItems, defaultOptions}) => {
       {/*1 item*/}
       {options && options.map((option) =>
         <div className="mb-2">
-          <FormElement className="flex flex-row no wrap">
-            <SimpleInput default placeholder={option.placeholder}/>
-            <Button label="-" tertiary size="small" onClick={() => setOptions([...options.filter((o) => o.id !== option.id)])}></Button>
+          <FormElement className="flex ">
+            <SimpleInput className="w-2/5" default placeholder={option.placeholder}/>
+            <Button className="" label="-" tertiary size="small" onClick={() => setOptions([...options.filter((o) => o.id !== option.id)])}></Button>
           </FormElement>
         </div>
       )}
-      <Button label="+ Add an option" tertiary size="small" onClick={() => setOptions([...options, {id: options[options.length-1].id + 1, value:" ", error: false, placeholder:"choice"}])}></Button>
+      <Button label="+ Add an option" tertiary size="small" onClick={() => setOptions([...options, {id: options[options.length-1].id + 1, value:" ", error: false, placeholder:"Multiple Choice"}])}></Button>
     </div>
   )
 }

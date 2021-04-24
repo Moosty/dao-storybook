@@ -20,6 +20,7 @@ export const SimpleInput = ({
                               description,
                               selector,
                               number,
+                              className,
                               ...props
                             }) => {
   const {formClass} = useForms({disabled, readOnly, error});
@@ -42,6 +43,7 @@ export const SimpleInput = ({
             "block w-full mb-0   sm:text-sm rounded-default bg-white",
             formClass,
             shadow ? shadowClass : " ",
+            className,
           ].join(" ")}
           {...props}
         />
