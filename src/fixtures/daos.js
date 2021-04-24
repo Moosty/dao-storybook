@@ -1,5 +1,11 @@
 export const allDaoData = [
   {
+    id: 0,
+    name: 'Select a DAO',
+    icon:
+      'https://avatar.moosty.com/12',
+  },
+  {
     id: 1,
     name: 'The One DAO',
     icon:

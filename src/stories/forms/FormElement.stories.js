@@ -81,3 +81,13 @@ export const All = () => <div className="m-4">
   > <SimpleInput default label={"default"} shadow/>
   </FormElement>
 </div>
+
+export const Error = () => <div className="m-4">
+  <FormElement
+    label="Label"
+    infoIcon
+    errorMessage="test"
+    tooltipText="The result is ONLY visible after the voting is closed."
+  > <SimpleInput default  infoIcon placeholder="your name here"/>
+  </FormElement>
+</div>

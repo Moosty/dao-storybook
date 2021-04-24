@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
 import {Header} from '../stories/Header';
@@ -26,130 +26,136 @@ import {Button} from "../stories/Button";
 import {SubmitIcon} from "../stories/forms/SubmitIcon";
 import {MultipleChoice} from "../stories/forms/MultipleChoice";
 
-export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount, voteTypeYesNo, voteTypeMulti}) => (
-  <div className="bg-surfaceBg">
-    <NavBar/>
-    <div className={[appWidth].join(" ")}>
-      <Container>
-        <div className="md:ml-4 my-4 ">
-          <Typography type="h2" Element='h2'>
-            Create a voting
-          </Typography>
-        </div>
-        {/*Form*/}
-        <Form>
-          {/*COLUMN LEFT */}
-          <FormColumn className="md:mx-4 md:mr-10">
-            <FormRow>
-              <FormElement label="Select DAO">
-                <InputAvatar label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[4]}/>
-              </FormElement>
-            </FormRow>
-            <FormRow>
-              <FormElement label="Type of Voting">
-                <InputAvatar label={"Select Voting type"} items={allVotingTypes} selectedItem={allVotingTypes[0]}/>
-              </FormElement>
-            </FormRow>
-            {/*OPTIONAL PART*/}
-            {voteTypeYesNo && <div>
+export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
+  const [votingType, setVotingType] = useState(allVotingTypes[0]);
+
+  return (
+    <div className="bg-surfaceBg">
+      <NavBar/>
+      <div className={[appWidth].join(" ")}>
+        <Container>
+          <div className="md:ml-4 my-4 ">
+            <Typography type="h2" Element='h2'>
+              Create a voting
+            </Typography>
+          </div>
+          {/*Form*/}
+          <Form>
+            {/*COLUMN LEFT */}
+            <FormColumn className="md:mx-4 md:mr-10">
               <FormRow>
-                <FormElement label="Description (optional)">
-                  <TextFieldInput placeholder="Any information you'd like to share with your team."/>
+                <FormElement label="Select DAO">
+                  <InputAvatar label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[0]}/>
                 </FormElement>
               </FormRow>
               <FormRow>
-                <FormElement label="Share files to help others make decision (Optional)">
-                  <UploadField/>
-                </FormElement>
-              </FormRow></div>
-            }
-
-            {voteTypeMulti && <div>
-              <FormRow>
-                <FormElement label="Options">
-                  <MultipleChoice/>
+                <FormElement label="Type of Voting">
+                  <InputAvatar onChange={setVotingType} label={"Select Voting type"} items={allVotingTypes} selectedItem={votingType}/>
                 </FormElement>
               </FormRow>
-            </div>
-            }
-          </FormColumn>
-
-          {/*COLUMN RIGHT*/}
-          <FormColumn className="">
-            <div className="md:ml-10 ">
-              <FormRow className="flex-col">
-                <FormElement label="Start Date">
-                  <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
-                </FormElement>
-                <FormElement label="End Date" descriptionBottom="Close in 1 week">
-                  <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
-                </FormElement>
-              </FormRow>
-              <FormRow className="">
-                <FormElement
-                  label="Hide results before voting"
-                  descriptionTop="The result is ONLY visible after the voting is closed."
-                  infoIcon tooltipText="The results of the vote will be hided until the voting ends.">
-                </FormElement>
-                <FormElement>
-                  <div className="flex flex-row justify-end">
-                    <Typography type="body" className="mr-2">Off</Typography>
-                    <SwitchButton/>
-                  </div>
-                </FormElement>
-              </FormRow>
-              {/*optional part*/}
-
-              {voteTypeYesNo && <div>
-              <FormRow className="space-x-2">
-                <FormElement label="Min. required votes" descriptionBottom="8 out of 16" infoIcon tooltipText={<Card/>}>
-                  <SimpleInput default placeholder="e.g. 6" number/>
-                </FormElement>
-                <FormElement label="Min. required YES votes" descriptionBottom="50% of voters" infoIcon
-                             tooltipText={<Card/>}>
-                  <SimpleInput default placeholder="depends on amount of votes" number/>
-                </FormElement>
-              </FormRow>
-              <Typography type="caption">
-                For a Yes/No voting to pass, it must fullfil two conditions: 1) The number of votes
-                reaches or exceeds the minimum required votes, AND 2) The number of YES votes reaches or
-                exceeds the minimum required YES votes.</Typography>
-              </div>}
-
-              {voteTypeMulti && <div>
-                <FormRow className="space-x-2">
-                  <FormElement label="Min. required votes" descriptionBottom="8 out of 16" infoIcon tooltipText={<Card/>}>
-                    <SimpleInput default placeholder="e.g. 6" number/>
-                  </FormElement>
-                  <FormElement label="Min. required YES votes" descriptionBottom="50% of voters" infoIcon
-                               tooltipText={<Card/>}>
-                    <SimpleInput default placeholder="depends on amount of votes" number/>
+              {/*OPTIONAL PART*/}
+              {votingType.id === 1 && <div>
+                <FormRow>
+                  <FormElement label="Description (optional)">
+                    <TextFieldInput placeholder="Any information you'd like to share with your team."/>
                   </FormElement>
                 </FormRow>
-                <Typography type="caption">
-                  For a multiple choice voting to be valid, the number of votes MUST reach or exceed the minimum required votes.
-                </Typography>
-              </div>}
+                <FormRow>
+                  <FormElement label="Share files to help others make decision (Optional)">
+                    <UploadField/>
+                  </FormElement>
+                </FormRow></div>
+              }
 
-              <div className="pt-5">
-                <div className="flex justify-end">
-                  <Button label="Cancel" secondary shadow/>
-                  <Button icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" shadow/>
+              {votingType.id === 2 && <div>
+                <FormRow>
+                  <FormElement label="Options">
+                    <MultipleChoice/>
+                  </FormElement>
+                </FormRow>
+              </div>
+              }
+            </FormColumn>
+
+            {/*COLUMN RIGHT*/}
+            <FormColumn className="">
+              <div className="md:ml-10 ">
+                <FormRow className="flex-col">
+                  <FormElement label="Start Date">
+                    <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
+                  </FormElement>
+                  <FormElement label="End Date" descriptionBottom="Close in 1 week">
+                    <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
+                  </FormElement>
+                </FormRow>
+                <FormRow className="">
+                  <FormElement
+                    label="Hide results before voting"
+                    descriptionTop="The result is ONLY visible after the voting is closed."
+                    infoIcon tooltipText="The results of the vote will be hided until the voting ends.">
+                  </FormElement>
+                  <FormElement>
+                    <div className="flex flex-row justify-end">
+                      <Typography type="body" className="mr-2">Off</Typography>
+                      <SwitchButton/>
+                    </div>
+                  </FormElement>
+                </FormRow>
+                {/*optional part*/}
+
+                {votingType.id === 1 && <div>
+                  <FormRow className="space-x-2">
+                    <FormElement label="Min. required votes" descriptionBottom="8 out of 16" infoIcon
+                                 tooltipText={<Card/>}>
+                      <SimpleInput default placeholder="e.g. 6" number/>
+                    </FormElement>
+                    <FormElement label="Min. required YES votes" descriptionBottom="50% of voters" infoIcon
+                                 tooltipText={<Card/>}>
+                      <SimpleInput default placeholder="depends on amount of votes" number/>
+                    </FormElement>
+                  </FormRow>
+                  <Typography type="caption">
+                    For a Yes/No voting to pass, it must fullfil two conditions: 1) The number of votes
+                    reaches or exceeds the minimum required votes, AND 2) The number of YES votes reaches or
+                    exceeds the minimum required YES votes.</Typography>
+                </div>}
+
+                {votingType.id === 2 && <div>
+                  <FormRow className="space-x-2">
+                    <FormElement label="Min. required votes" descriptionBottom="8 out of 16" infoIcon
+                                 tooltipText={<Card/>}>
+                      <SimpleInput default placeholder="e.g. 6" number/>
+                    </FormElement>
+                    <FormElement label="Min. required YES votes" descriptionBottom="50% of voters" infoIcon
+                                 tooltipText={<Card/>}>
+                      <SimpleInput default placeholder="depends on amount of votes" number/>
+                    </FormElement>
+                  </FormRow>
+                  <Typography type="caption">
+                    For a multiple choice voting to be valid, the number of votes MUST reach or exceed the minimum
+                    required votes.
+                  </Typography>
+                </div>}
+
+                <div className="pt-5">
+                  <div className="flex justify-end">
+                    <Button label="Cancel" secondary shadow/>
+                    <Button icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" shadow/>
+                  </div>
                 </div>
               </div>
-            </div>
-          </FormColumn>
+            </FormColumn>
 
 
-        </Form>
+          </Form>
 
 
-      </Container>
+        </Container>
 
+      </div>
     </div>
-  </div>
-
-);
+  )
+};
 CreateVoting.propTypes = {
   user: PropTypes.shape({}),
   onLogin: PropTypes.func.isRequired,
