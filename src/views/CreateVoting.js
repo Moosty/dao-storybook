@@ -77,7 +77,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount, voteType
           {/*COLUMN RIGHT*/}
           <FormColumn className="">
             <div className="md:ml-10 ">
-              <FormRow className="flex-col md:flex-row md:space-x-2">
+              <FormRow className="flex-col">
                 <FormElement label="Start Date">
                   <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
                 </FormElement>

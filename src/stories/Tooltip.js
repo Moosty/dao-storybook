@@ -13,7 +13,7 @@ export const Tooltip = ({dark, light, children, description, ...props}) => {
             {children}
             <div className={[
                 visibility ? "block" : "hidden",
-                "w-max max-w-sm p-2 px-4 text-small text-center rounded-default shadow-defaultPrimary absolute z-50",
+                "absolute left-5 right-5 md:left-auto md:right-auto max-w-sm p-2 px-4 text-small text-center rounded-default shadow-defaultPrimary  z-50",
                 dark ? darkClass : lightClass,
                 "",
             ].join(" ")}>
