@@ -58,7 +58,7 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
           {/*COLUMN RIGHT*/}
           <FormColumn className="">
             <div className="md:ml-10 ">
-              <FormRow className="flex-col md:flex-row">
+              <FormRow className="flex-col md:flex-row space-x-2">
                 <FormElement label="Start Date" >
                   <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
                 </FormElement>
@@ -79,7 +79,7 @@ export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) =>
                   </div>
                 </FormElement>
               </FormRow>
-              <FormRow>
+              <FormRow className="space-x-2">
                 <FormElement label="Min. required votes" descriptionBottom="8 out of 16" infoIcon tooltipText={<Card />}>
                   <SimpleInput default placeholder="e.g. 6" number />
                 </FormElement>
