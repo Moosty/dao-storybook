@@ -64,7 +64,7 @@ export const Modal = ({}) => {
 
                   </div>
 
-                  <div className="mt-2">
+                  <div className="mt-6">
                     <Typography className="text-textHeadings" type="bodyStrong" Element="span">
 Step 1. Choose your avatar!                    </Typography>
 
@@ -86,13 +86,13 @@ Step 1. Choose your avatar!                    </Typography>
                       alt=""
                     />
                   </div>
-                  <div className="mt-2">
+                  <div className="my-6">
                     <Typography className="text-textHeadings" type="bodyStrong" Element="span">
                       Step 2. Create a username!                    </Typography>
 
                   </div>
                 </div>
-                <SimpleInput defaultValue="Username" name />
+                <SimpleInput  placeholder="Username" name />
               </div>
               <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
                 <Button
