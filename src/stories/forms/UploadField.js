@@ -29,7 +29,7 @@ export const UploadField = ({typesOfDocuments}) => {
                             <Typography className="pl-1 text-textPlaceHolder mb-2" type="caption" >Drag a file here, or</Typography>
                             <label
                                 htmlFor="file-upload"
-                                className="relative cursor-pointer  rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                className="relative cursor-pointer  rounded-default font-medium "
                             ><input id="file-upload" name="file-upload" type="file" className="sr-only"/>
                               <Button label="Browse" size="small" secondary shadow/>
                             </label>

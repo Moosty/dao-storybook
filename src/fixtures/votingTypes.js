@@ -2,19 +2,19 @@ export const allVotingTypes = [
   {
     id: 1,
     name: 'YES/NO',
-    avatar:
+    icon:
       'https://avatar.moosty.com/1',
   },
   {
     id: 2,
     name: 'Multiple Choice',
-    avatar:
+    icon:
       'https://avatar.moosty.com/2',
   },
   {
     id: 3,
     name: 'Quadratic Voting',
-    avatar:
+    icon:
       'https://avatar.moosty.com/3',
   },
   ]

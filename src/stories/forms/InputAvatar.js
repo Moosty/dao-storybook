@@ -46,7 +46,7 @@ export const InputAvatar = ({
               ].join(" ")}
             >
                           <span className="flex items-center">
-                            <img src={selected?.avatar} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>
+                            <img src={selected?.icon} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>
                             <span className="ml-3 block truncate">{selected?.name}</span>
                           </span>
               <span
@@ -80,7 +80,7 @@ export const InputAvatar = ({
                     {({selected, active}) => (
                       <>
                         <div className="flex items-center">
-                          <img src={item?.avatar} alt=""
+                          <img src={item?.icon} alt=""
                                className="flex-shrink-0 h-6 w-6 rounded-full"/>
                           <span
                             className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}

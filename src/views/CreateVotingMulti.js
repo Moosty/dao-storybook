@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {CreateVoting} from "./CreateVoting";
 
-export const CreateVotingYesNo = ({user, onLogin, onLogout, onCreateAccount}) => (
+export const CreateVotingMulti = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
-    <CreateVoting voteTypeYesNo />
+    <CreateVoting voteTypeMulti />
   </div>
 
 );
-CreateVotingYesNo.propTypes =
+CreateVotingMulti.propTypes =
   {
     user: PropTypes.shape({}),
     onLogin
@@ -23,7 +23,7 @@ PropTypes.func.isRequired,
 }
 ;
 
-CreateVotingYesNo.defaultProps =
+CreateVotingMulti.defaultProps =
   {
     user: null,
   }
