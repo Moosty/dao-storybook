@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {InputAvatar} from "../forms/InputAvatar";
 import {AdjustmentsIcon} from "@heroicons/react/solid";
 import {IconButton} from "../IconButton";
@@ -7,13 +7,23 @@ import {allMembers} from "../../fixtures/members";
 import {allVotingTypes} from "../../fixtures/votingTypes";
 
 export const Filter = () => {
+  const [show, setShow] = useState(true);
+
 
   return (
-    <div className="flex flex-row w-full space-x-2">
-      <InputAvatar label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[3]}/>
-      <InputAvatar label={"Initiated by Anyone"} items={allMembers} selectedItem={allMembers[0]}/>
-      <InputAvatar label={"Open and Closed"} items={allVotingTypes} placeholder="testing" />
-      <IconButton>
+    <div className="flex flex-row space-x-2 ">
+      <InputAvatar className={[
+        !show ? "hidden" : " ",
+      ].join(" ")} label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[0]}/>
+      <InputAvatar className={[
+        !show ? "hidden" : " ",
+      ].join(" ")} label={"Initiated by Anyone"} items={allMembers} selectedItem={allMembers[0]}/>
+      <InputAvatar className={[
+        !show ? "hidden" : " ",
+      ].join(" ")}
+                   label={"Open and Closed"} items={allVotingTypes}
+                   selectedItem={allVotingTypes[0]}/>
+      <IconButton onClick={() => setShow(!show)}>
         <AdjustmentsIcon className="mx-auto  h-5 w-5 "/>
       </IconButton>
     </div>

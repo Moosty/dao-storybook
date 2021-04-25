@@ -19,16 +19,9 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
       </Container>
       <Container>
         <div className="flex flex-row flex-wrap justify-between space-y-8 ">
-
-
           {allCardsData.map(card => <Card className="" {...card} />)}
-
-
         </div>
-
-
       </Container>
-
     </div>
   </div>
 
