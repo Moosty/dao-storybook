@@ -13,8 +13,8 @@ export default {
 
 const Template = (args) => <CreateNewDao {...args} />;
 
-export const NewDao = Template.bind({});
-NewDao.args = {
+export const newDao = Template.bind({});
+newDao.args = {
   ...HeaderStories.LoggedIn.args,
 };
 
