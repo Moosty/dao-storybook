@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-
-import {Header} from '../stories/Header';
 import '../stories/page.css';
 import {NavBar} from "../stories/NavBar";
 import {appWidth} from "../shared/styles";
@@ -10,9 +8,6 @@ import {Typography} from "../stories/Typography";
 import {SwitchButton} from "../stories/SwitchButton";
 import {SimpleInput} from "../stories/forms/SimpleInput";
 import {InputAvatar} from "../stories/forms/InputAvatar";
-import {CheckIcon} from "@heroicons/react/solid";
-import {InformationCircleIcon} from "@heroicons/react/outline";
-import {DropDown} from "../stories/forms/DropDown";
 import {Form} from "../stories/forms/Form";
 import {FormColumn} from "../stories/forms/FormColumn";
 import {FormRow} from "../stories/forms/FormRow";
@@ -25,6 +20,7 @@ import {Card} from "../stories/Card";
 import {Button} from "../stories/Button";
 import {SubmitIcon} from "../stories/forms/SubmitIcon";
 import {MultipleChoice} from "../stories/forms/MultipleChoice";
+import {allCardsData } from "../fixtures/cards";
 
 export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
   const [votingType, setVotingType] = useState(allVotingTypes[0]);
@@ -34,15 +30,15 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
       <NavBar/>
       <div className={[appWidth].join(" ")}>
         <Container>
-          <div className="md:ml-4 my-4 ">
+          <div className="lg:ml-4 my-4 ">
             <Typography type="h2" Element='h2'>
               Create a voting
             </Typography>
           </div>
           {/*Form*/}
-          <Form>
+          <Form className="lg:grid lg:grid-cols-2  lg:divide-x-2 lg:divide-formDivider lg:h-screen">
             {/*COLUMN LEFT */}
-            <FormColumn className="md:mx-4 md:mr-10">
+            <FormColumn className="lg:mx-4 lg:mr-10">
               <FormRow>
                 <FormElement label="Select DAO">
                   <InputAvatar label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[0]}/>
@@ -79,7 +75,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
 
             {/*COLUMN RIGHT*/}
             <FormColumn className="">
-              <div className="md:ml-10 ">
+              <div className="lg:ml-10 ">
                 <FormRow className="flex-col">
                   <FormElement label="Start Date">
                     <SimpleInput default placeholder="02/02/1988" datePicker label={"datepicker mockup"}/>
@@ -123,11 +119,11 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
                 {votingType.id === 2 && <div>
                   <FormRow className="space-x-2">
                     <FormElement label="Min. required votes" descriptionBottom="8 out of 16" infoIcon
-                                 tooltipText={<Card/>}>
+                                 tooltipText={<Card {...allCardsData[2]}/>}>
                       <SimpleInput default placeholder="e.g. 6" number/>
                     </FormElement>
                     <FormElement label="Min. required YES votes" descriptionBottom="50% of voters" infoIcon
-                                 tooltipText={<Card/>}>
+                                 tooltipText={<Card {...allCardsData[3]}/>}>
                       <SimpleInput default placeholder="depends on amount of votes" number/>
                     </FormElement>
                   </FormRow>
