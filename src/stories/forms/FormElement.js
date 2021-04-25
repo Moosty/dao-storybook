@@ -14,6 +14,7 @@ export const FormElement = ({
                               infoIcon,
                               tooltipText,
                               className,
+                              disabled,
                               ...props
                             }) => {
 
@@ -23,13 +24,13 @@ export const FormElement = ({
     setParsedChildren(
       React.Children.map(children, child => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child, {error: !!errorMessage})
+          return React.cloneElement(child, {error: !!errorMessage, disabled: !!disabled})
         }
         return child
       })
     );
 
-  }, [children, errorMessage]);
+  }, [children, errorMessage, disabled]);
 
   return (
     <div className={["mb-4 w-full", className].join(" ")}>

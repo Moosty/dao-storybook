@@ -1,15 +1,21 @@
 import React from "react";
 import {Typography} from "../Typography";
 import {Button} from "../Button";
+import {useForms} from "../../hooks/forms";
 
-export const UploadField = ({typesOfDocuments}) => {
+export const UploadField = ({typesOfDocuments, disabled, readOnly, error}) => {
+    const {formClass} = useForms({disabled, readOnly, error});
 
     return (
         <div>
             {/*UPLOAD FIELD*/}
             <div className="sm:col-span-6 ">
                 <div
-                    className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-default">
+                    className={["mt-1 flex justify-center px-6 pt-5 pb-6 border-2  border-dashed rounded-default",
+                      formClass,
+                      disabled ? "border-formBorder" : "border-formBorder",
+                    ].join(" ")}
+                >
                     <div className="space-y-1 text-center">
                         <svg
                             className="mx-auto h-12 w-12 text-gray-400"
@@ -31,7 +37,7 @@ export const UploadField = ({typesOfDocuments}) => {
                                 htmlFor="file-upload"
                                 className="relative cursor-pointer  rounded-default font-medium "
                             ><input id="file-upload" name="file-upload" type="file" className="sr-only"/>
-                              <Button label="Browse" size="small" secondary shadow/>
+                              <Button label="Browse" size="small" secondary shadow disabled={disabled}/>
                             </label>
                         </div>
                         <p className="text-textPlaceHolder">{typesOfDocuments}</p>
