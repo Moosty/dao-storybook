@@ -8,12 +8,14 @@ import {FormColumn} from "../stories/forms/FormColumn";
 import {FormRow} from "../stories/forms/FormRow";
 import {FormElement} from "../stories/forms/FormElement";
 import {Button} from "../stories/Button";
+import {Alert} from "../stories/alerts/Alert";
 
 export const AboutTheProject = () => {
 
   return (
     <div className="bg-surfaceBg">
       <NavBar/>
+      <Alert success topRight label="This has been a success!"/>
       <div className={[appWidth].join(" ")}>
         <Container>
           <div className="lg:ml-4 my-4 ">
