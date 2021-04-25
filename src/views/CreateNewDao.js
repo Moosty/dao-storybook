@@ -27,8 +27,6 @@ export const CreateNewDao = ({user, onLogin, onLogout, onCreateAccount}) => {
             <Typography type="h2" Element='h2'>
               Create new DAO
             </Typography>
-
-
           </div>
           {/*Form*/}
           <Form className="lg:grid lg:grid-cols-2  lg:divide-x-2 lg:divide-formDivider lg:h-screen">
@@ -79,7 +77,6 @@ export const CreateNewDao = ({user, onLogin, onLogout, onCreateAccount}) => {
                                  selectedItem={allMembers[0]}/>
                   </FormElement>
                 </FormRow>
-
                 {/*<FormRow>*/}
                 {/*  <FormElement label="Options">*/}
                 {/*    <MultipleChoice minItems={2} maxItems={10} defaultOptions={[{*/}
@@ -90,8 +87,6 @@ export const CreateNewDao = ({user, onLogin, onLogout, onCreateAccount}) => {
                 {/*    }, {id: 2, value: "value2", error: false, placeholder: "optie 2"}]}/>*/}
                 {/*  </FormElement>*/}
                 {/*</FormRow>*/}
-
-
                 <div className="pt-5">
                   <div className="flex justify-end">
                     <Button label="Cancel" secondary shadow/>
@@ -100,34 +95,21 @@ export const CreateNewDao = ({user, onLogin, onLogout, onCreateAccount}) => {
                 </div>
               </div>
             </FormColumn>
-
-
           </Form>
-
-
         </Container>
 
       </div>
     </div>
   )
 };
-CreateNewDao.propTypes =
-  {
-    user: PropTypes.shape({}),
-    onLogin
-:
-PropTypes.func.isRequired,
-  onLogout
-:
-PropTypes.func.isRequired,
-  onCreateAccount
-:
-PropTypes.func.isRequired,
-}
-;
 
-CreateNewDao.defaultProps =
-  {
-    user: null,
-  }
-;
+CreateNewDao.propTypes = {
+  user: PropTypes.shape({}),
+  onLogin: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired,
+  onCreateAccount: PropTypes.func.isRequired,
+};
+
+CreateNewDao.defaultProps = {
+  user: null,
+};
