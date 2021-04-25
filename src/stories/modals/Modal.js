@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/outline'
@@ -8,7 +7,6 @@ import {SimpleInput} from "../forms/SimpleInput";
 
 export const Modal = ({}) => {
   const [open, setOpen] = useState(true)
-
   const cancelButtonRef = useRef()
 
   return (
