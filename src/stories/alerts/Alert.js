@@ -2,10 +2,11 @@ import React from "react";
 import {CheckCircleIcon, ExclamationIcon, XIcon} from '@heroicons/react/solid'
 import {ExclamationCircleIcon} from "@heroicons/react/solid";
 
-export const Alert = ({warning, error, success, label}) => {
+export const Alert = ({warning, error, success, label, topRight, topLeft, bottomLeft}) => {
 
-  return (<div className={["rounded-md p-4",
+  return (<div className={["rounded-default p-4 z-50 shadow-defaultPrimary  w-1/3",
       error ? "bg-dangerBackground" : warning ? "bg-warningBackground" : "bg-successBackground",
+      topRight ? "absolute top-20 right-5" : topLeft ? "absolute top-20 left-5" : bottomLeft ? "absolute bottom-0 left-5" : " ",
     ].join(" ")}>
       <div className="flex">
         <div className="flex-shrink-0">
