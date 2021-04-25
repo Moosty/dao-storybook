@@ -14,15 +14,14 @@ export const Filter = () => {
     <div className="flex flex-row space-x-2 ">
       <InputAvatar className={[
         !show ? "hidden" : " ",
-      ].join(" ")} label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[0]}/>
+      ].join(" ")} label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[0]} dropDownShadow/>
       <InputAvatar className={[
         !show ? "hidden" : " ",
-      ].join(" ")} label={"Initiated by Anyone"} items={allMembers} selectedItem={allMembers[0]}/>
+      ].join(" ")} label={"Initiated by Anyone"} items={allMembers} selectedItem={allMembers[0]} dropDownShadow/>
       <InputAvatar className={[
         !show ? "hidden" : " ",
       ].join(" ")}
-                   label={"Open and Closed"} items={allVotingTypes}
-                   selectedItem={allVotingTypes[0]}/>
+                   label={"Open and Closed"} items={allVotingTypes} selectedItem={allVotingTypes[0]} dropDownShadow/>
       <IconButton onClick={() => setShow(!show)}>
         <AdjustmentsIcon className="mx-auto  h-5 w-5 "/>
       </IconButton>

@@ -18,6 +18,7 @@ export const InputAvatar = ({
                               className,
                               onChange,
                               readOnly,
+                              dropDownShadow,
                               ...props
                             }) => {
   const [selected, setSelected] = useState(selectedItem);
@@ -64,7 +65,9 @@ export const InputAvatar = ({
             >
               <Listbox.Options
                 static
-                className=" absolute mt-1 w-full bg-white shadow-lg max-h-100` rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm z-40"
+                className={[" absolute mt-1 w-full bg-white shadow-lg max-h-100` rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm z-40",
+                dropDownShadow ? "shadow-defaultPrimary" : " ",
+                ].join(" ")}
               >
                 {items && items.map((item) => (
                   <Listbox.Option
