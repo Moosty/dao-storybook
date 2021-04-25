@@ -62,7 +62,6 @@ export const Modal = ({noAccount, loggedOut, title, description}) => {
                     <Typography type="body" Element="span">
                       {description}
                     </Typography>
-
                   </div>
 
                   {noAccount && <div className="mt-6">
@@ -92,9 +91,23 @@ export const Modal = ({noAccount, loggedOut, title, description}) => {
                       Step 2. Create a username! </Typography>
 
                   </div>}
+                  {loggedOut && <div className="my-6">
+                    <Typography className="text-textHeadings" type="bodyStrong" Element="span">
+                      Use your passphrase to log in. </Typography>
+                  </div>}
                 </div>
                 {noAccount && <SimpleInput placeholder="Username" name/>}
-                {loggedOut && <SimpleInput placeholder="Passphrase" name/>}
+                {loggedOut && <SimpleInput placeholder="Passphrase" name className="mt-4"/>}
+                {loggedOut && <div className="mt-2">
+                  <Typography type="body" Element="span">
+                    Don't have an account yet? Sign up directly.
+                  </Typography>
+                </div>}
+                {noAccount && <div className="mt-2">
+                  <Typography type="body" Element="span">
+                    Already an account? Log in directly.
+                  </Typography>
+                </div>}
               </div>
               <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
                 <Button

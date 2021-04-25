@@ -40,7 +40,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
             {/*COLUMN LEFT */}
             <FormColumn className="lg:mx-4 lg:mr-10">
               <FormRow>
-                <FormElement label="Select DAO">
+                <FormElement  label="Select DAO">
                   <InputAvatar label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[0]}/>
                 </FormElement>
               </FormRow>
@@ -57,7 +57,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
                   </FormElement>
                 </FormRow>
                 <FormRow>
-                  <FormElement   label="Share files to help others make decision (Optional)">
+                  <FormElement label="Share files to help others make decision (Optional)">
                     <UploadField/>
                   </FormElement>
                 </FormRow></div>
