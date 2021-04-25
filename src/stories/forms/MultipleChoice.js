@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import {SimpleInput} from "./SimpleInput";
 import {FormElement} from "./FormElement";
 import {Button} from "../Button";
+import {InputAvatar} from "./InputAvatar";
 
-export const MultipleChoice = ({minItems, maxItems, defaultOptions}) => {
+export const MultipleChoice = ({minItems, maxItems, defaultOptions, children}) => {
   const [options, setOptions] = useState(defaultOptions);
 
   return (
