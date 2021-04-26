@@ -1,20 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './button.css';
-
-
-import {Typography} from "./Typography";
 import {fontStyles} from "../shared/styles";
-
-/**
- * Primary UI component for user interaction
- */
-
-const fontSizes = {
-  large: "buttonL",
-  medium: "buttonM",
-  small: "buttonS",
-}
 
 const buttonSizes = {
   large: [fontStyles.buttonL].join(" "),
@@ -23,31 +9,47 @@ const buttonSizes = {
 }
 
 export const Button = ({
-                         secondary,
-                         rounded = true,
+                         rounded,
                          size,
-                         type,
-                         state,
                          iconBefore,
-                         icon,
                          iconAfter,
+                         icon,
                          label,
-                         buttonGroup,
                          containerSide,
                          disabled,
                          className,
                          shadow,
+                         secondary,
                          tertiary,
                          onClick,
                          ...props
                        }) => {
-  const primaryClass = ['bg-themeButtonBg', 'hover:bg-themeHover', 'focus:bg-themePressed', 'shadow-defaultPrimary', 'text-themeButtonTextPrimary'].join(" ");
-  const secondaryClass = ['', 'bg-themeButtonBgSecondary', 'border-surfaceOutline', 'border', 'hover:text-themeHover', 'focus:text-themePressed', 'text-textBody'].join(" ");
-  const disabledClass = [secondary ? 'bg-surfaceBg' : 'bg-formDisabled', 'text-textDisabled'].join(" ");
-  const tertiaryClass = ['', 'hover:text-themeHover', "hover:underline", 'focus:text-themePressed', 'text-textBody'].join(" ");
+  const primaryClass = [
+    'bg-themeButtonBg',
+    'hover:bg-themeHover',
+    'focus:bg-themePressed',
+    'text-themeButtonTextPrimary',
+  ].join(" ");
+  const secondaryClass = [
+    'bg-themeButtonBgSecondary',
+    'border-surfaceOutline',
+    'border',
+    'hover:text-themeHover',
+    'focus:text-themePressed',
+    'text-textBody',
+  ].join(" ");
+  const disabledClass = [
+    secondary ? 'bg-surfaceBg' : 'bg-formDisabled',
+    'text-textDisabled',
+  ].join(" ");
+  const tertiaryClass = [
+    'hover:text-themeHover',
+    'hover:underline',
+    'focus:text-themePressed',
+    'text-textBody',
+  ].join(" ");
+  const buttonSize = buttonSizes[size || "medium"];
 
-
-  const buttonSize = buttonSizes[size || "medium"]
   return (
     <button
       disabled={disabled}
@@ -56,7 +58,6 @@ export const Button = ({
         "m-0 flex flex-row justify-around",
         buttonSize,
         disabled ? disabledClass : tertiary ? tertiaryClass : secondary ? secondaryClass : primaryClass,
-
         rounded && !containerSide && "rounded-default",
         containerSide === "left" && "rounded-l-default",
         containerSide === "right" && "rounded-r-default ",
@@ -67,50 +68,40 @@ export const Button = ({
       {...props}
     >
       {!iconAfter && icon}
-
       {label}
       {iconAfter && icon}
-
     </button>
-
-
   );
 };
 
 Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
   secondary: PropTypes.bool,
-  disabled: PropTypes.bool,
-  /**
-   * What icon to use
-   */
-  iconBefore: PropTypes.func,
-  iconAfter: PropTypes.func,
-  /**
-   * How large should the button be?
-   */
+  tertiary: PropTypes.bool,
+  iconBefore: PropTypes.bool,
+  iconAfter: PropTypes.bool,
+  icon: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Button contents
-   */
   label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
   onClick: PropTypes.func,
-  /**
-   * Button type default: 'standard'
-   */
-  type: PropTypes.string,
+  rounded: PropTypes.bool,
+  shadow: PropTypes.bool,
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  containerSide: PropTypes.string,
 };
 
 Button.defaultProps = {
-  icon: null,
   secondary: false,
-  disabled: false,
+  tertiary: false,
+  iconBefore: true,
+  iconAfter: false,
+  icon: null,
   size: 'medium',
+  label: "Button",
   onClick: () => null,
-  type: 'strandard',
+  rounded: true,
+  shadow: true,
+  disabled: false,
+  className: "",
+  containerSide: null,
 };
