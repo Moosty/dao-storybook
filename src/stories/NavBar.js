@@ -16,9 +16,10 @@ const user = {
     'https://avatar.moosty.com/adddddreeessssssss',
 }
 const navigation = [
-  {name: 'Overview', href: '#', current: true},
-  {name: 'Members', href: '#', current: false},
   {name: 'Votings', href: '#', current: false},
+  {name: 'Members', href: '#', current: false},
+  {name: 'DAOs', href: '#', current: true},
+
 ]
 const userNavigation = [
 

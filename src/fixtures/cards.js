@@ -18,6 +18,7 @@ export const allCardsData = [
     content: {
       children: <VotingCardContent
         quorum={50}
+        minReqVotes={10}
         valueYes={77}
         valueNo={40}
         eligibleVotes={999}
