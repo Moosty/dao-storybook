@@ -13,9 +13,9 @@ module.exports = {
       '13px': '13px',
     },
     boxShadow: {
-      defaultPrimary: '0 3px 14px rgba(64, 112, 244, 0.5)',
-      cardYes: '-4px 2px 36px -10px rgba(43, 214, 123, 0.7)',
-      cardNo:'-4px 2px 36px -10px rgba(250, 55, 74, 0.7)',
+      defaultPrimary: 'var(--shadow-defaultPrimary)',
+      cardYes: 'var(--shadow-defaultSecondary)',
+      cardNo:'var(--shadow-defaultTertiary)',
 
     },
 
@@ -33,10 +33,10 @@ module.exports = {
         '16px': '16px',
       },
       fontFamily: {
-        'heading': ['Poppins'],
-        'button': ['Roboto'],
-        'body': ['Roboto'],
-        'caption': ['Roboto'],
+        'heading': 'var(--font-familyHeadings)',
+        'button': 'var(--font-familyButtons)',
+        'body': 'var(--font-familyBody)',
+        'caption': 'var(--font-familyCaption)',
       },
       spacing: {
         '12px': '12px',
@@ -47,7 +47,7 @@ module.exports = {
         '6px': '6px',
       },
       borderRadius: {
-        'default': '12px',
+        'default': 'var(--border-radius-default)',
       },
       borderWidth: {
         '3': '3px',
