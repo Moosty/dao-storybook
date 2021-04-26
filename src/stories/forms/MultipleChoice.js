@@ -2,15 +2,15 @@ import React, {useEffect, useState} from "react";
 import {SimpleInput} from "./SimpleInput";
 import {FormElement} from "./FormElement";
 import {Button} from "../Button";
+import PropTypes from "prop-types";
 
 export const MultipleChoice = ({
-                                 minItems = 2,
-                                 maxItems = 10,
+                                 minItems,
+                                 maxItems,
                                  defaultOptions,
                                  onChange,
                                  buttonLabel,
-  newOptionPlaceholder,
-                                 ...props
+                                 newOptionPlaceholder,
                                }) => {
   const [options, setOptions] = useState(defaultOptions);
 
@@ -63,3 +63,23 @@ export const MultipleChoice = ({
   )
 }
 
+MultipleChoice.propTypes = {
+  minItems: PropTypes.number,
+  maxItems: PropTypes.number,
+  onChange: PropTypes.func,
+  buttonLabel: PropTypes.string,
+  newOptionPlaceholder: PropTypes.string,
+  defaultOptions: PropTypes.array,
+};
+
+MultipleChoice.defaultProps = {
+  minItems: 2,
+  maxItems: 10,
+  onChange: () => null,
+  buttonLabel: "+ Add an option",
+  newOptionPlaceholder: "New option",
+  defaultOptions: [
+    {id: 1, value: "test"},
+    {id: 2, value: "test"}
+  ]
+};
