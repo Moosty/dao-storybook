@@ -6,11 +6,9 @@ import {LockClosedIcon, LockOpenIcon} from "@heroicons/react/outline";
 export const CardHeader = ({title, dao, user, address, closed, openLabel}) => {
   return (
     <div className="bg-cardBg flex flex-col px-4 py-2  sm:px-6">
+      <div className="flex flex-row justify-between">
       <Typography type="body" Element="body">{dao}</Typography>
-      <Typography type="bodyStrong" Element="bodyStrong">{title}</Typography>
-
-      <div className="flex flex-col">
-        <div className="items-center flex my-2 flex-row">
+        <div className="items-center flex  flex-row">
           <img
             className="h-4 w-4 rounded-full mr-2"
             src="https://avatar.moosty.com/"
@@ -18,10 +16,14 @@ export const CardHeader = ({title, dao, user, address, closed, openLabel}) => {
           />
           <div className="flex flex-col">
             <Typography type="body" Element="body">{user}</Typography>
-            <Typography type="bodyStrong" Element="bodyStrong">{address}</Typography>
           </div>
 
         </div>
+      </div>
+      <Typography type="bodyStrong" Element="bodyStrong">{title}</Typography>
+
+      <div className="flex flex-col mt-2">
+
         <div className="flex flex-row justify-between">
 
           {!closed ?

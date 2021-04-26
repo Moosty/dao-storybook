@@ -86,6 +86,28 @@ export const Modal = ({noAccount, loggedOut, title, description}) => {
                       alt=""
                     />
                   </div>}
+                  {noAccount && <>
+                  <div className=" mx-auto grid grid-cols-3 grid-rows-4 grid-flow-row gap-4 my-2">
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+
+                  </div>
+                    <div className=" mx-auto">
+                    <Button secondary label="Copy Passphrase" size="small" />
+                    </div>
+                  </>
+                  }
+
                   {noAccount && <div className="my-6">
                     <Typography className="text-textHeadings" type="bodyStrong" Element="span">
                       Step 2. Create a username! </Typography>
@@ -98,9 +120,10 @@ export const Modal = ({noAccount, loggedOut, title, description}) => {
                 </div>
                 {noAccount && <SimpleInput placeholder="Username" name/>}
                 {loggedOut && <SimpleInput placeholder="Passphrase" name className="mt-4"/>}
+
                 {loggedOut && <div className="mt-2">
                   <Typography type="body" Element="span">
-                    Don't have an account yet? Sign up directly.
+                    Don't have an account yet? <a href="#">Sign up directly.</a>
                   </Typography>
                 </div>}
                 {noAccount && <div className="mt-2">
