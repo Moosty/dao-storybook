@@ -8,8 +8,13 @@ export default {
     argTypes: { backgroundColor: 'control'},
 }
 
-export const Template = (args) => <NavBar {...args}/>
+export const LoggedOut = (args) => <NavBar   {...args}/>
 
-export const all = () => <div>
-    <NavBar />
+export const LoggedInInvited = () => <div>
+    <NavBar loggedIn invited  />
+</div>
+
+
+export const LoggedIn = () => <div>
+    <NavBar loggedIn   />
 </div>
