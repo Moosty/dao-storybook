@@ -97,7 +97,7 @@ Button.defaultProps = {
   iconAfter: false,
   icon: null,
   size: 'medium',
-  label: "Button",
+  label: "",
   onClick: () => null,
   rounded: true,
   shadow: true,
