@@ -1,12 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { Fragment, useRef, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/outline'
+import React, {Fragment, useRef, useState} from 'react'
+import {Dialog, Transition} from '@headlessui/react'
+import {CheckIcon} from '@heroicons/react/outline'
 import {Button} from "../Button";
 import {Typography} from "../Typography";
 import {SimpleInput} from "../forms/SimpleInput";
 
-export const Modal = ({}) => {
+export const Modal = ({noAccount, loggedOut, title, description}) => {
   const [open, setOpen] = useState(true)
 
   const cancelButtonRef = useRef()
@@ -31,7 +31,7 @@ export const Modal = ({}) => {
             leaveFrom="opacity-80"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -47,29 +47,29 @@ export const Modal = ({}) => {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+            <div
+              className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
               <div>
                 <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
                   Logo
                 </div>
                 <div className="mt-3 text-center sm:mt-5 ">
                   <Typography type="h1" Element="h1">
-                    Create an account!
+                    {title}
                   </Typography>
 
                   <div className="mt-2">
                     <Typography type="body" Element="span">
-                      By creating an account on the Lisk dao Blockchain you will be able to create or participate in different DAO's.
+                      {description}
                     </Typography>
-
                   </div>
 
-                  <div className="mt-6">
+                  {noAccount && <div className="mt-6">
                     <Typography className="text-textHeadings" type="bodyStrong" Element="span">
-Step 1. Choose your avatar!                    </Typography>
+                      Step 1. Choose your avatar! </Typography>
 
-                  </div>
-                  <div className="flex flex-row justify-around space-x-2 mx-auto w-2/3 my-4  ">
+                  </div>}
+                  {noAccount && <div className="flex flex-row justify-around space-x-2 mx-auto w-2/3 my-4  ">
                     <img
                       className="h-10 w-10 rounded-full "
                       src="https://avatar.moosty.com/1"
@@ -85,22 +85,54 @@ Step 1. Choose your avatar!                    </Typography>
                       src="https://avatar.moosty.com/3"
                       alt=""
                     />
-                  </div>
-                  <div className="my-6">
-                    <Typography className="text-textHeadings" type="bodyStrong" Element="span">
-                      Step 2. Create a username!                    </Typography>
+                  </div>}
+                  {noAccount && <>
+                  <div className=" mx-auto grid grid-cols-3 grid-rows-4 grid-flow-row gap-4 my-2">
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
+                    <Typography type="bodyStrong" Element="span">woord</Typography>
 
                   </div>
+                    <div className=" mx-auto">
+                    <Button secondary label="Copy Passphrase" size="small" />
+                    </div>
+                  </>
+                  }
+
+                  {noAccount && <div className="my-6">
+                    <Typography className="text-textHeadings" type="bodyStrong" Element="span">
+                      Step 2. Create a username! </Typography>
+
+                  </div>}
+                  {loggedOut && <div className="my-6">
+                    <Typography className="text-textHeadings" type="bodyStrong" Element="span">
+                      Use your passphrase to log in. </Typography>
+                  </div>}
                 </div>
-                <SimpleInput  placeholder="Username" name />
+                {noAccount && <SimpleInput placeholder="Username" name/>}
+                {loggedOut && <SimpleInput placeholder="Passphrase" name className="mt-4"/>}
+
+                {loggedOut && <div className="mt-2">
+                  <Typography type="body" Element="span">
+                    Don't have an account yet? <a href="#">Sign up directly.</a>
+                  </Typography>
+                </div>}
+                {noAccount && <div className="mt-2">
+                  <Typography type="body" Element="span">
+                    Already an account? Log in directly.
+                  </Typography>
+                </div>}
               </div>
               <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
-                <Button
-                  label="Register"
-                  onClick={() => setOpen(false)}
-                >
-
-                </Button>
                 <Button
                   label="Cancel"
                   secondary
@@ -108,6 +140,17 @@ Step 1. Choose your avatar!                    </Typography>
                   ref={cancelButtonRef}
                 >
                 </Button>
+                {noAccount && <Button
+                  label="Register"
+                  onClick={() => setOpen(false)}
+                >
+                </Button>}
+                {loggedOut && <Button
+                  label="Login"
+                  onClick={() => setOpen(false)}
+                >
+                </Button>}
+
               </div>
             </div>
           </Transition.Child>

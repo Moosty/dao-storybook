@@ -4,7 +4,7 @@ export const FormRow = ({children, full, columnsTwo, className, divider}) => {
   const ColumnsTwo = ["md:grid md:grid-cols-2"].join(" ");
   const Divider = ["md:divide-x-2 md:divide-formDivider"].join(" ");
 
-  return (<div className={["flex md:flex-row md:space-x-2",
+  return (<div className={["flex lg:flex-row lg:space-x-2",
         className,
       ].join(" ")}>
         {children}

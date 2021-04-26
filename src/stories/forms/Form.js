@@ -1,9 +1,12 @@
 import React from "react";
 
-export const Form = ({children}) => {
+export const Form = ({children, className}) => {
 
   return (
-    <div className="md:grid md:grid-cols-2 my-2 pb-20 justify-center md:divide-x-2 md:divide-formDivider md:h-screen">
+    <div className={[
+      "my-2 pb-20 justify-center ",
+      className
+    ].join(" ")}>
       {children}
     </div>
   )

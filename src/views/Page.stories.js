@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Page } from './Page';
 import * as HeaderStories from '../stories/Header.stories';
 import {Meta} from "@storybook/addon-docs/blocks";

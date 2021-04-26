@@ -1,5 +1,11 @@
 export const allMembers = [
   {
+    id: 0,
+    name: 'Select a member',
+    icon:
+      'https://avatar.moosty.com/1',
+  },
+  {
     id: 1,
     name: 'Sander',
     icon:
