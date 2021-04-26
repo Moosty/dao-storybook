@@ -2,14 +2,14 @@ export const allMembers = [
   {
     id: 0,
     name: 'Select a member',
-    icon:
-      'https://avatar.moosty.com/1',
+    address:
+      'LSK3782y6hfjkfhi3hkjf',
   },
   {
     id: 1,
     name: 'Sander',
-    icon:
-      'https://avatar.moosty.com/1',
+    address:
+      'LSK3782y6hfjkfhi3hkjf',
   },
   {
     id: 2,
