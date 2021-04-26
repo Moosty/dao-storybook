@@ -1,7 +1,6 @@
 import React from "react";
 import {FormElement} from "./FormElement";
 import {TextFieldInput} from "./TextFieldInput";
-import {Tooltip} from "../Tooltip";
 import {SimpleInput} from "./SimpleInput";
 import {InputAvatar} from "./InputAvatar";
 import {allDaoData} from "../../fixtures/daos";
@@ -89,7 +88,7 @@ export const Error = () => <div className="m-4">
     infoIcon
     errorMessage="test"
     tooltipText="The result is ONLY visible after the voting is closed."
-  > <SimpleInput default  infoIcon placeholder="your name here"/>
+  > <SimpleInput default infoIcon placeholder="your name here"/>
   </FormElement>
 </div>
 
@@ -99,6 +98,15 @@ export const MultipleChoiceStory = () => <div className="m-4">
     label="Options"
     infoIcon
     tooltipText="The result is ONLY visible after the voting is closed."
-  > <MultipleChoice defaultOptions={[{id: 1, value:"value1", error: false, placeholder:"optie 1"}, {id: 2, value:"value2", error: false, placeholder:"optie 2"}]} />
+  >
+    <MultipleChoice
+      maxItems={10}
+      onChange={(options) => console.log("options: ", options)}
+      minItems={2}
+      newOptionPlaceholder={"Answer option"}
+      defaultOptions={[
+        {id: 1, value: "Test", placeholder: "Answer option"},
+        {id: 2, value: "Test123", placeholder: "Answer option"}
+      ]}/>
   </FormElement>
 </div>
