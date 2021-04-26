@@ -43,6 +43,7 @@ export const SimpleInput = ({
             "block w-full mb-0   sm:text-sm rounded-default bg-white",
             formClass,
             shadow ? shadowClass : " ",
+            focused ? "focus:border-formActive" : " ",
             className,
           ].join(" ")}
           {...props}
