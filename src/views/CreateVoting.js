@@ -28,6 +28,7 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
   return (
     <div className="bg-surfaceBg">
       <NavBar/>
+
       <div className={[appWidth].join(" ")}>
         <Container>
           <div className="lg:ml-4 my-4 ">
