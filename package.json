@@ -1,6 +1,6 @@
 {
-  "name": "storybook",
-  "version": "0.1.0",
+  "name": "crowd-storybook",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.1",
