@@ -19,7 +19,7 @@ export const MembersPage = ({user, onLogin, onLogout, onCreateAccount}) => (
           <FilterWrapper className="flex flex-col sm:flex-row justify-end w-full"/>
         </Container>
         <Container className="mb-10">
-          <div className="w-full space-y-3 md:grid md:grid-flow-col  md: grid-cols-4 grid-rows-3">
+          <div className="w-full space-y-3 gap-2 lg:grid lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-3">
             {allMembers.map(card => <MemberCard  {...card} />)}
           </div>
         </Container>
