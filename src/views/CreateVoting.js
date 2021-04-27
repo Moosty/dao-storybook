@@ -16,7 +16,7 @@ import {allDaoData} from "../fixtures/daos";
 import {allVotingTypes} from "../fixtures/votingTypes";
 import {TextFieldInput} from "../stories/forms/TextFieldInput";
 import {UploadField} from "../stories/forms/UploadField";
-import {Card} from "../stories/Card";
+import {Card} from "../stories/cards/Card";
 import {Button} from "../stories/Button";
 import {SubmitIcon} from "../stories/forms/SubmitIcon";
 import {MultipleChoice} from "../stories/forms/MultipleChoice";

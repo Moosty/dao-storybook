@@ -1,3 +1,11 @@
+const fullRotate = () => {
+  const rotate = {}
+  for (let i = -180; i <= 360; i++) {
+    rotate[i] = `${i}deg`
+  }
+  return rotate
+}
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
@@ -52,7 +60,6 @@ module.exports = {
       borderWidth: {
         '3': '3px',
       },
-
       width: {
         '1/7': '14.2857143%',
         '2/7': '28.5714286%',
@@ -63,7 +70,26 @@ module.exports = {
         'app': '85%',
         'card' : '366px',
       },
-
+      inset: {
+        '1px': '1px',
+        '2px': '2px',
+        '3px': '3px',
+        '4px': '4px',
+        '5px': '5px',
+        '6px': '6px',
+        '7px': '7px',
+        '8px': '8px',
+        '9px': '9px',
+        '10px': '10px',
+        '11px': '11px',
+        '12px': '12px',
+        '13px': '13px',
+        '14px': '14px',
+        '15px': '15px',
+      },
+      rotate: {
+        ...fullRotate(),
+      },
       colors: {
         textHeadings: 'var(--color-text-headings)',
         textBody: 'var(--color-text-body)',

@@ -1,8 +1,8 @@
 import React from "react";
 import {Tooltip} from "./Tooltip";
-import {Card} from "./Card";
+import {Card} from "./cards/Card";
 import {allCardsData} from "../fixtures/cards";
-import {CardContent} from "./CardContent";
+import {CardContent} from "./cards/CardContent";
 
 export default {
   title: "Elements/Tooltip",

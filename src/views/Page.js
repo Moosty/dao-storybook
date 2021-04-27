@@ -4,10 +4,11 @@ import '../stories/page.css';
 import {NavBar} from "../stories/NavBar";
 import {appWidth} from "../shared/styles";
 import {Container} from "../stories/Container";
-import {Card} from "../stories/Card";
+import {Card} from "../stories/cards/Card";
 import {FilterWrapper} from "../stories/filters/FilterWrapper";
 import {BreadCrumbs} from "../stories/BreadCrumbs";
 import {allCardsData} from "../fixtures/cards";
+import {VotingContainer} from "../stories/voting/VotingContainer";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
@@ -18,8 +19,8 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
         <FilterWrapper className="flex flex-row justify-end w-full" />
       </Container>
       <Container>
-        <div className="flex flex-row flex-wrap justify-between space-y-8 ">
-          {allCardsData.map(card => <Card className="" {...card} />)}
+        <div className="flex flex-row flex-wrap justify-between space-y-8">
+          {allCardsData.map(card => <VotingContainer {...card} />)}
         </div>
       </Container>
     </div>

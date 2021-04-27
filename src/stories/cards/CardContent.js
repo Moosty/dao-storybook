@@ -1,25 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const Paper = ({className, children}) => (
+export const CardContent = ({children, className}) => (
   <div className={[
     className,
-    "flex",
-    "flex-row",
+    "px-4",
+    "flex-grow",
     "bg-cardBg",
-    "shadow-defaultPrimary",
-    "overflow-hidden",
-    "rounded-default",
-    "divide-y",
+    "w-full",
+    "py-2",
   ].join(" ")}>
     {children}
   </div>
 )
 
-Paper.propTypes = {
+CardContent.propTypes = {
   className: PropTypes.string,
 };
 
-Paper.defaultProps = {
+CardContent.defaultProps = {
   className: "",
 };
