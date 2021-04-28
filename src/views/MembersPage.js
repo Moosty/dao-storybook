@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {allMembers} from "../fixtures/members";
 import '../stories/page.css';
-import {NavBar} from "../stories/NavBar";
+import {NavBar} from "../stories/nav/NavBar";
 import {appWidth} from "../shared/styles";
 import {Container} from "../stories/Container";
 import {FilterWrapper} from "../stories/filters/FilterWrapper";

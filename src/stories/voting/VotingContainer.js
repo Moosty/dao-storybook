@@ -3,12 +3,13 @@ import {Card} from "../cards/Card";
 import {VotingCardContent} from "./VotingCardContent";
 import {VotingFooterLeft} from "./VotingFooterLeft";
 import {VotingFooterRight} from "./VotingFooterRight";
+import {VotingHeader} from "./VotingHeader";
 
 export const VotingContainer = ({
                                   dao,
                                   title,
                                   user,
-  start,
+                                  start,
                                   end,
                                   notAllowed,
                                   userVote,
@@ -39,11 +40,13 @@ export const VotingContainer = ({
     className={"w-card"}
     result={closed ? result : null}
     header={{
-      dao,
-      title,
-      user,
-      openLabel: timeLabel,
-      closed,
+      children: <VotingHeader {...{
+        dao,
+        title,
+        user,
+        openLabel: timeLabel,
+        closed,
+      }}/>
     }}
     content={{
       children: <VotingCardContent

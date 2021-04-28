@@ -7,15 +7,14 @@ import {Paper} from "../Paper";
 
 export const Card = ({result, header, content, footer}) => (<div className="flex">
     <Paper className="w-card">
-      <div className={[
+      {result && <div className={[
         result === "no" && "bg-dangerIcon shadow-cardNo",
         result === "yes" && "shadow-cardYes bg-successIcon ",
         "bg-formBorder",
         "w-1",
         "h-full",
       ].join(" ")}
-      >
-      </div>
+      />}
       <div className={[
         "divide-gray-200",
         "flex",
