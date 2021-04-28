@@ -29,12 +29,16 @@ export const CrowdCardContent = ({gradient, title='this is a title',
     "py-2",
         "space-y-2",
       ].join(" ")}>
-        <Chip category={category} />
-<div className="flex flex-col">
-  <Typography type="bodyStrong" Element="span">{title}</Typography>
-  <Typography type="body" Element="span">{subTitle}</Typography>
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-col">
+            <Typography type="bodyStrong" Element="span">{title}</Typography>
+            <Typography type="body" Element="span">{subTitle}</Typography>
 
-</div>
+          </div>
+          <Chip category={category} />
+        </div>
+
+
         <ProgressDetails />
         <ProgressBar />
         <div className="flex flex-row justify-between">
