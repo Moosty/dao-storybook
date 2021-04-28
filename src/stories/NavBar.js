@@ -32,7 +32,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const NavBar = ({invited, loggedIn,invitedDao, address = "21"}) => {
+export const NavBar = ({invited, loggedIn, invitedDao, address = "21"}) => {
   return (
     <Disclosure as="nav" className="bg-themeNavBarBg">
       {({open}) => (

@@ -8,6 +8,7 @@ export const VotingContainer = ({
                                   dao,
                                   title,
                                   user,
+  start,
                                   end,
                                   notAllowed,
                                   userVote,
@@ -16,19 +17,33 @@ export const VotingContainer = ({
                                   yes,
                                   no,
                                   eligibleVotes,
-                                  closed,
-                                  result
+                                  height,
                                 }) => {
-  // todo result berekenen
-  // todo time + votes closed berekenen
+
+  const minVotes = Math.ceil((quorum / 100) * eligibleVotes) === (quorum / 100) * eligibleVotes ?
+    (quorum / 100) * eligibleVotes + 1 :
+    Math.ceil((quorum / 100) * eligibleVotes)
+  const totalVotes = no + yes;
+  const minYesVotes = totalVotes > minVotes ?
+    Math.ceil((minToWin / 100) * totalVotes) === (minToWin / 100) * totalVotes ?
+      (minToWin / 100) * totalVotes + 1 :
+      Math.ceil((minToWin / 100) * totalVotes) :
+    Math.ceil((minToWin / 100) * minVotes) === (minToWin / 100) * minVotes ?
+      (minToWin / 100) * minVotes + 1 :
+      Math.ceil((minToWin / 100) * minVotes)
+  const result = totalVotes > quorum ? minYesVotes <= yes ? "yes" : minYesVotes <= no ? "no" : "inconclusive" : "inconclusive";
+  const closed = end > height || totalVotes === eligibleVotes
+  // todo calculate time to close or open
+  const timeLabel = !closed ? start > height ? "Voting starts at: ~" : "2 days left to close" : null
   return <Card
     className={"w-card"}
+    result={closed ? result : null}
     header={{
       dao,
       title,
       user,
-      openLabel: "2 days left to close",
-      closed: end > 0,
+      openLabel: timeLabel,
+      closed,
     }}
     content={{
       children: <VotingCardContent

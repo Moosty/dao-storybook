@@ -5,11 +5,11 @@ import {CardFooter} from "./CardFooter";
 import {CardContent} from "./CardContent";
 import {Paper} from "../Paper";
 
-export const Card = ({votingResult, header, content, footer}) => (<div className="flex">
+export const Card = ({result, header, content, footer}) => (<div className="flex">
     <Paper className="w-card">
       <div className={[
-        votingResult === "no" && "bg-dangerIcon shadow-cardNo",
-        votingResult === "yes" && "shadow-cardYes bg-successIcon ",
+        result === "no" && "bg-dangerIcon shadow-cardNo",
+        result === "yes" && "shadow-cardYes bg-successIcon ",
         "bg-formBorder",
         "w-1",
         "h-full",
