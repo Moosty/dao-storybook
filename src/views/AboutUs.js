@@ -1,5 +1,5 @@
 import React from "react";
-import {NavBar} from "../stories/NavBar";
+import {NavBar} from "../stories/nav/NavBar";
 import {appWidth} from "../shared/styles";
 import {Container} from "../stories/Container";
 import {Typography} from "../stories/Typography";
