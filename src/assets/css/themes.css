@@ -1,5 +1,6 @@
 .dao-light {
     /* COLORS */
+
     --color-text-headings: var(--color-deep-90);
     --color-text-body: var(--color-deep-75);
     --color-text-caption: var(--color-deep-60);
@@ -12,6 +13,7 @@
     --color-surface-bg: var(--color-deep-1);
     --color-surface-icon-bg: var(--color-deep-5);
     --color-surface-outline: var(--color-deep-10);
+
 
     --color-theme-button-bg: var(--color-theme-9);
     --color-theme-button-bg-secondary: var(--color-deep-0);
@@ -67,22 +69,26 @@
 
 .crowd-light {
     /* COLORS */
-    --color-theme-button-bg: #f50057;
-    --color-theme-button-bg-secondary: #3f51b5;
+    --color-theme-button-bg: #191414;
+    --color-theme-button-bg-secondary: #FAE62D;
     --color-theme-button-text-primary: #fff;
+    --color-theme-button-text-secondary: #191414;
 
-    --color-theme-hover: #d9044e;
+
+    --color-theme-hover: #100d0d;
     --color-theme-pressed: #a50046;
     --color-theme-dark: #68002d;
     --color-theme-light: #fc367d;
+
+    --color-theme-navbar-bg: #1FC58E;
 
     /* BORDERS */
     --border-radius-default: 8px;
 
     /* SHADOWS */
-    --shadow-defaultPrimary: 0 3px 14px rgba(236, 30, 203, 0.5);
-    --shadow-defaultSecondary: -4px 2px 36px -10px rgba(43, 214, 123, 0.7);
-    --shadow-defaultTertiary: -4px 2px 36px -10px rgba(250, 55, 74, 0.7);
+    --shadow-defaultPrimary: 0 3px 14px rgba(236, 30, 203, 0);
+    --shadow-defaultSecondary: -4px 2px 36px -10px rgba(43, 214, 123, 0);
+    --shadow-defaultTertiary: -4px 2px 36px -10px rgba(250, 55, 74, 0);
 
     /*Typography */
     --font-familyPrimary: 'Montserrat', sans-serif;

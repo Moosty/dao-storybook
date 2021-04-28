@@ -123,6 +123,8 @@
   --color-surface-icon-bg: var(--color-deep-5);
   --color-surface-outline: var(--color-deep-10);
 
+  --color-theme-navbar-bg: var(--color-deep-100);
+
   --color-theme-button-bg: var(--color-theme-9);
   --color-theme-button-bg-secondary: var(--color-deep-0);
   --color-theme-button-text-primary: var(--color-deep-0);

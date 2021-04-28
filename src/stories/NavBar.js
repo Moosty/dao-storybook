@@ -34,7 +34,7 @@ function classNames(...classes) {
 
 export const NavBar = ({invited, loggedIn,invitedDao, address = "21"}) => {
   return (
-    <Disclosure as="nav" className="bg-navBarBg">
+    <Disclosure as="nav" className="bg-themeNavBarBg">
       {({open}) => (
         <>
           <div className={[appWidth, "px-4", "sm:px-6", "lg:px-8"].join(" ")}>
@@ -164,8 +164,8 @@ export const NavBar = ({invited, loggedIn,invitedDao, address = "21"}) => {
                     </Menu>
                     :
                     <div className="flex flex-row space-x-4">
-                      <Button label="Log in"/>
-                      <Button secondary label="Register"/>
+                      <Button size="small" label="Log in"/>
+                      <Button size="small" secondary label="Register"/>
                     </div>
                   }
                 </div>

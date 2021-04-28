@@ -76,12 +76,14 @@ module.exports = {
 
         cardBg: 'var(--color-deep-0)',
 
-        navBarBg: 'var(--color-deep-100)',
+
+
 
         surfaceBg: 'var(--color-surface-bg)',
         surfaceIconBg: 'var(--color-surface-icon-bg)',
         surfaceOutline: 'var(--color-surface-outline)',
 
+        themeNavBarBg: 'var(--color-theme-navbar-bg)',
         themeButtonBg: 'var(--color-theme-button-bg)',
         themeButtonBgSecondary: 'var(--color-theme-button-bg-secondary)',
         themeButtonTextPrimary: 'var(--color-deep-0)',
