@@ -93,8 +93,9 @@
     /*Typography */
     --font-familyPrimary: 'Montserrat', sans-serif;
     --font-familyHeadings: 'Montserrat', sans-serif;
-    --font-familyButtons: 'Montserrat', sans-serif;
-    --font-familyBody: 'Montserrat', sans-serif;
-    --font-familyCaption: 'Montserrat', sans-serif;
+    /*--font-familyButtons: 'Montserrat', sans-serif;*/
+
+    /*--font-familyBody: 'Montserrat', sans-serif;*/
+    /*--font-familyCaption: 'Montserrat', sans-serif;*/
 }
 
