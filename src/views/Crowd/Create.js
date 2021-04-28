@@ -22,9 +22,7 @@ import {allDaoData} from "../../fixtures/daos";
 export const Create = () => {
   return (<>
       <NavBar {...navBarArgs} />
-      <Hero
-        title="Create your crowdfund campaign"
-        subTitle="Regulate your crowdfund journey with Lisk Crowd!"/>
+
       <Container className={[appWidth, "space-x-4", "flex", "flex-row"].join(" ")}>
         <div className="lg:ml-4 my-4 ">
           <Typography type="h2" Element='h2'>
