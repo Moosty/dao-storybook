@@ -20,19 +20,19 @@ export const Hero = ({backgroundImage, gradient, title, subTitle}) => {
         <div className="absolute inset-0 bg-themeButtonBg" style={{mixBlendMode: 'multiply'}} aria-hidden="true"/>
         }
       </div>
-      <div className="relative flex flex-col max-w-7xl mx-auto py-24  sm:py-32 space-y-3">
+      <Container className={[appWidth, "py-24"].join(" ")}>
         <div className="flex flex-col">
         <Typography className="text-themeButtonTextPrimary" type="h1" Element="h1">{title}</Typography>
         <Typography type='bodyStrong' Element="span">{subTitle}</Typography>
         </div>
-        <div className="flex flex-row space-x-4">
+        <div className="flex flex-row space-x-4 mt-6">
           <Button
             label="Explore" />
           <Button
             secondary
             label="Create Crowdfund!"/>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }
