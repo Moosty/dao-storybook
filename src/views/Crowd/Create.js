@@ -64,7 +64,6 @@ export const Create = () => {
                   <SimpleInput placeholder="https://moosty.com/"/>
                 </FormElement>
               </FormRow>
-
               <Typography type="h4" Element='h4' className="mt-10 mb-2">
                 Finance & Accountability
               </Typography>
@@ -85,6 +84,14 @@ export const Create = () => {
                   <SimpleInput default placeholder="12 (one year)" number/>
                 </FormElement>
               </FormRow>
+            </div>
+
+          </FormColumn>
+
+          {/*COLUMN RIGHT*/}
+          <FormColumn className="">
+
+            <div className="lg:ml-10 ">
               <Typography type="h4" Element='h4' className="mt-10 mb-2">
                 Date & time
               </Typography>
@@ -98,20 +105,14 @@ export const Create = () => {
                   <UploadField/>
                 </FormElement>
               </FormRow>
+
             </div>
-            <div className="pt-5">
+            <div className="content-end pt-5">
               <div className="flex justify-end">
                 <Button shadow label="Cancel" secondary shadow/>
                 <Button shadow icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" shadow/>
               </div>
             </div>
-          </FormColumn>
-
-          {/*COLUMN RIGHT*/
-          }
-          <FormColumn className="">
-
-
           </FormColumn>
         </Form>
       </Container>
