@@ -1,6 +1,6 @@
 import React from "react";
 import {Modal} from "./Modal";
-import {Typography} from "../Typography";
+import {ModalDetails} from "./ModalDetails";
 
 export default {
   title: "Modals/Modal",
@@ -20,5 +20,13 @@ export const SignUp = () => <div>
   <Modal noAccount title="Create an account!"
          description="By creating an account on the Lisk dao Blockchain you will be able to create or participate in
                       different DAO's."
+  />
+</div>
+
+
+export const MemberDetails = () => <div>
+  <ModalDetails noAccount
+                address={"lsk123413466543"}
+                name={"Tanya Fox"}
   />
 </div>

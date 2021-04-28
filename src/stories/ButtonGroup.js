@@ -1,24 +1,25 @@
 import React from "react";
 import {Button} from "./Button";
+import PropTypes from "prop-types";
 
-export const ButtonGroup = ({
+export const ButtonGroup = ({buttons, className}) => (
+  <span className={[
+    "flex",
+    "flex-row",
+    className,
+  ].join(" ")}>
+  {buttons?.map((button, i) => <Button
+    containerSide={i === 0 ? 'left' : i === buttons?.length - 1 ? 'right' : 'center'}
+    {...button}
+  />)}
+</span>)
 
-                              buttons,
-                            }) => {
-  return (
-    <span className="flex flex-row">
-  {buttons?.map((button, i) => {
-    let side = 'center'
-    if (i === 0) {
-      side = 'left'
-    }
-    if (i === buttons?.length - 1) {
-      side = 'right'
-    }
-    return <Button containerSide={side} {...button} />
-  })}
+ButtonGroup.propTypes = {
+  buttons: PropTypes.array,
+  className: PropTypes.string,
+};
 
-</span>
-  )
-}
-
+ButtonGroup.defaultProps = {
+  buttons: [],
+  className: "",
+};

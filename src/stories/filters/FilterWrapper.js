@@ -3,8 +3,7 @@ import {Filter} from "./Filter";
 
 export const FilterWrapper = ({className}) => {
   return (
-<div className={[className].join(" ")} >
-
+<div className={[className].join("")} >
   <Filter />
 </div>
   )

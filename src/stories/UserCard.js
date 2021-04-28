@@ -1,5 +1,5 @@
 import React from "react";
-import {Card} from "./Card";
+import {Card} from "./cards/Card";
 import {Typography} from "./Typography";
 
 export const UserCard = ({userName,address}) => {
