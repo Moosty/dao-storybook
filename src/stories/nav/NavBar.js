@@ -1,48 +1,22 @@
-import React, {Fragment} from 'react'
-import {Disclosure, Menu, Transition} from '@headlessui/react'
-import {MenuIcon, XIcon} from '@heroicons/react/outline'
-import {PlusIcon} from '@heroicons/react/solid'
-import {appWidth} from "../../shared/styles";
-import {Button} from "../Button";
-import {Typography} from "../Typography";
-import {DaoInvitation} from "../DaoInvitation";
+import React from 'react'
+import {Disclosure} from '@headlessui/react'
 import {MobileNavBar} from "./Mobile";
 import {NavBarMenu} from "./Menu";
+import PropTypes from "prop-types";
 
-const user = {
-  name: 'Raphael Cornelis',
-  address: "klsdjflkasjdf",
-  email: 'tom@example.com',
-  imageUrl:
-    'https://avatar.moosty.com/adddddreeessssssss',
-}
 
-const navigation = [
-  {name: 'Votings', href: '#', current: false},
-  {name: 'Members', href: '#', current: false},
-  {name: 'DAOs', href: '#', current: true},
-]
-
-const userNavigation = [
-  {name: 'Create a Dao', href: '#'},
-  {name: 'Create a voting', href: '#'},
-  {name: 'Sign out', href: '#'},
-]
-
-export const NavBar = ({invitations, loggedIn, invitedDao, user, navigation, userNavigation}) => (
+export const NavBar = ({invitations, user, navigation, userNavigation, ctaButton}) => (
   <Disclosure as="nav" className="bg-themeNavBarBg">
     {({open}) => (
       <>
         <NavBarMenu
           navigation={navigation}
           userNavigation={userNavigation}
-          loggedIn={loggedIn}
-          invitedDao={invitedDao}
-          invited={invitations}
+          invitations={invitations}
           user={user}
           open={open}
+          ctaButton={ctaButton}
         />
-        {/*Mobile*/}
         <MobileNavBar
           navigation={navigation}
           userNavigation={userNavigation}
@@ -53,3 +27,10 @@ export const NavBar = ({invitations, loggedIn, invitedDao, user, navigation, use
     )}
   </Disclosure>
 )
+
+NavBar.propTypes = {
+  invitations: PropTypes.array,
+  navigation: PropTypes.array,
+  userNavigation: PropTypes.array,
+  user: PropTypes.object,
+}

@@ -8,17 +8,17 @@ export const MobileNavBar = ({navigation, user, invitations, userNavigation}) =>
   <Disclosure.Panel className="md:hidden">
     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       {navigation?.map((item) => (
-        <a
+        <span
           key={item.name}
           onClick={item.onClick}
           className={[
             item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-            'block px-3 py-2 rounded-md text-base font-medium'
+            'block px-3 py-2 rounded-md text-base font-medium cursor-pointer'
           ].join(" ")}
           aria-current={item.current ? 'page' : undefined}
         >
           {item.name}
-        </a>
+        </span>
       ))}
     </div>
     <div className="pt-4 pb-3 border-t border-gray-700">
@@ -40,11 +40,9 @@ export const MobileNavBar = ({navigation, user, invitations, userNavigation}) =>
             {item.name}
           </span>
         ))}
-        {invitations && invitations?.map(invite => (
+        {invitations?.map(invite => (
         <div className="rounded-default">
-          <Typography type="body" Element="span">
-          </Typography>
-          <DaoInvitation dao={invite.dao} address={invite.address}/>
+          <DaoInvitation dao={invite.dao} id={invite.id}/>
         </div>))}
       </div>
     </div>

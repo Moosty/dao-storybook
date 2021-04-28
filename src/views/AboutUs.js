@@ -12,12 +12,13 @@ import {TextFieldInput} from "../stories/forms/TextFieldInput";
 import {InputAvatar} from "../stories/forms/InputAvatar";
 import {allMembers} from "../fixtures/members";
 import {Button} from "../stories/Button";
+import {PlusIcon} from "@heroicons/react/solid";
 
 export const AboutUs = () => {
 
   return (
     <div className="bg-surfaceBg">
-      <NavBar/>
+      <NavBar {...navBarArgs} />
       <div className={[appWidth].join(" ")}>
         <Container>
           <div className="lg:ml-4 my-4 ">
@@ -72,4 +73,33 @@ export const AboutUs = () => {
 
       </div>
     </div>)
+}
+
+const navBarArgs = {
+  user: {
+    name: "Raphael",
+    address: "klasjdflkasjdf",
+  },
+  navigation: [
+    {name: 'Votings', onClick: () => alert("Goto Votings"), current: false},
+    {name: 'Members', onClick: () => alert("Goto Members"), current: false},
+    {name: 'DAOs', onClick: () => alert("Goto DAOs"), current: true},
+  ],
+  ctaButton: <Button
+    label="Create new Dao"
+    shadow
+    iconBefore
+    icon={<PlusIcon className="h-5 w-5 -ml-2 mr-2"/>}
+  />,
+  userNavigation: [
+    {name: 'Create a Dao', onClick: () => alert("Create a dao")},
+    {name: 'Create a voting', onClick: () => alert("Create a voting")},
+    {name: 'Sign out', onClick: () => alert("Sign out")},
+  ],
+  invitations: [
+    {
+      dao: "LiskCenterUtrecht",
+      id: "aksldjflksjdflkjdsf",
+    }
+  ],
 }

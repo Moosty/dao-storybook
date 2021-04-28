@@ -3,11 +3,9 @@ import {appWidth} from "../../shared/styles";
 import {Disclosure, Menu, Transition} from "@headlessui/react";
 import {MenuIcon, XIcon} from "@heroicons/react/outline";
 import {Button} from "../Button";
-import {PlusIcon} from "@heroicons/react/solid";
-import {Typography} from "../Typography";
 import {DaoInvitation} from "../DaoInvitation";
 
-export const NavBarMenu = ({navigation, userNavigation, invited, invitedDao, loggedIn, user, open}) => {
+export const NavBarMenu = ({navigation, userNavigation, invitations, user, open, ctaButton}) => {
 
   return (
     <div className={[appWidth, "px-4", "sm:px-6", "lg:px-8"].join(" ")}>
@@ -50,35 +48,28 @@ export const NavBarMenu = ({navigation, userNavigation, invited, invitedDao, log
             <Disclosure.Button
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="sr-only">Open main menu</span>
-              {open ? (
-                <XIcon className="block h-6 w-6" aria-hidden="true"/>
-              ) : (
-                <MenuIcon className="block h-6 w-6" aria-hidden="true"/>
-              )}
+              {open ? (<XIcon className="block h-6 w-6" aria-hidden="true"/>) : (<MenuIcon className="block h-6 w-6" aria-hidden="true"/>)}
             </Disclosure.Button>
           </div>
         </div>
         <div className="flex items-center">
-          {loggedIn &&
+          {user &&
           <div className="hidden md:flex flex-shrink-0">
-            <Button
-              label="Create new Dao"
-              shadow
-              iconBefore={<PlusIcon/>}
-              icon={<PlusIcon className="h-5 w-5 -ml-2 mr-2"/>}
-              size=""
-            />
+            {ctaButton}
           </div>}
           <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
             {/* Profile dropdown */}
-            {loggedIn ? <Menu as="div" className="ml-3 relative">
+            {user ? <Menu as="div" className="ml-3 relative">
                 {({open}) => (
                   <>
                     <div>
                       <Menu.Button
                         className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span className="sr-only">Open user menu</span>
-                        <img className="h-8 w-8 rounded-full" src={user?.imageUrl} alt=""/>
+                        <img
+                          className="h-8 w-8 rounded-full"
+                          src={`https://avatar.moosty.com/${user?.address}`}
+                        />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -110,11 +101,10 @@ export const NavBarMenu = ({navigation, userNavigation, invited, invitedDao, log
                             )}
                           </Menu.Item>
                         ))}
-                        {invited && <div>
-                          <Typography type="body" Element="span">
-                          </Typography>
-                          <DaoInvitation/>
-                        </div>}
+                        {invitations?.map(invite => (
+                          <div className="rounded-default">
+                            <DaoInvitation dao={invite.dao} id={invite.id}/>
+                          </div>))}
                       </Menu.Items>
                     </Transition>
                   </>

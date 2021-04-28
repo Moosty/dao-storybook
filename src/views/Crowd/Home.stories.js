@@ -6,7 +6,7 @@ import {Meta} from "@storybook/addon-docs/blocks";
 
 
 export default {
-  title: 'Pages/Crowd/Home',
+  title: 'Crowd/Pages/Home',
   component: Home,
 };
 
