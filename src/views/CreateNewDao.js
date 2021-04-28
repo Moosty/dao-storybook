@@ -89,8 +89,8 @@ export const CreateNewDao = ({user, onLogin, onLogout, onCreateAccount}) => {
                 {/*</FormRow>*/}
                 <div className="pt-5">
                   <div className="flex justify-end">
-                    <Button label="Cancel" secondary shadow/>
-                    <Button icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" shadow/>
+                    <Button shadow label="Cancel" secondary shadow/>
+                    <Button shadow icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" shadow/>
                   </div>
                 </div>
               </div>

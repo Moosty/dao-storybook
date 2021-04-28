@@ -100,7 +100,7 @@ Button.defaultProps = {
   label: "",
   onClick: () => null,
   rounded: true,
-  shadow: true,
+  shadow: false,
   disabled: false,
   className: "",
   containerSide: null,

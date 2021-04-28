@@ -88,6 +88,7 @@ export const NavBar = ({invited, loggedIn,invitedDao, address = "21"}) => {
                 <div className="hidden md:flex flex-shrink-0">
                   <Button
                     label="Create new Dao"
+                    shadow
                     iconBefore={<PlusIcon/>}
                     icon={<PlusIcon className="h-5 w-5 -ml-2 mr-2"/>}
                     size=""
@@ -164,8 +165,8 @@ export const NavBar = ({invited, loggedIn,invitedDao, address = "21"}) => {
                     </Menu>
                     :
                     <div className="flex flex-row space-x-4">
-                      <Button size="small" label="Log in"/>
-                      <Button size="small" secondary label="Register"/>
+                      <Button shadow size="small" label="Log in"/>
+                      <Button shadow size="small" secondary label="Register"/>
                     </div>
                   }
                 </div>
