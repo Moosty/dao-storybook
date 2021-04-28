@@ -38,7 +38,7 @@ export const VotingContainer = ({
   const timeLabel = !closed ? start > height ? "Voting starts at: ~" : "2 days left to close" : null
   return <Card
     className={"w-card"}
-    result={closed ? result : null}
+    result={closed ? result : "inconclusive"}
     header={{
       children: <VotingHeader {...{
         dao,
