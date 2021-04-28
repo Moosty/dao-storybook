@@ -1,17 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {CardHeader} from "./CardHeader";
 import {CardFooter} from "./CardFooter";
 import {CardContent} from "./CardContent";
-import PropTypes from "prop-types";
-import {Button} from "./Button";
-import {Paper} from "./Paper";
-import {ProgressCircle} from "./ProgressCircle";
-import {VotingCardContent} from "./VotingCardContent";
+import {Paper} from "../Paper";
 
-
-export const Card = ({className, content,footer, open,closed, footerNotice, buttonLabel,userVote, votingResult, header,buttonGroup, isOpen, userState}) => {
-  return (
-  <Paper className="w-card ">
+export const Card = ({votingResult, header, content, footer}) => (<div className="flex">
+    <Paper className="w-card">
       <div className={[
         votingResult === "no" && "bg-dangerIcon shadow-cardNo",
         votingResult === "yes" && "shadow-cardYes bg-successIcon ",
@@ -21,7 +16,6 @@ export const Card = ({className, content,footer, open,closed, footerNotice, butt
       ].join(" ")}
       >
       </div>
-
       <div className={[
         "divide-gray-200",
         "flex",
@@ -31,29 +25,21 @@ export const Card = ({className, content,footer, open,closed, footerNotice, butt
         <CardHeader {...header}/>
         <CardContent {...content} />
         <CardFooter {...footer} />
-
       </div>
     </Paper>
-  )
-}
-
+  </div>
+)
 
 Card.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
   votingResult: PropTypes.oneOf(["yes", "no", "inconclusive"]),
-  isOpen: PropTypes.bool,
-  userState: PropTypes.oneOf(["yes", "no", "closed", "open"]),
-
-
+  header: PropTypes.object,
+  content: PropTypes.object,
+  footer: PropTypes.object,
 };
 
 Card.defaultProps = {
   votingResult: "inconclusive",
-  isOpen: true,
-  userState: "open",
-
+  header: {},
+  content: {},
+  footer: {},
 };
-
-
