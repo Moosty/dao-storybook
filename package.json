@@ -2,6 +2,7 @@
   "name": "dao-storybook",
   "version": "0.1.1",
   "private": true,
+  "main": "dist/index.js",
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@headlessui/react": "^1.0.0",
@@ -29,7 +30,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token CHROMATIC_PROJECT_TOKEN"
+    "chromatic": "npx chromatic --project-token CHROMATIC_PROJECT_TOKEN",
+    "build:package": "cross-env BABEL_ENV=production babel src -d dist && cp -r src/assets dist/assets && cp src/index.css dist/index.css"
   },
   "eslintConfig": {
     "extends": [
@@ -59,7 +61,19 @@
       "last 1 safari version"
     ]
   },
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
+  },
   "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
     "@storybook/addon-actions": "^6.2.8",
     "@storybook/addon-essentials": "^6.2.8",
     "@storybook/addon-links": "^6.2.8",
@@ -68,8 +82,10 @@
     "@storybook/react": "^6.2.8",
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "autoprefixer": "^9",
+    "babel-loader": "^8.2.2",
     "chromatic": "^5.6.2",
-    "postcss": "^7",
+    "cross-env": "^7.0.3",
+    "postcss": "7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
