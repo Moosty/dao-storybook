@@ -9,6 +9,7 @@ export const allCardsData = [
     title: "You have not voted",
     user: { name: "Raphael", address: "asdfasdfasdfadf"},
     end: 0,
+    start: 150,
     notAllowed: false,
     userVote: null,
     quorum: 50,
@@ -16,8 +17,7 @@ export const allCardsData = [
     yes: 360,
     no: 360,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, yes",
@@ -31,8 +31,7 @@ export const allCardsData = [
     yes: 361,
     no: 360,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, no",
@@ -46,8 +45,7 @@ export const allCardsData = [
     yes: 361,
     no: 400,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, inconclusive",
@@ -61,8 +59,7 @@ export const allCardsData = [
     yes: 360,
     no: 360,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, yes",
@@ -76,8 +73,7 @@ export const allCardsData = [
     yes: 361,
     no: 360,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, no",
@@ -91,8 +87,7 @@ export const allCardsData = [
     yes: 361,
     no: 400,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, inconclusive",
@@ -106,8 +101,7 @@ export const allCardsData = [
     yes: 360,
     no: 360,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, yes",
@@ -121,8 +115,7 @@ export const allCardsData = [
     yes: 361,
     no: 360,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
   {
     dao: "open, no",
@@ -136,8 +129,7 @@ export const allCardsData = [
     yes: 361,
     no: 400,
     eligibleVotes: 999,
-    closed: false,
-    result: null
+    height: 100,
   },
 
   {
@@ -152,8 +144,7 @@ export const allCardsData = [
     yes: 360,
     no: 360,
     eligibleVotes: 999,
-    closed: true,
-    result: null
+    height: 0,
   },
   {
     dao: "open, yes",
@@ -167,8 +158,7 @@ export const allCardsData = [
     yes: 361,
     no: 360,
     eligibleVotes: 999,
-    closed: true,
-    result: null
+    height: 0,
   },
   {
     dao: "open, no",
@@ -182,8 +172,7 @@ export const allCardsData = [
     yes: 361,
     no: 400,
     eligibleVotes: 999,
-    closed: true,
-    result: null
+    height: 0,
   },
   {
     dao: "open, inconclusive",
@@ -197,8 +186,7 @@ export const allCardsData = [
     yes: 360,
     no: 360,
     eligibleVotes: 999,
-    closed: true,
-    result: null
+    height: 0,
   },
   {
     dao: "open, yes",
@@ -212,8 +200,7 @@ export const allCardsData = [
     yes: 361,
     no: 360,
     eligibleVotes: 999,
-    closed: true,
-    result: null
+    height: 0,
   },
   {
     dao: "open, no",
@@ -227,8 +214,7 @@ export const allCardsData = [
     yes: 361,
     no: 400,
     eligibleVotes: 999,
-    closed: true,
-    result: "no"
+    height: 0,
   },
   {
     dao: "open, inconclusive",
@@ -242,8 +228,7 @@ export const allCardsData = [
     yes: 360,
     no: 360,
     eligibleVotes: 999,
-    closed: true,
-    result: null
+    height: 0,
   },
   {
     dao: "open, yes",
@@ -257,8 +242,7 @@ export const allCardsData = [
     yes: 361,
     no: 360,
     eligibleVotes: 999,
-    closed: true,
-    result: null
+    height: 0,
   },
   {
     dao: "open, no",
@@ -272,8 +256,7 @@ export const allCardsData = [
     yes: 361,
     no: 400,
     eligibleVotes: 999,
-    closed: true,
-    result: "no"
+    height: 0,
   },
 ]
 
