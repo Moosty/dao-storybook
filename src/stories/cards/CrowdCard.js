@@ -7,7 +7,7 @@ import {Paper} from "../Paper";
 import {CrowdCardHeader} from "./CrowdCardHeader";
 import {CrowdCardContent} from "./CrowdCardContent";
 
-export const CrowdCard = ({votingResult, header, content, footer}) => (<div className="flex">
+export const CrowdCard = ({header, content, footer}) => (<div className="flex">
     <Paper className="w-card">
 
       <div className={[

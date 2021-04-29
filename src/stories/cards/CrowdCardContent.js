@@ -6,7 +6,7 @@ import {ProgressBar} from "../ProgressBar";
 import {ProgressDetails} from "../ProgressDetails";
 import {ClockIcon} from "@heroicons/react/solid";
 
-export const CrowdCardContent = ({gradient, title='this is a title',
+export const CrowdCardContent = ({gradient, title='Project X ',
                                    subTitle="this is a subtitle", category="default"}) => {
   return (
     <div className="flex flex-col space-y-2">
@@ -31,8 +31,8 @@ export const CrowdCardContent = ({gradient, title='this is a title',
       ].join(" ")}>
         <div className="flex flex-row justify-between">
           <div className="flex flex-col">
-            <Typography type="bodyStrong" Element="span">{title}</Typography>
-            <Typography type="body" Element="span">{subTitle}</Typography>
+            <Typography type="h4" Element="span">{title}</Typography>
+            <Typography type="bodyStrong" Element="span">{subTitle}</Typography>
 
           </div>
           <Chip category={category} />
