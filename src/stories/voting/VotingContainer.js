@@ -19,6 +19,7 @@ export const VotingContainer = ({
                                   no,
                                   eligibleVotes,
                                   height,
+                                  className,
                                 }) => {
 
   const minVotes = Math.ceil((quorum / 100) * eligibleVotes) === (quorum / 100) * eligibleVotes ?
@@ -37,7 +38,7 @@ export const VotingContainer = ({
   // todo calculate time to close or open
   const timeLabel = !closed ? start > height ? "Voting starts at: ~" : "2 days left to close" : null
   return <Card
-    className={"w-card"}
+    className={`w-card ${className}`}
     result={closed ? result : "inconclusive"}
     header={{
       children: <VotingHeader {...{
