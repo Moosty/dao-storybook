@@ -5,18 +5,14 @@ import {MenuIcon, XIcon} from "@heroicons/react/outline";
 import {Button} from "../Button";
 import {DaoInvitation} from "../DaoInvitation";
 
-export const NavBarMenu = ({navigation, userNavigation, invitations, user, open, ctaButton}) => {
+export const NavBarMenu = ({logo, navigation, userNavigation, invitations, user, open, ctaButton}) => {
 
   return (
     <div className={[appWidth, "px-4", "sm:px-6", "lg:px-8"].join(" ")}>
       <div className="flex justify-between h-16">
         <div className="flex justify-between md:justify-start w-full">
           <div className="flex-shrink-0 flex items-center">
-            <img
-              src="/images/logo.png"
-              className="block h-8 w-auto"
-              alt="PLAO"
-            />
+            {logo}
           </div>
           <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
             {navigation?.map((item, i) => (
