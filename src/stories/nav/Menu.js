@@ -13,13 +13,8 @@ export const NavBarMenu = ({navigation, userNavigation, invitations, user, open,
         <div className="flex justify-between md:justify-start w-full">
           <div className="flex-shrink-0 flex items-center">
             <img
-              className="block lg:hidden h-8 w-auto"
-              src="src/images/logo.png"
-              alt="PLAO"
-            />
-            <img
-              className="hidden lg:block h-8 w-auto"
-              src="src/images/logo.png"
+              src="/images/logo.png"
+              className="block h-8 w-auto"
               alt="PLAO"
             />
           </div>
