@@ -5,28 +5,19 @@ import {MenuIcon, XIcon} from "@heroicons/react/outline";
 import {Button} from "../Button";
 import {DaoInvitation} from "../DaoInvitation";
 
-export const NavBarMenu = ({navigation, userNavigation, invitations, user, open, ctaButton}) => {
+export const NavBarMenu = ({logo, navigation, userNavigation, invitations, user, open, ctaButton}) => {
 
   return (
     <div className={[appWidth, "px-4", "sm:px-6", "lg:px-8"].join(" ")}>
       <div className="flex justify-between h-16">
         <div className="flex justify-between md:justify-start w-full">
           <div className="flex-shrink-0 flex items-center">
-            <img
-              className="block lg:hidden h-8 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-              alt="PLAO"
-            />
-            <img
-              className="hidden lg:block h-8 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-              alt="PLAO"
-            />
+            {logo}
           </div>
           <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-            {navigation?.map((item) => (
+            {navigation?.map((item, i) => (
               <span
-                key={item.name}
+                key={`${item.name}-${i}`}
                 onClick={item.href}
                 className={[
                   item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -86,8 +77,8 @@ export const NavBarMenu = ({navigation, userNavigation, invitations, user, open,
                         static
                         className="origin-top-right absolute right-0 w-56 mt-2  rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                       >
-                        {userNavigation?.map((item) => (
-                          <Menu.Item key={item.name}>
+                        {userNavigation?.map((item, i) => (
+                          <Menu.Item key={`${item.name}--${i}`}>
                             {({active}) => (
                               <span
                                 onClick={item.href}
@@ -102,7 +93,7 @@ export const NavBarMenu = ({navigation, userNavigation, invitations, user, open,
                           </Menu.Item>
                         ))}
                         {invitations?.map(invite => (
-                          <div className="rounded-default">
+                          <div key={invite.id} className="rounded-default">
                             <DaoInvitation dao={invite.dao} id={invite.id}/>
                           </div>))}
                       </Menu.Items>
