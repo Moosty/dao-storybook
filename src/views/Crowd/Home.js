@@ -30,10 +30,10 @@ export const Home= ({}) => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4", "flex", "flex-row"].join(" ")}>
-        <CrowdCard>
+        <CrowdCard state="active" >
           <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
         </CrowdCard>
-        <CrowdCard>
+        <CrowdCard state="open" >
           <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
         </CrowdCard>
         <CrowdCard>
