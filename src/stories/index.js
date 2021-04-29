@@ -24,6 +24,7 @@ import {CardHeader} from "./cards/CardHeader";
 import {VotingState} from "./cards/VotingState";
 import {Filter} from "./filters/Filter";
 import {FilterDao} from "./filters/FilterDao";
+import {FilterWrapper} from "./filters/FilterWrapper";
 import {DropDown} from "./forms/DropDown";
 import {Form} from "./forms/Form";
 import {FormColumn} from "./forms/FormColumn";
@@ -64,6 +65,7 @@ export {
   DropDown,
   Filter,
   FilterDao,
+  FilterWrapper,
   Footer,
   Form,
   FormColumn,
