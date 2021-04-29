@@ -120,6 +120,11 @@ const navBarArgs = {
     name: "Raphael",
     address: "klasjdflkasjdf",
   },
+  logo: <img
+    src="/images/logo.png"
+    className="block h-8 w-auto"
+    alt="PLAO"
+  />,
   navigation: [
     {name: 'Votings', onClick: () => alert("Goto Votings"), current: false},
     {name: 'Members', onClick: () => alert("Goto Members"), current: false},
