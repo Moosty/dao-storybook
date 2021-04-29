@@ -22,7 +22,7 @@ export const InputAvatar = ({
                               ...props
                             }) => {
   const [selected, setSelected] = useState(selectedItem);
-  const {formClass} = useForms({disabled, error, readOnly });
+  const {formClass} = useForms({disabled, error, readOnly});
 
   return (
     <Listbox
@@ -66,7 +66,7 @@ export const InputAvatar = ({
               <Listbox.Options
                 static
                 className={[" absolute mt-1 w-full bg-white shadow-lg max-h-100` rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm z-40",
-                dropDownShadow ? "shadow-defaultPrimary" : " ",
+                  dropDownShadow ? "shadow-defaultPrimary" : " ",
                 ].join(" ")}
               >
                 {items && items.map((item) => (
@@ -96,7 +96,8 @@ export const InputAvatar = ({
                               active ? 'text-white' : 'text-indigo-600',
                               'absolute inset-y-0 right-0 flex items-center pr-4'
                             )}
-                          >  <CheckIcon className="h-5 w-5" aria-hidden="true"/>
+                          >
+                            <CheckIcon className="h-5 w-5" aria-hidden="true"/>
                           </span>
                         ) : null}
                       </>
