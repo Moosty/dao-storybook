@@ -63,7 +63,7 @@ const navBarArgs = {
   },
   logo: <img
     src="/images/logo.png"
-    className="block h-8 w-auto"
+    className="block h-6 w-auto"
     alt="PLAO"
   />,
   navigation: [
