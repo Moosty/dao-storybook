@@ -17,6 +17,7 @@ import {PlusIcon} from "@heroicons/react/solid";
 import {Page} from "../Page";
 import {Filter} from "../../stories/filters/Filter";
 import {AccountProjectList} from "../../stories/AccountProjectList";
+import {crowdFundStates} from "../../stories/crowd/constants";
 
 export const Home= ({}) => {
   return ( <>
@@ -31,7 +32,10 @@ export const Home= ({}) => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4", "flex", "flex-row"].join(" ")}>
-        <CrowdCard state="active" >
+        <CrowdCard state={crowdFundStates.ACTIVE.ACTIVE} >
+          <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
+        </CrowdCard>
+        <CrowdCard state={crowdFundStates.ACTIVE.PENDING} >
           <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
         </CrowdCard>
         <CrowdCard state="open" >
@@ -41,8 +45,8 @@ export const Home= ({}) => {
           <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
         </CrowdCard>
       </Container>
-      <Container className={[appWidth, "mt-4"].join(" ")}>
-        <AccountProjectList />
+      <Container className={[appWidth].join(" ")}>
+        <AccountProjectList projects={projects} />
       </Container>
     </>
   )
@@ -92,3 +96,34 @@ const navBarArgs = {
     }
   ],
 }
+
+const projects = [
+  {
+    id: 1,
+    title: 'Back End Developer',
+    owner: 'Moosty',
+    target: '800.990',
+    category: 'Gambling',
+    closeDate: '2020-01-07',
+    closeDateFull: 'January 7, 2020',
+    state: crowdFundStates.ACTIVE.ACTIVE
+  },
+  {
+    id: 2,
+    title: 'Front End Developer',
+    owner: 'LCU Community',
+    target: '560',
+    category: 'Finance',
+    closeDate: '2020-01-07',
+    closeDateFull: 'January 7, 2020',
+  },
+  {
+    id: 3,
+    title: 'User Interface Designer',
+    owner: 'Endro Labs',
+    target: '30.990',
+    category: 'Gaming',
+    closeDate: '2020-01-14',
+    closeDateFull: 'January 14, 2020',
+  },
+]
