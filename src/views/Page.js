@@ -11,6 +11,9 @@ import {allCardsData} from "../fixtures/cards";
 import {VotingContainer} from "../stories/voting/VotingContainer";
 import {Button} from "../stories/Button";
 import {PlusIcon} from "@heroicons/react/solid";
+import {allDaoData} from "../fixtures/daos";
+import {allVotingTypes} from "../fixtures/votingTypes";
+import {allMembers} from "../fixtures/members";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
@@ -18,7 +21,7 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
     <div className={[appWidth].join(" ")}>
       <Container className="flex flex-row my-4 ">
         <BreadCrumbs className="flex-start w-full"/>
-        <FilterWrapper className="flex flex-row justify-end w-full" />
+        <FilterWrapper filters={filters} className="flex flex-row justify-end w-full" />
       </Container>
       <Container>
         <div className="flex flex-row flex-wrap justify-between space-y-8">
@@ -39,6 +42,30 @@ Page.propTypes = {
 Page.defaultProps = {
   user: null,
 };
+
+const filters = [
+  {
+    label: "Select DAO",
+    items: allDaoData,
+    selected: {
+      ...allDaoData[0],
+    },
+  },
+  {
+    label: "Initiated by Anyone",
+    items: allMembers,
+    selected: {
+      ...allMembers[0],
+    },
+  },
+  {
+    label: "Open and Closed",
+    items: allVotingTypes,
+    selected: {
+      ...allVotingTypes[0],
+    },
+  },
+]
 
 const navBarArgs = {
   user: {

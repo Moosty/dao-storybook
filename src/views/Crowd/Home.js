@@ -16,6 +16,7 @@ import {Button} from "../../stories/Button";
 import {PlusIcon} from "@heroicons/react/solid";
 import {Page} from "../Page";
 import {Filter} from "../../stories/filters/Filter";
+import {AccountProjectList} from "../../stories/AccountProjectList";
 
 export const Home= ({}) => {
   return ( <>
@@ -30,15 +31,18 @@ export const Home= ({}) => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4", "flex", "flex-row"].join(" ")}>
-        <CrowdCard>
+        <CrowdCard state="active" >
+          <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
+        </CrowdCard>
+        <CrowdCard state="open" >
           <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
         </CrowdCard>
         <CrowdCard>
           <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
         </CrowdCard>
-        <CrowdCard>
-          <CrowdCardHeader userAddress="123L" user="Raphael Cornelis" title="Title" />
-        </CrowdCard>
+      </Container>
+      <Container className={[appWidth, "mt-4"].join(" ")}>
+        <AccountProjectList />
       </Container>
     </>
   )
@@ -63,23 +67,22 @@ const navBarArgs = {
   },
   logo: <img
     src="/images/logo.png"
-    className="block h-8 w-auto"
+    className="block h-6 w-auto"
     alt="PLAO"
   />,
   navigation: [
     {name: 'Explore', onClick: () => alert("Go to Crowdfunds"), current: true},
     {name: 'Members', onClick: () => alert("Goto Members"), current: false},
-    {name: 'DAOs', onClick: () => alert("Goto DAOs"), current: false},
+    {name: 'Projects', onClick: () => alert("Goto DAOs"), current: false},
   ],
   ctaButton: <Button
-    label="Create new Crowdfund"
+    label="Start new Crowdfund"
 
     iconBefore
     icon={<PlusIcon className="h-5 w-5 -ml-2 mr-2"/>}
   />,
   userNavigation: [
-    {name: 'Create a Dao', onClick: () => alert("Create a dao")},
-    {name: 'Create a voting', onClick: () => alert("Create a voting")},
+    {name: 'My Account', onClick: () => alert("Go to my account")},
     {name: 'Sign out', onClick: () => alert("Sign out")},
   ],
   invitations: [

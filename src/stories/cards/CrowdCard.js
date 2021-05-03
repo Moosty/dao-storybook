@@ -7,7 +7,7 @@ import {Paper} from "../Paper";
 import {CrowdCardHeader} from "./CrowdCardHeader";
 import {CrowdCardContent} from "./CrowdCardContent";
 
-export const CrowdCard = ({header, content, footer}) => (<div className="flex">
+export const CrowdCard = ({header, content, footer, state}) => (<div className="flex">
     <Paper className="w-card">
 
       <div className={[
@@ -21,7 +21,7 @@ export const CrowdCard = ({header, content, footer}) => (<div className="flex">
 
       ].join(" ")}>
         <CrowdCardHeader {...header}/>
-        <CrowdCardContent {...content} />
+        <CrowdCardContent state={state}/>
         <CardFooter {...footer} />
       </div>
     </Paper>
