@@ -5,6 +5,16 @@ import { categories, crowdFundStates, projectImages } from "./constants";
 export default {
   title: "Elements/CrowdCardContainer",
   component: CrowdCardContainer,
+  args: {
+    title: "Project CoinmarketC",
+    category: 0,
+    owner: "lsk13212341dfs23567246sdg",
+    targetAmount: 10000,
+    projectUrl: "https://moosty.com/",
+    state: "",
+    image: 1,
+    projectImages: projectImages,
+  }
 }
 
 export const Playground = (args) => <CrowdCardContainer {...args}/>
@@ -32,7 +42,7 @@ Preview.args = {
     targetAmount: 10000,
     projectUrl: "https://moosty.com/",
     state: "preview",
-    image: 1,
+    image: 2,
   }
 
 export const Open = Template.bind({})
@@ -43,7 +53,7 @@ Open.args = {
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
   state: "open",
-  image: 1,
+  image: 3,
 }
 
 export const Pending = Template.bind({})
@@ -54,19 +64,23 @@ Pending.args = {
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
   state: "open",
-  image: 1,
+  image: 4,
 }
 
 export const Active = Template.bind({})
 Active.args = {
   ...Preview.args,
   state: "active.active",
+  image: 6,
+
 }
 
 export const ActivePending = Template.bind({})
 ActivePending.args = {
   ...Preview.args,
   state: "active.pending",
+  image: 5,
+
 }
 
 export const ActiveVoting = Template.bind({})
