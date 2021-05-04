@@ -1,6 +1,7 @@
 import React from "react";
 import {CalendarIcon, CashIcon, LocationMarkerIcon, UsersIcon} from "@heroicons/react/solid";
-import {crowdFundStates} from "./crowd/constants";
+
+import {crowdFundStates, categories, projectImages} from "./crowd/constants";
 
 export const AccountProjectList =({projects}) => {
   return(
@@ -16,9 +17,21 @@ export const AccountProjectList =({projects}) => {
       targetAmount,
       durationProject,
       projectUrl,
-      imageUrl,
+      image,
       closeDate,
       closeDateFull,
+      state,
+      backers,
+      donatedAmount,
+      message,
+      viewer,
+      maxVoteWeight,
+      notVoteWeight,
+      ownerMessage,
+      voteResult,
+
+
+
     }) => (
       <li key={id}>
         <a href="#" className="block hover:bg-gray-50">
@@ -27,7 +40,7 @@ export const AccountProjectList =({projects}) => {
               <p className="text-sm font-medium text-themeNavBarBg truncate">{title}</p>
               <div className="ml-2 flex-shrink-0 flex">
                 <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  {category}
+                  {categories[category]}
                 </p>
               </div>
             </div>

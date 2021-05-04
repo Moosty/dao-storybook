@@ -5,15 +5,41 @@ import {Chip} from "../Chip";
 import {ProgressBar} from "../ProgressBar";
 import {ProgressDetails} from "../ProgressDetails";
 import {ClockIcon} from "@heroicons/react/solid";
+import {categories, projectImages} from "../crowd/constants";
+import {AvatarUser} from "./AvatarUser";
 
-export const CrowdCardContent = ({gradient,state, title='Project X ',
-                                   subTitle="this is a subtitle", category="default"}) => {
+
+export const CrowdCardContent = ({
+                                   gradient,
+                                   title='Project X ',
+                                   subTitle="this is a subtitle",
+                                   category="default",
+                                   owner,
+                                   targetAmount,
+                                   durationProject,
+                                   projectUrl,
+                                   image,
+                                   closeDate,
+                                   closeDateFull,
+                                   state,
+                                   backers,
+                                   donatedAmount,
+                                   message,
+                                   viewer,
+                                   maxVoteWeight,
+                                   notVoteWeight,
+                                   ownerMessage,
+                                   voteResult,
+                                   userName,
+                                   userAddress,
+
+}) => {
   return (
     <div className="flex flex-col space-y-2">
     <div className="relative ">
         <img
           className="w-full h-24 object-cover"
-          src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
+          src={projectImages[image || 0]}
           alt=""
         />
       {gradient &&
@@ -32,10 +58,9 @@ export const CrowdCardContent = ({gradient,state, title='Project X ',
         <div className="flex flex-row justify-between">
           <div className="flex flex-col">
             <Typography type="h4" Element="span">{title}</Typography>
-            <Typography type="bodyStrong" Element="span">{subTitle}</Typography>
 
           </div>
-          <Chip category={category} />
+          <Chip category={categories[category || 0]} />
         </div>
 
 
