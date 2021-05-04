@@ -1,33 +1,23 @@
 import React from "react";
 import {Typography} from "./Typography";
+import {crowdFundStates} from "./crowd/constants";
 
-export const crowdFundStates = {
-  PREVIEW: "preview",
-  OPEN: "open",
-  PENDING: "pending",
-  ACTIVE: "active",
-  FAILED: "failed",
-  ENDED: "ended",
-  CANCELED: "canceled",
-
-}
 
 export const ProgressDetails = ({state}) => {
   return (<>
     <div className="flex flex-row justify-between">
       <div className="flex flex-col text-left">
-        {crowdFundStates.OPEN === state && <>
-        <Typography type="body" Element="span">Project Goal:</Typography>
+
+        <Typography type="body" Element="span">
+          {crowdFundStates.PREVIEW === state && "Preview:"}
+          {crowdFundStates.OPEN === state && "Project Goal:"}
+          {crowdFundStates.ACTIVE.ACTIVE === state && "Project Goal:"}
+        </Typography>
           <Typography type="bodyStrong" Element="span">0/
             990000 CFT
           </Typography>
-        </>
-        }
-        {crowdFundStates.ACTIVE === state && <>
-          <Typography type="body" Element="span">Project Duration:</Typography>
-          <Typography type="bodyStrong" Element="span">3/12 Months</Typography>
-        </>
-        }
+
+
       </div>
       <div className="flex flex-col text-right">
         {crowdFundStates.OPEN === state && <>
