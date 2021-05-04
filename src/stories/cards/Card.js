@@ -5,8 +5,8 @@ import {CardFooter} from "./CardFooter";
 import {CardContent} from "./CardContent";
 import {Paper} from "../Paper";
 
-export const Card = ({result, header, content, footer}) => (<div className="flex">
-    <Paper className="w-card">
+export const Card = ({className, result, header, content, footer}) => (<div className="flex">
+    <Paper className={[ "w-card", className].join(" ")}>
       {result && <div className={[
         result === "no" && "bg-dangerIcon shadow-cardNo",
         result === "yes" && "shadow-cardYes bg-successIcon ",

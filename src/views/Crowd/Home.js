@@ -17,7 +17,7 @@ import {PlusIcon} from "@heroicons/react/solid";
 import {Page} from "../Page";
 import {Filter} from "../../stories/filters/Filter";
 import {AccountProjectList} from "../../stories/AccountProjectList";
-import {crowdFundStates} from "../../stories/crowd/constants";
+import {crowdFundStates as crowdfunstates, crowdFundStates} from "../../stories/crowd/constants";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 
 export const Home= ({}) => {
@@ -90,7 +90,7 @@ const navBarArgs = {
 const projects = [
   {
     id: 1,
-    state: 'PREVIEW',
+    state: crowdfunstates.PREVIEW,
     title: 'The DAO Project',
     category: 2,
     userAddress: '3457743L',
@@ -115,10 +115,11 @@ const projects = [
     maxVoteWeight: '100',
     notVoteWeight: '60',
     voteResult: 'voteresult',
+    time: 'in one day',
   },
   {
     id: 2,
-    state: 'OPEN',
+    state: crowdfunstates.OPEN,
     title: 'This is a super long project name with some extra words.',
     category: 0,
     userAddress: '345733333743L',
@@ -146,7 +147,7 @@ const projects = [
   },
   {
     id: 3,
-    state: 'PENDING',
+    state: crowdfunstates.PENDING,
     title: 'dit is een title',
     category: 0,
     userAddress: '345557743L',
@@ -174,7 +175,7 @@ const projects = [
   },
   {
     id: 4,
-    state: 'ACTIVE.ACTIVE',
+    state: crowdfunstates.ACTIVE.ACTIVE,
     title: 'dit is een title',
     category: 0,
     userAddress: '34517743L',
@@ -202,7 +203,7 @@ const projects = [
   },
   {
     id: 5,
-    state: 'ACTIVE.VOTEN',
+    state: crowdfunstates.ACTIVE.VOTING,
     title: 'dit is een title',
     category: 0,
     userAddress: '345799743L',
@@ -230,7 +231,7 @@ const projects = [
   },
   {
     id: 6,
-    state: 'ACTIVE.CLAIMING',
+    state: crowdfunstates.ACTIVE.CLAIMING,
     title: 'dit is een title',
     category: 0,
     userAddress: '345700743L',
@@ -258,7 +259,7 @@ const projects = [
   },
   {
     id: 7,
-    state: 'FAILED',
+    state: crowdfunstates.FAILED,
     title: 'dit is een title',
     category: 0,
     userAddress: '3457700000000043L',
@@ -286,7 +287,7 @@ const projects = [
   },
   {
     id: 8,
-    state: 'ENDED',
+    state: crowdfunstates.ENDED,
     title: 'dit is een title',
     category: 0,
     userAddress: '3457446464646743L',
@@ -314,7 +315,7 @@ const projects = [
   },
   {
     id: 9,
-    state: 'CANCELED',
+    state: crowdfunstates.CANCELED,
     title: 'dit is een title',
     category: 0,
     userAddress: '345222227743L',

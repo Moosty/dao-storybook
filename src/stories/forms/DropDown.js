@@ -1,28 +1,21 @@
 import React from "react";
 import {useForms} from "../../hooks/forms";
 
-export const DropDown = ({id, name, className, disabled, error, readOnly, rounded}) => {
-
+export const DropDown = ({className, disabled, error, readOnly, rounded, options, selected, ...props}) => {
   const { formClass } = useForms({disabled, error, readOnly});
-  const appearance = ["rounded-default"].join(" ")
-
-  return (<div className="">
+  return (
       <select
-        id={id}
-        name={name}
         className={[
           "shadow-sm ",
           "block",
           "w-full",
           className,
           formClass,
-          rounded ?  appearance : " ",
+          rounded && "rounded-default",
         ].join(" ")}
+        {...props}
       >
-        <option>One man One vote</option>
-        <option>Quadratic Voting</option>
-        <option>New Member Voting</option>
+        {options?.map(option => <option selected={selected === option.id} value={option.id}>{option.label}</option>)}
       </select>
-    </div>
   )
 }

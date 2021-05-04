@@ -1,26 +1,20 @@
 import React from "react";
 import {useForms} from "../../hooks/forms";
 
-export const TextFieldInput = ({placeholder, description, disabled, error, readOnly, ...props}) => {
-
+export const TextFieldInput = ({disabled, error, readOnly, ...props}) => {
   const {formClass} = useForms({disabled, error, readOnly})
 
-  return (
-    <div>
-        <div className="mt-1">
-                    <textarea
-                      id="about"
-                      name="about"
-                      placeholder={placeholder}
-                      rows={3}
-                      className={[
-                        "block w-full sm:text-sm  rounded-default",
-                        formClass,
-                      ].join(" ")}
-                      defaultValue={''}
-                      disabled={disabled || readOnly}
-                    />
-        </div>
-      </div>
-  )
+  return <textarea
+    rows={props.rows || 3}
+    className={[
+      "mt-1",
+      "block",
+      "w-full",
+      "sm:text-sm",
+      "rounded-default",
+      formClass,
+    ].join(" ")}
+    disabled={disabled || readOnly}
+    {...props}
+  />
 }

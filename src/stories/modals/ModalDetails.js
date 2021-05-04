@@ -4,10 +4,7 @@ import {Button} from "../Button";
 import {Typography} from "../Typography";
 import {Paper} from "../Paper";
 
-export const ModalDetails = ({noAccount, loggedOut, title, description, name, address}) => {
-  const [open, setOpen] = useState(true)
-
-  const cancelButtonRef = useRef()
+export const ModalDetails = ({open, onClose, name, address, daos}) => {
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -15,9 +12,8 @@ export const ModalDetails = ({noAccount, loggedOut, title, description, name, ad
         as="div"
         static
         className="fixed z-10 inset-0 overflow-y-auto"
-        initialFocus={cancelButtonRef}
         open={open}
-        onClose={setOpen}
+        onClose={onClose}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -31,8 +27,6 @@ export const ModalDetails = ({noAccount, loggedOut, title, description, name, ad
           >
             <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
           </Transition.Child>
-
-          {/* This element is to trick the browser into centering the modal contents. */}
           <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
             &#8203;
           </span>
@@ -63,10 +57,7 @@ export const ModalDetails = ({noAccount, loggedOut, title, description, name, ad
 
                   <Paper className="w-full flex-col items-center flex justify-between py-4 px-2 mt-2">
                     <Typography type="bodyStrong" Element="body">Member of:</Typography>
-
-                    <Typography  className="text-textHeadings" type="bodyStrong" Element="span">DAO 1</Typography>
-                    <Typography  className="text-textHeadings" type="bodyStrong" Element="span">DAO 2</Typography>
-                    <Typography  className="text-textHeadings" type="bodyStrong" Element="span">DAO 2</Typography>
+                    {daos?.map(dao => <Typography className="text-textHeadings" type="bodyStrong" Element="span">{dao.name}</Typography>)}
                   </Paper>
                 </div>
 
@@ -75,8 +66,7 @@ export const ModalDetails = ({noAccount, loggedOut, title, description, name, ad
                 <Button
                   label="Go back"
                   secondary
-                  onClick={() => setOpen(false)}
-                  ref={cancelButtonRef}
+                  onClick={() => onClose(true)}
                 />
               </div>
             </div>
