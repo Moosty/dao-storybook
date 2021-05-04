@@ -33,8 +33,11 @@ export const VotingContainer = ({
     Math.ceil((minToWin / 100) * minVotes) === (minToWin / 100) * minVotes ?
       (minToWin / 100) * minVotes + 1 :
       Math.ceil((minToWin / 100) * minVotes)
-  const result = totalVotes > quorum ? minYesVotes <= yes ? "yes" : minYesVotes <= no ? "no" : "inconclusive" : "inconclusive";
-  const closed = end > height || totalVotes === eligibleVotes
+  const result = totalVotes > quorum || totalVotes === eligibleVotes ?
+    minYesVotes <= yes ? "yes" :
+      minYesVotes <= no ? "no" : "inconclusive" :
+    "inconclusive";
+  const closed = end < height || totalVotes === eligibleVotes
   // todo calculate time to close or open
   const timeLabel = !closed ? start > height ? "Voting starts at: ~" : "2 days left to close" : null
   return <Card
