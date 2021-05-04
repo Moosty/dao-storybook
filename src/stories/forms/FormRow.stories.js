@@ -15,25 +15,28 @@ export const All = () => {
     <div>
 
       <FormRow>
-          <div className="w-1/5">
-           <FormElement label="Start Date" descriptionBottom="you have one week">
+        <div className="w-1/5">
+          <FormElement label="Start Date" descriptionBottom="you have one week">
             <SimpleInput
               default
               placeholder="24/04/2021"
               description
               descriptionMessage="The voting will close in 1 week."
               datePicker
-              label={"Start date"}/></FormElement></div>
-          <div className="w-2/5">
-            <FormElement label="Start Date" >
+              label={"Start date"}/>
+          </FormElement>
+        </div>
+        <div className="w-2/5">
+          <FormElement label="Start Date">
             <SimpleInput
               default
               placeholder="24/04/2021"
               description
               descriptionMessage="The voting will close in 1 week."
               datePicker
-              label={"End date"}/></FormElement></div>
-
+              label={"End date"}/>
+          </FormElement>
+        </div>
       </FormRow>
       <FormRow columnsTwo className="mx-5">
         <FormElement
@@ -43,7 +46,6 @@ export const All = () => {
         >
           <TextFieldInput placeholder="Placeholder"/>
         </FormElement>
-
       </FormRow>
       <FormRow columnsTwo className="mx-5">
         <FormElement
@@ -53,7 +55,6 @@ export const All = () => {
         >
           <TextFieldInput placeholder="Placeholder"/>
         </FormElement>
-
       </FormRow>
       <FormRow columnsTwo>
         <FormElement

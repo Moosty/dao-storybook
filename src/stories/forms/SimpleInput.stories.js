@@ -4,6 +4,7 @@ import {SimpleInput} from './SimpleInput';
 import {Typography} from "../Typography";
 import {Meta} from "@storybook/addon-docs/blocks";
 import {FormElement} from "./FormElement";
+import {Passphrase} from "./Passphrase";
 
 <Meta title="Forms/SimpleInput" component={SimpleInput}/>
 
@@ -15,9 +16,9 @@ export default {
   },
 };
 
-const Template = (args) => <SimpleInput {...args} />;
+const Playground = (args) => <SimpleInput {...args} />;
 
-export const Primary = Template.bind({});
+export const Primary = Playground.bind({});
 Primary.args = {
   label: 'Button',
 };
@@ -74,7 +75,7 @@ export const All = () => <div>
 export const ShadowState = () => <div className="space-y-3 ">
   <Typography type="h3" Element='h3'>Shadow field </Typography>
   <SimpleInput default label={"default"} shadow/>
-  
+
   <FormElement
     label="Description (optional)" descriptionTop="description Top" descriptionBottom="descriptionBottom"
     infoIcon
@@ -99,7 +100,6 @@ export const States = () => <div className="space-y-3 ">
   <SimpleInput error label={"error"} infoIcon errorMessage="Check this field again"/>
 </div>
 
-
 export const Specials = () => <div className="space-y-3 w-1/5 justify-center">
   <Typography type="h3" Element='h3'>Specials field </Typography>
   <SimpleInput default placeholder="10%" description descriptionMessage="description" selector number
@@ -107,3 +107,5 @@ export const Specials = () => <div className="space-y-3 w-1/5 justify-center">
   <SimpleInput default placeholder="02/02/1988" description descriptionMessage="description" datePicker
                label={"datepicker mockup"}/>
 </div>
+
+export const PassphraseExample = () => <Passphrase defaultPassphrase={[1, 2, 3, 4, 5,6, 7, 8, 9,10, 11,12]} />

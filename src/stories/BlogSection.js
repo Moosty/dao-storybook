@@ -66,7 +66,7 @@ export const BlogSection = ({descriptionTop, title,}) => {
         <div className="bg-white h-1/3 sm:h-2/3"/>
       </div>
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center">
+        <div className="">
           <Typography type="h2" Element="h2">{title}</Typography>
           <Typography type="body"> {descriptionTop}
           </Typography>

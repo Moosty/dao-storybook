@@ -5,54 +5,58 @@ import {Chip} from "../Chip";
 import {ProgressBar} from "../ProgressBar";
 import {ProgressDetails} from "../ProgressDetails";
 import {ClockIcon} from "@heroicons/react/solid";
+import {categories, projectImages} from "../crowd/constants";
+import {AvatarUser} from "./AvatarUser";
+import {CrowdCardImage} from "../crowd/CrowdCardImage";
+import {CrowdCardInfo} from "../crowd/CrowdCardInfo";
 
-export const CrowdCardContent = ({gradient, title='Project X ',
-                                   subTitle="this is a subtitle", category="default"}) => {
+
+export const CrowdCardContent = ({
+                                   gradient,
+                                   title = 'Project X ',
+                                   subTitle = "this is a subtitle",
+                                   category = "default",
+                                   owner,
+                                   targetAmount,
+                                   durationProject,
+                                   projectUrl,
+                                   image,
+                                   closeDate,
+                                   closeDateFull,
+                                   state,
+                                   backers,
+                                   donatedAmount,
+                                   message,
+                                   viewer,
+                                   maxVoteWeight,
+                                   notVoteWeight,
+                                   ownerMessage,
+                                   voteResult,
+                                   userName,
+                                   time,
+                                   userAddress,
+
+                                 }) => {
   return (
-    <div className="flex flex-col space-y-2">
-    <div className="relative ">
-        <img
-          className="w-full h-24 object-cover"
-          src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-          alt=""
-        />
-      {gradient &&
-      <div className="absolute inset-0 bg-themeButtonBgSecondary" style={{mixBlendMode: 'multiply'}}
-           aria-hidden="true"/>
-      }
-
-    </div>
+    <div className="flex h-auto flex-col space-y-2">
+      <CrowdCardImage image={image} gradient={gradient}/>
       <div className={["px-4",
-    "flex-grow",
-    "bg-cardBg",
-    "w-full",
-    "py-2",
+        "flex-grow",
+        "h-full",
+        "bg-cardBg",
+        "w-full",
+        "py-2",
         "space-y-2",
+        "flex",
+        "flex-col",
+        "justify-between",
       ].join(" ")}>
-        <div className="flex flex-row justify-between">
-          <div className="flex flex-col">
-            <Typography type="h4" Element="span">{title}</Typography>
-            <Typography type="bodyStrong" Element="span">{subTitle}</Typography>
-
-          </div>
-          <Chip category={category} />
-        </div>
 
 
-        <ProgressDetails />
-        <ProgressBar />
-        <div className="flex flex-row justify-between">
-          <Typography type="bodyStrong" Element="span">
-            Next vote:
-          </Typography>
-          <div className="flex flex-row">
-            <ClockIcon className="h-5 w-5 text-textPlaceHolder" />
-            <Typography type="bodyStrong" Element="span">
-              In a day
-            </Typography>
+        <CrowdCardInfo title={title} category={category}/>
+        <ProgressDetails classname="flex-end justify-items-end" state={state}/>
+        <ProgressBar  classname="flex-end" state={state}/>
 
-          </div>
-        </div>
 
       </div>
     </div>
