@@ -4,7 +4,6 @@ import {MobileNavBar} from "./Mobile";
 import {NavBarMenu} from "./Menu";
 import PropTypes from "prop-types";
 
-
 export const NavBar = ({logo, invitations, user, navigation, userNavigation, ctaButton}) => (
   <Disclosure as="nav" className="bg-themeNavBarBg">
     {({open}) => (

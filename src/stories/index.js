@@ -38,9 +38,15 @@ import {SubmitIcon} from "./forms/SubmitIcon";
 import {TextFieldInput} from "./forms/TextFieldInput";
 import {UploadField} from "./forms/UploadField";
 import {Modal} from "./modals/Modal";
+import {CreateAccountModal} from "./modals/templates/createAccount";
+import {LoginModal} from "./modals/templates/login";
+import {ConfirmTransactionModal} from "./modals/templates/confirmTransaction";
+import {ResultTransactionModal} from "./modals/templates/resultTransaction";
+import {MemberModal} from "./modals/templates/member";
 import {ModalDetails} from "./modals/ModalDetails";
 import {NavBarMenu} from "./nav/Menu";
 import {NavBar} from "./nav/NavBar";
+import {Passphrase} from "./forms/Passphrase";
 import {MobileNavBar} from "./nav/Mobile";
 import {VotingCardContent} from "./voting/VotingCardContent";
 import {VotingContainer} from "./voting/VotingContainer";
@@ -50,6 +56,7 @@ import {VotingFooterRight} from "./voting/VotingFooterRight";
 import {VotingHeader} from "./voting/VotingHeader";
 
 export {
+  Passphrase,
   Alert,
   AvatarUser,
   BreadCrumbs,
@@ -79,9 +86,14 @@ export {
   TextFieldInput,
   UploadField,
   Hero,
+  LoginModal,
   MemberCard,
+  MemberModal,
   Modal,
   ModalDetails,
+  ConfirmTransactionModal,
+  ResultTransactionModal,
+  CreateAccountModal,
   NavBar,
   MobileNavBar,
   NavBarMenu,

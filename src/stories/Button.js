@@ -62,7 +62,7 @@ export const Button = ({
         containerSide === "left" && "rounded-l-default",
         containerSide === "right" && "rounded-r-default ",
         containerSide && containerSide !== "right" && "border-r-3 border-white",
-        shadow ? 'shadow-defaultPrimary' : " ",
+        shadow && 'shadow-defaultPrimary',
         className,
       ].join(" ")}
       {...props}

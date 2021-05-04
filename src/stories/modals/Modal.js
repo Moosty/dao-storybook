@@ -1,15 +1,9 @@
-/* This example requires Tailwind CSS v2.0+ */
-import React, {Fragment, useRef, useState} from 'react'
+import React, {Fragment, useRef,} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
-import {CheckIcon} from '@heroicons/react/outline'
 import {Button} from "../Button";
-import {Typography} from "../Typography";
-import {SimpleInput} from "../forms/SimpleInput";
 
-export const Modal = ({noAccount, loggedOut, title, description}) => {
-  const [open, setOpen] = useState(true)
-
-  const cancelButtonRef = useRef()
+export const Modal = ({open, onClose, children, ctaButton, cancelLabel}) => {
+  const cancelButtonRef = useRef();
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -19,7 +13,7 @@ export const Modal = ({noAccount, loggedOut, title, description}) => {
         className="fixed z-10 inset-0 overflow-y-auto"
         initialFocus={cancelButtonRef}
         open={open}
-        onClose={setOpen}
+        onClose={onClose}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -33,8 +27,6 @@ export const Modal = ({noAccount, loggedOut, title, description}) => {
           >
             <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
           </Transition.Child>
-
-          {/* This element is to trick the browser into centering the modal contents. */}
           <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
             &#8203;
           </span>
@@ -49,108 +41,24 @@ export const Modal = ({noAccount, loggedOut, title, description}) => {
           >
             <div
               className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-              <div>
-                <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                  Logo
-                </div>
-                <div className="mt-3 text-center sm:mt-5 ">
-                  <Typography type="h1" Element="h1">
-                    {title}
-                  </Typography>
-
-                  <div className="mt-2">
-                    <Typography type="body" Element="span">
-                      {description}
-                    </Typography>
-                  </div>
-
-                  {noAccount && <div className="mt-6">
-                    <Typography className="text-textHeadings" type="bodyStrong" Element="span">
-                      Step 1. Choose your avatar! </Typography>
-
-                  </div>}
-                  {noAccount && <div className="flex flex-row justify-around space-x-2 mx-auto w-2/3 my-4  ">
-                    <img
-                      className="h-10 w-10 rounded-full "
-                      src="https://avatar.moosty.com/1"
-                      alt=""
-                    />
-                    <img
-                      className="h-10 w-10 rounded-full hover:cursor-pointer "
-                      src="https://avatar.moosty.com/2"
-                      alt=""
-                    />
-                    <img
-                      className="h-10 w-10 rounded-full "
-                      src="https://avatar.moosty.com/3"
-                      alt=""
-                    />
-                  </div>}
-                  {noAccount && <>
-                  <div className=" mx-auto grid grid-cols-3 grid-rows-4 grid-flow-row gap-4 my-2">
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-                    <Typography type="bodyStrong" Element="span">woord</Typography>
-
-                  </div>
-                    <div className=" mx-auto">
-                    <Button secondary label="Copy Passphrase" size="small" />
-                    </div>
-                  </>
-                  }
-
-                  {noAccount && <div className="my-6">
-                    <Typography className="text-textHeadings" type="bodyStrong" Element="span">
-                      Step 2. Create a username! </Typography>
-
-                  </div>}
-                  {loggedOut && <div className="my-6">
-                    <Typography className="text-textHeadings" type="bodyStrong" Element="span">
-                      Use your passphrase to log in. </Typography>
-                  </div>}
-                </div>
-                {noAccount && <SimpleInput placeholder="Username" name/>}
-                {loggedOut && <SimpleInput placeholder="Passphrase" name className="mt-4"/>}
-
-                {loggedOut && <div className="mt-2">
-                  <Typography type="body" Element="span">
-                    Don't have an account yet? <a href="#">Sign up directly.</a>
-                  </Typography>
-                </div>}
-                {noAccount && <div className="mt-2">
-                  <Typography type="body" Element="span">
-                    Already an account? Log in directly.
-                  </Typography>
-                </div>}
-              </div>
-              <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+              {children}
+              <div className={[
+              "mt-5 sm:mt-6",
+                "sm:grid sm:grid-flow-row-dense",
+                ctaButton && "sm:grid-cols-2 sm:gap-3 ",
+                !ctaButton && "sm:grid-cols-1",
+              ].join(" ")}>
                 <Button
-                  label="Cancel"
+                  label={cancelLabel || "Cancel"}
                   secondary
-                  onClick={() => setOpen(false)}
+                  onClick={onClose}
                   ref={cancelButtonRef}
-                >
-                </Button>
-                {noAccount && <Button
-                  label="Register"
-                  onClick={() => setOpen(false)}
-                >
-                </Button>}
-                {loggedOut && <Button
-                  label="Login"
-                  onClick={() => setOpen(false)}
-                >
-                </Button>}
-
+                />
+                {ctaButton && <Button
+                  label={ctaButton.label}
+                  onClick={() => ctaButton.onSubmit()}
+                  {...ctaButton}
+                />}
               </div>
             </div>
           </Transition.Child>
