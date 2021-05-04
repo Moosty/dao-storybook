@@ -9,6 +9,8 @@ import {CrowdCardFooter} from "./CrowdCardFooter";
 export const CrowdCardContainer = ({
                                      project,
                                      id,
+                                     totalRaised,
+                                     percentage,
                                      title,
                                      category,
                                      owner,
@@ -39,6 +41,7 @@ export const CrowdCardContainer = ({
       content={{
         children: <CrowdCardContent {...{
           gradient,
+          totalRaised,
           title,
           subTitle,
           category,
@@ -59,6 +62,7 @@ export const CrowdCardContainer = ({
           ownerMessage,
           voteResult,
           time,
+          percentage,
         }}
         />
       }}

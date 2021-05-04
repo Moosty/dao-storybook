@@ -13,6 +13,8 @@ import {CrowdCardInfo} from "../crowd/CrowdCardInfo";
 
 export const CrowdCardContent = ({
                                    gradient,
+                                   totalRaised = 100,
+                                   percentage,
                                    title = 'Project X ',
                                    subTitle = "this is a subtitle",
                                    category = "default",
@@ -38,7 +40,7 @@ export const CrowdCardContent = ({
 
                                  }) => {
   return (
-    <div className="flex h-auto flex-col space-y-2">
+    <div className="flex   flex-col space-y-2">
       <CrowdCardImage image={image} gradient={gradient}/>
       <div className={["px-4",
         "flex-grow",
@@ -53,10 +55,11 @@ export const CrowdCardContent = ({
       ].join(" ")}>
 
 
-        <CrowdCardInfo title={title} category={category}/>
-        <ProgressDetails classname="flex-end justify-items-end" state={state}/>
-        <ProgressBar  classname="flex-end" state={state}/>
-
+        <CrowdCardInfo title={title} category={category} projectUrl={projectUrl}/>
+        <div>
+        <ProgressDetails classname="flex-end justify-items-end" durationProject={durationProject} state={state} totalRaised={totalRaised}/>
+        <ProgressBar  classname="flex-end" targetAmount={targetAmount} totalRaised={totalRaised}  state={state}/>
+        </div>
 
       </div>
     </div>
