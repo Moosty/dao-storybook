@@ -4,6 +4,7 @@ import {Card} from "../cards/Card";
 import {CrowdCardHeader} from "../cards/CrowdCardHeader";
 import {CrowdCardContent} from "../cards/CrowdCardContent";
 import {CardFooter} from "../cards/CardFooter";
+import {CrowdCardFooter} from "./CrowdCardFooter";
 
 export const CrowdCardContainer = ({
                                      project,
@@ -31,6 +32,7 @@ export const CrowdCardContainer = ({
                                      subTitle,
 
 
+
                                    }) => {
   return (<Card
       header={{children: <CrowdCardHeader username={owner} userAddress={owner} state={state}/>}}
@@ -56,10 +58,11 @@ export const CrowdCardContainer = ({
           notVoteWeight,
           ownerMessage,
           voteResult,
+          time,
         }}
         />
       }}
-      footer={{children: <CardFooter/>}}
+      footer={{center: <CrowdCardFooter time={time = "one day"} state={state} closeDate={closeDate}/>}}
     />
   )
 }
