@@ -182,3 +182,7 @@ function IconThree() {
         </svg>
     );
 }
+
+const Doubler = (item) => item * 2;
+Doubler(4);
+console.log(Doubler);
