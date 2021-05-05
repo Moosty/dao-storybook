@@ -43,29 +43,27 @@ export const AccountProjectList = ({projects}) => {
                        }) => (
           <li key={id}>
             <a href="#" className="block hover:bg-gray-50">
-              <div className="flex flex-row justify-between items-center">
-                <div className="flex flex-row ">
-                <CrowdCardImage className="w-40 h-full p-4 rounded-default"/>
+              <div className="flex flex-row justify-between items-center py-2">
+                <div className="flex flex-row items-center w-1/5 ">
+                <CrowdCardImage className="w-10 h-10 rounded-default"/>
                 <div>
-                  <div className="px-4 py-4 sm:px-6">
+                  <div className=" py-2 px-2">
                     <div className="flex items-center justify-between">
                       <div className="flex flex-col">
                         <Typography type="bodyStrong" className="text-themeNavBarBg" Element="span">{title}</Typography>
-                        <Typography type="link" Element="span">{projectUrl}</Typography>
-                        <div className="mt-2 sm:flex sm:justify-between">
-                          <div className="sm:flex">
-                            <p className="flex items-center text-sm text-gray-500">
-                              <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
-                              {backers.length}
-                            </p>
-                            <p className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
-                              <CashIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
-                              {targetAmount}
-                            </p>
-                          </div>
-
+                        <div className="flex flex-row item-center">
+                          <p className="flex  text-sm text-gray-500 mr-2">
+                            <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
+                            {backers.length}
+                          </p>
+                          <p className="flex items-center text-sm text-gray-500 ">
+                            <CashIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
+                            {targetAmount}
+                          </p>
                         </div>
                       </div>
+
+
 
                     </div>
                   </div>
