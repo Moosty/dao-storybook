@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Button, FormElement, SimpleInput, Typography} from "../../index";
 import {Passphrase} from "../../forms/Passphrase";
+import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 
 export const CreateAccountModal = ({
                                      accounts,
@@ -51,9 +52,9 @@ export const CreateAccountModal = ({
               Step 2. Copy passphrase and save it at a secure location!
             </Typography>
             <div className="w-2/5 mx-auto">
-              <Button secondary label="Copy Passphrase" size="small" onClick={() => {
-                setCopiedPhrase(true);
-              }}/>
+              <CopyToClipboard text={selectedAccount?.passphrase?.join(" ")} onCopy={() => setCopiedPhrase(true)}>
+                <Button secondary label="Copy Passphrase" size="small"/>
+              </CopyToClipboard>
             </div>
           </div>
         </div>}
