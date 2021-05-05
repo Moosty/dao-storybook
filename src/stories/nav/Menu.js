@@ -5,7 +5,7 @@ import {MenuIcon, XIcon} from "@heroicons/react/outline";
 import {Button} from "../Button";
 import {DaoInvitation} from "../DaoInvitation";
 
-export const NavBarMenu = ({logo, navigation, userNavigation, invitations, user, open, ctaButton}) => {
+export const NavBarMenu = ({logo, navigation, userNavigation, invitations, user, open, ctaButton, onLoginClick, onRegisterClick}) => {
 
   return (
     <div className={[appWidth, "px-4", "sm:px-6", "lg:px-8"].join(" ")}>
@@ -102,8 +102,8 @@ export const NavBarMenu = ({logo, navigation, userNavigation, invitations, user,
                 )}
               </Menu> :
               <div className="flex flex-row space-x-4">
-                <Button shadow size="small" label="Log in"/>
-                <Button shadow size="small" secondary label="Register"/>
+                {onLoginClick && <Button onClick={onLoginClick} shadow size="small" label="Log in"/>}
+                {onRegisterClick && <Button onClick={onRegisterClick} shadow size="small" secondary label="Register"/>}
               </div>}
           </div>
         </div>
