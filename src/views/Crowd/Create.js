@@ -1,11 +1,9 @@
 import React from "react";
 import {NavBar} from "../../stories/nav/NavBar";
-import {Hero} from "../../stories/Hero";
 import {appWidth} from "../../shared/styles";
 import {Container} from "../../stories/Container";
 import PropTypes from "prop-types";
 import {Button} from "../../stories/Button";
-import {PlusIcon} from "@heroicons/react/solid";
 import {
   Footer,
   Form,
@@ -18,6 +16,8 @@ import {
   UploadField
 } from "../../stories";
 import {allDaoData} from "../../fixtures/daos";
+import {navBarArgs} from "../../fixtures/crowdfund/navbar";
+import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
 
 export const Create = () => {
   return (<>
@@ -114,7 +114,7 @@ export const Create = () => {
           </FormColumn>
         </Form>
       </Container>
-      <Footer items={items} author={author}></Footer>
+      <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>
   )
 }
@@ -131,61 +131,3 @@ Create.defaultProps = {
   user: null,
 };
 
-const navBarArgs = {
-  user: {
-    name: "Raphael",
-    address: "klasjdflkasjdf",
-  },
-  logo: <img
-    src="/images/logo.png"
-    className="block h-8 w-auto"
-    alt="PLAO"
-  />,
-  navigation: [
-    {name: 'Explore', onClick: () => alert("Go to Crowdfunds"), current: true},
-    {name: 'Members', onClick: () => alert("Goto Members"), current: false},
-    {name: 'DAOs', onClick: () => alert("Goto DAOs"), current: false},
-  ],
-  ctaButton: <Button
-    label="Create new Crowdfund"
-
-    iconBefore
-    icon={<PlusIcon className="h-5 w-5 -ml-2 mr-2"/>}
-  />,
-  userNavigation: [
-    {name: 'Create a Dao', onClick: () => alert("Create a dao")},
-    {name: 'Create a voting', onClick: () => alert("Create a voting")},
-    {name: 'Sign out', onClick: () => alert("Sign out")},
-  ],
-  invitations: [
-    {
-      dao: "LiskCenterUtrecht",
-      id: "aksldjflksjdflkjdsf",
-    }
-  ],
-}
-
-const items = {
-  liskcrowd: [
-    {label: "Read the blog", to: "https://lisk.io/blog/apps/building-lisk-crowd-project"},
-    {label: "About the project team", to: "https://moosty.com"},
-    {label: "Github", to: "https://github.com/Moosty/lisk-crowdfund"},
-  ],
-  lisk: [
-    {label: "What is Lisk?", to: "https://lisk.io/what-is-lisk"},
-    {label: "What is blockchain?", to: "https://lisk.io/what-is-blockchain"},
-    {label: "Lisk SDK documentation", to: "https://lisk.io/documentation/lisk-sdk/index.html"},
-    {label: "Join Lisk chat", to: "https://lisk.chat"},
-  ],
-  moosty: [
-    {label: "About the team", to: "https://moosty.com/"},
-    {label: "See projects", to: "https://moosty.com/lisk-ecosystem/"},
-    {label: "Get in touch", to: "https://moosty.com/contact/"},
-  ]
-}
-
-
-const author = {
-  name: "MOOSTY",
-  url: "https://moosty.com"
-}
