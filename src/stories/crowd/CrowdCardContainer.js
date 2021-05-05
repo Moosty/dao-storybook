@@ -11,6 +11,7 @@ export const CrowdCardContainer = ({
                                      id,
                                      totalRaised,
                                      percentage,
+                                     budget = 80,
                                      title,
                                      category,
                                      owner,
@@ -41,6 +42,7 @@ export const CrowdCardContainer = ({
       content={{
         children: <CrowdCardContent {...{
           gradient,
+          budget,
           totalRaised,
           title,
           subTitle,

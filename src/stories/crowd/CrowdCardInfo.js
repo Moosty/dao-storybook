@@ -6,7 +6,7 @@ import {ExternalLinkIcon, LinkIcon} from "@heroicons/react/solid";
 
 export const CrowdCardInfo = ({category, title, projectUrl}) => {
   return (
-    <div className="flex flex-row  justify-between">
+    <div className="flex flex-row  justify-between h-20">
       <div className="flex flex-col">
         <Typography type="h4" Element="span">{title}</Typography>
         <div className="flex flex-row items-center">

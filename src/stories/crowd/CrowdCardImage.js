@@ -1,11 +1,15 @@
 import React from "react";
 import {projectImages} from "./constants";
 
-export const CrowdCardImage = ({image, gradient}) => {
+export const CrowdCardImage = ({image, gradient, className}) => {
   return (
     <div className="relative ">
       <img
-        className="w-full h-24 object-cover"
+        className={[
+
+          "object-cover",
+          className,
+          ].join(" ")}
         src={projectImages[image || 0]}
         alt=""
       />

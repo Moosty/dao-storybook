@@ -16,9 +16,16 @@ export const crowdFundStates = {
 
 
 export const categories = [
+  "Identity",
   "Gaming",
-  "categorie1",
-  "categorie2",
+  "Real Estate",
+  "Energy & Sustainability",
+  "Government & Public Sector",
+  "Healthcare",
+  "DeFi",
+  "Law",
+  "Gambling",
+  "Media & Entertainment",
 ]
 
 export const projectImages = [
