@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Button, FormElement, SimpleInput, Typography} from "../../index";
+import React from "react";
+import {Typography} from "../../index";
 import {Passphrase} from "../../forms/Passphrase";
 
 export const LoginModal = ({changePassphrase, gotoSignup}) => {
@@ -21,8 +21,8 @@ export const LoginModal = ({changePassphrase, gotoSignup}) => {
       <Typography className="w-full text-center mt-6" type="body" Element="div">
         Don't have an account yet?
         <a
-        className="text-textLink hover:text-textHover hover:underline cursor-pointer"
-        onClick={() => gotoSignup}>
+          className="text-textLink hover:text-textHover hover:underline cursor-pointer"
+          onClick={gotoSignup}>
           Sign up directly
         </a>.
       </Typography>

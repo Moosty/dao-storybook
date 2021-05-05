@@ -2,7 +2,15 @@ import React, {useState} from "react";
 import {Button, FormElement, SimpleInput, Typography} from "../../index";
 import {Passphrase} from "../../forms/Passphrase";
 
-export const CreateAccountModal = ({accounts, selectedAccount, changeAccount, usernameError, changeUsername, username, gotoLogin}) => {
+export const CreateAccountModal = ({
+                                     accounts,
+                                     selectedAccount,
+                                     changeAccount,
+                                     usernameError,
+                                     changeUsername,
+                                     username,
+                                     gotoLogin
+                                   }) => {
   const [copiedPhrase, setCopiedPhrase] = useState(false)
 
   return (
@@ -56,13 +64,13 @@ export const CreateAccountModal = ({accounts, selectedAccount, changeAccount, us
         </Typography>}
       </div>
       {selectedAccount && copiedPhrase && <FormElement errorMessage={usernameError}>
-        <SimpleInput placeholder="Username" value={username} onChange={(e) => changeUsername(e.target.value)} />
+        <SimpleInput placeholder="Username" value={username} onChange={(e) => changeUsername(e.target.value)}/>
       </FormElement>}
       <hr className={"mt-6"}/>
       <Typography className="w-full text-center mt-6" type="body" Element="div">
         Already an account? <a
         className="text-textLink hover:text-textHover hover:underline cursor-pointer"
-        onClick={() => gotoLogin}>Log in directly</a>.
+        onClick={gotoLogin}>Log in directly</a>.
       </Typography>
     </div>
   )
