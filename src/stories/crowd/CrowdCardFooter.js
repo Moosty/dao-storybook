@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Typography} from "../Typography";
 import {ClockIcon} from "@heroicons/react/solid";
-import {crowdFundStates} from "./constants";
+import {crowdFundStates} from "../../shared/global.crowdfund";
 
 export const CrowdCardFooter = ({left, className, right, bgColor, state, time}) => (
   <div className={[
@@ -17,19 +17,24 @@ export const CrowdCardFooter = ({left, className, right, bgColor, state, time}) 
     <div className="flex flex-row justify-between pr-4 w-full">
       <Typography type="bodyStrong" Element="span">
         {state === crowdFundStates.PREVIEW && "Crowdfund starts"}
-        {state === crowdFundStates.PENDING && "Project starts"}
+        {state === crowdFundStates.OPEN && "Running for"}
+        {state === crowdFundStates.PENDING && "Waiting for owner"}
+        {state === crowdFundStates.ACTIVE.PENDING && "Project starts"}
         {state === crowdFundStates.ACTIVE.ACTIVE && "Next vote"}
         {state === crowdFundStates.ACTIVE.VOTING && "Currently in voting"}
 
       </Typography>
       <div className="flex flex-row flex-end">
-        <ClockIcon className="h-5 w-5 text-textPlaceHolder" />
-        <Typography type="bodyStrong" Element="span">
-          {state === crowdFundStates.PREVIEW && [time]}
-          {state === crowdFundStates.PENDING && [time]}
+        {state !== crowdFundStates.PENDING && <>
+          <ClockIcon className="h-5 w-5 text-textPlaceHolder"/>
+          <Typography type="bodyStrong" Element="span">
+        {state === crowdFundStates.PREVIEW && [time]}
+        {state === crowdFundStates.OPEN && [time]}
+        {state === crowdFundStates.ACTIVE.PENDING && [time]}
 
-        </Typography>
-
+          </Typography>
+        </>
+        }
       </div>
     </div>
   </div>

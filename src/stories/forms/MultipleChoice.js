@@ -3,6 +3,7 @@ import {SimpleInput} from "./SimpleInput";
 import {FormElement} from "./FormElement";
 import {Button} from "../Button";
 import PropTypes from "prop-types";
+import {InputAvatar} from "../index";
 
 export const MultipleChoice = ({
                                  minItems,
@@ -11,6 +12,7 @@ export const MultipleChoice = ({
                                  onChange,
                                  buttonLabel,
                                  newOptionPlaceholder,
+                                 type = "simple",
                                }) => {
   const [options, setOptions] = useState(defaultOptions);
 
@@ -24,8 +26,7 @@ export const MultipleChoice = ({
     <>
       {options && options.map((option, i) =>
         <FormElement className="flex flex-row" key={option.id}>
-          <SimpleInput
-            default
+          {type === "simple" && <SimpleInput
             placeholder={option.placeholder}
             {...option}
             onChange={(e) => {
@@ -33,7 +34,16 @@ export const MultipleChoice = ({
               updatedOptions[i].value = e.target.value;
               setOptions(updatedOptions)
             }}
-          />
+          />}
+          {type === "inputAvatar" && <InputAvatar
+            placeholder={option.placeholder}
+            {...option}
+            onChange={(value) => {
+              const updatedOptions = [...options];
+              updatedOptions[i].value = value;
+              setOptions(updatedOptions)
+            }}
+          />}
           <Button
             label="-"
             tertiary

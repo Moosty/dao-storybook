@@ -1,14 +1,18 @@
 import React from "react";
-import {CrowdCard} from "../cards/CrowdCard";
 import {Card} from "../cards/Card";
 import {CrowdCardHeader} from "../cards/CrowdCardHeader";
 import {CrowdCardContent} from "../cards/CrowdCardContent";
-import {CardFooter} from "../cards/CardFooter";
 import {CrowdCardFooter} from "./CrowdCardFooter";
+import PropTypes from "prop-types";
+import {Button} from "../Button";
+import {CROWDFUNDSTATELIST, crowdFundStates} from "../../shared/global.crowdfund";
 
 export const CrowdCardContainer = ({
                                      project,
                                      id,
+                                     totalRaised,
+                                     percentage,
+                                     budget = 80,
                                      title,
                                      category,
                                      owner,
@@ -39,6 +43,8 @@ export const CrowdCardContainer = ({
       content={{
         children: <CrowdCardContent {...{
           gradient,
+          budget,
+          totalRaised,
           title,
           subTitle,
           category,
@@ -59,6 +65,7 @@ export const CrowdCardContainer = ({
           ownerMessage,
           voteResult,
           time,
+          percentage,
         }}
         />
       }}
@@ -66,3 +73,19 @@ export const CrowdCardContainer = ({
     />
   )
 }
+
+// resultaat = array met alle crowdfundSTATES
+// crowdfundstates = object met alle opties
+// array maken van crowdfundstates  --> Object.keys(crowdFundStates) = [lijst van keys]
+// keys van object omzetten naar array ARRAY.map()
+// daarna mappen door keys: crowdFundStates[key]
+// Object.keys(crowdFundStates).map(key => typeOf crowdFundStates[key] === "string" ? crowdFundStates[key] : Object.values(crowdFunStates[key])).flat()
+
+
+CrowdCardContainer.propTypes = {
+  state: PropTypes.oneOf(CROWDFUNDSTATELIST),
+};
+
+CrowdCardContainer.defaultProps = {
+ state: crowdFundStates.PREVIEW,
+};
