@@ -13,6 +13,7 @@ export const MultipleChoice = ({
                                  buttonLabel,
                                  newOptionPlaceholder,
                                  type = "simple",
+                                 typeOptions,
                                }) => {
   const [options, setOptions] = useState(defaultOptions);
 
@@ -29,6 +30,7 @@ export const MultipleChoice = ({
           {type === "simple" && <SimpleInput
             placeholder={option.placeholder}
             {...option}
+            {...typeOptions}
             onChange={(e) => {
               const updatedOptions = [...options];
               updatedOptions[i].value = e.target.value;
@@ -38,6 +40,7 @@ export const MultipleChoice = ({
           {type === "inputAvatar" && <InputAvatar
             placeholder={option.placeholder}
             {...option}
+            {...typeOptions}
             onChange={(value) => {
               const updatedOptions = [...options];
               updatedOptions[i].value = value;

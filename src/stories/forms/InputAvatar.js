@@ -22,7 +22,7 @@ export const InputAvatar = ({
                             }) => {
   const [selected, setSelected] = useState(selectedItem);
   const {formClass} = useForms({disabled, error, readOnly});
-
+  console.log(items)
   return (
     <Listbox
       value={selected}
@@ -48,11 +48,11 @@ export const InputAvatar = ({
               formClass,
             ].join(" ")}
           >
-            <span className="flex items-center">
-              <img
+            <span className="flex items-center h-6">
+              {selected?.icon && <img
                 src={selected?.icon}
                 className="flex-shrink-0 h-6 w-6 rounded-full"
-              />
+              />}
               <span className="ml-3 block truncate">{selected?.name}</span>
             </span>
             <span
@@ -79,42 +79,45 @@ export const InputAvatar = ({
                 dropDownShadow && "shadow-defaultPrimary",
               ].join(" ")}
             >
-              {items && items.map((item) => (
-                <Listbox.Option
-                  key={item?.id}
-                  className={({active}) =>
-                    classNames(
-                      active ? 'text-white bg-formActive' : 'text-textBody',
-                      'cursor-default select-none relative py-2 pl-3 pr-9'
-                    )
-                  }
-                  value={item}
-                >
-                  {({selected, active}) => (
-                    <>
-                      <div className="flex items-center">
-                        <img src={item?.icon} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>
-                        <span
-                          className={[
-                            selected ? 'font-semibold' : 'font-normal',
-                            'ml-3 block truncate',
-                          ].join(" ")}
-                        >
+              {items && items.map((item) => {
+                console.log(item.name)
+                return (
+                  <Listbox.Option
+                    key={item?.id}
+                    className={({active}) =>
+                      classNames(
+                        active ? 'text-white bg-formActive' : 'text-textBody',
+                        'cursor-default select-none relative py-2 pl-3 pr-9'
+                      )
+                    }
+                    value={item}
+                  >
+                    {({selected, active}) => (
+                      <>
+                        <div className="flex items-center">
+                          {item?.icon && <img src={item?.icon} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>}
+                          <span
+                            className={[
+                              selected ? 'font-semibold' : 'font-normal',
+                              'ml-3 block',
+                            ].join(" ")}
+                          >
                           {item?.name}
                         </span>
-                      </div>
-                      {selected && <span
-                        className={[
-                          active ? 'text-white' : 'text-indigo-600',
-                          'absolute inset-y-0 right-0 flex items-center pr-4',
-                        ].join(" ")}
-                      >
+                        </div>
+                        {selected && <span
+                          className={[
+                            active ? 'text-white' : 'text-indigo-600',
+                            'absolute inset-y-0 right-0 flex items-center pr-4',
+                          ].join(" ")}
+                        >
                         <CheckIcon className="h-5 w-5" aria-hidden="true"/>
                       </span>}
-                    </>
-                  )}
-                </Listbox.Option>
-              ))}
+                      </>
+                    )}
+                  </Listbox.Option>
+                )
+              })}
             </Listbox.Options>
           </Transition>
         </div>
