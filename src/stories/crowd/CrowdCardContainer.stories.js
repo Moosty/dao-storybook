@@ -6,12 +6,11 @@ export default {
   title: "Elements/CrowdCardContainer",
   component: CrowdCardContainer,
   argTypes: {
-    state: { control: "select", options: CROWDFUNDSTATELIST },
+    state: { control: {type: "select", labels: {0: CROWDFUNDSTATELIST[0]}}, options: CROWDFUNDSTATELIST, default: CROWDFUNDSTATELIST[4],},
     image: { control: "select", options: projectImages.map((value, index) => index) },
-    category: {control: "select", options: categories.map((value, index) => index)},
+    category: {control: {default: 2, type: "select", labels: {0: categories[0]}}, options: categories.map((value, index) => index), default: 2, },
   },
 }
-
 export const Playground = (args) => <CrowdCardContainer {...args}/>
 
 Playground.args = {
@@ -19,6 +18,9 @@ Playground.args = {
   owner: "lsk13212341dfs23567246sdg",
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
+  state: crowdFundStates.PREVIEW,
+  image: 3,
+  category: 2,
 }
 
 const Template = (args) => <CrowdCardContainer {...args}/>
