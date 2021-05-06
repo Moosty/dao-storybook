@@ -119,7 +119,6 @@ export const Create = () => {
   )
 }
 
-
 Create.propTypes = {
   user: PropTypes.shape({}),
   onLogin: PropTypes.func.isRequired,

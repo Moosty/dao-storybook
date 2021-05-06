@@ -1,9 +1,9 @@
-import {crowdFundStates as crowdfunstates} from "../../stories/crowd/constants";
+import {crowdFundStates } from "../../shared/global.crowdfund";
 
 export const projects = [
   {
     id: 1,
-    state: crowdfunstates.PREVIEW,
+    state: crowdFundStates.PREVIEW,
     title: 'The DAO Project',
     category: 2,
     userAddress: '3457743L',
@@ -40,7 +40,7 @@ export const projects = [
   },
   {
     id: 2,
-    state: crowdfunstates.OPEN,
+    state: crowdFundStates.OPEN,
     title: 'This is a super long project name.',
     category: 0,
     userAddress: '345733333743L',
@@ -70,7 +70,7 @@ export const projects = [
   },
   {
     id: 3,
-    state: crowdfunstates.PENDING,
+    state: crowdFundStates.PENDING,
     title: 'dit is een title',
     category: 0,
     userAddress: '345557743L',
@@ -100,7 +100,7 @@ export const projects = [
   },
   {
     id: 3,
-    state: crowdfunstates.PENDING,
+    state: crowdFundStates.PENDING,
     title: 'dit is een title',
     category: 0,
     userAddress: '345557743L',
@@ -130,7 +130,7 @@ export const projects = [
   },
   {
     id: 4,
-    state: crowdfunstates.ACTIVE.PENDING,
+    state: crowdFundStates.ACTIVE.PENDING,
     title: 'dit is een title',
     category: 5,
     userAddress: '3455357743L',
@@ -160,7 +160,7 @@ export const projects = [
   },
   {
     id: 5,
-    state: crowdfunstates.ACTIVE.ACTIVE,
+    state: crowdFundStates.ACTIVE.ACTIVE,
     title: 'dit is een title',
     category: 2,
     userAddress: '34517743L',
@@ -190,7 +190,7 @@ export const projects = [
   },
   {
     id: 6,
-    state: crowdfunstates.ACTIVE.VOTING,
+    state: crowdFundStates.ACTIVE.VOTING,
     title: 'dit is een title',
     category: 3,
     userAddress: '345799743L',
@@ -218,7 +218,7 @@ export const projects = [
   },
   {
     id: 7,
-    state: crowdfunstates.ACTIVE.CLAIMING,
+    state: crowdFundStates.ACTIVE.CLAIMING,
     title: 'dit is een title',
     category: 4,
     userAddress: '345700743L',
@@ -246,7 +246,7 @@ export const projects = [
   },
   {
     id: 8,
-    state: crowdfunstates.FAILED,
+    state: crowdFundStates.FAILED,
     title: 'dit is een title',
     category: 0,
     userAddress: '3457700000000043L',
@@ -274,7 +274,7 @@ export const projects = [
   },
   {
     id: 9,
-    state: crowdfunstates.ENDED,
+    state: crowdFundStates.ENDED,
     title: 'dit is een title',
     category: 0,
     userAddress: '3457446464646743L',
@@ -302,7 +302,7 @@ export const projects = [
   },
   {
     id: 10,
-    state: crowdfunstates.CANCELED,
+    state: crowdFundStates.CANCELED,
     title: 'dit is een title',
     category: 0,
     userAddress: '345222227743L',

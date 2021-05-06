@@ -1,35 +1,26 @@
 import React from "react";
 import { CrowdCardContainer } from "./CrowdCardContainer";
-import { categories, crowdFundStates, projectImages } from "./constants";
+import {categories, CROWDFUNDSTATELIST, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
 
 export default {
   title: "Elements/CrowdCardContainer",
   component: CrowdCardContainer,
-  args: {
-    title: "Project CoinmarketC",
-    category: 0,
-    owner: "lsk13212341dfs23567246sdg",
-    targetAmount: 10000,
-    projectUrl: "https://moosty.com/",
-    state: "",
-    image: 1,
-    projectImages: projectImages,
-  }
+  argTypes: {
+    state: { control: {type: "select", labels: {0: CROWDFUNDSTATELIST[0]}}, options: CROWDFUNDSTATELIST, default: CROWDFUNDSTATELIST[4],},
+    image: { control: "select", options: projectImages.map((value, index) => index) },
+    category: {control: {default: 2, type: "select", labels: {0: categories[0]}}, options: categories.map((value, index) => index), default: 2, },
+  },
 }
-
 export const Playground = (args) => <CrowdCardContainer {...args}/>
 
 Playground.args = {
   title: "Project CoinmarketC",
-  category: 1,
-  categories: categories,
   owner: "lsk13212341dfs23567246sdg",
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
-  state: "",
-  crowdFundStates: crowdFundStates,
-  image: 1,
-  projectImages: projectImages,
+  state: crowdFundStates.PREVIEW,
+  image: 3,
+  category: 2,
 }
 
 const Template = (args) => <CrowdCardContainer {...args}/>
@@ -41,7 +32,6 @@ Preview.args = {
     owner: "lsk13212341dfs23567246sdg",
     targetAmount: 10000,
     projectUrl: "https://moosty.com/",
-    state: "preview",
     image: 2,
   }
 
@@ -52,7 +42,6 @@ Open.args = {
   owner: "lsk13212341dfs23567246sdg",
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
-  state: "open",
   image: 3,
 }
 
@@ -63,8 +52,8 @@ Pending.args = {
   owner: "lsk13212341dfs23567246sdg",
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
-  state: "open",
   image: 4,
+  state: crowdFundStates.PENDING,
 }
 
 export const Active = Template.bind({})
@@ -80,13 +69,11 @@ ActivePending.args = {
   ...Preview.args,
   state: "active.pending",
   image: 5,
-
 }
 
 export const ActiveVoting = Template.bind({})
 ActiveVoting.args = {
   ...Preview.args,
-  state: "active.voting",
 }
 
 export const ActiveClaiming = Template.bind({})

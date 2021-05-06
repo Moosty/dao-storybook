@@ -1,3 +1,5 @@
+//TODO CONSTANTS IN ALL CAPS
+
 export const crowdFundStates = {
   PREVIEW: "preview",
   OPEN: "open",
@@ -11,9 +13,9 @@ export const crowdFundStates = {
   FAILED: "failed",
   ENDED: "ended",
   CANCELED: "canceled",
-
 }
 
+export const CROWDFUNDSTATELIST = Object.keys(crowdFundStates).map(key => typeof crowdFundStates[key] === "string" ? crowdFundStates[key] : Object.values(crowdFundStates[key])).flat();
 
 export const categories = [
   "Identity",

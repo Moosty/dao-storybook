@@ -7,8 +7,6 @@ import {FilterWrapper} from "../../stories/filters/FilterWrapper";
 import {BreadCrumbs} from "../../stories/BreadCrumbs";
 import {FilterDao} from "../../stories/filters/FilterDao";
 import PropTypes from "prop-types";
-import {Button} from "../../stories/Button";
-import {PlusIcon} from "@heroicons/react/solid";
 import {AccountProjectList} from "../../stories/AccountProjectList";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {projects} from "../../fixtures/crowdfund/projects";
@@ -39,7 +37,6 @@ export const Home= ({}) => {
     </>
   )
 }
-
 
 Home.propTypes = {
   user: PropTypes.shape({}),
