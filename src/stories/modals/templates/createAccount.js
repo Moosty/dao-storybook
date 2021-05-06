@@ -1,8 +1,17 @@
 import React, {useState} from "react";
 import {Button, FormElement, SimpleInput, Typography} from "../../index";
 import {Passphrase} from "../../forms/Passphrase";
+import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 
-export const CreateAccountModal = ({accounts, selectedAccount, changeAccount, usernameError, changeUsername, username, gotoLogin}) => {
+export const CreateAccountModal = ({
+                                     accounts,
+                                     selectedAccount,
+                                     changeAccount,
+                                     usernameError,
+                                     changeUsername,
+                                     username,
+                                     gotoLogin
+                                   }) => {
   const [copiedPhrase, setCopiedPhrase] = useState(false)
 
   return (
@@ -43,9 +52,9 @@ export const CreateAccountModal = ({accounts, selectedAccount, changeAccount, us
               Step 2. Copy passphrase and save it at a secure location!
             </Typography>
             <div className="w-2/5 mx-auto">
-              <Button secondary label="Copy Passphrase" size="small" onClick={() => {
-                setCopiedPhrase(true);
-              }}/>
+              <CopyToClipboard text={selectedAccount?.passphrase?.join(" ")} onCopy={() => setCopiedPhrase(true)}>
+                <Button secondary label="Copy Passphrase" size="small"/>
+              </CopyToClipboard>
             </div>
           </div>
         </div>}
@@ -56,13 +65,13 @@ export const CreateAccountModal = ({accounts, selectedAccount, changeAccount, us
         </Typography>}
       </div>
       {selectedAccount && copiedPhrase && <FormElement errorMessage={usernameError}>
-        <SimpleInput placeholder="Username" value={username} onChange={(e) => changeUsername(e.target.value)} />
+        <SimpleInput placeholder="Username" value={username} onChange={(e) => changeUsername(e.target.value)}/>
       </FormElement>}
       <hr className={"mt-6"}/>
       <Typography className="w-full text-center mt-6" type="body" Element="div">
         Already an account? <a
         className="text-textLink hover:text-textHover hover:underline cursor-pointer"
-        onClick={() => gotoLogin}>Log in directly</a>.
+        onClick={gotoLogin}>Log in directly</a>.
       </Typography>
     </div>
   )
