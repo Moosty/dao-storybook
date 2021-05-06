@@ -28,8 +28,7 @@ export const parameters = {
     manual: false,
   },
   themes: [
-    { name: 'dao', class: 'dao-light', color: '#4070F4', default: true },
-    { name: 'crowdfund', class: 'crowd-light', color: '#f50057' },
-
+    { name: 'dao', class: 'dao-light', color: '#4070F4',  },
+    { name: 'crowdfund', class: 'crowd-light', color: '#f50057', default: true },
   ],
 }

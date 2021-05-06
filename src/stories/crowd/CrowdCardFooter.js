@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Typography} from "../Typography";
 import {ClockIcon} from "@heroicons/react/solid";
-import {crowdFundStates} from "./constants";
+import {crowdFundStates} from "../../shared/global.crowdfund";
 
 export const CrowdCardFooter = ({left, className, right, bgColor, state, time}) => (
   <div className={[

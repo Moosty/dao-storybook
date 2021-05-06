@@ -5,7 +5,7 @@ import {Chip} from "../Chip";
 import {ProgressBar} from "../ProgressBar";
 import {ProgressDetails} from "../ProgressDetails";
 import {ClockIcon} from "@heroicons/react/solid";
-import {categories, crowdFundStates, projectImages} from "../crowd/constants";
+import {categories, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
 import {AvatarUser} from "./AvatarUser";
 import {CrowdCardImage} from "../crowd/CrowdCardImage";
 import {CrowdCardInfo} from "../crowd/CrowdCardInfo";

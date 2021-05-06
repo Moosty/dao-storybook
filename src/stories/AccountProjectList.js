@@ -1,7 +1,7 @@
 import React from "react";
 import {CalendarIcon, CashIcon, LocationMarkerIcon, UsersIcon} from "@heroicons/react/solid";
 
-import {crowdFundStates, categories, projectImages} from "./crowd/constants";
+import {crowdFundStates, categories, projectImages} from "../shared/constants";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";

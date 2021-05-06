@@ -1,5 +1,5 @@
 import React from "react";
-import {projectImages} from "./constants";
+import {projectImages} from "../../shared/global.crowdfund";
 
 export const CrowdCardImage = ({image, gradient, className}) => {
   return (

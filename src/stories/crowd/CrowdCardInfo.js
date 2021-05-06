@@ -1,7 +1,7 @@
 import React from "react";
 import {Typography} from "../Typography";
 import {Chip} from "../Chip";
-import {categories} from "./constants";
+import {categories} from "../../shared/global.crowdfund";
 import {ExternalLinkIcon, LinkIcon} from "@heroicons/react/solid";
 
 export const CrowdCardInfo = ({category, title, projectUrl}) => {
