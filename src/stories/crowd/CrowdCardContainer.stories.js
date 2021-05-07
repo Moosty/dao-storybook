@@ -1,14 +1,33 @@
 import React from "react";
-import { CrowdCardContainer } from "./CrowdCardContainer";
+import {CrowdCardContainer} from "./CrowdCardContainer";
 import {categories, CROWDFUNDSTATELIST, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
 
 export default {
   title: "Elements/CrowdCardContainer",
   component: CrowdCardContainer,
   argTypes: {
-    state: { control: {type: "select", labels: {0: CROWDFUNDSTATELIST[0]}}, options: CROWDFUNDSTATELIST, default: CROWDFUNDSTATELIST[4],},
-    image: { control: "select", options: projectImages.map((value, index) => index) },
-    category: {control: {default: 2, type: "select", labels: {0: categories[0]}}, options: categories.map((value, index) => index), default: 2, },
+    state: {
+      control: {type: "select", labels: {0: CROWDFUNDSTATELIST[0]}},
+      options: CROWDFUNDSTATELIST,
+      default: CROWDFUNDSTATELIST[4],
+    },
+    image: {control: "select", options: projectImages.map((value, index) => index)},
+    category: {
+      control: {
+        default: 2, type: "select", labels: {
+          0: categories[0],
+          1: categories[1],
+          2: categories[2],
+          3: categories[3],
+          4: categories[4],
+          5: categories[5],
+          6: categories[6],
+          7: categories[7],
+          8: categories[8],
+          9: categories[9],
+        },
+      }, options: categories.map((value, index) => index), default: 2,
+    },
   },
 }
 export const Playground = (args) => <CrowdCardContainer {...args}/>
@@ -27,13 +46,13 @@ const Template = (args) => <CrowdCardContainer {...args}/>
 
 export const Preview = Template.bind({})
 Preview.args = {
-    title: "Project XXXXXXX",
-    category: 2,
-    owner: "lsk13212341dfs23567246sdg",
-    targetAmount: 10000,
-    projectUrl: "https://moosty.com/",
-    image: 2,
-  }
+  title: "Project XXXXXXX",
+  category: 2,
+  owner: "lsk13212341dfs23567246sdg",
+  targetAmount: 10000,
+  projectUrl: "https://moosty.com/",
+  image: 2,
+}
 
 export const Open = Template.bind({})
 Open.args = {
