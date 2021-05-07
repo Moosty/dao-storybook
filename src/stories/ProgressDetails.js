@@ -1,7 +1,5 @@
 import React from "react";
 import {Typography} from "./Typography";
-import {crowdFundStates} from "../shared/constants";
-
 
 export const ProgressDetails = ({state, durationProject}) => {
   return (<>
