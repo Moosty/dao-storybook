@@ -22,7 +22,6 @@ export const InputAvatar = ({
                             }) => {
   const [selected, setSelected] = useState(selectedItem);
   const {formClass} = useForms({disabled, error, readOnly});
-
   return (
     <Listbox
       value={selected}
@@ -48,11 +47,11 @@ export const InputAvatar = ({
               formClass,
             ].join(" ")}
           >
-            <span className="flex items-center">
-              <img
+            <span className="flex items-center h-6">
+              {selected?.icon && <img
                 src={selected?.icon}
                 className="flex-shrink-0 h-6 w-6 rounded-full"
-              />
+              />}
               <span className="ml-3 block truncate">{selected?.name}</span>
             </span>
             <span
@@ -93,11 +92,11 @@ export const InputAvatar = ({
                   {({selected, active}) => (
                     <>
                       <div className="flex items-center">
-                        <img src={item?.icon} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>
+                        {item?.icon && <img src={item?.icon} alt="" className="flex-shrink-0 h-6 w-6 rounded-full"/>}
                         <span
                           className={[
                             selected ? 'font-semibold' : 'font-normal',
-                            'ml-3 block truncate',
+                            'ml-3 block',
                           ].join(" ")}
                         >
                           {item?.name}

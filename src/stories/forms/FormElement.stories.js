@@ -110,3 +110,40 @@ export const MultipleChoiceStory = () => <div className="m-4">
       ]}/>
   </FormElement>
 </div>
+
+export const MultipleChoiceMembers = () => <div className="m-4">
+  <FormElement
+    label="Options"
+    infoIcon
+    tooltipText="The result is ONLY visible after the voting is closed."
+  >
+    <MultipleChoice
+      maxItems={10}
+      onChange={(options) => console.log("options: ", options)}
+      minItems={2}
+      type={"inputAvatar"}
+      newOptionPlaceholder={"Answer option"}
+      defaultOptions={[
+        {
+          id: 1,
+          selectedItem: {id: "asdf", name: "test"},
+          items: [
+            {id: "asdf", name: "3test"},
+            {id: "sdfwe", name: "4test"},
+            {id: "aswewedf", name: "5test"},
+          ],
+          placeholder: "Answer option"
+        },
+        {
+          id: 2,
+          selectedItem: {id: "asdf", name: "test",},
+          items: [
+            {id: "asdf", name: "test",},
+            {id: "sdfwe", name: "test",},
+            {id: "aswewedf", name: "test",},
+          ],
+          placeholder: "Answer option"
+        },
+      ]}/>
+  </FormElement>
+</div>
