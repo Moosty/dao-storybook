@@ -14,6 +14,8 @@ import {PlusIcon} from "@heroicons/react/solid";
 import {allDaoData} from "../fixtures/daos";
 import {allVotingTypes} from "../fixtures/votingTypes";
 import {allMembers} from "../fixtures/members";
+import {Footer} from "../stories";
+import {FooterAuthorDAO, FooterItemsDAO} from "../fixtures/footerItemsDAO";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>
@@ -29,6 +31,7 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
         </div>
       </Container>
     </div>
+    <Footer items={FooterItemsDAO} author={FooterAuthorDAO}></Footer>
   </div>
 
 );

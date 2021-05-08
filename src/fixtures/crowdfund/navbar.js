@@ -13,9 +13,9 @@ export const navBarArgs = {
     alt="PLAO"
   />,
   navigation: [
-    {name: 'Explore', onClick: () => alert("Go to Crowdfunds"), current: true},
-    {name: 'Members', onClick: () => alert("Goto Members"), current: false},
-    {name: 'Projects', onClick: () => alert("Goto DAOs"), current: false},
+    {name: 'Crowdfunds', onClick: () => alert("Go to Crowdfunds"), current: true},
+    {name: 'Explore Projects', onClick: () => alert("Goto DAOs"), current: false},
+    {name: 'My Projects', onClick: () => alert("Goto Members"), current: false},
   ],
   ctaButton: <Button
     label="Start new Crowdfund"
