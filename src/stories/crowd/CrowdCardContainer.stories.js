@@ -3,7 +3,7 @@ import {CrowdCardContainer} from "./CrowdCardContainer";
 import {categories, CROWDFUNDSTATELIST, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
 
 export default {
-  title: "Elements/CrowdCardContainer",
+  title: "Cards/CrowdCardContainer",
   component: CrowdCardContainer,
   argTypes: {
     state: {

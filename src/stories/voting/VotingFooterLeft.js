@@ -2,12 +2,13 @@ import React from "react";
 import {Typography} from "../Typography";
 import {InfoIcon} from "../forms/InfoIcon";
 import PropTypes from "prop-types";
+import {Tooltip} from "../Tooltip";
 
-export const VotingFooterLeft = ({notAllowed, votingClosed, votingResult}) => (<>
+export const VotingFooterLeft = ({notAllowed, votingClosed, votingResult, readOnlyToolTip}) => (<>
     {notAllowed && !votingClosed &&
       <div className="flex flex-row items-center">
         <Typography type="body" Element="span">Read Only</Typography>
-        <InfoIcon className="h-4 w-4 text-textCaption"/>
+        <Tooltip description={readOnlyToolTip} dark><InfoIcon className="h-4 w-4 text-textCaption"/></Tooltip>
       </div>}
     {(votingClosed && votingResult === "inconclusive") &&
       <Typography type="bodyStrong" Element="span">

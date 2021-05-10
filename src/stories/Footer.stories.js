@@ -7,12 +7,12 @@ export default {
 }
 
 const author = {
-  name: "MOOSTY",
+  name: "KALIPO TEAM",
   url: "https://moosty.com"
 }
 
 const items = {
-  liskcrowd: [
+  kalipo: [
     {label: "Read the blog", to: "https://lisk.io/blog/apps/building-lisk-crowd-project"},
     {label: "About the project team", to: "https://moosty.com"},
     {label: "Github", to: "https://github.com/Moosty/lisk-crowdfund"},
@@ -23,7 +23,7 @@ const items = {
     {label: "Lisk SDK documentation", to: "https://lisk.io/documentation/lisk-sdk/index.html"},
     {label: "Join Lisk chat", to: "https://lisk.chat"},
   ],
-  moosty: [
+  "Kalipo Team": [
     {label: "About the team", to: "https://moosty.com/"},
     {label: "See projects", to: "https://moosty.com/lisk-ecosystem/"},
     {label: "Get in touch", to: "https://moosty.com/contact/"},

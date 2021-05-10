@@ -1,6 +1,6 @@
 
 export const FooterItemsDAO = {
-  liskcrowd: [
+  kalipo: [
     {label: "Read the blog", to: "https://lisk.io/blog/apps/building-lisk-dao-project"},
     {label: "About the project team", to: "/"},
     {label: "Github", to: "https://github.com/Moosty/"},
@@ -11,7 +11,7 @@ export const FooterItemsDAO = {
     {label: "Lisk SDK documentation", to: "https://lisk.io/documentation/lisk-sdk/index.html"},
     {label: "Join Lisk chat", to: "https://lisk.chat"},
   ],
-  moosty: [
+  "Kalipo Team": [
     {label: "About the team", to: "https://moosty.com/"},
     {label: "See projects", to: "https://moosty.com/lisk-ecosystem/"},
     {label: "Get in touch", to: "https://moosty.com/contact/"},
@@ -19,6 +19,6 @@ export const FooterItemsDAO = {
 }
 
 export const FooterAuthorDAO = {
-  name: "Xinrong Ding, Vitallity & Moosty",
+  name: "Kalipo Team",
   url: "https://moosty.com"
 }

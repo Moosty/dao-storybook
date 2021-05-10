@@ -4,6 +4,9 @@ import {VotingCardContent} from "./VotingCardContent";
 import {VotingFooterLeft} from "./VotingFooterLeft";
 import {VotingFooterRight} from "./VotingFooterRight";
 import {VotingHeader} from "./VotingHeader";
+import {ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
+import {Tooltip} from "../Tooltip";
+import {InfoIcon} from "../forms/InfoIcon";
 
 export const VotingContainer = ({
                                   dao,
@@ -20,6 +23,9 @@ export const VotingContainer = ({
                                   eligibleVotes,
                                   height,
                                   className,
+                                  readOnlyToolTip,
+                                  onClickThumbUp,
+                                  onClickThumbDown,
                                 }) => {
 
   const minVotes = Math.ceil((quorum / 100) * eligibleVotes) === (quorum / 100) * eligibleVotes ?
@@ -62,8 +68,13 @@ export const VotingContainer = ({
       />
     }}
     footer={{
-      left: <VotingFooterLeft notAllowed={notAllowed} votingClosed={closed} votingResult={result}/>,
-      right: <VotingFooterRight votingClosed={closed} notAllowed={notAllowed} userVote={userVote}/>,
+      left: <VotingFooterLeft notAllowed={notAllowed} votingClosed={closed} votingResult={result} readOnlyToolTip={readOnlyToolTip}/>,
+      right: <VotingFooterRight votingClosed={closed} notAllowed={notAllowed} userVote={userVote}
+                                readOnlyToolTip={readOnlyToolTip}
+                                buttons={[
+                                  {icon: <ThumbUpIcon className="h-5 w-5"/>, onClick: onClickThumbUp},
+                                  {icon: <ThumbDownIcon className="h-5 w-5"/>, onClick: onClickThumbDown},
+                                ]}/>,
     }}
   />
 }
