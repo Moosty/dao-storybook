@@ -6,11 +6,11 @@ import {projects} from "../../fixtures/crowdfund/projects";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {AccountProjectList} from "../../stories/AccountProjectList";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
-import {crowdFundStates} from "../../shared/global.crowdfund";
+import {AccountProjectSingleItem} from "../../stories/AccountProjectSingleItem";
 
 export const MyProjects = () => {
   const [user, setUser] = useState("345733333743L");
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   return (
     <>
@@ -20,16 +20,20 @@ export const MyProjects = () => {
           <BreadCrumbs/>
           <FilterDao classname/>
         </FilterWrapper>
-        <Button label="Toggle View" onClick={() => setVisible(!visible)} />
-      </Container >
-      {visible && <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-10"].join(" ")}>
+        <Button label="Toggle View" onClick={() => setVisible(!visible)}/>
+      </Container>
+      {visible &&
+      <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-10"].join(" ")}>
         {projects && projects.filter(project => project.userAddress === user).map((project) =>
           <CrowdCardContainer {...project} />
         )}
       </Container>}
-      {!visible &&  <Container className={[appWidth, "my-20"].join(" ")}>
-        {projects && projects.filter(project => project.state === crowdFundStates.ACTIVE.VOTING).map((project) => <AccountProjectList projects={projects}/>
-        )}
+      {!visible && <Container className={[appWidth, "my-20"].join(" ")}>
+        <AccountProjectList>
+          {projects && projects.filter(project => project.userAddress === user).map((project) =>
+            <AccountProjectSingleItem {...project}/>
+          )}
+        </AccountProjectList>
       </Container>}
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>
