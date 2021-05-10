@@ -6,6 +6,7 @@ import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";
 import {Button} from "./Button";
+import {AccountProjectSingleItem} from "./AccountProjectSingleItem";
 
 export const AccountProjectList = ({projects}) => {
   return (
@@ -49,7 +50,7 @@ export const AccountProjectList = ({projects}) => {
                   <CrowdCardImage className="w-16 h-16 mr-2 rounded-default"  image={image} gradient={gradient}/>
                   <div className="flex flex-col w-full mx-4">
                     <Typography type="bodyStrong" Element="span">{title}</Typography>
-                    <ProgressBar classname="w-full" target={targetAmount} current={totalRaised} unit={unit} state={state}/>
+                    <ProgressBar classname="w-full" target={targetAmount} current={totalRaised} unit="LSK" state={state}/>
                   </div>
                 </div>
                 <div className=" items-center w-1/5 ">
@@ -69,8 +70,15 @@ export const AccountProjectList = ({projects}) => {
 
 
                 <div className=" items-center w-1/5 ">
-                  <Button label="vote" />
-
+                  {state === crowdFundStates.ACTIVE.VOTING &&
+                    <Button label="Vote"/>
+                  }
+                  {state === crowdFundStates.ACTIVE.CLAIMING &&
+                    <Button label="Claim"/>
+                  }
+                  {state === crowdFundStates.ACTIVE.PENDING &&
+                    <Button label="Register Start Date"/>
+                  }
                 </div>
 
               </div>

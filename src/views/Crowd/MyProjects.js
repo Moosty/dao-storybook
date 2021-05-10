@@ -6,6 +6,7 @@ import {projects} from "../../fixtures/crowdfund/projects";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {AccountProjectList} from "../../stories/AccountProjectList";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
+import {crowdFundStates} from "../../shared/global.crowdfund";
 
 export const MyProjects = () => {
   const [user, setUser] = useState("345733333743L");
@@ -20,13 +21,16 @@ export const MyProjects = () => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row"].join(" ")}>
+
         {projects && projects.map((project) => {
           if (project.userAddress === user) return <CrowdCardContainer {...project} />
           }
         )}
       </Container>
       <Container className={[appWidth].join(" ")}>
-        <AccountProjectList projects={projects}/>
+        {projects && projects.map((project) => {
+          if(project.state === crowdFundStates.ACTIVE.VOTING) return <AccountProjectList projects={projects}/>
+        })}
       </Container>
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>
