@@ -13,6 +13,7 @@ import {projects} from "../../fixtures/crowdfund/projects";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
 import {Footer} from "../../stories";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
+import {crowdFundStates} from "../../shared/global.crowdfund";
 
 export const Home= ({}) => {
   return ( <>
@@ -27,10 +28,15 @@ export const Home= ({}) => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4","space-y-4", "flex","flex-wrap", "flex-row"].join(" ")}>
-        {projects.map((project) => (<CrowdCardContainer {...project} />))}
+        {projects && projects.map((project) => {
+            if (project.state === crowdFundStates.PREVIEW || project.state === crowdFundStates.OPEN) return <CrowdCardContainer {...project} />
+          }
+        )}
         </Container>
       <Container className={[appWidth].join(" ")}>
-        <AccountProjectList projects={projects} />
+        {projects && projects.map((project) => {
+        if(project.state === crowdFundStates.PENDING) return <AccountProjectList projects={projects}/>
+        })}
       </Container>
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {BreadCrumbs, Container, FilterDao, FilterWrapper, Footer, NavBar} from "../../stories";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
 import {appWidth} from "../../shared/styles";
@@ -8,21 +8,25 @@ import {AccountProjectList} from "../../stories/AccountProjectList";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
 
 export const MyProjects = () => {
+  const [user, setUser] = useState("345733333743L");
 
   return (
     <>
       <NavBar {...navBarArgs} />
       <Container className={[appWidth, "py-6"].join(" ")}>
         <FilterWrapper>
-          <BreadCrumbs />
+          <BreadCrumbs/>
           <FilterDao classname/>
         </FilterWrapper>
       </Container>
-      <Container className={[appWidth, "space-x-4","space-y-4", "flex","flex-wrap", "flex-row"].join(" ")}>
-        {projects.map((project) => (<CrowdCardContainer {...project} />))}
+      <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row"].join(" ")}>
+        {projects && projects.map((project) => {
+          if (project.userAddress === user) return <CrowdCardContainer {...project} />
+          }
+        )}
       </Container>
       <Container className={[appWidth].join(" ")}>
-        <AccountProjectList projects={projects} />
+        <AccountProjectList projects={projects}/>
       </Container>
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>
