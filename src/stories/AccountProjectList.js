@@ -46,8 +46,8 @@ export const AccountProjectList = ({projects}) => {
             <a href="#" className="block hover:bg-gray-50">
               <div className="flex flex-row  items-center py-2">
                 <div className="flex flex-row items-center w-1/5">
-                  <CrowdCardImage className="w-10 h-10 mr-2 rounded-default"  image={image} gradient={gradient}/>
-                  <div className="flex flex-col">
+                  <CrowdCardImage className="w-16 h-16 mr-2 rounded-default"  image={image} gradient={gradient}/>
+                  <div className="flex flex-col w-full mx-4">
                     <Typography type="bodyStrong" Element="span">{title}</Typography>
                     <ProgressBar classname="w-full" target={targetAmount} current={totalRaised} unit={unit} state={state}/>
                   </div>
