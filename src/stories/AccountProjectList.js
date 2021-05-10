@@ -1,11 +1,20 @@
 import React from "react";
-import {CalendarIcon, CashIcon, LocationMarkerIcon, UsersIcon} from "@heroicons/react/solid";
+import {
+  CalendarIcon,
+  CashIcon,
+  LocationMarkerIcon,
+  ThumbDownIcon,
+  ThumbUpIcon,
+  UsersIcon
+} from "@heroicons/react/solid";
 
 import {crowdFundStates, categories, projectImages} from "../shared/global.crowdfund";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";
 import {Button} from "./Button";
+import {ProgressBarDetails} from "./ProgressBarDetails";
+import {ButtonGroup} from "./ButtonGroup";
 
 export const AccountProjectList = ({projects}) => {
   return (
@@ -39,17 +48,21 @@ export const AccountProjectList = ({projects}) => {
                          voteResult,
                          time,
                          percentage,
+                         current,
+                         target,
 
 
                        }) => (
           <li key={id}>
-            <a href="#" className="block hover:bg-gray-50">
-              <div className="flex flex-row  items-center py-2">
-                <div className="flex flex-row items-center w-1/5">
+            <a href="#" className="block hover:bg-gray-50 mb-2">
+              <div className="flex flex-col w-full ">
+              <div className="flex flex-row  items-center py-2 justify-between w-full">
+                <div className="flex flex-row items-center w-1/4">
                   <CrowdCardImage className="w-10 h-10 mr-2 rounded-default"  image={image} gradient={gradient}/>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full mx-2">
                     <Typography type="bodyStrong" Element="span">{title}</Typography>
-                    <ProgressBar classname="w-full" target={targetAmount} current={totalRaised} unit={unit} state={state}/>
+                    <ProgressBarDetails  target={targetAmount} current={totalRaised} state={state} unit="LSK" />
+
                   </div>
                 </div>
                 <div className=" items-center w-1/5 ">
@@ -69,7 +82,16 @@ export const AccountProjectList = ({projects}) => {
 
 
                 <div className=" items-center w-1/5 ">
-                  <Button label="vote" />
+                  { state === crowdFundStates.ACTIVE.VOTING &&
+                  <ButtonGroup
+                    buttons={[
+                      {icon: <ThumbUpIcon className="h-5 w-5"/>},
+                      {icon: <ThumbDownIcon className="h-5 w-5"/>},
+                    ]}
+                  />                  }
+                  { state === crowdFundStates.ACTIVE.CLAIMING &&
+                  <Button  size="small" label="Claim" />
+                  }
 
                 </div>
 
@@ -118,6 +140,8 @@ export const AccountProjectList = ({projects}) => {
               {/*    </div>*/}
               {/*  </div>*/}
               {/*</div>*/}
+
+              </div>
             </a>
           </li>
         ))}

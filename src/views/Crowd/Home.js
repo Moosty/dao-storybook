@@ -27,6 +27,7 @@ export const Home= ({}) => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4","space-y-4", "flex","flex-wrap", "flex-row"].join(" ")}>
+
         {projects.map((project) => (<CrowdCardContainer {...project} />))}
         </Container>
       <Container className={[appWidth].join(" ")}>

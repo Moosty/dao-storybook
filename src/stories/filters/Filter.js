@@ -14,6 +14,7 @@ export const Filter = ({filters, defaultShow = true}) => {
       {filters?.map(filter => <InputAvatar
         className={[
           "invisible",
+          "w-52",
           "lg:visible",
           !show ? "hidden" : "",
         ].join(" ")}
