@@ -28,9 +28,8 @@ export const MyProjects = () => {
         )}
       </Container>}
       {!visible &&  <Container className={[appWidth, "my-20"].join(" ")}>
-        {projects && projects.map((project) => {
-          if (project.state === crowdFundStates.ACTIVE.VOTING) return <AccountProjectList projects={projects}/>
-        })}
+        {projects && projects.filter(project => project.state === crowdFundStates.ACTIVE.VOTING).map((project) => <AccountProjectList projects={projects}/>
+        )}
       </Container>}
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>

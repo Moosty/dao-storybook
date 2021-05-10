@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavBar} from "../../stories/nav/NavBar";
 import {Hero} from "../../stories/Hero";
 import {appWidth} from "../../shared/styles";
@@ -11,11 +11,13 @@ import {AccountProjectList} from "../../stories/AccountProjectList";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {projects} from "../../fixtures/crowdfund/projects";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
-import {Footer} from "../../stories";
+import {Button, Footer} from "../../stories";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
 import {crowdFundStates} from "../../shared/global.crowdfund";
 
 export const Home= ({}) => {
+  const [visible, setVisible] = useState(false);
+
   return ( <>
     <NavBar {...navBarArgs} />
     <Hero
@@ -26,16 +28,18 @@ export const Home= ({}) => {
           <BreadCrumbs />
           <FilterDao classname/>
         </FilterWrapper>
+        <Button label="Toggle View" onClick={() => setVisible(!visible)} />
       </Container>
-      <Container className={[appWidth, "space-x-4","space-y-4", "flex","flex-wrap", "flex-row"].join(" ")}>
-        {projects && projects.filter(project => project.state === crowdFundStates.PREVIEW || project.state === crowdFundStates.OPEN).map((project) => <CrowdCardContainer {...project} />
+      {visible && <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-20"].join(" ")}>
+        {projects && projects.filter(project => project.state === crowdFundStates.PREVIEW || project.state === crowdFundStates.OPEN).map((project) =>
+          <CrowdCardContainer {...project} />
         )}
-        </Container>
-      <Container className={[appWidth].join(" ")}>
-        {projects && projects.map((project) => {
-        if(project.state === crowdFundStates.PENDING) return <AccountProjectList projects={projects}/>
-        })}
-      </Container>
+      </Container>}
+      {!visible && <Container className={[appWidth, "my-20"].join(" ")}>
+        {projects && projects.filter(project => project.state === crowdFundStates.PENDING).map((project) =>
+          <AccountProjectList projects={projects}/>
+        )}
+      </Container>}
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
 
     </>
