@@ -20,9 +20,10 @@ export const Projects = () => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row"].join(" ")}>
-        {projects && projects.map((project) => {
-          if (project.state === crowdFundStates.PENDING || project.state === crowdFundStates.ACTIVE.ACTIVE || project.state === crowdFundStates.ACTIVE.PENDING || project.state === crowdFundStates.ACTIVE.CLAIMING || project.state === crowdFundStates.ACTIVE.VOTING) return <CrowdCardContainer {...project} />
-        })}
+        {projects && projects
+          .filter(project => project.state === crowdFundStates.PENDING || project.state === crowdFundStates.ACTIVE.ACTIVE || project.state === crowdFundStates.ACTIVE.PENDING || project.state === crowdFundStates.ACTIVE.CLAIMING || project.state === crowdFundStates.ACTIVE.VOTING)
+          .map((project) => <CrowdCardContainer {...project} />
+        )}
       </Container>
       <Container className={[appWidth].join(" ")}>
         <AccountProjectList projects={projects}/>

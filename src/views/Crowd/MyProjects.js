@@ -21,10 +21,7 @@ export const MyProjects = () => {
         </FilterWrapper>
       </Container>
       <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row"].join(" ")}>
-
-        {projects && projects.map((project) => {
-          if (project.userAddress === user) return <CrowdCardContainer {...project} />
-          }
+        {projects && projects.filter(project => project.userAddress === user).map((project) => <CrowdCardContainer {...project} />
         )}
       </Container>
       <Container className={[appWidth].join(" ")}>
