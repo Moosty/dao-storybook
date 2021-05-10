@@ -1,5 +1,12 @@
 import React from "react";
-import {CalendarIcon, CashIcon, LocationMarkerIcon, UsersIcon} from "@heroicons/react/solid";
+import {
+  CalendarIcon,
+  CashIcon,
+  LocationMarkerIcon,
+  ThumbDownIcon,
+  ThumbUpIcon,
+  UsersIcon
+} from "@heroicons/react/solid";
 
 import {crowdFundStates, categories, projectImages} from "../shared/global.crowdfund";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
@@ -7,6 +14,7 @@ import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";
 import {Button} from "./Button";
 import {AccountProjectSingleItem} from "./AccountProjectSingleItem";
+import {ButtonGroup} from "./ButtonGroup";
 
 export const AccountProjectList = ({projects}) => {
   return (
@@ -16,7 +24,7 @@ export const AccountProjectList = ({projects}) => {
         {projects.map(({
                          gradient,
                          id,
-          unit,
+                         unit,
                          budget,
                          totalRaised,
                          title,
@@ -47,37 +55,39 @@ export const AccountProjectList = ({projects}) => {
             <a href="#" className="block hover:bg-gray-50">
               <div className="flex flex-row  items-center py-2">
                 <div className="flex flex-row items-center w-1/5">
-                  <CrowdCardImage className="w-16 h-16 mr-2 rounded-default"  image={image} gradient={gradient}/>
+                  <CrowdCardImage className="w-16 h-16 mr-2 rounded-default" image={image} gradient={gradient}/>
                   <div className="flex flex-col w-full mx-4">
                     <Typography type="bodyStrong" Element="span">{title}</Typography>
-                    <ProgressBar classname="w-full" target={targetAmount} current={totalRaised} unit="LSK" state={state}/>
+                    <ProgressBar classname="w-full" target={targetAmount} current={totalRaised} unit="LSK"
+                                 state={state}/>
                   </div>
                 </div>
                 <div className=" items-center w-1/5 ">
                   <div className="flex flex-col item-center">
-                                <p className="flex  text-sm text-gray-500 mr-2">
-                                  <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
-                                  {backers.length}
-                                </p>
-                                <p className="flex items-center text-sm text-gray-500 ">
-                                  <CashIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
-                                  {targetAmount}
-                                </p>
-                              </div>
+                    <p className="flex  text-sm text-gray-500 mr-2">
+                      <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
+                      {backers.length}
+                    </p>
+                    <p className="flex items-center text-sm text-gray-500 ">
+                      <CashIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
+                      {targetAmount}
+                    </p>
+                  </div>
                 </div>
                 <div className=" items-center w-2/5 ">
                 </div>
 
 
                 <div className=" items-center w-1/5 ">
+
                   {state === crowdFundStates.ACTIVE.VOTING &&
-                    <Button label="Vote"/>
+                  <Button label="Vote"/>
                   }
                   {state === crowdFundStates.ACTIVE.CLAIMING &&
-                    <Button label="Claim"/>
+                  <Button label="Claim"/>
                   }
                   {state === crowdFundStates.ACTIVE.PENDING &&
-                    <Button label="Register Start Date"/>
+                  <Button label="Register Start Date"/>
                   }
                 </div>
 
@@ -100,7 +110,6 @@ export const AccountProjectList = ({projects}) => {
               {/*            </p>*/}
               {/*          </div>*/}
               {/*        </div>*/}
-
 
 
               {/*      </div>*/}

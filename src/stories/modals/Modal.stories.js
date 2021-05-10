@@ -4,6 +4,9 @@ import {Button, LoginModal, MemberModal} from "../index";
 import {CreateAccountModal} from "./templates/createAccount";
 import {ConfirmTransactionModal} from "./templates/confirmTransaction";
 import {ResultTransactionModal, transactionStates} from "./templates/resultTransaction";
+import {CrowdCardContainer} from "../crowd/CrowdCardContainer";
+import {categories, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
+import {BackProjectModal} from "./crowd/BackProjectModal";
 
 export default {
   title: "Modals/Modal",
@@ -199,6 +202,23 @@ export const ResultTransactions = () => {
         state={state}
         text={text}
       />
+    </Modal>
+  </div>
+}
+
+
+export const CrowdfundDetailModal = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div>
+    <Button onClick={() => setOpen(true)} label={"Crowdfund Details"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal title="Project X" />
     </Modal>
   </div>
 }

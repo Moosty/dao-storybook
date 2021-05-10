@@ -45,7 +45,6 @@ export const VotingFooterRight = ({userVote, notAllowed, votingClosed, readOnlyT
     </div>}
     {!userVote && !notAllowed && !votingClosed && <Tooltip description="DAOs are all about participation. Talk with the other members & vote." dark>
       <ButtonGroup
-
       buttons={buttons}
     /></Tooltip>}
   </div>

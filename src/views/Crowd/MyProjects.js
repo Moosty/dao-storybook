@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {BreadCrumbs, Container, FilterDao, FilterWrapper, Footer, NavBar} from "../../stories";
+import {BreadCrumbs, Button, Container, FilterDao, FilterWrapper, Footer, NavBar} from "../../stories";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
 import {appWidth} from "../../shared/styles";
 import {projects} from "../../fixtures/crowdfund/projects";
@@ -10,6 +10,7 @@ import {crowdFundStates} from "../../shared/global.crowdfund";
 
 export const MyProjects = () => {
   const [user, setUser] = useState("345733333743L");
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
@@ -19,16 +20,18 @@ export const MyProjects = () => {
           <BreadCrumbs/>
           <FilterDao classname/>
         </FilterWrapper>
-      </Container>
-      <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row"].join(" ")}>
-        {projects && projects.filter(project => project.userAddress === user).map((project) => <CrowdCardContainer {...project} />
+        <Button label="Toggle View" onClick={() => setVisible(!visible)} />
+      </Container >
+      {visible && <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-10"].join(" ")}>
+        {projects && projects.filter(project => project.userAddress === user).map((project) =>
+          <CrowdCardContainer {...project} />
         )}
-      </Container>
-      <Container className={[appWidth].join(" ")}>
+      </Container>}
+      {!visible &&  <Container className={[appWidth, "my-20"].join(" ")}>
         {projects && projects.map((project) => {
-          if(project.state === crowdFundStates.ACTIVE.VOTING) return <AccountProjectList projects={projects}/>
+          if (project.state === crowdFundStates.ACTIVE.VOTING) return <AccountProjectList projects={projects}/>
         })}
-      </Container>
+      </Container>}
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>
   )

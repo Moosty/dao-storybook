@@ -93,6 +93,7 @@ ActivePending.args = {
 export const ActiveVoting = Template.bind({})
 ActiveVoting.args = {
   ...Preview.args,
+  state: "active.voting",
 }
 
 export const ActiveClaiming = Template.bind({})
