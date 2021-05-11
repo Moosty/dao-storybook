@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 import {Listbox, Transition} from '@headlessui/react'
 import {CheckIcon, SelectorIcon} from '@heroicons/react/solid'
 import {useForms} from "../../hooks/forms";
@@ -22,6 +22,11 @@ export const InputAvatar = ({
                             }) => {
   const [selected, setSelected] = useState(selectedItem);
   const {formClass} = useForms({disabled, error, readOnly});
+  useEffect(() => {
+    if (selectedItem && selectedItem !== selected) {
+      setSelected(selectedItem)
+    }
+  }, [selectedItem])
   return (
     <Listbox
       value={selected}
