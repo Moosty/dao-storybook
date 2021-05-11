@@ -49,7 +49,7 @@ export const AccountProjectSingleItem = ({
             </div>
 
             <div className=" items-center w-1/5 ">
-              {userRole === userRoles.GUEST &&
+              {(userRole === userRoles.GUEST && state === crowdFundStates.ACTIVE.VOTING) &&
               <Button label="Vote"/>
               }
               {state === crowdFundStates.ACTIVE.VOTING &&
