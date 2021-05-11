@@ -1,11 +1,40 @@
 import React from "react";
 import {AccountProjectSingleItem} from "./AccountProjectSingleItem";
-import {crowdFundStates} from "../shared/global.crowdfund";
+import {categories, CROWDFUNDSTATELIST, crowdFundStates, projectImages, userRoles} from "../shared/global.crowdfund";
 import {AccountProjectList} from "./AccountProjectList";
 
 export default {
   title: "Cards/AccountProjectSingleItem",
   component: AccountProjectSingleItem,
+  argTypes: {
+    userRole: {
+      control: {type: "select", labels: {0: userRoles.OWNER}},
+      options: userRoles,
+      default: userRoles.GUEST,
+    },
+    state: {
+      control: {type: "select", labels: {0: CROWDFUNDSTATELIST[0]}},
+      options: CROWDFUNDSTATELIST,
+      default: CROWDFUNDSTATELIST[4],
+    },
+    image: {control: "select", options: projectImages.map((value, index) => index)},
+    category: {
+      control: {
+        default: 2, type: "select", labels: {
+          0: categories[0],
+          1: categories[1],
+          2: categories[2],
+          3: categories[3],
+          4: categories[4],
+          5: categories[5],
+          6: categories[6],
+          7: categories[7],
+          8: categories[8],
+          9: categories[9],
+        },
+      }, options: categories.map((value, index) => index), default: 2,
+    },
+  },
 }
 
 export const Playground = (args) => <AccountProjectList><AccountProjectSingleItem {...args} /></AccountProjectList>
@@ -18,6 +47,7 @@ Playground.args = {
   state: crowdFundStates.PREVIEW,
   image: 3,
   category: 2,
+  userRole: userRoles.BACKER,
 }
 
 const Template = (args) => <AccountProjectList><AccountProjectSingleItem {...args} /></AccountProjectList>
@@ -30,6 +60,7 @@ Preview.args = {
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
   image: 2,
+  userRole: userRoles.GUEST,
 }
 
 export const Open = Template.bind({})
