@@ -35,6 +35,13 @@ export const MyProjects = () => {
           )}
         </AccountProjectList>
       </Container>}
+      <Container className={[appWidth, "my-20"].join(" ")}>
+        <AccountProjectList>
+          {projects && projects.filter(project => project.userAddress != user).map((project) =>
+            <AccountProjectSingleItem {...project}/>
+          )}
+        </AccountProjectList>
+      </Container>
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>
   )

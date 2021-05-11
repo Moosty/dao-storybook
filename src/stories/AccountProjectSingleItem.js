@@ -2,9 +2,10 @@ import React from "react";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";
-import {CashIcon, UsersIcon} from "@heroicons/react/solid";
+import {CashIcon, ThumbDownIcon, ThumbUpIcon, UsersIcon} from "@heroicons/react/solid";
 import {crowdFundStates} from "../shared/global.crowdfund";
 import {Button} from "./Button";
+import {ButtonGroup} from "./ButtonGroup";
 
 export const AccountProjectSingleItem = ({
                                            image,
@@ -52,6 +53,13 @@ export const AccountProjectSingleItem = ({
               }
               {state === crowdFundStates.ACTIVE.PENDING &&
               <Button label="Register Start Date"/>
+              }
+              {state === crowdFundStates.ACTIVE.ACTIVE &&
+              < ButtonGroup  buttons={[
+              {icon: <Typography type="body" Element="span" className="text-themeButtonTextPrimary"> Cancel </Typography>},
+              {icon: <Typography type="body" Element="span" className="text-themeButtonTextPrimary"> Optie </Typography>},
+              {icon: <Typography type="body" Element="span" className="text-themeButtonTextPrimary"> Claim </Typography>},
+                ]}/>
               }
             </div>
           </div>
