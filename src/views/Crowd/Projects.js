@@ -6,6 +6,8 @@ import {projects} from "../../fixtures/crowdfund/projects";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {AccountProjectList} from "../../stories/AccountProjectList";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
+import {crowdFundStates} from "../../shared/global.crowdfund";
+import {AccountProjectSingleItem} from "../../stories/AccountProjectSingleItem";
 
 export const Projects = () => {
 
@@ -14,15 +16,23 @@ export const Projects = () => {
       <NavBar {...navBarArgs} />
       <Container className={[appWidth, "py-6"].join(" ")}>
         <FilterWrapper>
-          <BreadCrumbs />
+          <BreadCrumbs/>
           <FilterDao classname/>
         </FilterWrapper>
       </Container>
-      <Container className={[appWidth, "space-x-4","space-y-4", "flex","flex-wrap", "flex-row"].join(" ")}>
-        {projects.map((project) => (<CrowdCardContainer {...project} />))}
+      <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-10"].join(" ")}>
+        {projects && projects
+          .filter(project => project.state === crowdFundStates.PENDING || project.state === crowdFundStates.ACTIVE.ACTIVE || project.state === crowdFundStates.ACTIVE.PENDING || project.state === crowdFundStates.ACTIVE.CLAIMING || project.state === crowdFundStates.ACTIVE.VOTING)
+          .map((project) => <CrowdCardContainer {...project} />
+          )}
       </Container>
-      <Container className={[appWidth].join(" ")}>
-        <AccountProjectList projects={projects} />
+      <Container className={[appWidth, "my-10"].join(" ")}>
+        <AccountProjectList projects={projects}>
+          {projects && projects.filter(project => project.state === crowdFundStates.PENDING || project.state === crowdFundStates.ACTIVE.ACTIVE || project.state === crowdFundStates.ACTIVE.PENDING || project.state === crowdFundStates.ACTIVE.CLAIMING || project.state === crowdFundStates.ACTIVE.VOTING)
+            .map((project) => (
+              <AccountProjectSingleItem {...project} />
+            ))}
+        </AccountProjectList>
       </Container>
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>

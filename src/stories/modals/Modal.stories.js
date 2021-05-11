@@ -4,6 +4,9 @@ import {Button, LoginModal, MemberModal} from "../index";
 import {CreateAccountModal} from "./templates/createAccount";
 import {ConfirmTransactionModal} from "./templates/confirmTransaction";
 import {ResultTransactionModal, transactionStates} from "./templates/resultTransaction";
+import {CrowdCardContainer} from "../crowd/CrowdCardContainer";
+import {categories, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
+import {BackProjectModal} from "./crowd/BackProjectModal";
 
 export default {
   title: "Modals/Modal",
@@ -199,6 +202,56 @@ export const ResultTransactions = () => {
         state={state}
         text={text}
       />
+    </Modal>
+  </div>
+}
+
+
+export const CrowdfundModalVote = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Vote"}/>
+    <Modal
+
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal vote  />
+    </Modal>
+  </div>
+}
+
+
+export const CrowdfundModalClaim = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Claim"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal claim/>
+    </Modal>
+  </div>
+}
+export const CrowdfundModalCancel = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Cancel"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal cancel />
     </Modal>
   </div>
 }

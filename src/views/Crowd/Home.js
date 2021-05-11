@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavBar} from "../../stories/nav/NavBar";
 import {Hero} from "../../stories/Hero";
 import {appWidth} from "../../shared/styles";
@@ -11,29 +11,40 @@ import {AccountProjectList} from "../../stories/AccountProjectList";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {projects} from "../../fixtures/crowdfund/projects";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
-import {Footer} from "../../stories";
+import {Button, Footer} from "../../stories";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
+import {crowdFundStates} from "../../shared/global.crowdfund";
+import {AccountProjectSingleItem} from "../../stories/AccountProjectSingleItem";
 
-export const Home= ({}) => {
-  return ( <>
-    <NavBar {...navBarArgs} />
-    <Hero
-    title="Lisk Crowd | A Regulated Crowdfund Platform"
-    subTitle="Regulate your crowdfund journey with Lisk Crowd!"/>
+export const Home = ({}) => {
+  const [visible, setVisible] = useState(true);
+
+  return (<>
+      <NavBar {...navBarArgs} />
+      <Hero
+        title="Lisk Crowd | A Regulated Crowdfund Platform"
+        subTitle="Regulate your crowdfund journey with Lisk Crowd!"/>
       <Container className={[appWidth, "py-6"].join(" ")}>
         <FilterWrapper>
-          <BreadCrumbs />
+          <BreadCrumbs/>
           <FilterDao classname/>
         </FilterWrapper>
+        <Button label="Toggle View" onClick={() => setVisible(!visible)}/>
       </Container>
-      <Container className={[appWidth, "space-x-4","space-y-4", "flex","flex-wrap", "flex-row"].join(" ")}>
-        {projects.map((project) => (<CrowdCardContainer {...project} />))}
-        </Container>
-      <Container className={[appWidth].join(" ")}>
-        <AccountProjectList projects={projects} />
-      </Container>
+      {visible &&
+      <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-20"].join(" ")}>
+        {projects && projects.filter(project => project.state === crowdFundStates.PREVIEW || project.state === crowdFundStates.OPEN).map((project) =>
+          <CrowdCardContainer {...project} />
+        )}
+      </Container>}
+      {!visible && <Container className={[appWidth, "my-20"].join(" ")}>
+        <AccountProjectList>
+          {projects && projects.filter(project => project.state === crowdFundStates.PREVIEW || project.state === crowdFundStates.OPEN).map((project) =>
+            <AccountProjectSingleItem {...project}/>
+          )}
+        </AccountProjectList>
+      </Container>}
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
-
     </>
   )
 }
@@ -45,7 +56,5 @@ Home.propTypes = {
   onCreateAccount: PropTypes.func.isRequired,
 };
 
-Home.defaultProps = {
-  user: null,
-};
+Home.defaultProps = {user: null,};
 

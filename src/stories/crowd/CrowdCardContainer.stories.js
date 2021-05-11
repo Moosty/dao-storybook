@@ -3,7 +3,7 @@ import {CrowdCardContainer} from "./CrowdCardContainer";
 import {categories, CROWDFUNDSTATELIST, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
 
 export default {
-  title: "Elements/CrowdCardContainer",
+  title: "Cards/CrowdCardContainer",
   component: CrowdCardContainer,
   argTypes: {
     state: {
@@ -93,6 +93,7 @@ ActivePending.args = {
 export const ActiveVoting = Template.bind({})
 ActiveVoting.args = {
   ...Preview.args,
+  state: "active.voting",
 }
 
 export const ActiveClaiming = Template.bind({})

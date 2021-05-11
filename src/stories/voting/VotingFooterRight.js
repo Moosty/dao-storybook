@@ -4,8 +4,9 @@ import {ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
 import {Typography} from "../Typography";
 import {InfoIcon} from "../forms/InfoIcon";
 import PropTypes from "prop-types";
+import {Tooltip} from "../Tooltip";
 
-export const VotingFooterRight = ({userVote, notAllowed, votingClosed}) => (
+export const VotingFooterRight = ({userVote, notAllowed, votingClosed, readOnlyToolTip, buttons}) => (
   <div className={[
     "flex-end",
     !userVote && !notAllowed && !votingClosed ? "pr-0" : "pr-4",
@@ -40,14 +41,12 @@ export const VotingFooterRight = ({userVote, notAllowed, votingClosed}) => (
       <Typography type="body" Element="span">
         Read Only
       </Typography>
-      <InfoIcon className="h-4 w-4 text-textCaption"/>
+      <Tooltip description={readOnlyToolTip} dark><InfoIcon className="h-4 w-4 text-textCaption"/></Tooltip>
     </div>}
-    {!userVote && !notAllowed && !votingClosed && <ButtonGroup
-      buttons={[
-        {icon: <ThumbUpIcon className="h-5 w-5"/>},
-        {icon: <ThumbDownIcon className="h-5 w-5"/>},
-      ]}
-    />}
+    {!userVote && !notAllowed && !votingClosed && <Tooltip description="DAOs are all about participation. Talk with the other members & vote." dark>
+      <ButtonGroup
+      buttons={buttons}
+    /></Tooltip>}
   </div>
 )
 
