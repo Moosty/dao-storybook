@@ -207,18 +207,51 @@ export const ResultTransactions = () => {
 }
 
 
-export const CrowdfundDetailModal = () => {
+export const CrowdfundModalVote = () => {
   const [open, setOpen] = useState(false)
   const onClose = () => {
     setOpen(false)
   }
-  return <div>
-    <Button onClick={() => setOpen(true)} label={"Crowdfund Details"}/>
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Vote"}/>
+    <Modal
+
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal vote  />
+    </Modal>
+  </div>
+}
+
+
+export const CrowdfundModalClaim = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Claim"}/>
     <Modal
       open={open}
       onClose={onClose}
     >
-      <BackProjectModal title="Project X" />
+      <BackProjectModal claim/>
+    </Modal>
+  </div>
+}
+export const CrowdfundModalCancel = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Cancel"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal cancel />
     </Modal>
   </div>
 }
