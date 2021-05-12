@@ -5,8 +5,7 @@ import {VotingFooterLeft} from "./VotingFooterLeft";
 import {VotingFooterRight} from "./VotingFooterRight";
 import {VotingHeader} from "./VotingHeader";
 import {ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
-import {Tooltip} from "../Tooltip";
-import {InfoIcon} from "../forms/InfoIcon";
+import moment from "moment";
 
 export const VotingContainer = ({
                                   dao,
@@ -44,8 +43,9 @@ export const VotingContainer = ({
       minYesVotes <= no ? "no" : "inconclusive" :
     "inconclusive";
   const closed = end < height || totalVotes === eligibleVotes
-  // todo calculate time to close or open
-  const timeLabel = !closed ? start > height ? "Voting starts at: ~" : "2 days left to close" : null
+  const startSeconds = start - height > 0 ? (start - height) * 10 : 0
+  const endSeconds = end - height > 0 ? (end - height) * 10 : 0
+  const timeLabel = !closed ? start > height ? `Voting starts ${moment().add(startSeconds, 'seconds').from()}` : `Voting closes ${moment().add(endSeconds, 'seconds').from()}` : null
   return <Card
     className={`w-card ${className}`}
     result={closed ? result : "inconclusive"}
@@ -68,13 +68,21 @@ export const VotingContainer = ({
       />
     }}
     footer={{
-      left: <VotingFooterLeft notAllowed={notAllowed} votingClosed={closed} votingResult={result} readOnlyToolTip={readOnlyToolTip}/>,
-      right: <VotingFooterRight votingClosed={closed} notAllowed={notAllowed} userVote={userVote}
-                                readOnlyToolTip={readOnlyToolTip}
-                                buttons={[
-                                  {icon: <ThumbUpIcon className="h-5 w-5"/>, onClick: onClickThumbUp},
-                                  {icon: <ThumbDownIcon className="h-5 w-5"/>, onClick: onClickThumbDown},
-                                ]}/>,
+      left: <VotingFooterLeft
+        notAllowed={notAllowed}
+        votingClosed={closed}
+        votingResult={result}
+        readOnlyToolTip={readOnlyToolTip}
+      />,
+      right: <VotingFooterRight
+        votingClosed={closed}
+        notAllowed={notAllowed}
+        userVote={userVote}
+        readOnlyToolTip={readOnlyToolTip}
+        buttons={[
+          {icon: <ThumbUpIcon className="h-5 w-5"/>, onClick: onClickThumbUp, disabled: start - height > 0},
+          {icon: <ThumbDownIcon className="h-5 w-5"/>, onClick: onClickThumbDown, disabled: start - height > 0},
+        ]}/>,
     }}
   />
 }
