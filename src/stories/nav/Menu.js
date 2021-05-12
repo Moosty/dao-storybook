@@ -94,7 +94,7 @@ export const NavBarMenu = ({logo, navigation, userNavigation, invitations, user,
                         ))}
                         {invitations?.map(invite => (
                           <div key={invite.id} className="rounded-default">
-                            <DaoInvitation dao={invite.dao} id={invite.id}/>
+                            <DaoInvitation onClick={invite.onClick} dao={invite.dao} id={invite.id}/>
                           </div>))}
                       </Menu.Items>
                     </Transition>
