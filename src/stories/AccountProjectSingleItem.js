@@ -2,10 +2,11 @@ import React from "react";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";
-import {CashIcon, ThumbDownIcon, ThumbUpIcon, UsersIcon} from "@heroicons/react/solid";
-import {crowdFundStates} from "../shared/global.crowdfund";
+import {CashIcon, UsersIcon} from "@heroicons/react/solid";
+import {crowdFundStates, userRoles} from "../shared/global.crowdfund";
 import {Button} from "./Button";
 import {ButtonGroup} from "./ButtonGroup";
+import PropTypes from "prop-types";
 
 export const AccountProjectSingleItem = ({
                                            image,
@@ -16,7 +17,9 @@ export const AccountProjectSingleItem = ({
                                            totalRaised,
                                            state,
                                            backers,
+                                           userRole,
                                          }) => {
+
   return (
     <div>
       <li key={id}>
@@ -44,7 +47,11 @@ export const AccountProjectSingleItem = ({
             </div>
             <div className=" items-center w-2/5 ">
             </div>
+
             <div className=" items-center w-1/5 ">
+              {(userRole === userRoles.GUEST && state === crowdFundStates.ACTIVE.VOTING) &&
+              <Button label="Vote"/>
+              }
               {state === crowdFundStates.ACTIVE.VOTING &&
               <Button label="Vote"/>
               }
@@ -55,11 +62,20 @@ export const AccountProjectSingleItem = ({
               <Button label="Register Start Date"/>
               }
               {state === crowdFundStates.ACTIVE.ACTIVE &&
-              < ButtonGroup  buttons={[
-              {icon: <Typography type="body" Element="span" className="text-themeButtonTextPrimary"> Cancel </Typography>},
-              {icon: <Typography type="body" Element="span" className="text-themeButtonTextPrimary"> Optie </Typography>},
-              {icon: <Typography type="body" Element="span" className="text-themeButtonTextPrimary"> Claim </Typography>},
-                ]}/>
+              < ButtonGroup buttons={[
+                {
+                  icon: <Typography type="body" Element="span"
+                                    className="text-themeButtonTextPrimary"> Cancel </Typography>
+                },
+                {
+                  icon: <Typography type="body" Element="span"
+                                    className="text-themeButtonTextPrimary"> Optie </Typography>
+                },
+                {
+                  icon: <Typography type="body" Element="span"
+                                    className="text-themeButtonTextPrimary"> Claim </Typography>
+                },
+              ]}/>
               }
             </div>
           </div>
@@ -68,3 +84,12 @@ export const AccountProjectSingleItem = ({
     </div>
   )
 }
+
+
+AccountProjectSingleItem.propTypes = {
+  userRole: PropTypes.oneOf(userRoles),
+};
+
+AccountProjectSingleItem.defaultProps = {
+  userRole: userRoles.GUEST,
+};

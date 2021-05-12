@@ -59,7 +59,7 @@ export const CrowdCardContent = ({
 
 
         <CrowdCardInfo title={title} category={category} projectUrl={projectUrl}/>
-        {modal === false &&
+        {!modal &&
         <div>
           <ProgressDetails classname="flex-end justify-items-end" durationProject={durationProject} state={state}
                            totalRaised={totalRaised}/>

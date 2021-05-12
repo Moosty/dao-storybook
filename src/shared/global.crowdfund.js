@@ -40,3 +40,9 @@ export const projectImages = [
   "https://images.pexels.com/photos/3818835/pexels-photo-3818835.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   "https://images.pexels.com/photos/4021939/pexels-photo-4021939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 ]
+
+export const userRoles = {
+  GUEST: "guest",
+  OWNER: "owner",
+  BACKER: "backer",
+}
