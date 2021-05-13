@@ -4,7 +4,7 @@ import {Typography} from "./Typography";
 import {appWidth} from "../shared/styles";
 import {Button} from "./Button";
 
-export const Hero = ({backgroundImage, gradient, title, subTitle}) => {
+export const Hero = ({backgroundImage, gradient, title, subTitle,buttonLabel1,buttonLabel2}) => {
   return (
       // <div className={[appWidth].join(" ")}>
     <div className="relative bg-themeNavBarBg">
@@ -25,13 +25,16 @@ export const Hero = ({backgroundImage, gradient, title, subTitle}) => {
         <Typography className="text-themeButtonTextPrimary" type="h1" Element="h1">{title}</Typography>
         <Typography type='bodyStrong' Element="span">{subTitle}</Typography>
         </div>
-        <div className="flex flex-row space-x-4 mt-6">
+        {buttonLabel1 &&
+        < div className="flex flex-row space-x-4 mt-6">
+
           <Button
-            label="Explore" />
+          label={buttonLabel1} />
           <Button
-            secondary
-            label="Create Crowdfund!"/>
-        </div>
+          secondary
+          label={buttonLabel1}/>
+          </div>
+        }
       </Container>
     </div>
   )

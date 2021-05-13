@@ -1,5 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {BreadCrumbs, Button, Container, FilterDao, FilterWrapper, Footer, NavBar, Typography} from "../../stories";
+import {
+  BreadCrumbs,
+  Button,
+  Container,
+  FilterDao,
+  FilterWrapper,
+  Footer,
+  Hero,
+  NavBar,
+  Typography
+} from "../../stories";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
 import {appWidth} from "../../shared/styles";
 import {projects} from "../../fixtures/crowdfund/projects";
@@ -17,6 +27,9 @@ export const MyProjects = () => {
   return (
     <>
       <NavBar {...navBarArgs} />
+      <Hero
+        title="My Account"
+        subTitle="An overview of your projects and/or investments."/>
       <Container className={[appWidth, "py-6"].join(" ")}>
         <FilterWrapper>
           <BreadCrumbs/>
@@ -25,12 +38,15 @@ export const MyProjects = () => {
         <Button label="Toggle View" onClick={() => setVisible(!visible)}/>
       </Container>
       {visible &&
-      <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-10"].join(" ")}>
+        <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-col", "my-10"].join(" ")}>
+
         <Typography type="h1" Element="h1">My Crowdfunds</Typography>
+        <Container className={[appWidth,"mx-0", "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-10"].join(" ")}>
         {projects && projects.filter(project => project.userAddress === user).map((project) =>
           <CrowdCardContainer {...project} />
         )}
-      </Container>}
+      </Container>
+        </Container>}
       {!visible && <Container className={[appWidth, "my-20"].join(" ")}>
         <AccountProjectList>
           {projects && projects.filter(project => project.userAddress === user).map((project) =>
