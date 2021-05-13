@@ -193,7 +193,6 @@ export const ResultTransactions = () => {
       open={open}
       onClose={onClose}
       cancelLabel={"Close"}
-
     >
       <ResultTransactionModal
         transactionId={"2422e2eceec75d2e2e6c641c326c1cad6fe616f0e7ba2d9c8cf35e720014e4c6"}
@@ -213,12 +212,12 @@ export const CrowdfundModalVote = () => {
   return <div className="p-10">
     <Button onClick={() => setOpen(true)} label={"Vote"}/>
     <Modal
-
       open={open}
       onClose={onClose}
-      iconCancel
     >
-      <BackProjectModal  vote  />
+      <BackProjectModal
+        iconCancel
+        vote/>
     </Modal>
   </div>
 }
@@ -234,9 +233,8 @@ export const CrowdfundModalClaim = () => {
     <Modal
       open={open}
       onClose={onClose}
-      iconCancel
     >
-      <BackProjectModal  claim/>
+      <BackProjectModal iconCancel claim/>
     </Modal>
   </div>
 }
@@ -251,10 +249,9 @@ export const CrowdfundModalCancel = () => {
     <Modal
       open={open}
       onClose={onClose}
-      cancelLabel="cancel"
-      iconCancel
     >
-      <BackProjectModal  cancel />
+      <BackProjectModal cancel cancelLabel="cancel"
+      />
     </Modal>
   </div>
 }

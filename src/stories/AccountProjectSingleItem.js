@@ -25,6 +25,9 @@ export const AccountProjectSingleItem = ({
                                            onClickRegister,
                                            onClickVote,
                                            claim,
+                                           onClickCancel,
+                                           onClickOption,
+                                           onClickClaim,
                                          }) => {
 
 
@@ -61,24 +64,27 @@ export const AccountProjectSingleItem = ({
               <Button onClick={onClickVote} label="Vote"/>
               }
               {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.CLAIMING &&
-              <Button label="Claim"/>
+              <Button label="Claim" onClick={onClickClaim}/>
               }
               {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.PENDING &&
               <Button label="Register Start Date" onClick={onClickRegister} claim={claim}/>
               }
               {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.ACTIVE &&
-              < ButtonGroup buttons={[
+              <ButtonGroup buttons={[
                 {
                   icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"> Cancel </Typography>
+                                    className="text-themeButtonTextPrimary"
+                  > Cancel </Typography>
                 },
                 {
                   icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"> Optie </Typography>
+                                    className="text-themeButtonTextPrimary" onClick={onClickOption}> Optie </Typography>
                 },
                 {
                   icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"> Claim </Typography>
+                                    className="text-themeButtonTextPrimary"
+                                    onClick={onClickClaim}
+                  > Claim </Typography>
                 },
               ]}/>
               }

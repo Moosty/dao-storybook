@@ -64,11 +64,10 @@ const Template = (args, vote, claim, onClickRegister, ...props) => {
         open={open}
         onClose={onClose}
       >
-        {onClickRegister && <BackProjectModal registerStartDate/>}
+        <BackProjectModal cancel cancelLabel="cancel" />
         {/*<BackProjectModal claim/>*/}
         {/*<BackProjectModal vote/>*/}
         {/*<BackProjectModal cancel/>*/}
-
       </Modal>
       <AccountProjectList>
         <AccountProjectSingleItem {...args}
@@ -120,12 +119,12 @@ Active.args = {
 
 }
 
-export const ActivePending = Template.bind({})
-ActivePending.args = {
-  ...Preview.args,
-  state: "active.pending",
-  image: 5,
-}
+// export const ActivePending = Template.bind({})
+// ActivePending.args = {
+//   ...Preview.args,
+//   state: "active.pending",
+//   image: 5,
+// }
 
 export const ActiveVoting = Template.bind({})
 ActiveVoting.args = {
@@ -153,10 +152,137 @@ Ended.args = {
   state: "active.ended",
 }
 
+export const Canceled = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
 
-export const Canceled = Template.bind({})
-Canceled.args = {
-  ...Preview.args,
-  state: "active.canceled",
+  return (<div>
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <BackProjectModal registerStartDate iconCancel/>
+      </Modal>
+      <AccountProjectList>
+        <AccountProjectSingleItem title="Project JurreMach" owner="lsk13212341dfs23567246sdg"
+                                  state={crowdFundStates.ACTIVE.PENDING}
+                                  targetAmount="1000"
+                                  totalRaised="500"
+                                  userRole={userRoles.OWNER}
+                                  onClickRegister={() => setOpen(true)}
+
+        />
+      </AccountProjectList>
+    </div>
+  )
+}
+
+
+export const OwnerActivePending = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+
+  return (<div>
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <BackProjectModal registerStartDate iconCancel onClose={onClose}/>
+      </Modal>
+      <AccountProjectList>
+        <AccountProjectSingleItem title="Project JurreMach" owner="lsk13212341dfs23567246sdg"
+                                  state={crowdFundStates.ACTIVE.PENDING}
+                                  targetAmount="1000"
+                                  totalRaised="500"
+                                  userRole={userRoles.OWNER}
+                                  onClickRegister={() => setOpen(true)}
+        />
+      </AccountProjectList>
+    </div>
+  )
+}
+
+
+export const OwnerActiveActive = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+
+  return (<div>
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <BackProjectModal cancel iconCancel onClose={onClose}/>
+      </Modal>
+      <AccountProjectList>
+        <AccountProjectSingleItem title="Project JurreMach" owner="lsk13212341dfs23567246sdg"
+                                  state={crowdFundStates.ACTIVE.ACTIVE}
+                                  targetAmount="1000"
+                                  totalRaised="500"
+                                  userRole={userRoles.OWNER}
+                                  onClickCancel={() => setOpen(true)}
+        />
+      </AccountProjectList>
+    </div>
+  )
+}
+
+
+export const BackerActiveClaiming = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+
+  return (<div>
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <BackProjectModal claim iconCancel onClose={onClose}/>
+      </Modal>
+      <AccountProjectList>
+        <AccountProjectSingleItem title="Project JurreMach" owner="lsk13212341dfs23567246sdg"
+                                  state={crowdFundStates.ACTIVE.CLAIMING}
+                                  targetAmount="1000"
+                                  totalRaised="500"
+                                  userRole={userRoles.BACKER}
+                                  onClickClaim={() => setOpen(true)}
+        />
+      </AccountProjectList>
+    </div>
+  )
+}
+
+export const BackerActiveVoting = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+
+  return (<div>
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <BackProjectModal vote onClose={onClose} />
+      </Modal>
+      <AccountProjectList>
+        <AccountProjectSingleItem title="Project JurreMach" owner="lsk13212341dfs23567246sdg"
+                                  state={crowdFundStates.ACTIVE.VOTING}
+                                  targetAmount="1000"
+                                  totalRaised="500"
+                                  userRole={userRoles.BACKER}
+                                  onClickVote={() => setOpen(true)}
+        />
+      </AccountProjectList>
+    </div>
+  )
 }
 
