@@ -53,23 +53,28 @@ Playground.args = {
   userRole: userRoles.BACKER,
 }
 
-const Template = (args) => {
+const Template = (args, vote, claim, onClickRegister, ...props) => {
   const [open, setOpen] = useState(false)
   const onClose = () => {
     setOpen(false)
   }
 
   return (<div>
-      <Button onClick={() => setOpen(true)} label={"Vote"}/>
       <Modal
         open={open}
         onClose={onClose}
       >
-        <BackProjectModal vote/>
+        {onClickRegister && <BackProjectModal registerStartDate/>}
+        {/*<BackProjectModal claim/>*/}
+        {/*<BackProjectModal vote/>*/}
+        {/*<BackProjectModal cancel/>*/}
+
       </Modal>
       <AccountProjectList>
         <AccountProjectSingleItem {...args}
-                                  onClickRegister={() => setOpen(true)}/>
+                                  onClickRegister={() => setOpen(true)}
+                                  onClickVote={() => setOpen(true)}
+        />
       </AccountProjectList>
     </div>
   )

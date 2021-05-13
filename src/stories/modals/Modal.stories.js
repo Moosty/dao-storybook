@@ -155,10 +155,7 @@ export const ConfirmTransactions = () => {
     <Modal
       open={open}
       onClose={onClose}
-      ctaButton={{
-        label: "Confirm transaction",
-        onClick: () => console.log("confirm"),
-      }}
+
     >
       <ConfirmTransactionModal
         address={"lsk123413466543"}

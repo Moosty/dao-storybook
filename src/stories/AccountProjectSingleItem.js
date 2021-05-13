@@ -23,6 +23,8 @@ export const AccountProjectSingleItem = ({
                                            onClick,
                                            account,
                                            onClickRegister,
+                                           onClickVote,
+                                           claim,
                                          }) => {
 
 
@@ -56,13 +58,13 @@ export const AccountProjectSingleItem = ({
             {account && <div>{account.crowd.funded.find(project => project.crowdfund === id)?.amount}</div>}
             <div className=" items-center w-1/5 ">
               {(userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.VOTING) &&
-              <Button onClick={onClick} label="Vote"/>
+              <Button onClick={onClickVote} label="Vote"/>
               }
               {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.CLAIMING &&
               <Button label="Claim"/>
               }
-              {state === crowdFundStates.ACTIVE.PENDING &&
-              <Button label="Register Start Date" onClick={onClickRegister}/>
+              {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.PENDING &&
+              <Button label="Register Start Date" onClick={onClickRegister} claim={claim}/>
               }
               {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.ACTIVE &&
               < ButtonGroup buttons={[
