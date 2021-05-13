@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import {AccountProjectSingleItem} from "./AccountProjectSingleItem";
 import {categories, CROWDFUNDSTATELIST, crowdFundStates, projectImages, userRoles} from "../shared/global.crowdfund";
 import {AccountProjectList} from "./AccountProjectList";
+import {Button} from "./Button";
+import {Modal} from "./modals/Modal";
+import {BackProjectModal} from "./modals/crowd/BackProjectModal";
 
 export default {
   title: "Cards/AccountProjectSingleItem",
@@ -50,7 +53,27 @@ Playground.args = {
   userRole: userRoles.BACKER,
 }
 
-const Template = (args) => <AccountProjectList><AccountProjectSingleItem {...args} /></AccountProjectList>
+const Template = (args) => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+
+  return (<div>
+      <Button onClick={() => setOpen(true)} label={"Vote"}/>
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <BackProjectModal vote/>
+      </Modal>
+      <AccountProjectList>
+        <AccountProjectSingleItem {...args}
+                                  onClickRegister={() => setOpen(true)}/>
+      </AccountProjectList>
+    </div>
+  )
+}
 
 export const Preview = Template.bind({})
 Preview.args = {
@@ -131,3 +154,4 @@ Canceled.args = {
   ...Preview.args,
   state: "active.canceled",
 }
+

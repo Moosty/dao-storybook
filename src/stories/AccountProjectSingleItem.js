@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";
@@ -7,6 +7,8 @@ import {crowdFundStates, userRoles} from "../shared/global.crowdfund";
 import {Button} from "./Button";
 import {ButtonGroup} from "./ButtonGroup";
 import PropTypes from "prop-types";
+import {Modal} from "./modals/Modal";
+import {BackProjectModal} from "./modals/crowd/BackProjectModal";
 
 export const AccountProjectSingleItem = ({
                                            image,
@@ -18,12 +20,16 @@ export const AccountProjectSingleItem = ({
                                            state,
                                            backers,
                                            userRole,
+                                           onClick,
+                                           account,
+                                           onClickRegister,
                                          }) => {
+
 
   return (
     <div>
       <li key={id}>
-        <a href="#" className="block hover:bg-gray-50">
+        <a className="block hover:bg-gray-50">
           <div className="flex flex-row  items-center py-2">
             <div className="flex flex-row items-center w-1/5">
               <CrowdCardImage className="w-16 h-16 mr-2 rounded-default" image={image} gradient={gradient}/>
@@ -47,21 +53,18 @@ export const AccountProjectSingleItem = ({
             </div>
             <div className=" items-center w-2/5 ">
             </div>
-
+            {account && <div>{account.crowd.funded.find(project => project.crowdfund === id)?.amount}</div>}
             <div className=" items-center w-1/5 ">
-              {(userRole === userRoles.GUEST && state === crowdFundStates.ACTIVE.VOTING) &&
-              <Button label="Vote"/>
+              {(userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.VOTING) &&
+              <Button onClick={onClick} label="Vote"/>
               }
-              {state === crowdFundStates.ACTIVE.VOTING &&
-              <Button label="Vote"/>
-              }
-              {state === crowdFundStates.ACTIVE.CLAIMING &&
+              {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.CLAIMING &&
               <Button label="Claim"/>
               }
               {state === crowdFundStates.ACTIVE.PENDING &&
-              <Button label="Register Start Date"/>
+              <Button label="Register Start Date" onClick={onClickRegister}/>
               }
-              {state === crowdFundStates.ACTIVE.ACTIVE &&
+              {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.ACTIVE &&
               < ButtonGroup buttons={[
                 {
                   icon: <Typography type="body" Element="span"
@@ -88,8 +91,10 @@ export const AccountProjectSingleItem = ({
 
 AccountProjectSingleItem.propTypes = {
   userRole: PropTypes.oneOf(userRoles),
+  onClick: PropTypes.func,
 };
 
 AccountProjectSingleItem.defaultProps = {
   userRole: userRoles.GUEST,
+  onClick: () => null,
 };

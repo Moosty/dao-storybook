@@ -39,6 +39,7 @@ export const CrowdCardContainer = ({
 
                                    }) => {
   return (<Card
+
       header={{children: <CrowdCardHeader username={owner} userAddress={owner} state={state}/>}}
       content={{
         children: <CrowdCardContent {...{

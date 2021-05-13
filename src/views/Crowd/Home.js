@@ -23,7 +23,10 @@ export const Home = ({}) => {
       <NavBar {...navBarArgs} />
       <Hero
         title="Lisk Crowd | A Regulated Crowdfund Platform"
-        subTitle="Regulate your crowdfund journey with Lisk Crowd!"/>
+        subTitle="Regulate your crowdfund journey with Lisk Crowd!"
+        buttonLabel2="Start Crowdfund!"
+        buttonLabel1="Explore"
+      />
       <Container className={[appWidth, "py-6"].join(" ")}>
         <FilterWrapper>
           <BreadCrumbs/>
