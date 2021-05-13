@@ -13,7 +13,7 @@ export const DaoInvitation = ({dao, id, onClick}) => {
         />
         <Typography className="w-48" type="body" Element="span">{dao}</Typography>
       </div>
-      <Button onClick={() => onClick} label="Accept invite" size="small" secondary/>
+      <Button onClick={onClick} label="Accept invite" size="small" secondary/>
     </div>
   )
 }
