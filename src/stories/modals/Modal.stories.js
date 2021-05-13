@@ -243,6 +243,7 @@ export const CrowdfundModalClaim = () => {
     </Modal>
   </div>
 }
+
 export const CrowdfundModalCancel = () => {
   const [open, setOpen] = useState(false)
   const onClose = () => {
