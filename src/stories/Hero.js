@@ -32,7 +32,7 @@ export const Hero = ({backgroundImage, gradient, title, subTitle,buttonLabel1,bu
           label={buttonLabel1} />
           <Button
           secondary
-          label={buttonLabel1}/>
+          label={buttonLabel2}/>
           </div>
         }
       </Container>
