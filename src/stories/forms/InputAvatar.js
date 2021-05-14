@@ -51,7 +51,7 @@ export const InputAvatar = ({
                 src={selectedItem?.icon}
                 className="flex-shrink-0 h-6 w-6 rounded-full"
               />}
-              <span className="ml-3 block whitespace-nowrap">{selectedItem?.name}</span>
+              <span className="ml-3 block whitespace-nowrap mr-8">{selectedItem?.name}</span>
             </span>
             <span
               className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
