@@ -31,7 +31,7 @@ export const AccountProjectSingleItem = ({
       <li key={id}>
         <a className="block hover:bg-gray-50">
           <div className="flex flex-row  items-center py-2">
-            <div className="flex flex-row items-center w-1/5">
+            <div className="flex flex-row items-center w-1/2">
               <CrowdCardImage className="w-16 h-16 mr-2 rounded-default" image={image} gradient={gradient}/>
               <div className="flex flex-col w-full mx-4">
                 <Typography type="bodyStrong" Element="span">{title}</Typography>
@@ -39,7 +39,7 @@ export const AccountProjectSingleItem = ({
                              state={state}/>
               </div>
             </div>
-            <div className=" items-center w-1/5 ">
+            <div className=" items-center ">
               <div className="flex flex-col item-center">
                 <p className="flex  text-sm text-gray-500 mr-2">
                   <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true"/>
