@@ -63,12 +63,12 @@ export const CrowdCardContent = ({
         <div>
           <ProgressDetails classname="flex-end justify-items-end" durationProject={durationProject} state={state}
                            totalRaised={totalRaised}/>
-          {(state === crowdFundStates.OPEN || state === crowdFundStates.PREVIEW) && <>
+          {(state === crowdFundStates.PREVIEW || state === crowdFundStates.OPEN ) && <>
 
             <ProgressBar classname="flex-end" target={targetAmount} current={totalRaised} unit={unit} state={state}/>
           </>
           }
-          {(state !== crowdFundStates.OPEN && state !== crowdFundStates.PREVIEW) && <>
+          {(state !== crowdFundStates.PREVIEW && state !== crowdFundStates.OPEN) && <>
             <Typography type="bodyStrong" Element="span">Project Time Progress</Typography>
             <ProgressBar classname="flex-end" unit="Days" target={durationProject} current={totalRaised} state={state}/>
 

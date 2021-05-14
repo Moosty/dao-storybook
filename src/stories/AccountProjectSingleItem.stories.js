@@ -10,6 +10,10 @@ export default {
   title: "Cards/AccountProjectSingleItem",
   component: AccountProjectSingleItem,
   argTypes: {
+    startProject: { control: {type: "number"}
+    },
+    lastHeight: { control: {type: "number"}
+    },
     userRole: {
       control: {type: "select", labels: {0: userRoles.OWNER}},
       options: userRoles,
@@ -290,3 +294,31 @@ export const BackerActiveVoting = () => {
   )
 }
 
+
+export const OwnerClaim = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+
+  return (<div>
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <BackProjectModal claim onClose={onClose} />
+      </Modal>
+      <AccountProjectList>
+        <AccountProjectSingleItem title="Project JurreMach" owner="lsk13212341dfs23567246sdg"
+                                  state={crowdFundStates.ACTIVE.VOTING}
+                                  targetAmount="1000"
+                                  totalRaised="500"
+                                  userRole={userRoles.OWNER}
+                                  onClickClaimOwner={() => setOpen(true)}
+                                  ownerClaimButton
+                                  onClickCancel={() => setOpen(true)}
+        />
+      </AccountProjectList>
+    </div>
+  )
+}
