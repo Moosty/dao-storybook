@@ -8,7 +8,7 @@ import {CrowdCardContent} from "../../cards/CrowdCardContent";
 import {Button} from "../../index";
 import {ModalFooter} from "../ModalFooter";
 
-export const BackProjectModal = ({vote, claim, cancel, registerStartDate, ctaButton, iconCancel, cancelLabel, onClose}) => {
+export const BackProjectModal = ({vote, claim, cancel, registerStartDate, ctaButton, iconCancel, cancelLabel, onClose, voted}) => {
   const cancelButtonRef = useRef();
 
   return (
@@ -54,6 +54,11 @@ export const BackProjectModal = ({vote, claim, cancel, registerStartDate, ctaBut
               {icon: <ThumbDownIcon className="h-5 w-5"/>, onClick: () => alert('What, why??!?')},
             ]}
           />
+          }
+          {voted &&
+          <Typography  className="text-center" type="h2" Element="h2">
+            {"Thank you for voting!"}
+          </Typography>
           }
         </div>
       </div>

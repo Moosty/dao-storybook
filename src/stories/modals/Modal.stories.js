@@ -224,6 +224,26 @@ export const CrowdfundModalVote = () => {
 }
 
 
+
+export const CrowdfundModalVoted = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Voted"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal
+        iconCancel
+        voted/>
+    </Modal>
+  </div>
+}
+
+
 export const CrowdfundModalClaim = () => {
   const [open, setOpen] = useState(false)
   const onClose = () => {
