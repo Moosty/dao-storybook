@@ -2,6 +2,7 @@ import React from "react";
 import {Typography} from "../../Typography";
 import {Container} from "../../Container";
 import {InformationCircleIcon} from "@heroicons/react/solid";
+import {ModalFooter} from "../ModalFooter";
 
 export const ConfirmTransactionModal = ({address, transaction, name}) => {
 
