@@ -42,7 +42,7 @@ export const MobileNavBar = ({navigation, user, invitations, userNavigation}) =>
         ))}
         {invitations?.map(invite => (
         <div key={invite.id} className="rounded-default">
-          <DaoInvitation dao={invite.dao} id={invite.id}/>
+          <DaoInvitation dao={invite.dao} id={invite.id} onClick={invite.onClick}/>
         </div>))}
       </div>
     </div>
