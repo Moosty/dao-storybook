@@ -4,9 +4,8 @@ import {Typography} from "./Typography";
 import {appWidth} from "../shared/styles";
 import {Button} from "./Button";
 
-export const Hero = ({backgroundImage, gradient, title, subTitle,buttonLabel1,buttonLabel2}) => {
+export const Hero = ({backgroundImage, gradient, title, subTitle,buttonLabel1,buttonLabel2, onClickButton1, onClickButton2}) => {
   return (
-      // <div className={[appWidth].join(" ")}>
     <div className="relative bg-themeNavBarBg">
       <div className="absolute inset-0">
         {backgroundImage &&
@@ -26,13 +25,16 @@ export const Hero = ({backgroundImage, gradient, title, subTitle,buttonLabel1,bu
         <Typography type='bodyStrong' Element="span">{subTitle}</Typography>
         </div>
         {buttonLabel1 &&
-        < div className="flex flex-row space-x-4 mt-6">
-
+        <div className="flex flex-row space-x-4 mt-6">
           <Button
-          label={buttonLabel1} />
+          label={buttonLabel1}
+          onClick={onClickButton1}
+          />
           <Button
           secondary
-          label={buttonLabel2}/>
+          label={buttonLabel2}
+          onClick={onClickButton2}
+          />
           </div>
         }
       </Container>
