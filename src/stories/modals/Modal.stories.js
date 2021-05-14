@@ -217,7 +217,16 @@ export const CrowdfundModalVote = () => {
       onClose={onClose}
     >
       <BackProjectModal
+        title="Hollaaaa!!"
+        userAddress="lsk13212341dfs23567246sdgJM"
+        userName="Jurrems"
+        state={crowdFundStates.ACTIVE.VOTING}
         iconCancel
+        category={4}
+        image={4}
+        onClose={onClose}
+        onClickYesVote={() => alert('wahaa?')}
+        onClickNoVote={() => alert('whaaat???')}
         vote/>
     </Modal>
   </div>
@@ -225,7 +234,7 @@ export const CrowdfundModalVote = () => {
 
 
 
-export const CrowdfundModalVoted = () => {
+export const CrowdfundModalVoted = (props) => {
   const [open, setOpen] = useState(false)
   const onClose = () => {
     setOpen(false)
@@ -237,7 +246,16 @@ export const CrowdfundModalVoted = () => {
       onClose={onClose}
     >
       <BackProjectModal
+        {...props}
+        title="Hollaaaa!!"
+        userAddress="lsk13212341dfs23567246sdgJM"
+        userName="Jurrems"
+        state={crowdFundStates.ACTIVE.VOTING}
         iconCancel
+        category={4}
+        onClose={onClose}
+        image={4}
+        votedText="Thanks for voting"
         voted/>
     </Modal>
   </div>
@@ -255,7 +273,44 @@ export const CrowdfundModalClaim = () => {
       open={open}
       onClose={onClose}
     >
-      <BackProjectModal iconCancel claim/>
+      <BackProjectModal
+        title="Hollaaaa!!"
+        userAddress="lsk13212341dfs23567246sdgJM"
+        userName="Jurrems"
+        state={crowdFundStates.ACTIVE.VOTING}
+        iconCancel
+        category={4}
+        onClose={onClose}
+        image={4}
+        claim
+        onClickClaim={()=> alert('claim it, you M*#$%^#$%^#$*!')}
+      />
+    </Modal>
+  </div>
+}
+
+export const CrowdfundModalClaimed = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Claimed"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal
+        title="Hollaaaa!!"
+        userAddress="lsk13212341dfs23567246sdgJM"
+        userName="Jurrems"
+        state={crowdFundStates.ACTIVE.VOTING}
+        iconCancel
+        category={4}
+        onClose={onClose}
+        image={4}
+        claimed
+      />
     </Modal>
   </div>
 }
@@ -276,35 +331,39 @@ export const CrowdfundModalCancel = () => {
     </Modal>
   </div>
 }
-//
-// export const Switch = () => {
-//   const [open, setOpen] = useState(false)
-//   const onClose = () => {
-//     setOpen(false)
-//   }
-//
-//   const getModal = () => {
-//     switch (type) {
-//       case 'TypeA':
-//         return <div>Modal A</div>;
-//       case 'TypeB':
-//         return <div>Modal B</div>;
-//       case 'swapTicketInfo':
-//         return <BackProjectModal />;
-//       case 'transactionModal':
-//         return <BackProjectModal  />
-//       default:
-//         return <div>Modal Component not found</div>;
-//     }
-//   }
-//
-//   return <div>
-//     <Button onClick={() => getModal('TypeA')} label={"Open"}/>
-//     <Modal
-//       open={open}
-//       onClose={onClose}
-//     >
-//       {getModal()}
-//     </Modal>
-//   </div>
-// }
+
+export const Switch = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  const [type, setType] = useState();
+
+  const getModal = () => {
+    switch (type) {
+      case 'TypeA':
+        return <div>Modal A</div>;
+      case 'TypeB':
+        return <div>Modal B</div>;
+      case 'swapTicketInfo':
+        return <BackProjectModal />;
+      case 'transactionModal':
+        return <BackProjectModal  />
+      default:
+        return <div>Modal Component not found</div>;
+    }
+  }
+
+  return <div>
+    <Button onClick={() => {
+      setType('swapTicketInfo')
+      setOpen(true)
+    }} label={"Open"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      {getModal()}
+    </Modal>
+  </div>
+}

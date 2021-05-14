@@ -8,30 +8,56 @@ import {CrowdCardContent} from "../../cards/CrowdCardContent";
 import {Button} from "../../index";
 import {ModalFooter} from "../ModalFooter";
 
-export const BackProjectModal = ({vote, claim, cancel, registerStartDate, ctaButton, iconCancel, cancelLabel, onClose, voted}) => {
+export const BackProjectModal = ({
+                                   title,
+                                   onClickClaim,
+                                   claimed,
+                                   votedText,
+                                   onClickYesVote,
+                                   onClickNoVote,
+                                   category,
+                                   image,
+                                   userName,
+                                   userAddress,
+                                   state,
+                                   projectUrl,
+                                   vote,
+                                   claim,
+                                   cancel,
+                                   registerStartDate,
+                                   ctaButton,
+                                   iconCancel,
+                                   cancelLabel,
+                                   onClose,
+                                   voted,
+                                   targetAmount,
+                                 }) => {
   const cancelButtonRef = useRef();
 
   return (
     <div className="flex flex-col">
       <CrowdCardHeader
-        owner="lsk13212341dfs23567246sdg"
-        state={crowdFundStates.ACTIVE.VOTING}
+        userAddress={userAddress || "TEST-lsk13212341dfs23567246sdg"}
+        userName={userName || "TEST-Raphael"}
+        state={state || crowdFundStates.ACTIVE.VOTING}
       />
       <CrowdCardContent
         modal
-        title="Project CoinmarketC"
-        owner="lsk13212341dfs23567246sdg"
-        targetAmount="10000"
-        projectUrl="https://moosty.com/"
-        state={crowdFundStates.ACTIVE.VOTING}
-        image={3}
-        category={2}
+        title={title || "TEST-Project CoinmarketC"}
+        owner={userAddress || "TEST-lsk13212341dfs23567246sdg"}
+        targetAmount={targetAmount || "1000"}
+        projectUrl={projectUrl || "https://moosty.com/"}
+        state={state || crowdFundStates.ACTIVE.VOTING}
+        image={image}
+        category={category}
       />
       <div className="mx-auto bg-surfaceBg w-full py-4 px-4 ">
-        <Typography  className="text-center" type="h2" Element="h2">
+        <Typography className="text-center" type="h2" Element="h2">
           {vote && "Make a vote"}
           {claim && "Claim your funding"}
           {cancel && "Cancel this project"}
+          {claimed && "Already Claimed!"}
+
         </Typography>
         <Typography className="text-center mb-4" type="bodyStrong" Element="p">
           {vote && "Decide if the project deserves the next round of funding."}
@@ -40,29 +66,30 @@ export const BackProjectModal = ({vote, claim, cancel, registerStartDate, ctaBut
         </Typography>
         <div className="flex justify-around my-4 mx-4">
           {claim &&
-            <Button label="Claim" />
+          <Button label="Claim" onClick={onClickClaim}/>
           }
           {cancel &&
-          <Button label="End the project" />}
+          <Button label="End the project"/>}
 
           {registerStartDate &&
-          <Button label="Register a start date" />}
+          <Button label="Register a start date"/>}
           {vote &&
           <ButtonGroup
             buttons={[
-              {icon: <ThumbUpIcon className="h-5 w-5"/>, onClick: () => alert('yeah!!')},
-              {icon: <ThumbDownIcon className="h-5 w-5"/>, onClick: () => alert('What, why??!?')},
+              {icon: <ThumbUpIcon className="h-5 w-5"/>, onClick: onClickYesVote},
+              {icon: <ThumbDownIcon className="h-5 w-5"/>, onClick: onClickNoVote},
             ]}
           />
           }
           {voted &&
-          <Typography  className="text-center" type="h2" Element="h2">
-            {"Thank you for voting!"}
+          <Typography className="text-center" type="h2" Element="h2">
+            {votedText}
           </Typography>
           }
         </div>
       </div>
-      <ModalFooter ctaButton={ctaButton} iconCancel={iconCancel} cancelLabel={cancelLabel} onClose={onClose} ref={cancelButtonRef}/>
+      <ModalFooter ctaButton={ctaButton} iconCancel={iconCancel} cancelLabel={cancelLabel} onClose={onClose}
+                   ref={cancelButtonRef}/>
     </div>
   )
 }

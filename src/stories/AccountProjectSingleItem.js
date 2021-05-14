@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
 import {ProgressBar} from "./ProgressBar";
-import {CashIcon, UsersIcon} from "@heroicons/react/solid";
+import {CashIcon, ThumbDownIcon, ThumbUpIcon, UsersIcon} from "@heroicons/react/solid";
 import {crowdFundStates, userRoles} from "../shared/global.crowdfund";
 import {Button} from "./Button";
 import {ButtonGroup} from "./ButtonGroup";
@@ -28,6 +28,7 @@ export const AccountProjectSingleItem = ({
                                            onClickCancel,
                                            onClickOption,
                                            onClickClaim,
+                                           ...props
                                          }) => {
 
 
@@ -36,6 +37,7 @@ export const AccountProjectSingleItem = ({
       <li key={id}>
         <a className="block hover:bg-gray-50">
           <div className="flex flex-row  items-center py-2">
+            {/*TODO crowdcardcontent dynamisch maken */}
             <div className="flex flex-row items-center w-1/2">
               <CrowdCardImage className="w-16 h-16 mr-2 rounded-default" image={image} gradient={gradient}/>
               <div className="flex flex-col w-full mx-4">
@@ -70,23 +72,27 @@ export const AccountProjectSingleItem = ({
               <Button label="Register Start Date" onClick={onClickRegister} claim={claim}/>
               }
               {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.ACTIVE &&
-              <ButtonGroup buttons={[
-                {
-                  icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"
-                  > Cancel </Typography>
-                },
-                {
-                  icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary" onClick={onClickOption}> Optie </Typography>
-                },
-                {
-                  icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"
-                                    onClick={onClickClaim}
-                  > Claim </Typography>
-                },
-              ]}/>
+              <ButtonGroup
+                buttons={[
+                  {
+                    icon: <Typography type="body" Element="span"
+                                      className="text-themeButtonTextPrimary"
+                    > Cancel </Typography>,
+                    onClick: onClickCancel
+                  },
+                  {
+                    icon: <Typography type="body" Element="span"
+                                      className="text-themeButtonTextPrimary"
+                    > Options </Typography>,
+                    onClick: onClickOption
+                  },
+                  {
+                    icon: <Typography type="body" Element="span"
+                                      className="text-themeButtonTextPrimary"
+                    > Claim </Typography>,
+                    onClick: onClickClaim
+                  },
+                ]}/>
               }
             </div>
           </div>

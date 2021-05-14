@@ -207,7 +207,7 @@ export const OwnerActivePending = () => {
 }
 
 
-export const OwnerActiveActive = () => {
+export const OwnerActiveActive = (...props) => {
   const [open, setOpen] = useState(false)
   const onClose = () => {
     setOpen(false)
@@ -227,6 +227,10 @@ export const OwnerActiveActive = () => {
                                   totalRaised="500"
                                   userRole={userRoles.OWNER}
                                   onClickCancel={() => setOpen(true)}
+                                  onClickOption={() => alert('opening options')}
+                                  onClickClaim={() => alert('opening claim')}
+                                  {...props}
+
         />
       </AccountProjectList>
     </div>
