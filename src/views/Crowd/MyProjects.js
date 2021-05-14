@@ -33,8 +33,6 @@ export const MyProjects = () => {
         subTitle="An overview of your projects and/or investments."
       />
       {/*<Button label="Toggle View" onClick={() => setVisible(!visible)}/>*/}
-
-
       <Container
         className={[appWidth, "flex", "flex-wrap", "flex-col", "my-10","py-4", "bg-surfaceBg", "rounded-default"].join(" ")}>
         <div className="flex flex-col my-4 divide-gray-200">
@@ -58,7 +56,6 @@ export const MyProjects = () => {
         )}
       </Container>}
       {!visible && <Container className={[appWidth, "my-20"].join(" ")}>
-      <Container className={[appWidth, "my-20"].join(" ")}>
         <AccountProjectList>
           {projects && projects.filter(project => project.userAddress === user).map((project) =>
             <AccountProjectSingleItem {...project} userRole={userRoles.OWNER}/>

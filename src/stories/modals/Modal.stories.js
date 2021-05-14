@@ -276,3 +276,35 @@ export const CrowdfundModalCancel = () => {
     </Modal>
   </div>
 }
+//
+// export const Switch = () => {
+//   const [open, setOpen] = useState(false)
+//   const onClose = () => {
+//     setOpen(false)
+//   }
+//
+//   const getModal = () => {
+//     switch (type) {
+//       case 'TypeA':
+//         return <div>Modal A</div>;
+//       case 'TypeB':
+//         return <div>Modal B</div>;
+//       case 'swapTicketInfo':
+//         return <BackProjectModal />;
+//       case 'transactionModal':
+//         return <BackProjectModal  />
+//       default:
+//         return <div>Modal Component not found</div>;
+//     }
+//   }
+//
+//   return <div>
+//     <Button onClick={() => getModal('TypeA')} label={"Open"}/>
+//     <Modal
+//       open={open}
+//       onClose={onClose}
+//     >
+//       {getModal()}
+//     </Modal>
+//   </div>
+// }
