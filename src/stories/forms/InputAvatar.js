@@ -20,19 +20,13 @@ export const InputAvatar = ({
                               dropDownShadow,
                               ...props
                             }) => {
-  const [selected, setSelected] = useState(selectedItem);
   const {formClass} = useForms({disabled, error, readOnly});
-  useEffect(() => {
-    if (selectedItem && selectedItem !== selected) {
-      setSelected(selectedItem)
-    }
-  }, [selectedItem])
+
   return (
     <Listbox
-      value={selected}
+      value={selectedItem}
       disabled={disabled || readOnly}
       onChange={(value) => {
-        setSelected(value);
         onChange && onChange(value)
       }}
       {...props}
@@ -53,11 +47,11 @@ export const InputAvatar = ({
             ].join(" ")}
           >
             <span className="flex items-center h-6">
-              {selected?.icon && <img
-                src={selected?.icon}
+              {selectedItem?.icon && <img
+                src={selectedItem?.icon}
                 className="flex-shrink-0 h-6 w-6 rounded-full"
               />}
-              <span className="ml-3 block truncate">{selected?.name}</span>
+              <span className="ml-3 block whitespace-nowrap mr-8">{selectedItem?.name}</span>
             </span>
             <span
               className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -102,6 +96,7 @@ export const InputAvatar = ({
                           className={[
                             selected ? 'font-semibold' : 'font-normal',
                             'ml-3 block',
+                            "whitespace-nowrap",
                           ].join(" ")}
                         >
                           {item?.name}

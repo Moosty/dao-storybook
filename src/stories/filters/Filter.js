@@ -5,7 +5,6 @@ import {IconButton} from "../IconButton";
 
 export const Filter = ({filters, defaultShow = true}) => {
   const [show, setShow] = useState(defaultShow);
- console.log(filters)
   return (
     <div className={[
       "flex flex-row space-x-2",

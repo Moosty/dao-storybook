@@ -20,8 +20,8 @@ export const MultipleChoice = ({
       <FormElement className="flex flex-row" key={option.id}>
         {type === "simple" && <SimpleInput
           placeholder={option.placeholder}
-          {...option}
           {...typeOptions}
+          {...option}
           onChange={(e) => {
             const updatedOptions = [...options];
             updatedOptions[i].value = e.target.value;
@@ -31,8 +31,8 @@ export const MultipleChoice = ({
         />}
         {type === "inputAvatar" && <InputAvatar
           placeholder={option.placeholder}
-          {...option}
           {...typeOptions}
+          {...option}
           onChange={(value) => {
             const updatedOptions = [...options];
             updatedOptions[i].value = value;
