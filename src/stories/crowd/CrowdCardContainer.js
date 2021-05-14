@@ -4,7 +4,6 @@ import {CrowdCardHeader} from "../cards/CrowdCardHeader";
 import {CrowdCardContent} from "../cards/CrowdCardContent";
 import {CrowdCardFooter} from "./CrowdCardFooter";
 import PropTypes from "prop-types";
-import {Button} from "../Button";
 import {CROWDFUNDSTATELIST, crowdFundStates} from "../../shared/global.crowdfund";
 
 export const CrowdCardContainer = ({

@@ -43,8 +43,8 @@ export const VotingContainer = ({
       minYesVotes <= no ? "no" : "inconclusive" :
     "inconclusive";
   const closed = end < height || totalVotes === eligibleVotes
-  const startSeconds = start - height > 0 ? (start - height) * 10 : 0
-  const endSeconds = end - height > 0 ? (end - height) * 10 : 0
+  const startSeconds = start - height > 0 ? (start - height) * 5 : 0
+  const endSeconds = end - height > 0 ? (end - height) * 5 : 0
   const timeLabel = !closed ? start > height ? `Voting starts ${moment().add(startSeconds, 'seconds').from()}` : `Voting closes ${moment().add(endSeconds, 'seconds').from()}` : null
   return <Card
     className={`w-card ${className}`}

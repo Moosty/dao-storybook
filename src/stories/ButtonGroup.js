@@ -18,9 +18,11 @@ export const ButtonGroup = ({buttons, className, onClick}) => (
 ButtonGroup.propTypes = {
   buttons: PropTypes.array,
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 ButtonGroup.defaultProps = {
   buttons: [],
   className: "",
+  onClick: () => null,
 };
