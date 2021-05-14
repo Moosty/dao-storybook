@@ -47,11 +47,11 @@ export const InputAvatar = ({
             ].join(" ")}
           >
             <span className="flex items-center h-6">
-              {selected?.icon && <img
+              {selectedItem?.icon && <img
                 src={selected?.icon}
                 className="flex-shrink-0 h-6 w-6 rounded-full"
               />}
-              <span className="ml-3 block">{selected?.name}</span>
+              <span className="ml-3 block">{selectedItem?.name}</span>
             </span>
             <span
               className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
