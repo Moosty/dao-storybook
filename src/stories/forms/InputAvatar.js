@@ -48,7 +48,7 @@ export const InputAvatar = ({
           >
             <span className="flex items-center h-6">
               {selectedItem?.icon && <img
-                src={selected?.icon}
+                src={selectedItem?.icon}
                 className="flex-shrink-0 h-6 w-6 rounded-full"
               />}
               <span className="ml-3 block">{selectedItem?.name}</span>
