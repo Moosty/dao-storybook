@@ -1,16 +1,15 @@
-import React from "react";
-import {CrowdCardContainer} from "../../crowd/CrowdCardContainer";
+import React, {useRef} from "react";
 import {crowdFundStates} from "../../../shared/global.crowdfund";
 import {Typography} from "../../Typography";
 import {ButtonGroup} from "../../ButtonGroup";
 import {ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
 import {CrowdCardHeader} from "../../cards/CrowdCardHeader";
-import {CrowdCardInfo} from "../../crowd/CrowdCardInfo";
 import {CrowdCardContent} from "../../cards/CrowdCardContent";
-import {CrowdCardImage} from "../../crowd/CrowdCardImage";
 import {Button} from "../../index";
+import {ModalFooter} from "../ModalFooter";
 
-export const BackProjectModal = ({title, modalState, vote, claim, cancel}) => {
+export const BackProjectModal = ({vote, claim, cancel, registerStartDate, ctaButton, iconCancel, cancelLabel, onClose, voted}) => {
+  const cancelButtonRef = useRef();
 
   return (
     <div className="flex flex-col">
@@ -46,6 +45,8 @@ export const BackProjectModal = ({title, modalState, vote, claim, cancel}) => {
           {cancel &&
           <Button label="End the project" />}
 
+          {registerStartDate &&
+          <Button label="Register a start date" />}
           {vote &&
           <ButtonGroup
             buttons={[
@@ -54,9 +55,14 @@ export const BackProjectModal = ({title, modalState, vote, claim, cancel}) => {
             ]}
           />
           }
+          {voted &&
+          <Typography  className="text-center" type="h2" Element="h2">
+            {"Thank you for voting!"}
+          </Typography>
+          }
         </div>
-
       </div>
+      <ModalFooter ctaButton={ctaButton} iconCancel={iconCancel} cancelLabel={cancelLabel} onClose={onClose} ref={cancelButtonRef}/>
     </div>
   )
 }

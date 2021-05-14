@@ -7,6 +7,7 @@ import {ResultTransactionModal, transactionStates} from "./templates/resultTrans
 import {CrowdCardContainer} from "../crowd/CrowdCardContainer";
 import {categories, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
 import {BackProjectModal} from "./crowd/BackProjectModal";
+import {ModalTemplate} from "./ModalTemplate";
 
 export default {
   title: "Modals/Modal",
@@ -42,11 +43,11 @@ export const SignIn = (args) => {
         label: "Sign in",
         disabled: !passphrase || passphrase?.map(p => p.length > 0).filter(Boolean).length < 12,
         onClick: () => console.log(passphrase),
-      }}>
+      }}><ModalTemplate>
       <LoginModal
         gotoSignup={() => null}
         changePassphrase={(e) => setPassphrase(e)}
-      />
+      /></ModalTemplate>
     </Modal>
   </div>
 }
@@ -105,7 +106,7 @@ export const SignUp = (args) => {
         label: "Sign Up",
         disabled: !!usernameError || !username,
         onClick: () => console.log("signup"),
-      }}>
+      }}><ModalTemplate>
       <CreateAccountModal
         gotoLogin={() => console.log("goto login")}
         accounts={accounts}
@@ -114,7 +115,7 @@ export const SignUp = (args) => {
         changeUsername={setUsername}
         username={username}
         usernameError={usernameError}
-      />
+      /></ModalTemplate>
     </Modal>
   </div>
 }
@@ -129,7 +130,7 @@ export const MemberDetails = () => {
     <Modal
       open={open}
       onClose={onClose}
-    >
+    ><ModalTemplate>
       <MemberModal
         noAccount
         address={"lsk123413466543"}
@@ -140,7 +141,7 @@ export const MemberDetails = () => {
           {name: "Dao 3"},
           {name: "Dao 4"},
         ]}
-      />
+      /></ModalTemplate>
     </Modal>
   </div>
 }
@@ -155,11 +156,8 @@ export const ConfirmTransactions = () => {
     <Modal
       open={open}
       onClose={onClose}
-      ctaButton={{
-        label: "Confirm transaction",
-        onClick: () => console.log("confirm"),
-      }}
-    >
+
+    ><ModalTemplate>
       <ConfirmTransactionModal
         address={"lsk123413466543"}
         name={"Tanya Fox"}
@@ -167,7 +165,7 @@ export const ConfirmTransactions = () => {
           fee: "0.0023 LSK",
           type: "dao:create",
         }}
-      />
+      /></ModalTemplate>
     </Modal>
   </div>
 }
@@ -196,13 +194,12 @@ export const ResultTransactions = () => {
       open={open}
       onClose={onClose}
       cancelLabel={"Close"}
-
-    >
+    ><ModalTemplate iconCancel  onClose={onClose}>
       <ResultTransactionModal
         transactionId={"2422e2eceec75d2e2e6c641c326c1cad6fe616f0e7ba2d9c8cf35e720014e4c6"}
         state={state}
         text={text}
-      />
+      /></ModalTemplate>
     </Modal>
   </div>
 }
@@ -216,12 +213,32 @@ export const CrowdfundModalVote = () => {
   return <div className="p-10">
     <Button onClick={() => setOpen(true)} label={"Vote"}/>
     <Modal
-
       open={open}
       onClose={onClose}
-      iconCancel
     >
-      <BackProjectModal  vote  />
+      <BackProjectModal
+        iconCancel
+        vote/>
+    </Modal>
+  </div>
+}
+
+
+
+export const CrowdfundModalVoted = () => {
+  const [open, setOpen] = useState(false)
+  const onClose = () => {
+    setOpen(false)
+  }
+  return <div className="p-10">
+    <Button onClick={() => setOpen(true)} label={"Voted"}/>
+    <Modal
+      open={open}
+      onClose={onClose}
+    >
+      <BackProjectModal
+        iconCancel
+        voted/>
     </Modal>
   </div>
 }
@@ -237,9 +254,8 @@ export const CrowdfundModalClaim = () => {
     <Modal
       open={open}
       onClose={onClose}
-      iconCancel
     >
-      <BackProjectModal  claim/>
+      <BackProjectModal iconCancel claim/>
     </Modal>
   </div>
 }
@@ -254,10 +270,9 @@ export const CrowdfundModalCancel = () => {
     <Modal
       open={open}
       onClose={onClose}
-      cancelLabel="cancel"
-      iconCancel
     >
-      <BackProjectModal  cancel />
+      <BackProjectModal cancel cancelLabel="cancel"
+      />
     </Modal>
   </div>
 }

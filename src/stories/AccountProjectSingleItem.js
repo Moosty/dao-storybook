@@ -23,6 +23,11 @@ export const AccountProjectSingleItem = ({
                                            onClick,
                                            account,
                                            onClickRegister,
+                                           onClickVote,
+                                           claim,
+                                           onClickCancel,
+                                           onClickOption,
+                                           onClickClaim,
                                          }) => {
 
 
@@ -56,27 +61,30 @@ export const AccountProjectSingleItem = ({
             {account && <div>{account.crowd.funded.find(project => project.crowdfund === id)?.amount}</div>}
             <div className=" items-center w-1/5 ">
               {(userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.VOTING) &&
-              <Button onClick={onClick} label="Vote"/>
+              <Button onClick={onClickVote} label="Vote"/>
               }
               {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.CLAIMING &&
-              <Button label="Claim"/>
+              <Button label="Claim" onClick={onClickClaim}/>
               }
-              {state === crowdFundStates.ACTIVE.PENDING &&
-              <Button label="Register Start Date" onClick={onClickRegister}/>
+              {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.PENDING &&
+              <Button label="Register Start Date" onClick={onClickRegister} claim={claim}/>
               }
               {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.ACTIVE &&
-              < ButtonGroup buttons={[
+              <ButtonGroup buttons={[
                 {
                   icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"> Cancel </Typography>
+                                    className="text-themeButtonTextPrimary"
+                  > Cancel </Typography>
                 },
                 {
                   icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"> Optie </Typography>
+                                    className="text-themeButtonTextPrimary" onClick={onClickOption}> Optie </Typography>
                 },
                 {
                   icon: <Typography type="body" Element="span"
-                                    className="text-themeButtonTextPrimary"> Claim </Typography>
+                                    className="text-themeButtonTextPrimary"
+                                    onClick={onClickClaim}
+                  > Claim </Typography>
                 },
               ]}/>
               }
