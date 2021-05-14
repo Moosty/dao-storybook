@@ -23,7 +23,7 @@ export const InputAvatar = ({
   const [selected, setSelected] = useState(selectedItem);
   const {formClass} = useForms({disabled, error, readOnly});
   useEffect(() => {
-    if (selectedItem && selectedItem !== selected) {
+    if (selectedItem && selectedItem.id !== selected.id) {
       setSelected(selectedItem)
     }
   }, [selectedItem])
@@ -57,7 +57,7 @@ export const InputAvatar = ({
                 src={selected?.icon}
                 className="flex-shrink-0 h-6 w-6 rounded-full"
               />}
-              <span className="ml-3 block truncate">{selected?.name}</span>
+              <span className="ml-3 block">{selected?.name}</span>
             </span>
             <span
               className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
