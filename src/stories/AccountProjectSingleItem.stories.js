@@ -92,6 +92,7 @@ Preview.args = {
   projectUrl: "https://moosty.com/",
   image: 2,
   userRole: userRoles.GUEST,
+  state: crowdFundStates.PREVIEW,
 }
 
 export const Open = Template.bind({})
@@ -102,6 +103,8 @@ Open.args = {
   targetAmount: 10000,
   projectUrl: "https://moosty.com/",
   image: 3,
+  state: crowdFundStates.OPEN,
+
 }
 
 export const Pending = Template.bind({})
@@ -118,7 +121,7 @@ Pending.args = {
 export const Active = Template.bind({})
 Active.args = {
   ...Preview.args,
-  state: "active.active",
+  state: crowdFundStates.ACTIVE.ACTIVE,
   image: 6,
 
 }
@@ -133,27 +136,27 @@ Active.args = {
 export const ActiveVoting = Template.bind({})
 ActiveVoting.args = {
   ...Preview.args,
-  state: "active.voting",
+  state: crowdFundStates.ACTIVE.VOTING,
 }
 
 export const ActiveClaiming = Template.bind({})
 ActiveClaiming.args = {
   ...Preview.args,
-  state: "active.claiming",
+  state: crowdFundStates.ACTIVE.CLAIMING,
 }
 
 
 export const Failed = Template.bind({})
 Failed.args = {
   ...Preview.args,
-  state: "active.failed",
+  state: crowdFundStates.FAILED,
 }
 
 
 export const Ended = Template.bind({})
 Ended.args = {
   ...Preview.args,
-  state: "active.ended",
+  state: crowdFundStates.ENDED,
 }
 
 export const Canceled = () => {
@@ -171,7 +174,7 @@ export const Canceled = () => {
       </Modal>
       <AccountProjectList>
         <AccountProjectSingleItem title="Project JurreMach" owner="lsk13212341dfs23567246sdg"
-                                  state={crowdFundStates.ACTIVE.PENDING}
+                                  state={crowdFundStates.CANCELED}
                                   targetAmount="1000"
                                   totalRaised="500"
                                   userRole={userRoles.OWNER}

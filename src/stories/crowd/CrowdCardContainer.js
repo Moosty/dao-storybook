@@ -69,18 +69,10 @@ export const CrowdCardContainer = ({
         }}
         />
       }}
-      footer={{center: <CrowdCardFooter time={time = "one day"} state={state} closeDate={closeDate}/>}}
+      footer={{center: <CrowdCardFooter time={time || "one day"} state={state} closeDate={closeDate}/>}}
     />
   )
 }
-
-// resultaat = array met alle crowdfundSTATES
-// crowdfundstates = object met alle opties
-// array maken van crowdfundstates  --> Object.keys(crowdFundStates) = [lijst van keys]
-// keys van object omzetten naar array ARRAY.map()
-// daarna mappen door keys: crowdFundStates[key]
-// Object.keys(crowdFundStates).map(key => typeOf crowdFundStates[key] === "string" ? crowdFundStates[key] : Object.values(crowdFunStates[key])).flat()
-
 
 CrowdCardContainer.propTypes = {
   state: PropTypes.oneOf(CROWDFUNDSTATELIST),

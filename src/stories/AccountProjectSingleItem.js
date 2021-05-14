@@ -39,79 +39,44 @@ export const AccountProjectSingleItem = ({
                                            ...props
                                          }) => {
 
-  const blocksSinceStartProject = lastHeight - startProject
-  const currentPeriod = Math.floor((blocksSinceStartProject / PROJECT_LIFECYCLE.PERIOD_BLOCKS)+1) // IN BLOCKS
-  const currentBlockThisPeriod = (lastHeight - startProject) - ((currentPeriod - 1)*PROJECT_LIFECYCLE.PERIOD_BLOCKS)
-  const blocksLeftThisPeriod = (PROJECT_LIFECYCLE.PERIOD_BLOCKS - currentBlockThisPeriod)
-  const blocksFirstPhase = PROJECT_LIFECYCLE.PERIOD_BLOCKS  - (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + PROJECT_LIFECYCLE.VOTE_BLOCKS)
 
-  const startVotingPeriodX = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD
-  const endVotingPeriodX = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD
+  const blocksSinceStartProject = lastHeight - startProject
+  const currentPeriod = Math.floor((blocksSinceStartProject / PROJECT_LIFECYCLE.PERIOD_BLOCKS)) // IN BLOCKS
+  const startVoting = (startProject + (currentPeriod * PROJECT_LIFECYCLE.PERIOD_BLOCKS) + (PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS)) - lastHeight
+  const startVotingSeconds = startVoting * PROJECT_LIFECYCLE.BLOCK_TIME
+  const endVoting = startVoting + PROJECT_LIFECYCLE.VOTE_BLOCKS;
+  const endVotingSeconds = endVoting * PROJECT_LIFECYCLE.BLOCK_TIME;
+
+  const currentBlockThisPeriod = (lastHeight - startProject) - ((currentPeriod) * PROJECT_LIFECYCLE.PERIOD_BLOCKS)
+  const blocksLeftThisPeriod = (PROJECT_LIFECYCLE.PERIOD_BLOCKS - currentBlockThisPeriod)
+  const blocksFirstPhase = PROJECT_LIFECYCLE.PERIOD_BLOCKS - (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + PROJECT_LIFECYCLE.VOTE_BLOCKS)
 
   const startVotingPeriod = startProject + (currentPeriod * PROJECT_LIFECYCLE.PERIOD_BLOCKS) - (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + PROJECT_LIFECYCLE.VOTE_BLOCKS) // IN BLOCKS
   const endVotingPeriod = startVotingPeriod + PROJECT_LIFECYCLE.VOTE_BLOCKS // IN BLOCKS
-  const startVotingSeconds = startVotingPeriod - lastHeight > 0 ? (startVotingPeriod - lastHeight) * PROJECT_LIFECYCLE.BLOCK_TIME : 0
-  const endVotingSeconds = endVotingPeriod - lastHeight > 0 ? (endVotingPeriod - lastHeight) * PROJECT_LIFECYCLE.BLOCK_TIME : 0
 
-  const timeLabel = blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BLOCKS + PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (blocksFirstPhase/2)) ? "New period started" :
+  const timeLabel = blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BLOCKS + PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (blocksFirstPhase / 2)) ? "New period started" :
     startVotingSeconds > 0 ?
-    `Voting starts ${moment().add(startVotingSeconds, 'seconds').from()}` :
-      blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (PROJECT_LIFECYCLE.VOTE_BLOCKS/2)) ? "vote is open " :
-    endVotingSeconds > 0 ?
-      `Voting closes ${moment().add(endVotingSeconds, 'seconds').from()}` :
-      "Show voting results"
-
-  console.log(
-    "blocksSinceStartProject", blocksSinceStartProject,
-    "currentPeriod", currentPeriod,
-    "blocksFirstPhase", blocksFirstPhase,
-    "currentBlockThisPeriod", currentBlockThisPeriod,
-    "blocksLeftThisPeriod", blocksLeftThisPeriod,
-    "startVotingPeriod", startVotingPeriod,
-    "endVotingPeriod", endVotingPeriod,
-    "startVotingSeconds", startVotingSeconds,
-    "endVotingSeconds", endVotingSeconds,
-    "timeLabel", timeLabel,
-    "startVotingPeriodX", startVotingPeriodX,
-    "endVotingPeriodX", endVotingPeriodX,
-  );
+      `Voting starts ${moment().add(startVotingSeconds, 'seconds').from()}` :
+      blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (PROJECT_LIFECYCLE.VOTE_BLOCKS / 2)) ? "vote is open " :
+        endVotingSeconds > 0 ?
+          `Voting closes ${moment().add(endVotingSeconds, 'seconds').from()}` :
+          "Show voting results"
 
   return (
     <div>
       <li key={id}>
         <a className="block hover:bg-gray-50">
           <div className="flex flex-row  items-center py-2">
-            {/*TODO crowdcardcontent dynamisch maken */}
             <div className="flex flex-row items-center w-1/2">
               <CrowdCardImage className="w-16 h-16 mr-2 rounded-default" image={image} gradient={gradient}/>
-              {/*<div className="flex flex-col w-full mx-4">*/}
-              {/*  <ProgressDetails classname="flex-end justify-items-end" durationProject={durationProject} state={state}*/}
-              {/*                   totalRaised={totalRaised}/>*/}
-              {/*  {(state === crowdFundStates.OPEN || state === crowdFundStates.PREVIEW) && <>*/}
-
-              {/*    <ProgressBar classname="flex-end" target={targetAmount} current={totalRaised} unit={unit} state={state}/>*/}
-              {/*  </>*/}
-              {/*  }*/}
-              {/*  {(state !== crowdFundStates.OPEN && state !== crowdFundStates.PREVIEW) && <>*/}
-              {/*    <Typography type="bodyStrong" Element="span">Project Time Progress</Typography>*/}
-              {/*    <ProgressBar classname="flex-end" unit="Days" target={durationProject} current={totalRaised} state={state}/>*/}
-
-              {/*    <Typography type="bodyStrong" Element="span">Budget used</Typography>*/}
-              {/*    <ProgressBar classname="flex-end" unit="LSK" target={totalRaised} current={budget} state={state}/>*/}
-              {/*    <Typography type="bodyStrong" Element="span">Time untill next payout</Typography>*/}
-              {/*    <ProgressBar classname="flex-end" unit="Days" target={10} current={2} state={state}/>*/}
-              {/*  </>*/}
-              {/*  }*/}
-              {/*</div>*/}
-
               <div className="flex flex-col w-full mx-4">
-                <Typography type="bodyStrong" Element="span">{title}, {state}</Typography>
-                <ProgressBar classname="w-full" target={targetAmount} current={totalRaised} unit="LSK"
-                             state={state}/>
+                <div className="flex flex-row">
+                  <Typography type="bodyStrong" Element="span" className="mr-2">{title}</Typography>
+                  <Typography type="caption" Element="span">{state}</Typography>
+                </div>
+                targetAmount: {targetAmount} totalraised:{totalRaised}{unit} durationproject:{durationProject} budget:{budget}
               </div>
-
             </div>
-
             <div className=" items-center flex flex-row justify-between w-1/2">
               <div className=" items-center ">
                 <div className="flex flex-col item-center">
