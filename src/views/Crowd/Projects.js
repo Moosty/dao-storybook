@@ -3,7 +3,6 @@ import {BreadCrumbs, Container, FilterDao, FilterWrapper, Footer, NavBar} from "
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
 import {appWidth} from "../../shared/styles";
 import {projects} from "../../fixtures/crowdfund/projects";
-import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {AccountProjectList} from "../../stories/AccountProjectList";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
 import {crowdFundStates} from "../../shared/global.crowdfund";
@@ -19,12 +18,6 @@ export const Projects = () => {
           <BreadCrumbs/>
           <FilterDao classname/>
         </FilterWrapper>
-      </Container>
-      <Container className={[appWidth, "space-x-4", "space-y-4", "flex", "flex-wrap", "flex-row", "my-10"].join(" ")}>
-        {projects && projects
-          .filter(project => project.state === crowdFundStates.PENDING || project.state === crowdFundStates.ACTIVE.ACTIVE || project.state === crowdFundStates.ACTIVE.PENDING || project.state === crowdFundStates.ACTIVE.CLAIMING || project.state === crowdFundStates.ACTIVE.VOTING)
-          .map((project) => <CrowdCardContainer {...project} />
-          )}
       </Container>
       <Container className={[appWidth, "my-10"].join(" ")}>
         <AccountProjectList projects={projects}>

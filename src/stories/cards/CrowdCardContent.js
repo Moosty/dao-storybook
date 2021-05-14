@@ -40,7 +40,8 @@ export const CrowdCardContent = ({
                                    userName,
                                    time,
                                    userAddress,
-
+                                   amountOfDays = 10,
+                                   currentDay = 2,
                                  }) => {
   return (
     <div className="flex   flex-col space-y-2">
@@ -56,31 +57,26 @@ export const CrowdCardContent = ({
         "flex-col",
         "justify-between",
       ].join(" ")}>
-
-
         <CrowdCardInfo title={title} category={category} projectUrl={projectUrl}/>
         {!modal &&
         <div>
           <ProgressDetails classname="flex-end justify-items-end" durationProject={durationProject} state={state}
                            totalRaised={totalRaised}/>
           {(state === crowdFundStates.PREVIEW || state === crowdFundStates.OPEN ) && <>
-
             <ProgressBar classname="flex-end" target={targetAmount} current={totalRaised} unit={unit} state={state}/>
           </>
           }
           {(state !== crowdFundStates.PREVIEW && state !== crowdFundStates.OPEN) && <>
             <Typography type="bodyStrong" Element="span">Project Time Progress</Typography>
             <ProgressBar classname="flex-end" unit="Days" target={durationProject} current={totalRaised} state={state}/>
-
             <Typography type="bodyStrong" Element="span">Budget used</Typography>
             <ProgressBar classname="flex-end" unit="LSK" target={totalRaised} current={budget} state={state}/>
             <Typography type="bodyStrong" Element="span">Time untill next payout</Typography>
-            <ProgressBar classname="flex-end" unit="Days" target={10} current={2} state={state}/>
+            <ProgressBar classname="flex-end" unit="Days" target={amountOfDays} current={currentDay} state={state}/>
           </>
           }
         </div>
         }
-
       </div>
     </div>
   )

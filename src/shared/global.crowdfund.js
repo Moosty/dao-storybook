@@ -9,17 +9,17 @@ export const PROJECT_LIFECYCLE = {
 
 export const crowdFundStates = {
   PREVIEW: "PREVIEW", // crowdfund created, waiting to start
-  OPEN: "open", // crowdfund started, waiting for total fund (unlimited time)
-  PENDING: "pending", // crowdfund is filled, waiting to register a start date, by owner
+  OPEN: "OPEN", // crowdfund started, waiting for total fund (unlimited time)
+  PENDING: "PENDING", // crowdfund is filled, waiting to register a start date, by owner
   ACTIVE: {
-    PENDING: "active.pending", // crowdfund date is known, waiting until start project
-    ACTIVE: "active.active", // crowdfund is active, waiting until other period
-    VOTING: "active.voting", // crowdfund is active and voting period is live, until end of voting period
-    CLAIMING: "active.claiming", // crowdfund is active. Claiming is active
+    PENDING: "ACTIVE PENDING", // crowdfund date is known, waiting until start project
+    ACTIVE: "ACTIVE ACTIVE", // crowdfund is active, waiting until other period
+    VOTING: "ACTIVE VOTING", // crowdfund is active and voting period is live, until end of voting period
+    CLAIMING: "ACTIVE CLAIMING", // crowdfund is active. Claiming is active
   },
-  FAILED: "failed", // owners canceled project. Everybody gets refund. You need to claim your funds back
-  ENDED: "ended", // crowdfund is ended, no specifics
-  CANCELED: "canceled", // crowdfund is canceled by investors. Investors can claim their funds back.
+  FAILED: "FAILED", // owners canceled project. Everybody gets refund. You need to claim your funds back
+  ENDED: "ENDED", // crowdfund is ended, no specifics
+  CANCELED: "CANCELED", // crowdfund is canceled by investors. Investors can claim their funds back.
 }
 
 export const CROWDFUNDSTATELIST = Object.keys(crowdFundStates).map(key => typeof crowdFundStates[key] === "string" ? crowdFundStates[key] : Object.values(crowdFundStates[key])).flat();

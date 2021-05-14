@@ -39,19 +39,20 @@ export const AccountProjectSingleItem = ({
                                            ...props
                                          }) => {
 
+
   const blocksSinceStartProject = lastHeight - startProject
-  const currentPeriod = Math.floor((blocksSinceStartProject / PROJECT_LIFECYCLE.PERIOD_BLOCKS) + 1) // IN BLOCKS
-  const currentBlockThisPeriod = (lastHeight - startProject) - ((currentPeriod - 1) * PROJECT_LIFECYCLE.PERIOD_BLOCKS)
+  const currentPeriod = Math.floor((blocksSinceStartProject / PROJECT_LIFECYCLE.PERIOD_BLOCKS)) // IN BLOCKS
+  const startVoting = (startProject + (currentPeriod * PROJECT_LIFECYCLE.PERIOD_BLOCKS) + (PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS)) - lastHeight
+  const startVotingSeconds = startVoting * PROJECT_LIFECYCLE.BLOCK_TIME
+  const endVoting = startVoting + PROJECT_LIFECYCLE.VOTE_BLOCKS;
+  const endVotingSeconds = endVoting * PROJECT_LIFECYCLE.BLOCK_TIME;
+
+  const currentBlockThisPeriod = (lastHeight - startProject) - ((currentPeriod) * PROJECT_LIFECYCLE.PERIOD_BLOCKS)
   const blocksLeftThisPeriod = (PROJECT_LIFECYCLE.PERIOD_BLOCKS - currentBlockThisPeriod)
   const blocksFirstPhase = PROJECT_LIFECYCLE.PERIOD_BLOCKS - (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + PROJECT_LIFECYCLE.VOTE_BLOCKS)
 
-  const startVotingPeriodX = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD
-  const endVotingPeriodX = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD
-
   const startVotingPeriod = startProject + (currentPeriod * PROJECT_LIFECYCLE.PERIOD_BLOCKS) - (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + PROJECT_LIFECYCLE.VOTE_BLOCKS) // IN BLOCKS
   const endVotingPeriod = startVotingPeriod + PROJECT_LIFECYCLE.VOTE_BLOCKS // IN BLOCKS
-  const startVotingSeconds = startVotingPeriod - lastHeight > 0 ? (startVotingPeriod - lastHeight) * PROJECT_LIFECYCLE.BLOCK_TIME : 0
-  const endVotingSeconds = endVotingPeriod - lastHeight > 0 ? (endVotingPeriod - lastHeight) * PROJECT_LIFECYCLE.BLOCK_TIME : 0
 
   const timeLabel = blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BLOCKS + PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (blocksFirstPhase / 2)) ? "New period started" :
     startVotingSeconds > 0 ?
@@ -61,27 +62,11 @@ export const AccountProjectSingleItem = ({
           `Voting closes ${moment().add(endVotingSeconds, 'seconds').from()}` :
           "Show voting results"
 
-  console.log(
-    "blocksSinceStartProject", blocksSinceStartProject,
-    "currentPeriod", currentPeriod,
-    "blocksFirstPhase", blocksFirstPhase,
-    "currentBlockThisPeriod", currentBlockThisPeriod,
-    "blocksLeftThisPeriod", blocksLeftThisPeriod,
-    "startVotingPeriod", startVotingPeriod,
-    "endVotingPeriod", endVotingPeriod,
-    "startVotingSeconds", startVotingSeconds,
-    "endVotingSeconds", endVotingSeconds,
-    "timeLabel", timeLabel,
-    "startVotingPeriodX", startVotingPeriodX,
-    "endVotingPeriodX", endVotingPeriodX,
-  );
-
   return (
     <div>
       <li key={id}>
         <a className="block hover:bg-gray-50">
           <div className="flex flex-row  items-center py-2">
-            {/*TODO crowdcardcontent dynamisch maken */}
             <div className="flex flex-row items-center w-1/2">
               <CrowdCardImage className="w-16 h-16 mr-2 rounded-default" image={image} gradient={gradient}/>
               <div className="flex flex-col w-full mx-4">
@@ -90,11 +75,8 @@ export const AccountProjectSingleItem = ({
                   <Typography type="caption" Element="span">{state}</Typography>
                 </div>
                 targetAmount: {targetAmount} totalraised:{totalRaised}{unit} durationproject:{durationProject} budget:{budget}
-
               </div>
-
             </div>
-
             <div className=" items-center flex flex-row justify-between w-1/2">
               <div className=" items-center ">
                 <div className="flex flex-col item-center">
