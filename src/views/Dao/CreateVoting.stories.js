@@ -2,10 +2,10 @@ import React from 'react';
 import { CreateVoting } from './CreateVoting';
 import {Meta} from "@storybook/addon-docs/blocks";
 
-<Meta title="Pages/CreateVoting" component={CreateVoting}/>
+<Meta title="Dao/CreateVoting" component={CreateVoting}/>
 
 export default {
-    title: 'Pages/CreateVoting',
+    title: 'Dao/CreateVoting',
     component: CreateVoting,
 };
 

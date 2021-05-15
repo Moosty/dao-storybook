@@ -1,14 +1,14 @@
 import React from "react";
-import {NavBar} from "../stories/nav/NavBar";
-import {appWidth} from "../shared/styles";
-import {Container} from "../stories/Container";
-import {Typography} from "../stories/Typography";
-import {Form} from "../stories/forms/Form";
-import {FormColumn} from "../stories/forms/FormColumn";
-import {FormRow} from "../stories/forms/FormRow";
-import {FormElement} from "../stories/forms/FormElement";
-import {Button} from "../stories/Button";
-import {Alert} from "../stories/alerts/Alert";
+import {NavBar} from "../../stories/nav/NavBar";
+import {appWidth} from "../../shared/styles";
+import {Container} from "../../stories/Container";
+import {Typography} from "../../stories/Typography";
+import {Form} from "../../stories/forms/Form";
+import {FormColumn} from "../../stories/forms/FormColumn";
+import {FormRow} from "../../stories/forms/FormRow";
+import {FormElement} from "../../stories/forms/FormElement";
+import {Button} from "../../stories/Button";
+import {Alert} from "../../stories/alerts/Alert";
 import {PlusIcon} from "@heroicons/react/solid";
 
 export const AboutTheProject = () => {

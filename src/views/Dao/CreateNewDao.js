@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stories/page.css';
-import {NavBar} from "../stories/nav/NavBar";
-import {appWidth} from "../shared/styles";
-import {Container} from "../stories/Container";
-import {Typography} from "../stories/Typography";
-import {SimpleInput} from "../stories/forms/SimpleInput";
-import {InputAvatar} from "../stories/forms/InputAvatar";
-import {Form} from "../stories/forms/Form";
-import {FormColumn} from "../stories/forms/FormColumn";
-import {FormRow} from "../stories/forms/FormRow";
-import {FormElement} from "../stories/forms/FormElement";
-import {TextFieldInput} from "../stories/forms/TextFieldInput";
-import {Button} from "../stories/Button";
-import {SubmitIcon} from "../stories/forms/SubmitIcon";
-import {allMembers} from "../fixtures/members";
+import '../../stories/page.css';
+import {NavBar} from "../../stories/nav/NavBar";
+import {appWidth} from "../../shared/styles";
+import {Container} from "../../stories/Container";
+import {Typography} from "../../stories/Typography";
+import {SimpleInput} from "../../stories/forms/SimpleInput";
+import {InputAvatar} from "../../stories/forms/InputAvatar";
+import {Form} from "../../stories/forms/Form";
+import {FormColumn} from "../../stories/forms/FormColumn";
+import {FormRow} from "../../stories/forms/FormRow";
+import {FormElement} from "../../stories/forms/FormElement";
+import {TextFieldInput} from "../../stories/forms/TextFieldInput";
+import {Button} from "../../stories/Button";
+import {SubmitIcon} from "../../stories/forms/SubmitIcon";
+import {allMembers} from "../../fixtures/members";
 import {PlusIcon} from "@heroicons/react/solid";
 
 export const CreateNewDao = ({user, onLogin, onLogout, onCreateAccount}) => {

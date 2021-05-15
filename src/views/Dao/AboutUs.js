@@ -1,10 +1,10 @@
 import React from "react";
-import {BlogSection} from "../stories/BlogSection";
-import {Container, Footer, Hero, NavBar, Typography} from "../stories";
-import {appWidth} from "../shared/styles";
-import {FooterAuthorDAO, FooterItemsDAO} from "../fixtures/dao/footerItemsDAO";
-import {navBarArgsDAO} from "../fixtures/dao/navbar";
-import {blogPostsDAO} from "../fixtures/dao/blogsDAO";
+import {BlogSection} from "../../stories/BlogSection";
+import {Container, Footer, Hero, NavBar, Typography} from "../../stories";
+import {appWidth} from "../../shared/styles";
+import {FooterAuthorDAO, FooterItemsDAO} from "../../fixtures/dao/footerItemsDAO";
+import {navBarArgsDAO} from "../../fixtures/dao/navbar";
+import {blogPostsDAO} from "../../fixtures/dao/blogsDAO";
 
 export const AboutUs = () => {
   return (

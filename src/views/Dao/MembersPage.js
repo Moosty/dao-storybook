@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {allMembers} from "../fixtures/members";
-import '../stories/page.css';
-import {NavBar} from "../stories/nav/NavBar";
-import {appWidth} from "../shared/styles";
-import {Container} from "../stories/Container";
-import {FilterWrapper} from "../stories/filters/FilterWrapper";
-import {BreadCrumbs} from "../stories/BreadCrumbs";
+import {allMembers} from "../../fixtures/members";
+import '../../stories/page.css';
+import {NavBar} from "../../stories/nav/NavBar";
+import {appWidth} from "../../shared/styles";
+import {Container} from "../../stories/Container";
+import {FilterWrapper} from "../../stories/filters/FilterWrapper";
+import {BreadCrumbs} from "../../stories/BreadCrumbs";
 
-import {MemberCard} from "../stories/MemberCard";
-import {Button} from "../stories/Button";
+import {MemberCard} from "../../stories/MemberCard";
+import {Button} from "../../stories/Button";
 import {PlusIcon} from "@heroicons/react/solid";
 
 export const MembersPage = ({user, onLogin, onLogout, onCreateAccount}) => (
