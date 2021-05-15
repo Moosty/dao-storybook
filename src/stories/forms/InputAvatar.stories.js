@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {InputAvatar} from './InputAvatar';
 import {Typography} from "../Typography";
 import {Meta} from "@storybook/addon-docs/blocks";
@@ -17,7 +17,11 @@ export default {
   },
 };
 
-const Template = (args) => <InputAvatar {...args} />;
+const Template = (args) => {
+  const [selectedItem, setSelectedItem] = useState()
+
+  return <InputAvatar {...args} onChange={setSelectedItem} selectedItem={selectedItem}/>;
+}
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -32,7 +36,7 @@ export const All = () => <div>
     <Typography type="h2" Element='h2'>
       Default fields </Typography>
 
-    <InputAvatar label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[4]} />
+    <Template label={"Select DAO"} items={allDaoData} selectedItem={allDaoData[4]} />
     <InputAvatar label={"Select Member"} items={allMembers} selectedItem={allMembers[0]} />
     <InputAvatar label={"Select Voting type"} items={allVotingTypes} selectedItem={allVotingTypes[0]} />
 

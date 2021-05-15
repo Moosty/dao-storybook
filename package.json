@@ -1,6 +1,6 @@
 {
   "name": "@moosty/dao-storybook",
-  "version": "0.1.27",
+  "version": "0.1.39",
   "main": "dist/index.js",
   "dependencies": {
     "@craco/craco": "^6.1.1",
@@ -12,7 +12,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
-    "postcss-import": "^14.0.1",
+    "postcss-import": "12",
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
     "react-copy-to-clipboard": "^5.0.3",
@@ -29,6 +29,7 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
+    "build:tailwind": "npx tailwindcss-cli@latest build src/index.css -o dist/style.css",
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic --project-token CHROMATIC_PROJECT_TOKEN",
     "build:package": "cross-env BABEL_ENV=production babel src -d dist && cp -r src/assets dist/assets && cp src/index.css dist/index.css"

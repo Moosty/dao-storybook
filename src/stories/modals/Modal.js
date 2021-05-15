@@ -1,10 +1,7 @@
 import React, {Fragment, useRef,} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
-import {Button} from "../Button";
-import {XIcon} from "@heroicons/react/solid";
-import {IconButton} from "../IconButton";
 
-export const Modal = ({open, onClose, children, ctaButton, cancelLabel,iconCancel}) => {
+export const Modal = ({open, onClose, children}) => {
   const cancelButtonRef = useRef();
 
   return (
@@ -44,35 +41,7 @@ export const Modal = ({open, onClose, children, ctaButton, cancelLabel,iconCance
           >
             <div
               className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-
               {children}
-              <div className={[
-              "mt-5 sm:mt-6",
-                "sm:grid sm:grid-flow-row-dense",
-                ctaButton && "sm:grid-cols-2 sm:gap-3 ",
-                !ctaButton && "sm:grid-cols-1",
-              ].join(" ")}>
-                {!iconCancel && <Button
-                  label={cancelLabel || "Cancel"}
-                  secondary
-                  onClick={onClose}
-                  ref={cancelButtonRef}
-                />}
-                {ctaButton && <Button
-                  label={ctaButton.label}
-                  onClick={() => ctaButton.onSubmit()}
-                  {...ctaButton}
-                />}
-                {iconCancel &&
-                <div className="flex justify-around">
-                  <IconButton
-                    onClick={onClose}
-                    ref={cancelButtonRef}>
-                    <XIcon className="h-5 w-5 mx-auto"/>
-                  </IconButton>
-                </div>
-                }
-              </div>
             </div>
           </Transition.Child>
         </div>

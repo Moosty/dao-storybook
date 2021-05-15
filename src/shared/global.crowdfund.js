@@ -1,18 +1,25 @@
 //TODO CONSTANTS IN ALL CAPS
 
+export const PROJECT_LIFECYCLE = {
+  PERIOD_BLOCKS: 30, // 100 blocks per period
+  VOTE_BLOCKS: 10, // voting time 20 blocks
+  VOTE_BEFORE_END_PERIOD: 10, // voting ends 10 blocks before end. --> resultaat voting laten zien
+  BLOCK_TIME: 5,
+}
+
 export const crowdFundStates = {
-  PREVIEW: "preview",
-  OPEN: "open",
-  PENDING: "pending",
+  PREVIEW: "PREVIEW", // crowdfund created, waiting to start
+  OPEN: "OPEN", // crowdfund started, waiting for total fund (unlimited time)
+  PENDING: "PENDING", // crowdfund is filled, waiting to register a start date, by owner
   ACTIVE: {
-    ACTIVE: "active.active",
-    PENDING: "active.pending",
-    VOTING: "active.voting",
-    CLAIMING: "active.claiming",
+    PENDING: "ACTIVE PENDING", // crowdfund date is known, waiting until start project
+    ACTIVE: "ACTIVE ACTIVE", // crowdfund is active, waiting until other period
+    VOTING: "ACTIVE VOTING", // crowdfund is active and voting period is live, until end of voting period
+    CLAIMING: "ACTIVE CLAIMING", // crowdfund is active. Claiming is active
   },
-  FAILED: "failed",
-  ENDED: "ended",
-  CANCELED: "canceled",
+  FAILED: "FAILED", // owners canceled project. Everybody gets refund. You need to claim your funds back
+  ENDED: "ENDED", // crowdfund is ended, no specifics
+  CANCELED: "CANCELED", // crowdfund is canceled by investors. Investors can claim their funds back.
 }
 
 export const CROWDFUNDSTATELIST = Object.keys(crowdFundStates).map(key => typeof crowdFundStates[key] === "string" ? crowdFundStates[key] : Object.values(crowdFundStates[key])).flat();
