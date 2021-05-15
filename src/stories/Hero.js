@@ -22,7 +22,7 @@ export const Hero = ({backgroundImage, gradient, title, subTitle,buttonLabel1,bu
       <Container className={[appWidth, "py-24"].join(" ")}>
         <div className="flex flex-col">
         <Typography className="text-themeButtonTextPrimary" type="h1" Element="h1">{title}</Typography>
-        <Typography type='bodyStrong' Element="span">{subTitle}</Typography>
+        <Typography type='bodyStrong' Element="span" className="text-themeButtonTextPrimary">{subTitle}</Typography>
         </div>
         {buttonLabel1 &&
         <div className="flex flex-row space-x-4 mt-6">
