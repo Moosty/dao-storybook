@@ -21,7 +21,7 @@ export const LandingsPage = () => {
       <NavBar {...navBarArgs} />
       <div className={[appWidth].join(" ")}>
 
-        <Container className="flex flex-col lg:flex-row-reverse my-10 lg:my-32 lg:justify-between">
+        <Container className="flex flex-col lg:items-center  lg:flex-row-reverse my-10 lg:my-16 lg:justify-between">
 
           <div className="flex w-full  lg:w-2/3 ">
             <DaoLandingThemeSvg/>
