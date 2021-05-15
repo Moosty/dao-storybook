@@ -11,6 +11,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontSize: {
+      '80px': '80px',
+      '54px': '54px',
       '32px': '32px',
       '28px': '28px',
       '24px': '24px',
@@ -24,11 +26,11 @@ module.exports = {
       defaultPrimary: 'var(--shadow-defaultPrimary)',
       cardYes: 'var(--shadow-defaultSecondary)',
       cardNo:'var(--shadow-defaultTertiary)',
-
     },
-
     extend: {
       lineHeight: {
+        '90px': '90px',
+        '60px': '60px',
         '46px': '46px',
         '41px': '41px',
         '36px': '36px',
