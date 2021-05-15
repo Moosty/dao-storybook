@@ -2,7 +2,7 @@ import React from "react";
 import { Hero } from "./Hero";
 
 export default {
-  title: "Elements/Hero",
+  title: "Sections/Hero",
   component: Hero,
 }
 
@@ -16,7 +16,6 @@ Playground.args = {
   onClickButton1: () => alert("Test"),
   onClickButton2: () => alert("testers"),
 }
-
 
 export const hero = () => {
 

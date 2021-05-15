@@ -17,10 +17,7 @@ export const ContentSection = ({
                                  gradientClassName,
                                  buttonLabel1,
                                  onClickButton1,
-                                 buttonProps,
                                }) => {
-  const primaryClass = {}
-  const subSectionClass = {}
 
   return (
     <div className="relative">
@@ -33,7 +30,7 @@ export const ContentSection = ({
         />
         }
         {gradient &&
-        <div className={["absolute inset-0 bg-themeNavBarBg",
+        <div className={["absolute inset-0 ",
           gradientClassName,
         ].join(" ")} style={{mixBlendMode: 'multiply'}} aria-hidden="true"/>
         }
