@@ -1,5 +1,5 @@
 import React from 'react';
-import {Tag} from "./smallElements/tag";
+import {Tag} from "./smallElements/Tag";
 
 export const Links = ({title, links}) => {
   return (<div className="my-2 w-full h-auto">
