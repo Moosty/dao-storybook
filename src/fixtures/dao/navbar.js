@@ -2,7 +2,7 @@ import {Button} from "../../stories";
 import {PlusIcon} from "@heroicons/react/solid";
 import React from "react";
 
-export const navBarArgsDAO = {
+export const navBarArgs = {
   user: {
     name: "Raphael",
     address: "klasjdflkasjdf",

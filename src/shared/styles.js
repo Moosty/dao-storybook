@@ -7,6 +7,8 @@ export const fontStyles = {
   h2: [headerFontBase, 'text-24px', 'leading-36px'].join(" "),
   h3: [headerFontBase, 'text-20px', 'leading-30px'].join(" "),
   h4: [headerFontBase, 'text-18px', 'leading-28px'].join(" "),
+  sloganLarge: [headerFontBase, 'text-80px', 'leading-90px'].join(" "),
+  sloganSmall: [headerFontBase, 'text-54px', 'leading-60px'].join(" "),
 
   cardTitle: [headerFontBase, 'text-14px', 'leading-16px'].join(" "),
 

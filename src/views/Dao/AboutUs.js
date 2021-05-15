@@ -3,13 +3,13 @@ import {BlogSection} from "../../stories/BlogSection";
 import {Container, Footer, Hero, NavBar, Typography} from "../../stories";
 import {appWidth} from "../../shared/styles";
 import {FooterAuthorDAO, FooterItemsDAO} from "../../fixtures/dao/footerItemsDAO";
-import {navBarArgsDAO} from "../../fixtures/dao/navbar";
+import {navBarArgs} from "../../fixtures/dao/navbar";
 import {blogPostsDAO} from "../../fixtures/dao/blogsDAO";
 
 export const AboutUs = () => {
   return (
     <div>
-      <NavBar {...navBarArgsDAO} />
+      <NavBar {...navBarArgs} />
       <Hero
         title="Kalipo | Decentralised Autonomous Organizations"
         subTitle="Start to organise your world here"
