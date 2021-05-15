@@ -16,8 +16,8 @@ export const AboutUs = () => {
         buttonLabel2="Get in Touch"
         buttonLabel1="Explore"
       /> <Container
-      className={[appWidth, "flex flex-col lg:flex-row justify-between mt-4 max-w-7xl lg:mt-10"].join(" ")}>
-      <div className="flex flex-col max-w-lg mb-4">
+      className={[appWidth, "flex flex-col lg:flex-row justify-between my-4 space-x-20  lg:my-10"].join(" ")}>
+      <div className="flex flex-col w-1/2  mb-4">
         <Typography type="h1" Element="h1">Kalipo</Typography>
         <Typography type="body" Element="span">Voting is a valuable governance tool, it gives the members of a community
           the possibility to exert influence and also collects information about viewpoints. However, votings consume
@@ -25,7 +25,7 @@ export const AboutUs = () => {
           invalid votes.
         </Typography>
       </div>
-      <div className="flex flex-col max-w-lg">
+      <div className="flex flex-col  w-1/2 ">
         <Typography type="h1" Element="h1">About the Kalipo team</Typography>
         <Typography type="body" Element="span">The team consists of Xinrong Ding, Peter Nobels and <a
           href="https://moosty.com/contact" target="_blank" rel="noopener noreferrer">Moosty</a> (Jurre, Raphael,
@@ -36,7 +36,7 @@ export const AboutUs = () => {
           </a></Typography>
       </div>
     </Container>
-      <Container className={[appWidth, "flex", "flex-row max-w-7xl"].join(" ")}>
+      <Container className={[appWidth, "flex", "flex-row "].join(" ")}>
         <BlogSection title="Blogs" descriptionTop="" blogPosts={blogPostsDAO}/>
       </Container>
       <Footer items={FooterItemsDAO} author={FooterAuthorDAO}></Footer>
