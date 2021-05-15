@@ -1,6 +1,6 @@
 import React from "react";
 import {BlogSection} from "../../stories/BlogSection";
-import {Container, Footer, NavBar, Typography} from "../../stories";
+import {Container, Footer, Hero, NavBar, Typography} from "../../stories";
 import {appWidth} from "../../shared/styles";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
@@ -10,6 +10,12 @@ export const AboutUs = () => {
   return (
     <div>
       <NavBar {...navBarArgs} />
+      <Hero
+        title="Lisk Crowd | A Regulated Crowdfund Platform"
+        subTitle="Regulate your crowdfund journey with Lisk Crowd!"
+        buttonLabel2="Start Crowdfund!"
+        buttonLabel1="Explore"
+      />
       <Container className={[appWidth, "flex flex-col lg:flex-row justify-between mt-4 max-w-7xl lg:mt-10"].join(" ")}>
         <div className="flex flex-col max-w-lg mb-4">
         <Typography type="h1" Element="h1">About Lisk crowd</Typography>
