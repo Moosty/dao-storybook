@@ -137,8 +137,8 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
 
                 <div className="pt-5">
                   <div className="flex justify-end">
-                    <Button shadow label="Cancel" secondary shadow/>
-                    <Button shadow icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" shadow/>
+                    <Button  label="Cancel" secondary />
+                    <Button  icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" />
                   </div>
                 </div>
               </div>
