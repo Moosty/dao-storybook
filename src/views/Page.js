@@ -15,7 +15,7 @@ import {allDaoData} from "../fixtures/daos";
 import {allVotingTypes} from "../fixtures/votingTypes";
 import {allMembers} from "../fixtures/members";
 import {Footer} from "../stories";
-import {FooterAuthorDAO, FooterItemsDAO} from "../fixtures/footerItemsDAO";
+import {FooterAuthorDAO, FooterItemsDAO} from "../fixtures/dao/footerItemsDAO";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>

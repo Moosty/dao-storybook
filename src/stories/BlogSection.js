@@ -1,21 +1,20 @@
 import React from "react";
 import {Typography} from "./Typography";
-import {blogPosts} from "../fixtures/blogs";
 
-export const BlogSection = ({descriptionTop, title,}) => {
+export const BlogSection = ({descriptionTop, title, blogPosts}) => {
   return (
     <div className="relative bg-white mt-4 pb-10 lg:pb-10">
       <div className="absolute inset-0">
         <div className="bg-white h-1/3 sm:h-2/3"/>
       </div>
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative  mx-auto">
         <div className="">
           <Typography type="h1" Element="h1">{title}</Typography>
           <Typography type="body"> {descriptionTop}
           </Typography>
         </div>
         <div className="mt-4 mx-auto grid gap-5 lg:grid-cols-3 ">
-          {blogPosts.map((post) => (
+          {blogPosts && blogPosts.map((post) => (
             <div key={post.title} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
               <div className="flex-shrink-0">
                 <img className="h-48 w-full object-cover" src={post.imageUrl} alt=""/>

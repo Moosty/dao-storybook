@@ -1,4 +1,4 @@
-export const blogPosts = [
+export const blogPostsCrowdfund = [
   {
     title: 'Building the Lisk Crowd Project\n',
     href: 'https://lisk.io/blog/apps/building-lisk-crowd-project',

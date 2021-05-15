@@ -1,110 +1,35 @@
 import React from "react";
-import {NavBar} from "../stories/nav/NavBar";
+import {BlogSection} from "../stories/BlogSection";
+import {Container, Footer, NavBar, Typography} from "../stories";
 import {appWidth} from "../shared/styles";
-import {Container} from "../stories/Container";
-import {Typography} from "../stories/Typography";
-import {Form} from "../stories/forms/Form";
-import {FormColumn} from "../stories/forms/FormColumn";
-import {FormRow} from "../stories/forms/FormRow";
-import {FormElement} from "../stories/forms/FormElement";
-import {SimpleInput} from "../stories/forms/SimpleInput";
-import {TextFieldInput} from "../stories/forms/TextFieldInput";
-import {InputAvatar} from "../stories/forms/InputAvatar";
-import {allMembers} from "../fixtures/members";
-import {Button} from "../stories/Button";
-import {PlusIcon} from "@heroicons/react/solid";
+import {FooterAuthorDAO, FooterItemsDAO} from "../fixtures/dao/footerItemsDAO";
+import {navBarArgsDAO} from "../fixtures/dao/navbar";
+import {blogPostsDAO} from "../fixtures/dao/blogsDAO";
 
 export const AboutUs = () => {
-
   return (
-    <div className="bg-surfaceBg">
-      <NavBar {...navBarArgs} />
-      <div className={[appWidth].join(" ")}>
-        <Container>
-          <div className="lg:ml-4 my-4 ">
-            <Typography type="h2" Element='h2'>
-              About Us
-            </Typography>
-          </div>
-          {/*Form*/}
-          <Form className="lg:grid lg:grid-cols-2  lg:divide-x-2 lg:divide-formDivider lg:h-screen">
-            {/*COLUMN LEFT */}
-            <FormColumn className="lg:mx-4 lg:mr-10">
-              <FormRow>
-                <FormElement label="The Team behind {name of project}">
-                  <Typography type="body">
-                    Every Decentralized Organization has a name and a purpose. Try to give a short description of the
-                    purpose of your DAO
-                  </Typography></FormElement>
-              </FormRow>
+    <div>
+      <NavBar {...navBarArgsDAO} />
+      <Container className={[appWidth, "flex flex-col lg:flex-row justify-between mt-4 max-w-7xl lg:mt-10"].join(" ")}>
+        <div className="flex flex-col max-w-lg mb-4">
+          <Typography type="h1" Element="h1">Kalipo</Typography>
+          <Typography type="body" Element="span">Voting is a valuable governance tool, it gives the members of a community the possibility to exert influence and also collects information about viewpoints. However, votings consume time and energy of the voters and a voting committee. This often results in poor voter attendance and even in invalid votes.
+          </Typography>
+        </div>
+        <div className="flex flex-col max-w-lg">
+          <Typography type="h1" Element="h1">About the Kalipo team</Typography>
+          <Typography type="body" Element="span">The team consists of Xinrong Ding, Peter Nobels and <a href="https://moosty.com/contact" target="_blank" rel="noopener noreferrer">Moosty</a> (Jurre, Raphael, Sander). With different background, skillsets and experience we are on a journey to reinvent how organisations work.
+            <a href="https://kalipo.com/contact"  target="_blank" rel="noopener noreferrer" className="">
+              {` `}Reach out to us!
+            </a></Typography>
+        </div>
+      </Container>
+      <Container className={[appWidth, "flex", "flex-row max-w-7xl"].join(" ")}>
+        <BlogSection title="Blogs" descriptionTop="" blogPosts={blogPostsDAO}/>
+      </Container>
+      <Footer items={FooterItemsDAO} author={FooterAuthorDAO}></Footer>
 
-
-            </FormColumn>
-
-            {/*COLUMN RIGHT*/}
-            <FormColumn className="">
-              <div className="lg:ml-10 ">
-                <FormRow>
-                  <FormElement label="Xinrong Ding - UX Designer">
-                    <Typography type="body">
-                      More information about Xinrong
-                    </Typography></FormElement>
-                </FormRow>
-                <FormRow>
-                  <FormElement label="Vitallity">
-                    <Typography type="body">
-                      More information about Vitallity
-                    </Typography></FormElement>
-                </FormRow>
-
-                <FormRow>
-                  <FormElement label="The Moosty Team">
-                    <Typography type="body">
-                      More information about Moosty
-                    </Typography></FormElement>
-                </FormRow>
-                <Button label="Get in touch" />
-
-
-              </div>
-            </FormColumn>
-          </Form>
-        </Container>
-
-      </div>
-    </div>)
+    </div>
+  )
 }
 
-const navBarArgs = {
-  user: {
-    name: "Raphael",
-    address: "klasjdflkasjdf",
-  },
-  logo: <img
-    src="/images/logo.png"
-    className="block h-8 w-auto"
-    alt="PLAO"
-  />,
-  navigation: [
-    {name: 'Votings', onClick: () => alert("Goto Votings"), current: false},
-    {name: 'Members', onClick: () => alert("Goto Members"), current: false},
-    {name: 'DAOs', onClick: () => alert("Goto DAOs"), current: true},
-  ],
-  ctaButton: <Button
-    label="Create new Dao"
-    shadow
-    iconBefore
-    icon={<PlusIcon className="h-5 w-5 -ml-2 mr-2"/>}
-  />,
-  userNavigation: [
-    {name: 'Create a Dao', onClick: () => alert("Create a dao")},
-    {name: 'Create a voting', onClick: () => alert("Create a voting")},
-    {name: 'Sign out', onClick: () => alert("Sign out")},
-  ],
-  invitations: [
-    {
-      dao: "LiskCenterUtrecht",
-      id: "aksldjflksjdflkjdsf",
-    }
-  ],
-}

@@ -2,8 +2,7 @@
 export const FooterItemsDAO = {
   kalipo: [
     {label: "Read the blog", to: "https://lisk.io/blog/apps/building-lisk-dao-project"},
-    {label: "About the project team", to: "/"},
-    {label: "Github", to: "https://github.com/Moosty/"},
+    {label: "About the project team", to: "https://kalipo.io/about"},
   ],
   lisk: [
     {label: "What is Lisk?", to: "https://lisk.io/what-is-lisk"},
@@ -12,13 +11,12 @@ export const FooterItemsDAO = {
     {label: "Join Lisk chat", to: "https://lisk.chat"},
   ],
   "Kalipo Team": [
-    {label: "About the team", to: "https://moosty.com/"},
-    {label: "See projects", to: "https://moosty.com/lisk-ecosystem/"},
-    {label: "Get in touch", to: "https://moosty.com/contact/"},
+    {label: "About the team", to: "https://kalipo.io/about"},
+    {label: "Get in touch", to: "https://kalipo.io/contact"},
   ]
 }
 
 export const FooterAuthorDAO = {
   name: "Kalipo Team",
-  url: "https://moosty.com"
+  url: "https://kalipo.io/contact"
 }
