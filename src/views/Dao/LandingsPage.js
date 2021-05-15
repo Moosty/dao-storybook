@@ -21,15 +21,15 @@ export const LandingsPage = () => {
       <NavBar {...navBarArgs} />
       <div className={[appWidth].join(" ")}>
 
-        <Container className="flex flex-col lg:flex-row-reverse lg:my-32 justify-between">
+        <Container className="flex flex-col lg:flex-row-reverse my-10 lg:my-32 lg:justify-between">
 
-          <div className="flex lg:w-2/3 ">
+          <div className="flex w-full  lg:w-2/3 ">
             <DaoLandingThemeSvg/>
           </div>
-          <div className="flex flex-col my-10 lg:my-auto lg:w-1/3">
-            <Typography type="sloganLarge" Element="h5" className="text-themeButtonBg  invisible lg:visible">Together, we decide!</Typography>
+          <div className="flex flex-col my-10 lg:my-auto w-full lg:w-1/3 ">
+            <Typography type="sloganLarge" Element="h5" className="text-themeButtonBg  hidden lg:block">Together, we decide!</Typography>
             <Typography type="sloganSmall" Element="h5" className="text-themeButtonBg lg:hidden ">Together, we decide!</Typography>
-            <Typography type="h3" Element="h1" className="text-textBody my-auto ">Everyone is equally important</Typography>
+            <Typography type="h3" Element="span" className="text-textBody my-auto ">Everyone is equally important</Typography>
             <Button label="Get started!" iconBefore icon={<RocketSvg/>} className="mt-8 w-2/7 lg:w-3/7" shadow />
           </div>
         </Container>
