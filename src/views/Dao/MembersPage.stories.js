@@ -4,7 +4,7 @@ import {MembersPage} from "./MembersPage";
 <Meta title="MembersPage" component={MembersPage}/>
 
 export default {
-  title: 'Pages/MembersPage',
+  title: 'Dao/MembersPage',
   component: MembersPage,
 };
 

@@ -18,10 +18,10 @@ const items = {
     {label: "Github", to: "https://github.com/Moosty/lisk-crowdfund"},
   ],
   lisk: [
-    {label: "What is Lisk?", to: "https://lisk.io/what-is-lisk"},
+    {label: "What is Lisk?", to: "https://lisk.io/what-is-lisk", newTag: true,},
     {label: "What is blockchain?", to: "https://lisk.io/what-is-blockchain"},
     {label: "Lisk SDK documentation", to: "https://lisk.io/documentation/lisk-sdk/index.html"},
-    {label: "Join Lisk chat", to: "https://lisk.chat"},
+    {label: "Join Lisk chat", to: "https://lisk.chat", newTag: true},
   ],
   "Kalipo Team": [
     {label: "About the team", to: "https://moosty.com/"},

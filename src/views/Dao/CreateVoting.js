@@ -1,26 +1,26 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import '../stories/page.css';
-import {NavBar} from "../stories/nav/NavBar";
-import {appWidth} from "../shared/styles";
-import {Container} from "../stories/Container";
-import {Typography} from "../stories/Typography";
-import {SwitchButton} from "../stories/SwitchButton";
-import {SimpleInput} from "../stories/forms/SimpleInput";
-import {InputAvatar} from "../stories/forms/InputAvatar";
-import {Form} from "../stories/forms/Form";
-import {FormColumn} from "../stories/forms/FormColumn";
-import {FormRow} from "../stories/forms/FormRow";
-import {FormElement} from "../stories/forms/FormElement";
-import {allDaoData} from "../fixtures/daos";
-import {allVotingTypes} from "../fixtures/votingTypes";
-import {TextFieldInput} from "../stories/forms/TextFieldInput";
-import {UploadField} from "../stories/forms/UploadField";
-import {Card} from "../stories/cards/Card";
-import {Button} from "../stories/Button";
-import {SubmitIcon} from "../stories/forms/SubmitIcon";
-import {MultipleChoice} from "../stories/forms/MultipleChoice";
-import {allCardsData } from "../fixtures/cards";
+import '../../stories/page.css';
+import {NavBar} from "../../stories/nav/NavBar";
+import {appWidth} from "../../shared/styles";
+import {Container} from "../../stories/Container";
+import {Typography} from "../../stories/Typography";
+import {SwitchButton} from "../../stories/SwitchButton";
+import {SimpleInput} from "../../stories/forms/SimpleInput";
+import {InputAvatar} from "../../stories/forms/InputAvatar";
+import {Form} from "../../stories/forms/Form";
+import {FormColumn} from "../../stories/forms/FormColumn";
+import {FormRow} from "../../stories/forms/FormRow";
+import {FormElement} from "../../stories/forms/FormElement";
+import {allDaoData} from "../../fixtures/daos";
+import {allVotingTypes} from "../../fixtures/votingTypes";
+import {TextFieldInput} from "../../stories/forms/TextFieldInput";
+import {UploadField} from "../../stories/forms/UploadField";
+import {Card} from "../../stories/cards/Card";
+import {Button} from "../../stories/Button";
+import {SubmitIcon} from "../../stories/forms/SubmitIcon";
+import {MultipleChoice} from "../../stories/forms/MultipleChoice";
+import {allCardsData } from "../../fixtures/cards";
 import {PlusIcon} from "@heroicons/react/solid";
 
 export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
@@ -137,8 +137,8 @@ export const CreateVoting = ({user, onLogin, onLogout, onCreateAccount}) => {
 
                 <div className="pt-5">
                   <div className="flex justify-end">
-                    <Button shadow label="Cancel" secondary shadow/>
-                    <Button shadow icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" shadow/>
+                    <Button  label="Cancel" secondary />
+                    <Button  icon={<SubmitIcon/>} iconBefore label="Submit" className="ml-2" />
                   </div>
                 </div>
               </div>

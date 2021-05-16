@@ -2,11 +2,11 @@ import React from 'react';
 import { AboutUs } from './AboutUs';
 import {Meta} from "@storybook/addon-docs/blocks";
 
-<Meta title="Pages/AboutUs" component={AboutUs}/>
+<Meta title="Dao/AboutUs" component={AboutUs}/>
 
 
 export default {
-  title: 'Pages/AboutUs',
+  title: 'Dao/AboutUs',
   component: AboutUs,
 };
 

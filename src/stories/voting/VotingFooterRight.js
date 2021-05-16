@@ -30,12 +30,12 @@ export const VotingFooterRight = ({userVote, notAllowed, votingClosed, readOnlyT
       You didn't vote
     </Typography>}
     {(votingClosed && !notAllowed && userVote === "yes") &&
-    <Typography className="" type="body" Element="span">
-      Your vote <ThumbUpIcon className="h-5 w-5 text-successIcon mr-2"/>
+    <Typography className="flex flex-row items-center" type="body" Element="span">
+      Your vote <ThumbUpIcon className="h-5 w-5 text-successIcon mx-2"/>
     </Typography>}
     {(votingClosed && !notAllowed && userVote === "no") &&
-    <Typography className="" type="body" Element="span">
-      Your vote <ThumbDownIcon className="h-5 w-5 text-dangerIcon mr-2"/>
+    <Typography className="flex flex-row items-center" type="body" Element="span">
+      Your vote <ThumbDownIcon className="h-5 w-5 text-dangerIcon mx-2"/>
     </Typography>}
     {(votingClosed && notAllowed) && <div className="flex flex-row items-center">
       <Typography type="body" Element="span">

@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../stories/page.css';
-import {NavBar} from "../stories/nav/NavBar";
-import {appWidth} from "../shared/styles";
-import {Container} from "../stories/Container";
-import {Card} from "../stories/cards/Card";
-import {FilterWrapper} from "../stories/filters/FilterWrapper";
-import {BreadCrumbs} from "../stories/BreadCrumbs";
-import {allCardsData} from "../fixtures/cards";
-import {VotingContainer} from "../stories/voting/VotingContainer";
-import {Button} from "../stories/Button";
+import '../../stories/page.css';
+import {NavBar} from "../../stories/nav/NavBar";
+import {appWidth} from "../../shared/styles";
+import {Container} from "../../stories/Container";
+import {Card} from "../../stories/cards/Card";
+import {FilterWrapper} from "../../stories/filters/FilterWrapper";
+import {BreadCrumbs} from "../../stories/BreadCrumbs";
+import {allCardsData} from "../../fixtures/cards";
+import {VotingContainer} from "../../stories/voting/VotingContainer";
+import {Button} from "../../stories/Button";
 import {PlusIcon} from "@heroicons/react/solid";
-import {allDaoData} from "../fixtures/daos";
-import {allVotingTypes} from "../fixtures/votingTypes";
-import {allMembers} from "../fixtures/members";
-import {Footer} from "../stories";
-import {FooterAuthorDAO, FooterItemsDAO} from "../fixtures/footerItemsDAO";
+import {allDaoData} from "../../fixtures/daos";
+import {allVotingTypes} from "../../fixtures/votingTypes";
+import {allMembers} from "../../fixtures/members";
+import {Footer} from "../../stories";
+import {FooterAuthorDAO, FooterItemsDAO} from "../../fixtures/dao/footerItemsDAO";
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}) => (
   <div>

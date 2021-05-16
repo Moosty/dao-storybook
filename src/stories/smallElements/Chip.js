@@ -1,6 +1,5 @@
 import React from "react";
-import {LockClosedIcon, LockOpenIcon} from "@heroicons/react/outline";
-import {Typography} from "./Typography";
+import {Typography} from "../Typography";
 
 export const Chip = ({category}) => {
   return (

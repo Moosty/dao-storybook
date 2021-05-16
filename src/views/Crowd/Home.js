@@ -11,10 +11,12 @@ import {AccountProjectList} from "../../stories/AccountProjectList";
 import {CrowdCardContainer} from "../../stories/crowd/CrowdCardContainer";
 import {projects} from "../../fixtures/crowdfund/projects";
 import {navBarArgs} from "../../fixtures/crowdfund/navbar";
-import {Button, Footer} from "../../stories";
+import {Button, Footer, Typography} from "../../stories";
 import {FooterAuthor, FooterItems} from "../../fixtures/crowdfund/footerItems";
 import {crowdFundStates} from "../../shared/global.crowdfund";
 import {AccountProjectSingleItem} from "../../stories/AccountProjectSingleItem";
+import {ContentSection} from "../../stories/sections/ContentSection";
+import {projectImages} from "../../shared/global.dao";
 
 export const Home = ({}) => {
   const [visible, setVisible] = useState(true);
@@ -47,6 +49,15 @@ export const Home = ({}) => {
           )}
         </AccountProjectList>
       </Container>}
+
+      <ContentSection gradient
+                      title="The New Way Of Crowdfunding"
+                      subTitle="more transparency, more structure, more success. "
+                      titleContent="What would you do?"
+                      content="Dit is een stukje tekst.Dit is een stukje tekst.  Dit is een stukje tekst.  Dit is een stukje tekst. Dit is een stukje tekst.Dit is een stukje tekst.  Dit is een stukje tekst.  Dit is een stukje tekst.Dit is een stukje tekst.Dit is een stukje tekst.  Dit is een stukje tekst.  Dit is een stukje tekst.Dit is een stukje tekst.Dit is een stukje tekst.  Dit is een stukje tekst.  Dit is een stukje tekst.Dit is een stukje tekst.Dit is een stukje tekst.  Dit is een stukje tekst.  Dit is een stukje tekst.  "
+                      image={projectImages[1]}
+                      backgroundImage
+      />
       <Footer items={FooterItems} author={FooterAuthor}></Footer>
     </>
   )

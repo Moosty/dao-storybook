@@ -1,45 +1,25 @@
 import React from "react";
 import {Typography} from "../Typography";
-import {Button} from "../Button";
-import {Chip} from "../Chip";
 import {ProgressBar} from "../ProgressBar";
 import {ProgressDetails} from "../ProgressDetails";
-import {ClockIcon} from "@heroicons/react/solid";
-import {categories, crowdFundStates, projectImages} from "../../shared/global.crowdfund";
-import {AvatarUser} from "./AvatarUser";
+import {crowdFundStates} from "../../shared/global.crowdfund";
 import {CrowdCardImage} from "../crowd/CrowdCardImage";
 import {CrowdCardInfo} from "../crowd/CrowdCardInfo";
 
 
 export const CrowdCardContent = ({
                                    gradient,
-  modal,
+                                   modal,
                                    unit = "LSK",
                                    totalRaised = 100,
-                                   percentage,
                                    title = 'Project X ',
-                                   subTitle = "this is a subtitle",
                                    category = "default",
-                                   owner,
                                    targetAmount,
                                    durationProject,
                                    projectUrl,
                                    image,
-                                   closeDate,
-                                   closeDateFull,
                                    state,
                                    budget,
-                                   backers,
-                                   donatedAmount,
-                                   message,
-                                   viewer,
-                                   maxVoteWeight,
-                                   notVoteWeight,
-                                   ownerMessage,
-                                   voteResult,
-                                   userName,
-                                   time,
-                                   userAddress,
                                    amountOfDays = 10,
                                    currentDay = 2,
                                  }) => {
@@ -62,7 +42,7 @@ export const CrowdCardContent = ({
         <div>
           <ProgressDetails classname="flex-end justify-items-end" durationProject={durationProject} state={state}
                            totalRaised={totalRaised}/>
-          {(state === crowdFundStates.PREVIEW || state === crowdFundStates.OPEN ) && <>
+          {(state === crowdFundStates.PREVIEW || state === crowdFundStates.OPEN) && <>
             <ProgressBar classname="flex-end" target={targetAmount} current={totalRaised} unit={unit} state={state}/>
           </>
           }

@@ -2,11 +2,11 @@ import React from 'react';
 import { CreateNewDao } from './CreateNewDao';
 import {Meta} from "@storybook/addon-docs/blocks";
 
-<Meta title="Pages/CreateNewDao" component={CreateNewDao}/>
+<Meta title="Dao/CreateNewDao" component={CreateNewDao}/>
 
 
 export default {
-  title: 'Pages/CreateNewDao',
+  title: 'Dao/CreateNewDao',
   component: CreateNewDao,
 };
 

@@ -1,11 +1,8 @@
 import React from 'react';
 import { Page } from './Page';
-import {Meta} from "@storybook/addon-docs/blocks";
-
-<Meta title="Forms/Page" component={Page}/>
 
 export default {
-  title: 'Pages/Page',
+  title: 'Dao/Page',
   component: Page,
 };
 
