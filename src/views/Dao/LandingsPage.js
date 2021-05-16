@@ -26,7 +26,7 @@ export const LandingsPage = () => {
           <div className="flex w-full  lg:w-2/3 ">
             <DaoLandingThemeSvg/>
           </div>
-          <div className="flex flex-col my-10 lg:my-auto w-full lg:w-1/3 ">
+          <div className="flex flex-col my-10 lg:my-auto w-full lg:w-1/3  ">
             <Typography type="sloganLarge" Element="h5" className="text-themeButtonBg  hidden lg:block">Together, we decide!</Typography>
             <Typography type="sloganSmall" Element="h5" className="text-themeButtonBg lg:hidden ">Together, we decide!</Typography>
             <Typography type="h3" Element="span" className="text-textBody my-auto ">Everyone is equally important</Typography>
