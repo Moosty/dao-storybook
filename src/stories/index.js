@@ -68,8 +68,18 @@ import {AccountProjectSingleItem} from "./AccountProjectSingleItem";
 import {BlogSection} from "./BlogSection";
 import {IconButton} from "./IconButton";
 import {ProgressBarDetails} from "./ProgressBarDetails";
+import { ModalFooter } from "./modals/ModalFooter";
+import { ModalTemplate } from "./modals/ModalTemplate";
+import { BackProjectModal} from "./modals/crowd/BackProjectModal";
+import { RocketSvg } from "../shared/themeSvgs";
+import { DaoLandingThemeSvg } from "../shared/themeSvgs";
 
 export {
+  RocketSvg,
+  DaoLandingThemeSvg,
+  ModalFooter,
+  ModalTemplate,
+  BackProjectModal,
   AccountProjectSingleItem,
   AccountProjectList,
   IconButton,
