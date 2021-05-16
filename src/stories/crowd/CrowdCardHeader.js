@@ -1,7 +1,7 @@
 import React from "react";
 import {Typography} from "../Typography";
-import {AvatarUser} from "./AvatarUser";
-import {VotingState} from "./VotingState";
+import {AvatarUser} from "../cards/AvatarUser";
+import {VotingState} from "../cards/VotingState";
 
 export const CrowdCardHeader = ({userName="raphael", userAddress="123l",state}) => {
   return (

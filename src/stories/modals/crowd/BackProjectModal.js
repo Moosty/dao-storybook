@@ -3,8 +3,8 @@ import {crowdFundStates} from "../../../shared/global.crowdfund";
 import {Typography} from "../../Typography";
 import {ButtonGroup} from "../../ButtonGroup";
 import {ThumbDownIcon, ThumbUpIcon} from "@heroicons/react/solid";
-import {CrowdCardHeader} from "../../cards/CrowdCardHeader";
-import {CrowdCardContent} from "../../cards/CrowdCardContent";
+import {CrowdCardHeader} from "../../crowd/CrowdCardHeader";
+import {CrowdCardContent} from "../../crowd/CrowdCardContent";
 import {Button} from "../../index";
 import {ModalFooter} from "../ModalFooter";
 
