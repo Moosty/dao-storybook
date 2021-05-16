@@ -1,5 +1,4 @@
 import React from "react";
-import {Typography} from "../Typography";
 import {DaoInvitation} from "../DaoInvitation";
 import {Disclosure} from "@headlessui/react";
 import PropTypes from "prop-types";
@@ -10,7 +9,7 @@ export const MobileNavBar = ({navigation, user, invitations, userNavigation}) =>
       {navigation?.map((item) => (
         <span
           key={item.name}
-          onClick={item.onClick}
+          onClick={item.href}
           className={[
             item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
             'block px-3 py-2 rounded-md text-base font-medium cursor-pointer'
@@ -34,7 +33,7 @@ export const MobileNavBar = ({navigation, user, invitations, userNavigation}) =>
         {userNavigation?.map((item) => (
           <span
             key={item.name}
-            onClick={item.onClick}
+            onClick={item.href}
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
           >
             {item.name}
