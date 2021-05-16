@@ -2,7 +2,7 @@ import React from "react";
 import {Typography} from "../../Typography";
 import {Container} from "../../Container";
 
-export const MemberModal = ({address, daos, name}) => {
+export const MemberModal = ({address, daos, name, childLabel}) => {
 
   return <div>
     <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full">
@@ -18,7 +18,7 @@ export const MemberModal = ({address, daos, name}) => {
       </Typography>
       <Typography type="bodyStrong" Element="div">{address}</Typography>
       <Container className="w-full flex-col items-center flex justify-between py-4 px-2 mt-2">
-        <Typography type="bodyStrong" Element="div">Member of:</Typography>
+        <Typography type="bodyStrong" Element="div">{childLabel || "Member of:"}</Typography>
         {daos?.map(dao => <Typography className="text-textHeadings" type="body" Element="span">{dao.name}</Typography>)}
       </Container>
     </div>
