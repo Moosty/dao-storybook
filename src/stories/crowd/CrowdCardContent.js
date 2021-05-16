@@ -3,8 +3,8 @@ import {Typography} from "../Typography";
 import {ProgressBar} from "../ProgressBar";
 import {ProgressDetails} from "../ProgressDetails";
 import {crowdFundStates} from "../../shared/global.crowdfund";
-import {CrowdCardImage} from "../crowd/CrowdCardImage";
-import {CrowdCardInfo} from "../crowd/CrowdCardInfo";
+import {CrowdCardImage} from "./CrowdCardImage";
+import {CrowdCardInfo} from "./CrowdCardInfo";
 
 
 export const CrowdCardContent = ({

@@ -8,6 +8,14 @@ export const RocketSvg = () => {
     )
 }
 
+export const BalloonLeft = () => {
+    return (
+      <svg width="371" height="275" viewBox="0 0 371 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse opacity="0.1" cx="56" cy="232.5" rx="315" ry="232.5" fill="#FFC61C"/>
+      </svg>
+    )
+}
+
 export const DaoLandingThemeSvg = () => {
   return (
     <svg width="884" height="auto" viewBox="0 0 884 600" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,7 +1,7 @@
 import React from "react";
 import {Card} from "../cards/Card";
-import {CrowdCardHeader} from "../cards/CrowdCardHeader";
-import {CrowdCardContent} from "../cards/CrowdCardContent";
+import {CrowdCardHeader} from "./CrowdCardHeader";
+import {CrowdCardContent} from "./CrowdCardContent";
 import {CrowdCardFooter} from "./CrowdCardFooter";
 import PropTypes from "prop-types";
 import {CROWDFUNDSTATELIST, crowdFundStates} from "../../shared/global.crowdfund";
