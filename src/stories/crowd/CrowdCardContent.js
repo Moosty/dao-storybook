@@ -20,6 +20,7 @@ export const CrowdCardContent = ({
                                    image,
                                    state,
                                    budget,
+                                   backers,
                                    amountOfDays = 10,
                                    currentDay = 2,
                                  }) => {
@@ -37,26 +38,35 @@ export const CrowdCardContent = ({
         "flex-col",
         "justify-between",
       ].join(" ")}>
-        <CrowdCardInfo title={title} category={category} projectUrl={projectUrl}/>
+        <CrowdCardInfo
+          title={title}
+          category={category}
+          projectUrl={projectUrl}/>
         {!modal &&
         <div>
-          <ProgressDetails classname="flex-end justify-items-end" durationProject={durationProject} state={state}
-                           totalRaised={totalRaised}/>
+          <ProgressDetails
+            classname="flex-end justify-items-end"
+            durationProject={durationProject}
+            backers={backers}
+            state={state}
+            totalRaised={totalRaised}/>
           {(state === crowdFundStates.PREVIEW || state === crowdFundStates.OPEN) && <>
-            <ProgressBar classname="flex-end" target={targetAmount} current={totalRaised} unit={unit} state={state}/>
-          </>
-          }
+            <ProgressBar
+              classname="flex-end"
+              target={targetAmount}
+              current={totalRaised}
+              unit={unit}
+            />
+          </>}
           {(state !== crowdFundStates.PREVIEW && state !== crowdFundStates.OPEN) && <>
             <Typography type="bodyStrong" Element="span">Project Time Progress</Typography>
-            <ProgressBar classname="flex-end" unit="Days" target={durationProject} current={totalRaised} state={state}/>
+            <ProgressBar classname="flex-end" unit="Days" target={durationProject} current={totalRaised} />
             <Typography type="bodyStrong" Element="span">Budget used</Typography>
-            <ProgressBar classname="flex-end" unit="LSK" target={totalRaised} current={budget} state={state}/>
-            <Typography type="bodyStrong" Element="span">Time untill next payout</Typography>
-            <ProgressBar classname="flex-end" unit="Days" target={amountOfDays} current={currentDay} state={state}/>
-          </>
-          }
-        </div>
-        }
+            <ProgressBar classname="flex-end" unit="LSK" target={totalRaised} current={budget}/>
+            <Typography type="bodyStrong" Element="span">Time until next payout</Typography>
+            <ProgressBar classname="flex-end" unit="Days" target={amountOfDays} current={currentDay}/>
+          </>}
+        </div>}
       </div>
     </div>
   )
