@@ -117,7 +117,7 @@ export const AccountProjectSingleItem = ({
                 <Button label="Claim" type="small" onClick={onClickClaim}/>
                 }
                 {account &&
-                <div className="ml-4">{account.crowd.funded.find(project => project.crowdfund === id)?.amount}</div>}
+                <div className="ml-4">{account?.chain?.crowd?.funded.find(project => project.crowdfund === id)?.amount}</div>}
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>
 
                 <IconButton className="" onClick={onClickCancel}>
