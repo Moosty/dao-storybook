@@ -33,6 +33,7 @@ export const CrowdCardContainer = ({
                                      time,
                                      gradient,
                                      subTitle,
+                                     backOnClick,
                                    }) => {
   return (<Card
       header={{
@@ -68,6 +69,7 @@ export const CrowdCardContainer = ({
           voteResult,
           time,
           percentage,
+          backOnClick,
         }}
         />
       }}

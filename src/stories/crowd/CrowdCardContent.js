@@ -5,6 +5,7 @@ import {ProgressDetails} from "../ProgressDetails";
 import {crowdFundStates} from "../../shared/global.crowdfund";
 import {CrowdCardImage} from "./CrowdCardImage";
 import {CrowdCardInfo} from "./CrowdCardInfo";
+import {Button} from "../index";
 
 
 export const CrowdCardContent = ({
@@ -23,6 +24,7 @@ export const CrowdCardContent = ({
                                    backers,
                                    amountOfDays = 10,
                                    currentDay = 2,
+                                   backOnClick,
                                  }) => {
   return (
     <div className="flex   flex-col space-y-2">
@@ -55,6 +57,7 @@ export const CrowdCardContent = ({
               current={totalRaised}
               unit={unit}
             />
+            {state === crowdFundStates.OPEN && <Button className={"w-full"} onClick={backOnClick} label={"Back Project"} />}
           </>}
           {(state !== crowdFundStates.PREVIEW && state !== crowdFundStates.OPEN) && <>
             <Typography type="bodyStrong" Element="span">Project Time Progress</Typography>

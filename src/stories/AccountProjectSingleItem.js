@@ -1,7 +1,6 @@
 import React from "react";
 import {CrowdCardImage} from "./crowd/CrowdCardImage";
 import {Typography} from "./Typography";
-import {ProgressBar} from "./ProgressBar";
 import {CashIcon, TrashIcon, UsersIcon} from "@heroicons/react/outline";
 import {crowdFundStates, PROJECT_LIFECYCLE, userRoles} from "../shared/global.crowdfund";
 import {Button} from "./Button";
@@ -19,24 +18,20 @@ export const AccountProjectSingleItem = ({
                                            state,
                                            backers,
                                            userRole,
-                                           onClick,
                                            account,
                                            onClickRegister,
                                            onClickVote,
                                            claim,
                                            onClickCancel,
-                                           onClickOption,
                                            onClickClaim,
                                            durationProject,
                                            budget,
-                                           unit,
+                                           unit = "LSK",
                                            startDate = "12-07-2021",
-                                           onClickTrash,
-                                           ownerClaimButton,
                                            onClickClaimOwner,
                                            claimed,
-                                           startProject = 0, lastHeight = 46,
-                                           ...props
+                                           startProject = 0,
+                                           lastHeight = 46,
                                          }) => {
 
 
@@ -50,9 +45,6 @@ export const AccountProjectSingleItem = ({
   const currentBlockThisPeriod = (lastHeight - startProject) - ((currentPeriod) * PROJECT_LIFECYCLE.PERIOD_BLOCKS)
   const blocksLeftThisPeriod = (PROJECT_LIFECYCLE.PERIOD_BLOCKS - currentBlockThisPeriod)
   const blocksFirstPhase = PROJECT_LIFECYCLE.PERIOD_BLOCKS - (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + PROJECT_LIFECYCLE.VOTE_BLOCKS)
-
-  const startVotingPeriod = startProject + (currentPeriod * PROJECT_LIFECYCLE.PERIOD_BLOCKS) - (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + PROJECT_LIFECYCLE.VOTE_BLOCKS) // IN BLOCKS
-  const endVotingPeriod = startVotingPeriod + PROJECT_LIFECYCLE.VOTE_BLOCKS // IN BLOCKS
 
   const timeLabel = blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BLOCKS + PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (blocksFirstPhase / 2)) ? "New period started" :
     startVotingSeconds > 0 ?
@@ -93,33 +85,19 @@ export const AccountProjectSingleItem = ({
 
               <div className="  items-center flex flex-row">
                 {userRole === userRoles.OWNER && state === crowdFundStates.PENDING &&
-                <Button label="Register Start Date" size="small" onClick={onClickRegister} claim={claim}/>
-                }
+                <Button label="Register Start Date" size="small" onClick={onClickRegister}/>}
                 {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.PENDING &&
-                <Typography type="bodyStrong" Element="span">Starts on: {startDate}</Typography>
-                }
-                {/*
-                DEZE KAN ZICHTBAAR ZIJN BIJ ALLE ACTIVES, CLOSING, VOTING. ALLEEN NIET IN PREVIEW, OPEN.
-                */}
-                {userRole === userRoles.OWNER && ownerClaimButton &&
-                <Button label="Claim" size="small" onClick={onClickClaimOwner}/>
-                }
+                <Typography type="bodyStrong" Element="span">Starts on: {startDate}</Typography>}
                 {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.CLAIMING &&
-                <Button label="Claim" size="small" onClick={onClickClaimOwner}/>
-                }
-                {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.CLAIMING && claimed &&
-                <Button label="Claim" size="small" onClick={onClickClaimOwner}/>
-                }
+                <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
                 {(userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.VOTING) &&
-                <Button onClick={onClickVote} size="small" label="Vote"/>
-                }
+                <Button onClick={onClickVote} size="small" label="Vote"/>}
                 {(userRole === userRoles.BACKER && state === crowdFundStates.CANCELED && state === crowdFundStates.FAILED) &&
-                <Button label="Claim" type="small" onClick={onClickClaim}/>
-                }
-                {account &&
-                <div className="ml-4">{account?.chain?.crowd?.funded.find(project => project.crowdfund === id)?.amount}</div>}
+                <Button label="Claim" type="small" onClick={onClickClaim}/>}
+                {account && <div className="ml-4">
+                  {account?.chain?.crowd?.funded.find(project => project.crowdfund === id)?.amount}
+                </div>}
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>
-
                 <IconButton className="" onClick={onClickCancel}>
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>
@@ -135,10 +113,8 @@ export const AccountProjectSingleItem = ({
 
 AccountProjectSingleItem.propTypes = {
   userRole: PropTypes.oneOf(userRoles),
-  onClick: PropTypes.func,
 };
 
 AccountProjectSingleItem.defaultProps = {
   userRole: userRoles.GUEST,
-  onClick: () => null,
 };
