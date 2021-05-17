@@ -45,11 +45,9 @@ export const CrowdCardContent = ({
         {!modal &&
         <div>
           <ProgressDetails
-            classname="flex-end justify-items-end"
             durationProject={durationProject}
             backers={backers}
-            state={state}
-            totalRaised={totalRaised}/>
+          />
           {(state === crowdFundStates.PREVIEW || state === crowdFundStates.OPEN) && <>
             <ProgressBar
               classname="flex-end"
@@ -64,7 +62,7 @@ export const CrowdCardContent = ({
             <Typography type="bodyStrong" Element="span">Budget used</Typography>
             <ProgressBar classname="flex-end" unit="LSK" target={totalRaised} current={budget}/>
             <Typography type="bodyStrong" Element="span">Time until next payout</Typography>
-            <ProgressBar classname="flex-end" unit="Days" target={amountOfDays} current={currentDay}/>
+            <ProgressBar classname="flex-end" unit="Blocks" target={amountOfDays} current={currentDay}/>
           </>}
         </div>}
       </div>

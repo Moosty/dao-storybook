@@ -1,7 +1,6 @@
 import React from "react";
 import {Typography} from "../Typography";
 import {AvatarUser} from "../cards/AvatarUser";
-import {VotingState} from "../cards/VotingState";
 
 export const CrowdCardHeader = ({userName="raphael", userAddress="123l",state}) => {
   return (
@@ -9,10 +8,7 @@ export const CrowdCardHeader = ({userName="raphael", userAddress="123l",state}) 
       <div className="flex flex-row justify-between">
         <AvatarUser name={userName} address={userAddress}/>
         <Typography type="bodyStrong" Element="span">{state}</Typography>
-
       </div>
-
-
     </div>
   )
 }
