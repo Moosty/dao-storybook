@@ -33,13 +33,15 @@ export const CrowdCardContainer = ({
                                      time,
                                      gradient,
                                      subTitle,
-
-
-
                                    }) => {
   return (<Card
-
-      header={{children: <CrowdCardHeader username={owner} userAddress={owner} state={state}/>}}
+      header={{
+        children: <CrowdCardHeader
+          username={owner}
+          userAddress={owner}
+          state={state}
+        />
+      }}
       content={{
         children: <CrowdCardContent {...{
           gradient,
@@ -69,7 +71,12 @@ export const CrowdCardContainer = ({
         }}
         />
       }}
-      footer={{center: <CrowdCardFooter time={time || "one day"} state={state} closeDate={closeDate}/>}}
+      footer={{
+        center: <CrowdCardFooter
+          time={time || "one day"}
+          state={state}
+          closeDate={closeDate}/>
+      }}
     />
   )
 }
@@ -79,5 +86,5 @@ CrowdCardContainer.propTypes = {
 };
 
 CrowdCardContainer.defaultProps = {
- state: crowdFundStates.PREVIEW,
+  state: crowdFundStates.PREVIEW,
 };

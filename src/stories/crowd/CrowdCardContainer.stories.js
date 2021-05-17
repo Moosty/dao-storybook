@@ -40,6 +40,9 @@ Playground.args = {
   state: crowdFundStates.PREVIEW,
   image: 3,
   category: 2,
+  backers: [
+    1,2,3,4,5,6,7,8
+  ]
 }
 
 const Template = (args) => <CrowdCardContainer {...args}/>
