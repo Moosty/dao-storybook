@@ -1,7 +1,7 @@
 import React from "react";
 import {Typography} from "./Typography";
 
-export const ProgressDetails = ({state, durationProject, backers}) => {
+export const ProgressDetails = ({durationProject, backers}) => {
   return (<>
     <div className="flex flex-row justify-between mb-4">
       <div className="flex flex-col text-left">
@@ -15,7 +15,7 @@ export const ProgressDetails = ({state, durationProject, backers}) => {
       </div>
       <div className="flex flex-col text-right">
           <Typography type="body" Element="span">Total Backers:</Typography>
-          <Typography type="bodyStrong" Element="span">{backers.length}</Typography>
+          <Typography type="bodyStrong" Element="span">{backers?.length || 0}</Typography>
       </div>
     </div>
     </>
