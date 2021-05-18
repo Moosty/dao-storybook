@@ -38,8 +38,8 @@ export const CrowdCardContainer = ({
   return (<Card
       header={{
         children: <CrowdCardHeader
-          username={owner.username}
-          userAddress={owner.address}
+          userName={owner?.username}
+          userAddress={owner?.address}
           state={state}
         />
       }}
