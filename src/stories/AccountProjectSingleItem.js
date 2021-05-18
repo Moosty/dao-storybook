@@ -55,6 +55,7 @@ export const AccountProjectSingleItem = ({
   const lastClaim = claims?.length > 0 && claims.reduce((acc, claim) => acc > claim.period ? acc : claim.period, 0)
   const isClaiming = claims?.length === 0 ? currentPeriod > 0 && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS : lastClaim < currentPeriod
   const isTimeEnded = currentPeriod >= durationProject
+  console.log(isClaiming, lastHeight, id, userRole, state, isTimeEnded)
   return (
     <div>
       <li key={id}>
