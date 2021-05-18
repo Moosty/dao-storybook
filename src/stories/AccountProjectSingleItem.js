@@ -108,14 +108,14 @@ export const AccountProjectSingleItem = ({
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>}
               </div>}
-              <div className="  items-center flex flex-row">
+              {isTimeEnded && <div className="  items-center flex flex-row">
                 {userRole !== userRoles.OWNER &&
                 <Typography type="caption" Element="span" className=" ml-4">
                   Project has ended
                 </Typography>}
                 {userRole === userRoles.OWNER && isClaiming &&
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
-              </div>
+              </div>}
             </div>
           </div>
         </a>
