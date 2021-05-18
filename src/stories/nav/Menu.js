@@ -75,7 +75,7 @@ export const NavBarMenu = ({logo, navigation, userNavigation, invitations, user,
                     >
                       <Menu.Items
                         static
-                        className="origin-top-right absolute right-0 w-56 mt-2  rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        className="z-50 origin-top-right absolute right-0 w-56 mt-2  rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                       >
                         {userNavigation?.map((item, i) => (
                           <Menu.Item key={`${item.name}--${i}`}>
