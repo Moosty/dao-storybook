@@ -31,6 +31,7 @@ export const AccountProjectSingleItem = ({
                                            claims,
                                            startProject = 0,
                                            lastHeight = 46,
+                                           noRefund,
                                          }) => {
   const blocksSinceStartProject = lastHeight - startProject
   const currentPeriod = Math.floor((blocksSinceStartProject / PROJECT_LIFECYCLE.PERIOD_BLOCKS)) // IN BLOCKS
@@ -98,13 +99,15 @@ export const AccountProjectSingleItem = ({
                 </div>}
                 {(state === crowdFundStates.PENDING || state === crowdFundStates.ACTIVE.ACTIVE) &&
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>}
-                {userRole === userRoles.OWNER && state !== crowdFundStates.CANCELED && state !== crowdFundStates.FAILED &&  <IconButton className="" onClick={onClickCancel}>
+                {userRole === userRoles.OWNER && state !== crowdFundStates.CANCELED && state !== crowdFundStates.FAILED &&
+                <IconButton className="" onClick={onClickCancel}>
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>}
               </div>}
-              {userRole !== userRoles.GUEST && (state === crowdFundStates.CANCELED || state === crowdFundStates.FAILED) &&
+              {userRole !== userRoles.GUEST && !noRefund && (state === crowdFundStates.CANCELED || state === crowdFundStates.FAILED) &&
               <Button label="Refund" type="small" onClick={onClickClaim}/>}
-              {isTimeEnded && state !== crowdFundStates.PENDING && state !== crowdFundStates.FAILED && state !== crowdFundStates.CANCELED && <div className="  items-center flex flex-row">
+              {isTimeEnded && state !== crowdFundStates.PENDING && state !== crowdFundStates.FAILED && state !== crowdFundStates.CANCELED &&
+              <div className="  items-center flex flex-row">
                 {userRole !== userRoles.OWNER &&
                 <Typography type="caption" Element="span" className=" ml-4">
                   Project has ended
