@@ -88,10 +88,12 @@ export const AccountProjectSingleItem = ({
                 <Button label="Register Start Date" size="small" onClick={onClickRegister}/>}
                 {userRole === userRoles.OWNER && isClaiming &&
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
-                {userRole === userRoles.BACKER && isVoting && <Button onClick={onClickVote} size="small" label="Vote"/>}
+                {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.ACTIVE && isVoting &&
+                <Button onClick={onClickVote} size="small" label="Vote"/>}
                 {(userRole !== userRoles.GUEST && state === crowdFundStates.CANCELED && state === crowdFundStates.FAILED) &&
                 <Button label="Refund" type="small" onClick={onClickClaim}/>}
-
+                {userRole === userRoles.BACKER && state === crowdFundStates.PENDING &&
+                <Typography type="caption" Element="span">Waiting for start date</Typography>}
                 {account && <div className="ml-4">
                   {account?.chain?.crowd?.funded.find(project => project.id === id)?.amount}
                 </div>}
