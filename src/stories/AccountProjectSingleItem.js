@@ -100,15 +100,11 @@ export const AccountProjectSingleItem = ({
                 </div>}
                 {(state === crowdFundStates.PENDING || state === crowdFundStates.ACTIVE.ACTIVE) &&
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>}
-                {userRole === userRoles.GUEST && state === crowdFundStates.CANCELED &&
-                <Typography type="caption" Element="span" className=" ml-4">Project is canceled</Typography>}
-                {userRole === userRoles.GUEST && state === crowdFundStates.FAILED &&
-                <Typography type="caption" Element="span" className=" ml-4">Project has failed</Typography>}
                 {userRole === userRoles.OWNER && <IconButton className="" onClick={onClickCancel}>
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>}
               </div>}
-              {isTimeEnded && <div className="  items-center flex flex-row">
+              {isTimeEnded && state !== crowdFundStates.PENDING && state !== crowdFundStates.FAILED && state !== crowdFundStates.CANCELED && <div className="  items-center flex flex-row">
                 {userRole !== userRoles.OWNER &&
                 <Typography type="caption" Element="span" className=" ml-4">
                   Project has ended
@@ -116,6 +112,10 @@ export const AccountProjectSingleItem = ({
                 {userRole === userRoles.OWNER && isClaiming &&
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
               </div>}
+              {state === crowdFundStates.CANCELED &&
+              <Typography type="caption" Element="span" className=" ml-4">Project is canceled</Typography>}
+              {state === crowdFundStates.FAILED &&
+              <Typography type="caption" Element="span" className=" ml-4">Project has failed</Typography>}
             </div>
           </div>
         </a>
