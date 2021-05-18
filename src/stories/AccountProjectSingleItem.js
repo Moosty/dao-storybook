@@ -116,8 +116,6 @@ export const AccountProjectSingleItem = ({
                 {userRole === userRoles.OWNER && isClaiming &&
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
               </div>
-              }
-
             </div>
           </div>
         </a>
