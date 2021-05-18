@@ -92,12 +92,12 @@ export const AccountProjectSingleItem = ({
                 {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.ACTIVE && isVoting &&
                 <Button onClick={onClickVote} size="small" label="Vote"/>}
 
-                {userRole === userRoles.BACKER && state === crowdFundStates.PENDING &&
+                {userRole !== userRoles.OWNER && state === crowdFundStates.PENDING &&
                 <Typography type="caption" Element="span">Waiting for start date</Typography>}
                 {account && <div className="ml-4">
                   {account?.chain?.crowd?.funded.find(project => project.id === id)?.amount}
                 </div>}
-                {(state === crowdFundStates.PENDING || state === crowdFundStates.ACTIVE.ACTIVE) &&
+                {(state === crowdFundStates.ACTIVE.ACTIVE) &&
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>}
                 {userRole === userRoles.OWNER && state !== crowdFundStates.CANCELED && state !== crowdFundStates.FAILED &&
                 <IconButton className="" onClick={onClickCancel}>
