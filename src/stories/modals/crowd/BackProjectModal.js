@@ -36,6 +36,9 @@ export const BackProjectModal = ({
                                    backError,
                                    onClickBack,
                                    targetAmount,
+                                   refund,
+                                   onClickCancel,
+                                   onClickRefund,
                                  }) => {
   const cancelButtonRef = useRef();
   const [backAmount, setBackAmount] = useState(0)
@@ -65,6 +68,7 @@ export const BackProjectModal = ({
           {claimed && "Already Claimed!"}
           {back && "Back crowdfunding"}
           {register && "Start project"}
+          {refund && "Refund investment"}
 
         </Typography>
         <Typography className="text-center mb-4" type="bodyStrong" Element="p">
@@ -73,10 +77,12 @@ export const BackProjectModal = ({
           {cancel && "Are you sure you want to cancel the project? the remaining funds will be paid back to the investors."}
           {back && "How much would you like to donate to this crowdfund?"}
           {register && "Choose a date to start on your project."}
+          {refund && "Get (a part) of your investment back."}
         </Typography>
         <div className="flex justify-around my-4 mx-4">
           {claim && <Button label="Claim" onClick={onClickClaim}/>}
-          {cancel && <Button label="End the project"/>}
+          {cancel && <Button label="End the project" onClick={onClickCancel}/>}
+          {refund && <Button label="Claim Refund" onClick={onClickRefund}/>}
           {register && <div className={"flex flex-col w-full"}>
             <FormElement errorMessage={registerError} label={"Project start date"}>
               <SimpleInput onChange={setDate} datePicker/>
