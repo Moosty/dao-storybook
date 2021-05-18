@@ -83,10 +83,9 @@ export const AccountProjectSingleItem = ({
                   </p>
                 </div>
               </div>
-
+              {userRole === userRoles.OWNER && state === crowdFundStates.PENDING &&
+              <Button label="Register Start Date" size="small" onClick={onClickRegister}/>}
               {!isTimeEnded && state !== crowdFundStates.ENDED && <div className="  items-center flex flex-row">
-                {userRole === userRoles.OWNER && state === crowdFundStates.PENDING &&
-                <Button label="Register Start Date" size="small" onClick={onClickRegister}/>}
                 {userRole === userRoles.OWNER && isClaiming &&
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
                 {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.ACTIVE && isVoting &&
