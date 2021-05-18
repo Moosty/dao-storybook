@@ -55,7 +55,7 @@ export const AccountProjectSingleItem = ({
   const isVoting = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD >= currentBlockThisPeriod && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS
   const lastClaim = claims?.length > 0 && claims.reduce((acc, claim) => acc > claim.period ? acc : claim.period, 0)
   const isClaiming = claims?.length === 0 ? currentPeriod > 0 && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS : lastClaim < currentPeriod
-  const isTimeEnded = currentPeriod >= durationProject
+  const isTimeEnded = state !== crowdFundStates.PENDING && currentPeriod >= durationProject
   return (
     <div>
       <li key={id}>
