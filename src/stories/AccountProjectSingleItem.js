@@ -90,8 +90,7 @@ export const AccountProjectSingleItem = ({
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
                 {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.ACTIVE && isVoting &&
                 <Button onClick={onClickVote} size="small" label="Vote"/>}
-                {userRole !== userRoles.GUEST && (state === crowdFundStates.CANCELED || state === crowdFundStates.FAILED) &&
-                <Button label="Refund" type="small" onClick={onClickClaim}/>}
+
                 {userRole === userRoles.BACKER && state === crowdFundStates.PENDING &&
                 <Typography type="caption" Element="span">Waiting for start date</Typography>}
                 {account && <div className="ml-4">
@@ -103,6 +102,8 @@ export const AccountProjectSingleItem = ({
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>}
               </div>}
+              {userRole !== userRoles.GUEST && (state === crowdFundStates.CANCELED || state === crowdFundStates.FAILED) &&
+              <Button label="Refund" type="small" onClick={onClickClaim}/>}
               {isTimeEnded && state !== crowdFundStates.PENDING && state !== crowdFundStates.FAILED && state !== crowdFundStates.CANCELED && <div className="  items-center flex flex-row">
                 {userRole !== userRoles.OWNER &&
                 <Typography type="caption" Element="span" className=" ml-4">
