@@ -1,6 +1,6 @@
 {
   "name": "@moosty/dao-storybook",
-  "version": "0.1.48",
+  "version": "0.1.49",
   "main": "dist/index.js",
   "dependencies": {
     "@craco/craco": "^6.1.1",
