@@ -255,7 +255,7 @@ export const CrowdfundModalBack = () => {
         onClickBack={(amount) => alert(amount.target.value)}
         onClickYesVote={() => alert('wahaa?')}
         onClickNoVote={() => alert('whaaat???')}
-        back/>
+        register/>
     </Modal>
   </div>
 }

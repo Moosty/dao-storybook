@@ -24,12 +24,14 @@ export const BackProjectModal = ({
                                    vote,
                                    claim,
                                    cancel,
-                                   registerStartDate,
                                    ctaButton,
                                    iconCancel,
                                    cancelLabel,
                                    onClose,
                                    voted,
+                                   register,
+                                   registerError,
+                                   onClickRegister,
                                    back,
                                    backError,
                                    onClickBack,
@@ -37,6 +39,7 @@ export const BackProjectModal = ({
                                  }) => {
   const cancelButtonRef = useRef();
   const [backAmount, setBackAmount] = useState(0)
+  const [date, setDate] = useState()
   return (
     <div className="flex flex-col">
       <CrowdCardHeader
@@ -61,6 +64,7 @@ export const BackProjectModal = ({
           {cancel && "Cancel this project"}
           {claimed && "Already Claimed!"}
           {back && "Back crowdfunding"}
+          {register && "Start project"}
 
         </Typography>
         <Typography className="text-center mb-4" type="bodyStrong" Element="p">
@@ -68,11 +72,17 @@ export const BackProjectModal = ({
           {claim && "The crowd decided you deserve the next round of funding."}
           {cancel && "Are you sure you want to cancel the project? the remaining funds will be paid back to the investors."}
           {back && "How much would you like to donate to this crowdfund?"}
+          {register && "Choose a date to start on your project."}
         </Typography>
         <div className="flex justify-around my-4 mx-4">
           {claim && <Button label="Claim" onClick={onClickClaim}/>}
           {cancel && <Button label="End the project"/>}
-          {registerStartDate && <Button label="Register a start date"/>}
+          {register && <div className={"flex flex-col w-full"}>
+            <FormElement errorMessage={registerError} label={"Project start date"}>
+              <SimpleInput onChange={setDate} datePicker/>
+            </FormElement>
+            <Button label={"Register a start date"} onClick={() => onClickRegister && onClickRegister(date)}/>
+          </div>}
           {vote && <ButtonGroup
             buttons={[
               {icon: <ThumbUpIcon className="h-5 w-5"/>, onClick: onClickYesVote},
@@ -84,9 +94,9 @@ export const BackProjectModal = ({
           </Typography>}
           {back && <div className={"flex flex-col w-full"}>
             <FormElement errorMessage={backError} label={"LSK amount to donate"}>
-            <SimpleInput onChange={setBackAmount} placeHolder={"100"} number/>
-          </FormElement>
-          <Button label={"Back crowdfund"} onClick={() => onClickBack && onClickBack(backAmount)} />
+              <SimpleInput onChange={setBackAmount} placeHolder={"100"} number/>
+            </FormElement>
+            <Button label={"Back crowdfund"} onClick={() => onClickBack && onClickBack(backAmount)}/>
           </div>}
         </div>
       </div>
