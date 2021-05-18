@@ -53,9 +53,8 @@ export const AccountProjectSingleItem = ({
   const isPendingStart = startProject > lastHeight
   const isVoting = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD >= currentBlockThisPeriod && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS
   const lastClaim = claims?.length > 0 && claims.reduce((acc, claim) => acc > claim.period ? acc : claim.period, 0)
-  const isClaiming = claims?.length === 0 ? currentPeriod > 0 : lastClaim < currentPeriod
+  const isClaiming = claims?.length === 0 ? currentPeriod > 0 && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS : lastClaim < currentPeriod
   const isTimeEnded = currentPeriod >= durationProject
-  console.log(isClaiming, lastHeight, id, userRole, state, isTimeEnded, currentPeriod, currentBlockThisPeriod)
   return (
     <div>
       <li key={id}>
@@ -87,7 +86,7 @@ export const AccountProjectSingleItem = ({
               {userRole === userRoles.OWNER && state === crowdFundStates.PENDING &&
               <Button label="Register Start Date" size="small" onClick={onClickRegister}/>}
               {!isTimeEnded && state !== crowdFundStates.ENDED && <div className="  items-center flex flex-row">
-                {userRole === userRoles.OWNER && isClaiming &&
+                {userRole === userRoles.OWNER && isClaiming && state !== crowdFundStates.CANCELED && state !== crowdFundStates.FAILED &&
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
                 {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.ACTIVE && isVoting &&
                 <Button onClick={onClickVote} size="small" label="Vote"/>}
@@ -100,7 +99,7 @@ export const AccountProjectSingleItem = ({
                 </div>}
                 {(state === crowdFundStates.PENDING || state === crowdFundStates.ACTIVE.ACTIVE) &&
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>}
-                {userRole === userRoles.OWNER && <IconButton className="" onClick={onClickCancel}>
+                {userRole === userRoles.OWNER && state !== crowdFundStates.CANCELED && state !== crowdFundStates.FAILED &&  <IconButton className="" onClick={onClickCancel}>
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>}
               </div>}
