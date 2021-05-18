@@ -14,27 +14,24 @@ export const AccountProjectSingleItem = ({
                                            id,
                                            title,
                                            targetAmount,
-                                           totalRaised,
                                            state,
                                            backers,
                                            userRole,
                                            account,
                                            onClickRegister,
                                            onClickVote,
-                                           claim,
                                            onClickCancel,
-                                           onClickClaim,
+                                           onClickClaim, // refund
                                            durationProject,
-                                           budget,
+                                           budget, // used amount goal - balance = budget
                                            unit = "LSK",
                                            startDate = "12-07-2021",
-                                           onClickClaimOwner,
+                                           onClickClaimOwner, // claim
                                            claimed,
+                                           claims,
                                            startProject = 0,
                                            lastHeight = 46,
                                          }) => {
-
-
   const blocksSinceStartProject = lastHeight - startProject
   const currentPeriod = Math.floor((blocksSinceStartProject / PROJECT_LIFECYCLE.PERIOD_BLOCKS)) // IN BLOCKS
   const startVoting = (startProject + (currentPeriod * PROJECT_LIFECYCLE.PERIOD_BLOCKS) + (PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS)) - lastHeight
@@ -52,8 +49,11 @@ export const AccountProjectSingleItem = ({
       blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (PROJECT_LIFECYCLE.VOTE_BLOCKS / 2)) ? "vote is open " :
         endVotingSeconds > 0 ?
           `Voting closes ${moment().add(endVotingSeconds, 'seconds').from()}` :
-          "Show voting results"
-
+          state === crowdFundStates.ACTIVE.ACTIVE ? "You can claim soon" : state === crowdFundStates.CANCELED ? "Your project is canceled by the backers" : "--"
+  const isPendingStart = startProject > lastHeight
+  const isVoting = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD >= currentBlockThisPeriod && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS
+  const lastClaim = claims?.length > 0 && claims.reduce((acc, claim) => acc > claim.period ? acc : claim.period, 0)
+  const isClaiming = claims?.length === 0 ? currentPeriod > 0 && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS : lastClaim < currentPeriod
   return (
     <div>
       <li key={id}>
@@ -66,7 +66,7 @@ export const AccountProjectSingleItem = ({
                   <Typography type="bodyStrong" Element="span" className="mr-2">{title}</Typography>
                   <Typography type="caption" Element="span">{state}</Typography>
                 </div>
-                targetAmount: {targetAmount} totalraised:{totalRaised}{unit} durationproject:{durationProject} budget:{budget}
+                targetAmount: {targetAmount}{unit} durationproject: {durationProject} budget: {budget}
               </div>
             </div>
             <div className=" items-center flex flex-row justify-between w-1/2">
@@ -86,21 +86,20 @@ export const AccountProjectSingleItem = ({
               <div className="  items-center flex flex-row">
                 {userRole === userRoles.OWNER && state === crowdFundStates.PENDING &&
                 <Button label="Register Start Date" size="small" onClick={onClickRegister}/>}
-                {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.PENDING &&
-                <Typography type="bodyStrong" Element="span">Starts on: {startDate}</Typography>}
-                {userRole === userRoles.OWNER && state === crowdFundStates.ACTIVE.CLAIMING &&
+                {userRole === userRoles.OWNER && isClaiming &&
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
-                {(userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.VOTING) &&
-                <Button onClick={onClickVote} size="small" label="Vote"/>}
-                {(userRole === userRoles.BACKER && state === crowdFundStates.CANCELED && state === crowdFundStates.FAILED) &&
-                <Button label="Claim" type="small" onClick={onClickClaim}/>}
+                {userRole === userRoles.BACKER && isVoting && <Button onClick={onClickVote} size="small" label="Vote"/>}
+                {(userRole !== userRoles.GUEST && state === crowdFundStates.CANCELED && state === crowdFundStates.FAILED) &&
+                <Button label="Refund" type="small" onClick={onClickClaim}/>}
+
                 {account && <div className="ml-4">
-                  {account?.chain?.crowd?.funded.find(project => project.crowdfund === id)?.amount}
+                  {account?.chain?.crowd?.funded.find(project => project.id === id)?.amount}
                 </div>}
+
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>
-                <IconButton className="" onClick={onClickCancel}>
+                {userRole === userRoles.OWNER && <IconButton className="" onClick={onClickCancel}>
                   <TrashIcon className="h-5 w-5 mx-auto"/>
-                </IconButton>
+                </IconButton>}
               </div>
             </div>
           </div>
