@@ -54,7 +54,7 @@ export const AccountProjectSingleItem = ({
   const isPendingStart = startProject > lastHeight
   const isVoting = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD >= currentBlockThisPeriod && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS
   const lastClaim = claims?.length > 0 && claims.reduce((acc, claim) => acc > claim.period ? acc : claim.period, 0)
-  const isClaiming = claims?.length === 0 ? currentPeriod > 0 && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS : lastClaim < currentPeriod
+  const isClaiming = claims?.length === 0 ? currentPeriod > 0 : lastClaim < currentPeriod
   const isTimeEnded = state !== crowdFundStates.PENDING && currentPeriod >= durationProject
   return (
     <div>
@@ -99,11 +99,11 @@ export const AccountProjectSingleItem = ({
                 </div>}
                 {(state === crowdFundStates.ACTIVE.ACTIVE) &&
                 <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>}
-                {userRole === userRoles.OWNER && state !== crowdFundStates.CANCELED && state !== crowdFundStates.FAILED &&
-                <IconButton className="" onClick={onClickCancel}>
-                  <TrashIcon className="h-5 w-5 mx-auto"/>
-                </IconButton>}
               </div>}
+              {userRole === userRoles.OWNER && state !== crowdFundStates.CANCELED && state !== crowdFundStates.OPEN && state !== crowdFundStates.PREVIEW && state !== crowdFundStates.FAILED && state !== crowdFundStates.ENDED &&
+              <IconButton className="" onClick={onClickCancel}>
+                <TrashIcon className="h-5 w-5 mx-auto"/>
+              </IconButton>}
               {userRole !== userRoles.GUEST && !noRefund && (state === crowdFundStates.CANCELED || state === crowdFundStates.FAILED) &&
               <Button label="Refund" type="small" onClick={onClickClaim}/>}
               {isTimeEnded && state !== crowdFundStates.PENDING && state !== crowdFundStates.FAILED && state !== crowdFundStates.CANCELED &&
