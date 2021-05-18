@@ -46,7 +46,7 @@ export const AccountProjectSingleItem = ({
   const timeLabel = blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BLOCKS + PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (blocksFirstPhase / 2)) ? "New period started" :
     startVotingSeconds > 0 ?
       `Voting starts ${moment().add(startVotingSeconds, 'seconds').from()}` :
-      blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (PROJECT_LIFECYCLE.VOTE_BLOCKS / 2)) ? "vote is open " :
+      blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (PROJECT_LIFECYCLE.VOTE_BLOCKS / 2)) ? "" :
         endVotingSeconds > 0 ?
           `Voting closes ${moment().add(endVotingSeconds, 'seconds').from()}` :
           state === crowdFundStates.ACTIVE.ACTIVE ? "Project is active" : state === crowdFundStates.CANCELED ? "Project is canceled by backers" : "--"
@@ -54,6 +54,7 @@ export const AccountProjectSingleItem = ({
   const isVoting = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD >= currentBlockThisPeriod && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS
   const lastClaim = claims?.length > 0 && claims.reduce((acc, claim) => acc > claim.period ? acc : claim.period, 0)
   const isClaiming = claims?.length === 0 ? currentPeriod > 0 && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS : lastClaim < currentPeriod
+  const isTimeEnded = currentPeriod >= durationProject
   return (
     <div>
       <li key={id}>
@@ -83,7 +84,7 @@ export const AccountProjectSingleItem = ({
                 </div>
               </div>
 
-              <div className="  items-center flex flex-row">
+              {!isTimeEnded && state !== crowdFundStates.ENDED && <div className="  items-center flex flex-row">
                 {userRole === userRoles.OWNER && state === crowdFundStates.PENDING &&
                 <Button label="Register Start Date" size="small" onClick={onClickRegister}/>}
                 {userRole === userRoles.OWNER && isClaiming &&
@@ -106,7 +107,17 @@ export const AccountProjectSingleItem = ({
                 {userRole === userRoles.OWNER && <IconButton className="" onClick={onClickCancel}>
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>}
+              </div>}
+              <div className="  items-center flex flex-row">
+                {userRole !== userRoles.OWNER &&
+                <Typography type="caption" Element="span" className=" ml-4">
+                  Project has ended
+                </Typography>}
+                {userRole === userRoles.OWNER && isClaiming &&
+                <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
               </div>
+              }
+
             </div>
           </div>
         </a>
