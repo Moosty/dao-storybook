@@ -49,7 +49,7 @@ export const AccountProjectSingleItem = ({
       blocksLeftThisPeriod > (PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD + (PROJECT_LIFECYCLE.VOTE_BLOCKS / 2)) ? "vote is open " :
         endVotingSeconds > 0 ?
           `Voting closes ${moment().add(endVotingSeconds, 'seconds').from()}` :
-          state === crowdFundStates.ACTIVE.ACTIVE ? "You can claim soon" : state === crowdFundStates.CANCELED ? "Your project is canceled by the backers" : "--"
+          state === crowdFundStates.ACTIVE.ACTIVE ? "Project is active" : state === crowdFundStates.CANCELED ? "Project is canceled by backers" : "--"
   const isPendingStart = startProject > lastHeight
   const isVoting = PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD >= currentBlockThisPeriod && currentBlockThisPeriod >= PROJECT_LIFECYCLE.PERIOD_BLOCKS - PROJECT_LIFECYCLE.VOTE_BEFORE_END_PERIOD - PROJECT_LIFECYCLE.VOTE_BLOCKS
   const lastClaim = claims?.length > 0 && claims.reduce((acc, claim) => acc > claim.period ? acc : claim.period, 0)
@@ -90,15 +90,19 @@ export const AccountProjectSingleItem = ({
                 <Button label="Claim" size="small" onClick={onClickClaimOwner} disabled={!!claimed}/>}
                 {userRole === userRoles.BACKER && state === crowdFundStates.ACTIVE.ACTIVE && isVoting &&
                 <Button onClick={onClickVote} size="small" label="Vote"/>}
-                {(userRole !== userRoles.GUEST && state === crowdFundStates.CANCELED && state === crowdFundStates.FAILED) &&
+                {userRole !== userRoles.GUEST && (state === crowdFundStates.CANCELED || state === crowdFundStates.FAILED) &&
                 <Button label="Refund" type="small" onClick={onClickClaim}/>}
                 {userRole === userRoles.BACKER && state === crowdFundStates.PENDING &&
                 <Typography type="caption" Element="span">Waiting for start date</Typography>}
                 {account && <div className="ml-4">
                   {account?.chain?.crowd?.funded.find(project => project.id === id)?.amount}
                 </div>}
-
-                <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>
+                {(state === crowdFundStates.PENDING || state === crowdFundStates.ACTIVE.ACTIVE) &&
+                <Typography type="caption" Element="span" className=" ml-4">{timeLabel}</Typography>}
+                {userRole === userRoles.GUEST && state === crowdFundStates.CANCELED &&
+                <Typography type="caption" Element="span" className=" ml-4">Project is canceled</Typography>}
+                {userRole === userRoles.GUEST && state === crowdFundStates.FAILED &&
+                <Typography type="caption" Element="span" className=" ml-4">Project has failed</Typography>}
                 {userRole === userRoles.OWNER && <IconButton className="" onClick={onClickCancel}>
                   <TrashIcon className="h-5 w-5 mx-auto"/>
                 </IconButton>}
