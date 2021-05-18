@@ -252,6 +252,7 @@ export const CrowdfundModalBack = () => {
         category={4}
         image={4}
         onClose={onClose}
+        onClickBack={(amount) => alert(amount.target.value)}
         onClickYesVote={() => alert('wahaa?')}
         onClickNoVote={() => alert('whaaat???')}
         back/>
