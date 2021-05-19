@@ -28,13 +28,13 @@ export const categories = [
   "Identity",
   "Gaming",
   "Real Estate",
-  "Energy & Sustainability",
-  "Government & Public Sector",
+  "Sustainability",
+  "Gov.",
   "Healthcare",
   "DeFi",
   "Law",
   "Gambling",
-  "Media & Entertainment",
+  "Media",
 ]
 
 export const projectImages = [
