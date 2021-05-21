@@ -38,7 +38,7 @@ export const VotingContainer = ({
     Math.ceil((minToWin / 100) * minVotes) === (minToWin / 100) * minVotes ?
       (minToWin / 100) * minVotes + 1 :
       Math.ceil((minToWin / 100) * minVotes)
-  const result = totalVotes > quorum || totalVotes === eligibleVotes ?
+  const result = totalVotes > (quorum / 100) * eligibleVotes || totalVotes === eligibleVotes ?
     minYesVotes <= yes ? "yes" :
       minYesVotes <= no ? "no" : "inconclusive" :
     "inconclusive";
