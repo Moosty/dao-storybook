@@ -1,56 +1,56 @@
 export const blogPostsDAO = [
   {
-    title: 'Building the Lisk DAO Project\n',
-    href: 'https://lisk.com/blog/apps/building-lisk-dao-project',
-    category: {name: 'Proof of concept', href: '#'},
+    title: 'Kalipo DAO Platform\n',
+    href: 'https://kalipo.medium.com/',
+    category: {name: 'Our First Blogpost', href: 'https://kalipo.medium.com/'},
     description:
-      'The ambition of this group is realizing a DAO platform that will contain several building blocks for the governance and operational processes of communities...',
-    date: 'July 27, 2020',
+    'We have all been part of (online) communities, project teams and other kinds of collaborations. And with that also the challenges that come with it.',
+    date: 'Sept 17, 2021',
     datetime: '2020-03-10',
     imageUrl:
-      'https://lisk.com/sites/default/files/styles/blog_main_image_xl_retina/public/images/2020-07/building-the-lisk-dao-project-OG%402x.png?itok=WvVkP31_',
-    readingTime: '7 min',
+      'https://miro.medium.com/max/1400/1*myHUIszTaVT_oWwdVbew6Q.png',
+    readingTime: '3 min',
     author: {
-      name: 'Peter Nobels',
-      href: 'https://www.linkedin.com/in/peter-nobels-6929a13/',
+      name: 'Kalipo Organisation',
+      href: 'https://twitter.com/KalipoDAO',
       imageUrl:
-        'https://lisk.com/sites/default/files/styles/person_xs/public/pictures/2020-07/Peter%20Nobels%20-%20pasfoto%20recht.jpg?itok=mV16ys0f',
+        'https://miro.medium.com/fit/c/262/262/1*45Vka9sE54o0bngzMy0gbw.jpeg',
     },
   },
   {
-    title: 'Lisk Builders: Interview with Peter Nobels',
-    href: 'https://lisk.com/blog/apps/lisk-builders-interview-peter-nobels',
-    category: {name: 'Interview', href: '#'},
+    title: 'Lisk Grant Program: Wave 1',
+    href: 'https://lisk.com/blog/announcement/lisk-grant-program-wave-1',
+    category: {name: 'Announcement', href: 'https://lisk.com/blog/announcement/lisk-grant-program-wave-1'},
     description:
-      'The “Lisk Builders interviews” is a short series of blog posts, each of them featuring one previous participant of the Lisk Builders program.',
-    date: 'Jan 29, 2021',
+    'The Lisk Grant Program follows the successful HackOnLisk, a hackathon created by Lisk to bolster innovation in the blockchain space and incentivize creation through a series of cash prizes.',
+    date: 'Sept 20, 2021',
     datetime: '2020-02-12',
     imageUrl:
-      'https://lisk.com/sites/default/files/images/2021-01/interviews-placeholder-OG%402x.png',
-    readingTime: '6 min',
+      'https://lisk.com/sites/default/files/styles/blog_main_image_xl_retina/public/images/2021-09/Participants_of_the_Lisk_Grant_Program_in_Wave_1_MAIN.png?itok=cT3cKwFP',
+    readingTime: '3 min',
     author: {
-      name: 'Mona Bärenfänger',
-      href: 'https://lisk.com/blog/apps/lisk-builders-interview-peter-nobels',
+      name: 'Lisk',
+      href: 'https://lisk.com/',
       imageUrl:
-        'https://lisk.com/sites/default/files/styles/person_xs/public/pictures/2020-02/Mona_0.jpg?itok=nL5kaVlf',
+        'https://lisk.com/sites/default/files/styles/person_xs/public/pictures/2019-10/Lisk%20Logo.png?itok=c3X4d_N8',
     },
   },
   {
-    title: 'High Level Overview of Interoperability',
-    href: 'https://lisk.io/blog/research/high-level-overview-lisk-interoperability',
-    category: {name: 'Research', href: '#'},
+    title: 'Meet the New Lisk Mainnet',
+    href: 'https://lisk.com/blog/development/meet-new-lisk-mainnet',
+    category: {name: 'Development', href: 'https://lisk.com/blog/development/meet-new-lisk-mainnet'},
     description:
-      'The blog post described different types of blockchain interoperability, ranging from cross-chain token exchange to general cross-chain messages. ',
-    date: 'Mar 31, 2021',
+      'We are proud to announce that on August, 21st 2021, at around 2:00 pm CEST, the Lisk Mainnet v2 successfully completed the migration to Lisk Mainnet v3.',
+    date: 'Aug 24, 2021',
     datetime: '2020-03-16',
     imageUrl:
-      'https://lisk.io/sites/default/files/images/2021-03/high-level-overview-interoperability-MAIN%402x.png',
-    readingTime: '13 min',
+      'https://lisk.com/sites/default/files/styles/blog_main_image_xl_retina/public/images/2021-08/download%20%287%29.png?itok=wEMb0MTV',
+    readingTime: '10 min',
     author: {
-      name: 'Andreas Kendziorra Ph.D',
+      name: 'Lisk',
       href: 'https://lisk.com/',
       imageUrl:
-        'https://lisk.io/sites/default/files/styles/person_xs/public/pictures/2021-03/Andreas_thumb.jpg?itok=fUhuRZyu',
+        'https://lisk.com/sites/default/files/styles/person_xs/public/pictures/2019-10/Lisk%20Logo.png?itok=c3X4d_N8',
     },
   },
 ]
